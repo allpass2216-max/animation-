@@ -3,7 +3,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { Character, Cue, Expr, PoseName } from "../../lib/Character";
-import { DinnerRoom, DinnerTable, EyeZap, HomeFront, ParkBench } from "../../lib/family";
+import { DinnerRoom, DinnerTableNice, EyeZap, HomeFront, ParkBench } from "../../lib/family";
 import { Camera, Chip, Grain, H, makeCue, popSpring, SoftLight, Vignette, W, WordsFile } from "../../lib/reel";
 import { FollowButton, Tiles } from "../../lib/ui";
 import { Foreground, Layer, Rays, SignText } from "../../lib/world";
@@ -148,7 +148,7 @@ const OfficeLieScene: React.FC = () => {
   return (
     <Camera from={F.s2} to={F.par} zoom={[1.06, 1.0]}>
       <Layer depth={0.3} from={F.s2} drift={-0.5}>
-        <HomeFront />
+        <HomeFront night />
       </Layer>
       <Character {...DADI} x={240} y={1720} scale={0.85} poses={[{ f: F.s2, v: "wave" }, { f: F.manager, v: "cheer" }]} exprs={[{ f: F.s2, v: "grin" }]} look={[{ f: 0, v: 1 }]} />
       <Character
@@ -168,7 +168,7 @@ const OfficeLieScene: React.FC = () => {
 const JoblessScene: React.FC = () => (
   <Camera from={F.par} to={F.s3} zoom={[1.0, 1.1]} panY={[0, -20]}>
     <Layer depth={0.3} from={F.par} drift={0.4}>
-      <ParkBench tearAt={F.teen} />
+      <ParkBench tearAt={F.teen} night />
     </Layer>
     <Character
       {...CHACHU}
@@ -203,11 +203,11 @@ const LookScene: React.FC = () => (
         flip
         poses={[
           { f: F.s3, v: "idle" },
-          { f: F.kaha, v: "think" },
+          { f: F.kaha, v: "point" },
         ]}
         exprs={[
           { f: F.s3, v: "shock" },
-          { f: F.kaha, v: "sly" },
+          { f: F.kaha, v: "angry" },
         ]}
         look={[{ f: 0, v: 1 }]}
         seed={5}
@@ -253,7 +253,7 @@ const DinnerScene: React.FC<{ from: number; to: number; zoom: [number, number]; 
   return (
     <Camera from={from} to={to} zoom={zoom} pan={[panX, panX]} panY={[panY, panY]} shakeAt={shakeAt}>
       <Layer depth={0.2} from={from} drift={-0.3}>
-        <DinnerRoom dim={dim} />
+        <DinnerRoom dim={dim} night />
       </Layer>
       {[...diners]
         .sort((a, b) => (a.row === "back" ? 0 : 1) - (b.row === "back" ? 0 : 1))
@@ -272,7 +272,7 @@ const DinnerScene: React.FC<{ from: number; to: number; zoom: [number, number]; 
             seed={d.seed}
           />
         ))}
-      <DinnerTable />
+      <DinnerTableNice night />
     </Camera>
   );
 };
@@ -283,7 +283,7 @@ const DinnerIntro: React.FC = () => {
     { who: YOU, x: X.you, poses: [{ f: F.s4, v: "idle" }, { f: F.pota, v: "panic" }], exprs: [{ f: F.s4, v: "smile" }, { f: F.pota, v: "shock" }], sweat: [{ f: F.pota, v: true }], seed: 1 },
     { who: DADI, row: "back", x: X.dadi, poses: [{ f: F.s4, v: "idle" }, { f: F.dadi, v: "cheer" }], exprs: [{ f: F.s4, v: "smile" }, { f: F.dadi, v: "grin" }], seed: 2 },
     { who: PAPA, row: "back", x: X.papa, poses: [{ f: F.s4, v: "idle" }, { f: F.dadi, v: "present" }], exprs: [{ f: F.s4, v: "smile" }, { f: F.dadi, v: "grin" }], seed: 3 },
-    { who: CHACHU, x: X.chachu, flip: true, poses: [{ f: F.s4, v: "idle" }, { f: F.manager2, v: "think" }], exprs: [{ f: F.s4, v: "smile" }, { f: F.manager2, v: "worried" }], sweat: [{ f: F.manager2, v: true }], seed: 4 },
+    { who: CHACHU, x: X.chachu, flip: true, poses: [{ f: F.s4, v: "idle" }, { f: F.manager2, v: "think" }], exprs: [{ f: F.s4, v: "smile" }, { f: F.manager2, v: "worried" }, { f: F.pota, v: "angry" }], sweat: [{ f: F.manager2, v: true }], seed: 4 },
   ];
   if (frame < F.dadi) return <DinnerScene from={F.s4} to={F.dadi} zoom={[1.0, 1.06]} diners={diners} />;
   if (frame < F.pota) return <DinnerScene from={F.dadi} to={F.pota} zoom={[1.4, 1.46]} focus={620} diners={diners} />;
@@ -307,7 +307,7 @@ const PapaAsks: React.FC = () => {
       diners={[
         { who: DADI, row: "back", x: X.dadi, poses: [{ f: 0, v: "idle" }], exprs: [{ f: 0, v: "smile" }], seed: 2 },
         { who: PAPA, row: "back", x: X.papa, flip: true, poses: [{ f: 0, v: "idle" }, { f: F.poocha, v: "point" }], exprs: [{ f: 0, v: "think" }, { f: F.poocha, v: "sly" }], seed: 3 },
-        { who: CHACHU, x: X.chachu, flip: true, poses: [{ f: 0, v: "idle" }], exprs: [{ f: 0, v: "worried" }], sweat: [{ f: 0, v: true }], seed: 4 },
+        { who: CHACHU, x: X.chachu, flip: true, poses: [{ f: 0, v: "idle" }], exprs: [{ f: 0, v: "angry" }], sweat: [{ f: 0, v: true }], seed: 4 },
       ]}
     />
   );
@@ -327,8 +327,8 @@ const OptionScene: React.FC<{ opt: "A" | "B" | "C" | "D"; from: number; to: numb
     who: CHACHU,
     x: X.chachu,
     flip: true,
-    poses: [{ f: from, v: opt === "A" ? "idle" : opt === "C" ? "think" : "panic" }],
-    exprs: [{ f: from, v: opt === "A" ? "smile" : opt === "C" ? "sly" : opt === "B" ? "shock" : "cry" }],
+    poses: [{ f: from, v: opt === "A" ? "idle" : opt === "C" ? "think" : "point" }],
+    exprs: [{ f: from, v: opt === "A" ? "smile" : opt === "C" ? "sly" : "angry" }],
     sweat: [{ f: from, v: opt !== "A" && opt !== "C" }],
     seed: 4,
   };
@@ -346,7 +346,7 @@ const OutroScene: React.FC = () => {
   return (
     <Camera from={F.s7} to={END} zoom={[1.0, 1.05]}>
       <Layer depth={0.2} from={F.s7} drift={-0.3}>
-        <DinnerRoom dim={0.35} />
+        <DinnerRoom dim={0.25} night />
       </Layer>
       <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
         {[

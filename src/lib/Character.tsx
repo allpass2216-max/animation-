@@ -410,6 +410,22 @@ export const Character: React.FC<{
           <ellipse cx={110} cy={-640} rx={26} ry={14} fill="#e9716b" opacity={0.45} />
           {lipstick && <g style={{ filter: "none" }}>{React.cloneElement(mouth, { stroke: lipstick, strokeWidth: 22 })}</g>}
           {mouth}
+          {expr === "angry" && (
+            <g>
+              <circle cx={0} cy={-700} r={170} fill="#e03131" opacity={0.22} />
+              {/* anger vein */}
+              <g transform="translate(-120 -830)" stroke="#e03131" strokeWidth={11} strokeLinecap="round" fill="none">
+                <path d="M-26 -8 Q-8 -8 -8 -26 M8 -26 Q8 -8 26 -8 M26 8 Q8 8 8 26 M-8 26 Q-8 8 -26 8" />
+              </g>
+              {/* steam puffs from the head */}
+              {[-1, 1].map((sd) => {
+                const t = ((frame + (sd > 0 ? 10 : 0)) % 20) / 20;
+                return (
+                  <circle key={sd} cx={sd * (150 + t * 40)} cy={-880 - t * 90} r={18 + t * 22} fill="#fff" stroke={INK} strokeWidth={5} opacity={1 - t} />
+                );
+              })}
+            </g>
+          )}
           {expr === "cry" &&
             [-64, 64].map((tx, i) => {
               const tt = ((frame + i * 11) % 30) / 30;

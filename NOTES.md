@@ -84,3 +84,7 @@
   glossy floor, purple counter with pink LED edge); boy = smart (navy blazer, white shirt, quiff); girl = glam (party dress,
   lipstick, lashes, hoop earrings, purse, dropped when she panics). Rig: blazer/quiff/dress/lipstick/lashes/purse; sleeves
   take the blazer colour.
+  v3 (user fixes): whole video at NIGHT (HomeFront/ParkBench/DinnerRoom `night` props: stars, moon, lit windows, street lamp);
+  new DinnerTableNice (perspective wood top, runner, food, dal + steam, roti basket, glasses, cloth with scalloped hem);
+  Chachu ANGRY: points + glares in the lobby on "kaha", glares on "pota" and when Papa asks, points angrily in B and D.
+  Rig: "angry" expr now adds red face flush, anger vein, steam puffs (affects all videos that use "angry").
