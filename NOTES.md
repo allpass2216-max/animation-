@@ -63,7 +63,9 @@
   -> park bench, calendar SEP/OCT tear off -> eye-lock zap "TU KUCH MAT BOLNA" -> dinner (two-row seating, close-ups per beat)
   -> Papa asks, slam "AAJ KYA PADHAYA?" -> A-D framed on who it's about -> outro + follow tap. Answer A. Handle placeholder.
   Rig additions: mustache, tie, glasses, sweat cue, ice-cream prop. Fixed: sweat no longer shows before its first cue.
-- `AiCrore` (src/videos/AiCrore): STAGE 1 BUILT, waiting for fixes or "go to final".
+- `AiCrore` (src/videos/AiCrore): FINAL DONE (2026-11-17). out/aicrore_final.mp4: 35.8 s, -14.1 LUFS, TP -2.8 dBTP,
+  watermark @yourhandle (PLACEHOLDER) low-left. Caption (with fictional disclaimer) + pinned comment in post.md.
+  Part 2 must reveal A, and give the real steps: 1930 cyber helpline / cybercrime.gov.in + bank fraud line to freeze the account.
   Recording matches script.md. Voice 41.9 s -> 33.9 s clean; allosaurus-align 109/109; ~1074 f. Music: loop.wav.
   Ishaan = RAPPER look (user asked): red snapback, gold chain, black hoodie, shades on/off cues (Character cap/chain/hood/shades).
   Scenes: hostel midnight + big phone (balance 2,000, chat "MUJHE AMEER BANA DE") -> 6 AM balance races to 50 crore + bank alert
