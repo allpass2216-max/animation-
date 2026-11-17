@@ -27,4 +27,7 @@
 - `tools/trim_pauses.py`: exact numpy pause trimmer (ffmpeg silenceremove left ~0.4 s gaps).
 
 ## Videos
+- `ShopSpot` (src/videos/ShopSpot): SCRIPT WRITTEN (Hinglish, 10 lines, 109 words, A-D location puzzle from
+  refs/business_ideas.mp4, idea only). Answer A (RTO office). Handle is still the placeholder @yourhandle.
+  NEXT: wait for voice file in voice/, then clean_voice -> word_times -> build.
 - `Test` (src/videos/Test): 5 s gradient + "STUDIO READY!" pop. Setup check only.
