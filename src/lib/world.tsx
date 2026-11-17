@@ -1,8 +1,8 @@
 // World pieces for ShopSpot: layered backgrounds (far / mid / fore), landmarks, props.
 import React from "react";
 import { AbsoluteFill, random, useCurrentFrame } from "remotion";
-import { FONT_FAMILY } from "../../lib/fonts";
-import { H, INK, W } from "../../lib/reel";
+import { FONT_FAMILY } from "./fonts";
+import { H, INK, W } from "./reel";
 
 /** Parallax layer: drifts sideways at a speed proportional to its depth during the scene. */
 export const Layer: React.FC<{ depth: number; from: number; drift?: number; blur?: number; children: React.ReactNode }> = ({

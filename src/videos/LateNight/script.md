@@ -1,6 +1,8 @@
 # LateNight — script (Part 1)
 
-Status: SCRIPT ONLY. No voice, no build yet. Waiting for the voice file in `voice/`.
+Status: STAGE 1 BUILT from the recording. **The recording (voice/latenight.mp3) is the FIRST version of this script, with A-D
+options** (see git 92cc30b, or voice/latenight.txt for the exact recorded text), not the story version below. Following the
+recording, the video uses the A-D version; right answer A (searching the city for her medicine).
 Voice language: Hinglish (Roman script). Handle: `@yourhandle` (placeholder; template blanks were not filled).
 Target: 10 lines, 110 words, about 36-39 s after clean_voice (+2 s tail). STORY FORMAT: no A-D options (your choice).
 

@@ -16,7 +16,7 @@ export type PoseName =
   | "present"
   | "scratch"
   | "tap";
-export type Expr = "smile" | "grin" | "wow" | "worried" | "shock" | "think" | "sly";
+export type Expr = "smile" | "grin" | "wow" | "worried" | "shock" | "think" | "sly" | "angry" | "sad" | "cry";
 
 // [leftShoulder, leftElbow, rightShoulder, rightElbow] in degrees; 0 = arm hanging down, + = outward/up.
 const POSES: Record<PoseName, [number, number, number, number]> = {
@@ -57,6 +57,8 @@ export const Character: React.FC<{
   look?: Cue<number>[]; // pupil x offset -1..1
   hops?: number[]; // frames where he does a small jump
   money?: Cue<boolean>[];
+  holding?: Cue<"none" | "bag" | "phone" | "helmet">[]; // prop in the right hand
+  mom?: boolean; // mother variant: grey bun, dupatta, glasses, long kurta/saree
   skin?: string;
   shirt?: string;
   pants?: string;
@@ -72,6 +74,8 @@ export const Character: React.FC<{
   look = [{ f: 0, v: 0 }],
   hops = [],
   money = [{ f: 0, v: false }],
+  holding = [{ f: 0, v: "none" }],
+  mom = false,
   skin = "#C98B5E",
   shirt = "#FF7A3D",
   pants = "#2B3A67",
@@ -94,6 +98,7 @@ export const Character: React.FC<{
   const expr = pick(exprs, frame).cur.v;
   const lookX = pick(look, frame).cur.v;
   const hasMoney = pick(money, frame).cur.v;
+  const held = pick(holding, frame).cur.v;
 
   // idle life
   const breathe = Math.sin((frame + seed * 13) / 14);
@@ -144,14 +149,20 @@ export const Character: React.FC<{
         return <path d="M-46 -596 Q-23 -616 0 -598 Q23 -580 46 -600" fill="none" stroke={INK} strokeWidth={10} strokeLinecap="round" />;
       case "think":
         return <path d="M-30 -600 L34 -608" fill="none" stroke={INK} strokeWidth={10} strokeLinecap="round" />;
+      case "angry":
+        return <path d={`M-58 -600 Q0 ${-640 + Math.sin(frame / 2) * 6} 58 -600 Q0 -560 -58 -600Z`} fill="#7a1f2b" stroke={INK} strokeWidth={9} strokeLinejoin="round" />;
+      case "sad":
+      case "cry":
+        return <path d="M-44 -588 Q0 -628 44 -588" fill="none" stroke={INK} strokeWidth={10} strokeLinecap="round" />;
       case "sly":
         return <path d="M-40 -606 Q10 -580 48 -616" fill="none" stroke={INK} strokeWidth={10} strokeLinecap="round" />;
       default:
         return <path d="M-48 -612 Q0 -566 48 -612" fill="none" stroke={INK} strokeWidth={10} strokeLinecap="round" />;
     }
   })();
-  const browY = expr === "worried" || expr === "shock" ? -6 : expr === "wow" ? -16 : 0;
-  const browTilt = expr === "worried" ? 14 : expr === "think" || expr === "sly" ? -8 : 0;
+  const browY = expr === "worried" || expr === "shock" ? -6 : expr === "wow" ? -16 : expr === "angry" ? 10 : 0;
+  const browTilt =
+    expr === "worried" || expr === "sad" || expr === "cry" ? 14 : expr === "think" || expr === "sly" ? -8 : expr === "angry" ? -18 : 0;
 
   const Money = ({ hx, hy }: { hx: number; hy: number }) => (
     <g transform={`translate(${hx} ${hy - 10}) rotate(-12)`}>
@@ -172,6 +183,9 @@ export const Character: React.FC<{
       <g transform={`translate(0 ${hopY}) ${flip ? "scale(-1 1)" : ""} rotate(${sway}) scale(${sx} ${sy})`}>
         {/* shadow */}
         <ellipse cx={0} cy={6 - hopY} rx={170 + hopY * 0.6} ry={26} fill="rgba(0,0,0,0.25)" />
+        {mom && (
+          <path d="M-150 -300 L-190 -20 Q0 10 190 -20 L150 -300 Z" fill={shirt} stroke={INK} strokeWidth={10} strokeLinejoin="round" />
+        )}
         {/* legs */}
         <path d="M-58 -250 L-66 -40" stroke={INK} strokeWidth={84} strokeLinecap="round" />
         <path d="M58 -250 L66 -40" stroke={INK} strokeWidth={84} strokeLinecap="round" />
@@ -200,6 +214,7 @@ export const Character: React.FC<{
           <circle cx={-172} cy={-690} r={36} fill={skin} stroke={INK} strokeWidth={9} />
           <circle cx={172} cy={-690} r={36} fill={skin} stroke={INK} strokeWidth={9} />
           <circle cx={0} cy={-700} r={175} fill={skin} stroke={INK} strokeWidth={11} />
+          {mom && <circle cx={0} cy={-880} r={62} fill={hair} stroke={INK} strokeWidth={10} />}
           {/* hair */}
           <path
             d="M-176 -700 Q-190 -860 -40 -880 Q60 -930 150 -840 Q200 -790 178 -700 Q150 -770 90 -790 Q20 -760 -40 -800 Q-110 -770 -140 -720 Z"
@@ -209,6 +224,16 @@ export const Character: React.FC<{
             strokeLinejoin="round"
           />
           <path d="M-20 -880 Q-10 -930 30 -925" fill="none" stroke={hair} strokeWidth={16} strokeLinecap="round" />
+          {mom && (
+            <path
+              d="M-200 -640 Q-215 -900 0 -910 Q215 -900 200 -640 L230 -420 L170 -430 Q185 -700 150 -800 Q0 -880 -150 -800 Q-185 -700 -170 -430 L-230 -420 Z"
+              fill="#f1e7ff"
+              stroke={INK}
+              strokeWidth={10}
+              strokeLinejoin="round"
+              opacity={0.96}
+            />
+          )}
           {/* brows */}
           <g transform={`translate(0 ${browY})`}>
             <path d={`M-100 ${-782 + browTilt} L-30 ${-790 - browTilt * 0.4}`} stroke={INK} strokeWidth={14} strokeLinecap="round" />
@@ -234,11 +259,25 @@ export const Character: React.FC<{
               )}
             </>
           )}
+          {mom && (
+            <g fill="none" stroke={INK} strokeWidth={8}>
+              <circle cx={-64} cy={-716} r={50} />
+              <circle cx={64} cy={-716} r={50} />
+              <path d="M-14 -720 L14 -720" />
+            </g>
+          )}
           {/* nose, cheeks, mouth */}
           <path d="M-8 -676 Q12 -650 -6 -640" fill="none" stroke={INK} strokeWidth={8} strokeLinecap="round" />
           <ellipse cx={-110} cy={-640} rx={26} ry={14} fill="#e9716b" opacity={0.45} />
           <ellipse cx={110} cy={-640} rx={26} ry={14} fill="#e9716b" opacity={0.45} />
           {mouth}
+          {expr === "cry" &&
+            [-64, 64].map((tx, i) => {
+              const tt = ((frame + i * 11) % 30) / 30;
+              return (
+                <path key={tx} d={`M${tx} ${-670 + tt * 110} q10 18 0 26 q-10 -8 0 -26`} fill="#8fd3ff" stroke={INK} strokeWidth={5} opacity={1 - tt * 0.6} />
+              );
+            })}
           {(expr === "shock" || expr === "worried") && (
             <path
               d={`M150 -780 q12 ${24 + Math.sin(frame / 4) * 4} 0 34 q-12 -10 0 -34`}
@@ -252,6 +291,27 @@ export const Character: React.FC<{
         <path d={R.d} fill="none" stroke={INK} strokeWidth={60} strokeLinecap="round" strokeLinejoin="round" />
         <path d={R.d} fill="none" stroke={shirt} strokeWidth={44} strokeLinecap="round" strokeLinejoin="round" />
         {hasMoney && <Money hx={R.hx} hy={R.hy} />}
+        {held === "bag" && (
+          <g transform={`translate(${R.hx} ${R.hy + 20}) rotate(${Math.sin(frame / 8) * 6})`}>
+            <path d="M-26 -10 Q0 -60 26 -10" fill="none" stroke={INK} strokeWidth={7} />
+            <path d="M-56 -14 L56 -14 L48 110 L-48 110 Z" fill="#f8f9fa" stroke={INK} strokeWidth={8} strokeLinejoin="round" />
+            <rect x={-18} y={30} width={36} height={36} fill="#2fb36b" />
+            <rect x={-6} y={18} width={12} height={60} fill="#fff" />
+            <rect x={-30} y={42} width={60} height={12} fill="#fff" />
+          </g>
+        )}
+        {held === "phone" && (
+          <g transform={`translate(${R.hx - 10} ${R.hy - 40}) rotate(-8)`}>
+            <rect x={-40} y={-70} width={80} height={140} rx={14} fill="#222" stroke={INK} strokeWidth={8} />
+            <rect x={-30} y={-56} width={60} height={108} rx={6} fill={`hsl(${(frame * 12) % 360},80%,60%)`} />
+          </g>
+        )}
+        {held === "helmet" && (
+          <g transform={`translate(${R.hx} ${R.hy + 50})`}>
+            <path d="M-80 0 Q-80 -110 0 -110 Q80 -110 80 0 Z" fill="#e03131" stroke={INK} strokeWidth={9} />
+            <rect x={-84} y={-8} width={168} height={22} rx={10} fill="#343a40" stroke={INK} strokeWidth={7} />
+          </g>
+        )}
         <circle cx={R.hx} cy={R.hy} r={31} fill={skin} stroke={INK} strokeWidth={9} />
       </g>
     </svg>

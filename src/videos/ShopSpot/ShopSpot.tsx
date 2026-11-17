@@ -6,7 +6,7 @@ import { Character, Cue, Expr, Extra, PoseName } from "../../lib/Character";
 import { FONT_FAMILY } from "../../lib/fonts";
 import { Camera, Chip, dropBounce, Dust, Grain, H, INK, makeCue, popSpring, SoftLight, Sparkles, Vignette, W, WordsFile } from "../../lib/reel";
 import wordsData from "./words.json";
-import { Auto, Building, FarCity, Flash, FlyingPapers, Foreground, Ground, Layer, Rays, Signpost, SignText, Sky, Stall, XeroxMachine } from "./world";
+import { Auto, Building, FarCity, Flash, FlyingPapers, Foreground, Ground, Layer, Rays, Signpost, SignText, Sky, Stall, XeroxMachine } from "../../lib/world";
 
 const data = wordsData as unknown as WordsFile;
 const cue = makeCue(data);

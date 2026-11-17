@@ -167,6 +167,33 @@ def music_loop():
     return norm(out, 0.6)
 
 
+def music_sad():
+    """Soft sad 8 s loop: A minor - F - C - E, slow felt-piano notes over warm pads. Seamless."""
+    d = 8.0
+    n = int(SR * d)
+    x = np.arange(n) / SR
+    out = np.zeros(n)
+    chords = [[220.0, 261.6, 329.6], [174.6, 220.0, 261.6], [130.8, 196.0, 261.6], [164.8, 207.7, 246.9]]
+    for i, ch in enumerate(chords):
+        st, en = int(i * 2 * SR), int((i + 1) * 2 * SR)
+        seg = x[st:en] - i * 2
+        shape = np.minimum(1, seg / 0.6) * np.minimum(1, (2 - seg) / 0.6)
+        pad = sum(np.sin(2 * np.pi * f * seg) + 0.2 * np.sin(2 * np.pi * 2.003 * f * seg) for f in ch)
+        out[st:en] += pad * shape * 0.1
+        out[st:en] += np.sin(2 * np.pi * ch[0] / 2 * seg) * shape * 0.18
+        for b, k in enumerate([2, 1, 0, 1]):  # slow broken chord, one note per half second... every 0.5 s
+            ps = st + int(b * 0.5 * SR)
+            px = t(1.2)
+            f = ch[k] * 2
+            pl = (np.sin(2 * np.pi * f * px) + 0.25 * np.sin(4 * np.pi * f * px)) * env(len(px), 0.004, 0.9, 3.0)
+            end = min(n, ps + len(px))
+            out[ps:end] += pl[: end - ps] * 0.12
+            if ps + len(px) > n:  # wrap tail for a seamless loop
+                out[: ps + len(px) - n] += pl[end - ps:] * 0.12
+    out = lowpass(out, 3500)
+    return norm(out, 0.6)
+
+
 def main():
     sfx_dir = os.path.join(ROOT, "sfx")
     os.makedirs(sfx_dir, exist_ok=True)
@@ -175,9 +202,12 @@ def main():
         path = os.path.join(sfx_dir, fn.__name__ + ".wav")
         sf.write(path, norm(fn()), SR, subtype="PCM_16")
         print("wrote", os.path.relpath(path))
-    path = os.path.join(ROOT, "music", "loop.wav")
-    sf.write(path, music_loop(), SR, subtype="PCM_16")
-    print("wrote", os.path.relpath(path))
+    for name, fn in [("loop.wav", music_loop), ("sad_loop.wav", music_sad)]:
+        path = os.path.join(ROOT, "music", name)
+        if name == "loop.wav" and os.path.exists(path) and os.environ.get("ONLY_NEW"):
+            continue
+        sf.write(path, fn(), SR, subtype="PCM_16")
+        print("wrote", os.path.relpath(path))
 
 
 if __name__ == "__main__":

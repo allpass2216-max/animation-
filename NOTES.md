@@ -42,8 +42,11 @@
   Answer A (RTO office). Handle still the placeholder @yourhandle (Follow button shows no handle text).
   Shared code made for this: src/lib/reel.tsx (Chip, Camera, Dust, Sparkles, Grain...), src/lib/Character.tsx (rig + Extra).
 - `Test` (src/videos/Test): 5 s gradient + "STUDIO READY!" pop. Setup check only.
-- `LateNight` (src/videos/LateNight): SCRIPT v2 WRITTEN (Hinglish, 10 lines, 110 words). STORY FORMAT, no A-D options (user asked:
-  real + emotional). From refs/ref2.mp4, idea only: mother shouts at son back at 1 AM; bag at door = her BP medicine, he searched the
-  city 6 h; cliffhanger: unknown-number call. Part 2 suggestion in script.md. Handle placeholder @yourhandle.
-  RULE NOTE: for story videos the FINAL BODY is the key point (no tiles); CTA = write a dua for your mother.
-  NEXT: wait for voice file in voice/, then clean_voice -> word_times --script -> build.
+- `LateNight` (src/videos/LateNight): STAGE 1 BUILT, waiting for fixes or "go to final".
+  Recording voice/latenight.mp3 = script v1 WITH A-D options (not the v2 story); built as recorded. Recorded text: voice/latenight.txt.
+  Voice 42.0 s -> 33.6 s clean; allosaurus-align 109/110 measured; duration ~1063 f. Sad music: public/music/sad_loop.wav.
+  Scenes: doorway 1 AM (Maa shouts) -> clock time-lapse 7->1 -> Kabir leaves on bike -> CLUE 1 empty pill strip -> CLUE 2 shutters at 9
+  -> CLUE 3 12:30 AM bill from pocket -> re-hook "6 GHANTE KAHAN THA?" -> A bike past shut shops / B party / C office / D gaming
+  -> Maa crying "GUSSE KA EK SHABD WAPAS NAHI AATA" -> tiles + ANSWER NEXT REEL + follow tap. Answer A. Handle placeholder.
+  Shared code added: src/lib/world.tsx (moved from ShopSpot), src/lib/ui.tsx (Tiles, FollowButton), Character mom variant,
+  props (bag/phone/helmet), expressions angry/sad/cry.

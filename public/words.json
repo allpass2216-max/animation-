@@ -1,959 +1,963 @@
 {
-  "audio": "voice/shopspot_clean.wav",
+  "audio": "voice/latenight_clean.wav",
   "fps": 30,
-  "duration": 33.724,
+  "duration": 33.561,
   "source": "allosaurus-align",
   "approxWords": false,
   "note": "whisper failed: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
   "lines": [
     {
-      "text": "Arjun ke paas sirf pachaas hazaar hain, aur ek galat jagah, sab doob jayega!",
-      "start": 0.03,
-      "end": 4.065,
-      "startFrame": 1,
-      "endFrame": 122
+      "text": "Raat ek baje Kabir lauta, aur maa chillaayi, jaa, wapas mat aana!",
+      "start": 0.15,
+      "end": 3.975,
+      "startFrame": 4,
+      "endFrame": 119
     },
     {
-      "text": "Woh xerox aur photo ki dukaan kholna chahta hai.",
-      "start": 4.35,
-      "end": 6.5,
-      "startFrame": 130,
-      "endFrame": 195
+      "text": "Woh shaam saat baje se gayab tha, kuch nahi bola, phir nikal gaya.",
+      "start": 4.2,
+      "end": 7.365,
+      "startFrame": 126,
+      "endFrame": 221
     },
     {
-      "text": "Smart log dukaan wahan kholte hain, jahan zarurat pehle se khadi hai.",
-      "start": 6.81,
-      "end": 9.95,
-      "startFrame": 204,
-      "endFrame": 298
+      "text": "Clue, maa ki BP ki dawai shaam ko khatam hui, aur mohalle ki dukaanein nau baje band hoti hain.",
+      "start": 7.59,
+      "end": 12.65,
+      "startFrame": 228,
+      "endFrame": 380
     },
     {
-      "text": "Hospital ke bahar dawai, station ke bahar chai, school ke bahar pen.",
-      "start": 10.11,
-      "end": 13.725,
-      "startFrame": 303,
-      "endFrame": 412
+      "text": "Kabir ki jeb mein, saade baarah baje ka, dawai ka bill tha.",
+      "start": 12.9,
+      "end": 16.095,
+      "startFrame": 387,
+      "endFrame": 483
     },
     {
-      "text": "Toh Arjun ki dukaan, kahan chalegi?",
-      "start": 13.92,
-      "end": 15.645,
-      "startFrame": 418,
-      "endFrame": 469
+      "text": "Toh Kabir, chhe ghante, kahan tha?",
+      "start": 16.26,
+      "end": 18.555,
+      "startFrame": 488,
+      "endFrame": 557
     },
     {
-      "text": "A, RTO office ke bahar, jahan log form leke line mein khade hain.",
-      "start": 16.12,
-      "end": 19.275,
-      "startFrame": 484,
-      "endFrame": 578
+      "text": "A, dawai ke liye, poora shehar ghoom raha tha.",
+      "start": 18.81,
+      "end": 21.345,
+      "startFrame": 564,
+      "endFrame": 640
     },
     {
-      "text": "B, bade mall ke andar, jahan sabse zyada bheed hai.",
-      "start": 19.68,
-      "end": 22.815,
-      "startFrame": 590,
-      "endFrame": 684
+      "text": "B, doston ke saath, party kar raha tha.",
+      "start": 21.57,
+      "end": 23.715,
+      "startFrame": 647,
+      "endFrame": 711
     },
     {
-      "text": "C, purani xerox dukaan ke bagal mein, kyunki customer wahan aate hain.",
-      "start": 23.13,
-      "end": 26.94,
-      "startFrame": 694,
-      "endFrame": 808
+      "text": "C, office mein, overtime kar raha tha.",
+      "start": 24.0,
+      "end": 26.085,
+      "startFrame": 720,
+      "endFrame": 783
     },
     {
-      "text": "D, apni gali mein, kyunki wahan kiraya zero hai.",
-      "start": 26.94,
-      "end": 29.79,
-      "startFrame": 808,
-      "endFrame": 894
+      "text": "D, kahin baith ke, game khel raha tha.",
+      "start": 26.34,
+      "end": 28.395,
+      "startFrame": 790,
+      "endFrame": 852
     },
     {
-      "text": "Comment mein answer likho, answer in the next reel, follow karo @yourhandle!",
-      "start": 29.79,
-      "end": 33.555,
-      "startFrame": 894,
-      "endFrame": 1007
+      "text": "Gusse ka ek shabd wapas nahi aata, comment karo, answer in the next reel, follow @yourhandle!",
+      "start": 28.59,
+      "end": 33.435,
+      "startFrame": 858,
+      "endFrame": 1003
     }
   ],
   "words": [
     {
-      "word": "Arjun",
-      "start": 0.03,
-      "end": 0.345,
+      "word": "Raat",
+      "start": 0.15,
+      "end": 0.435,
       "line": 0,
-      "startFrame": 1,
-      "endFrame": 10
-    },
-    {
-      "word": "ke",
-      "start": 0.36,
-      "end": 0.465,
-      "line": 0,
-      "startFrame": 11,
-      "endFrame": 14
-    },
-    {
-      "word": "paas",
-      "start": 0.48,
-      "end": 0.615,
-      "line": 0,
-      "startFrame": 14,
-      "endFrame": 18
-    },
-    {
-      "word": "sirf",
-      "start": 0.75,
-      "end": 0.915,
-      "line": 0,
-      "startFrame": 22,
-      "endFrame": 27
-    },
-    {
-      "word": "pachaas",
-      "start": 1.05,
-      "end": 1.485,
-      "line": 0,
-      "startFrame": 32,
-      "endFrame": 45
-    },
-    {
-      "word": "hazaar",
-      "start": 1.5,
-      "end": 1.785,
-      "line": 0,
-      "startFrame": 45,
-      "endFrame": 54
-    },
-    {
-      "word": "hain",
-      "start": 1.83,
-      "end": 2.445,
-      "line": 0,
-      "startFrame": 55,
-      "endFrame": 73
-    },
-    {
-      "word": "aur",
-      "start": 2.445,
-      "end": 2.465,
-      "line": 0,
-      "interpolated": true,
-      "startFrame": 73,
-      "endFrame": 74
+      "startFrame": 4,
+      "endFrame": 13
     },
     {
       "word": "ek",
-      "start": 2.465,
-      "end": 2.49,
+      "start": 0.57,
+      "end": 0.765,
       "line": 0,
-      "interpolated": true,
-      "startFrame": 74,
-      "endFrame": 75
+      "startFrame": 17,
+      "endFrame": 23
     },
     {
-      "word": "galat",
-      "start": 2.49,
-      "end": 2.76,
+      "word": "baje",
+      "start": 0.81,
+      "end": 1.035,
       "line": 0,
-      "startFrame": 75,
-      "endFrame": 83
+      "startFrame": 24,
+      "endFrame": 31
     },
     {
-      "word": "jagah",
-      "start": 2.76,
-      "end": 2.955,
+      "word": "Kabir",
+      "start": 1.05,
+      "end": 1.32,
       "line": 0,
-      "startFrame": 83,
-      "endFrame": 89
+      "startFrame": 32,
+      "endFrame": 40
     },
     {
-      "word": "sab",
-      "start": 3.39,
-      "end": 3.555,
+      "word": "lauta",
+      "start": 1.32,
+      "end": 1.515,
       "line": 0,
-      "startFrame": 102,
-      "endFrame": 107
-    },
-    {
-      "word": "doob",
-      "start": 3.6,
-      "end": 3.705,
-      "line": 0,
-      "startFrame": 108,
-      "endFrame": 111
-    },
-    {
-      "word": "jayega",
-      "start": 3.75,
-      "end": 4.065,
-      "line": 0,
-      "startFrame": 112,
-      "endFrame": 122
-    },
-    {
-      "word": "Woh",
-      "start": 4.35,
-      "end": 4.455,
-      "line": 1,
-      "startFrame": 130,
-      "endFrame": 134
-    },
-    {
-      "word": "xerox",
-      "start": 4.5,
-      "end": 4.965,
-      "line": 1,
-      "startFrame": 135,
-      "endFrame": 149
+      "startFrame": 40,
+      "endFrame": 45
     },
     {
       "word": "aur",
-      "start": 4.98,
-      "end": 5.085,
+      "start": 1.53,
+      "end": 1.995,
+      "line": 0,
+      "startFrame": 46,
+      "endFrame": 60
+    },
+    {
+      "word": "maa",
+      "start": 2.04,
+      "end": 2.145,
+      "line": 0,
+      "startFrame": 61,
+      "endFrame": 64
+    },
+    {
+      "word": "chillaayi",
+      "start": 2.31,
+      "end": 2.775,
+      "line": 0,
+      "startFrame": 69,
+      "endFrame": 83
+    },
+    {
+      "word": "jaa",
+      "start": 2.85,
+      "end": 2.955,
+      "line": 0,
+      "startFrame": 86,
+      "endFrame": 89
+    },
+    {
+      "word": "wapas",
+      "start": 3.33,
+      "end": 3.615,
+      "line": 0,
+      "startFrame": 100,
+      "endFrame": 108
+    },
+    {
+      "word": "mat",
+      "start": 3.63,
+      "end": 3.765,
+      "line": 0,
+      "startFrame": 109,
+      "endFrame": 113
+    },
+    {
+      "word": "aana",
+      "start": 3.78,
+      "end": 3.975,
+      "line": 0,
+      "startFrame": 113,
+      "endFrame": 119
+    },
+    {
+      "word": "Woh",
+      "start": 4.2,
+      "end": 4.28,
       "line": 1,
-      "startFrame": 149,
-      "endFrame": 153
+      "startFrame": 126,
+      "endFrame": 128
     },
     {
-      "word": "photo",
-      "start": 5.13,
-      "end": 5.415,
+      "word": "shaam",
+      "start": 4.32,
+      "end": 4.575,
       "line": 1,
-      "startFrame": 154,
-      "endFrame": 162
+      "startFrame": 130,
+      "endFrame": 137
     },
     {
-      "word": "ki",
-      "start": 5.43,
-      "end": 5.535,
+      "word": "saat",
+      "start": 4.71,
+      "end": 4.995,
       "line": 1,
-      "startFrame": 163,
-      "endFrame": 166
+      "startFrame": 141,
+      "endFrame": 150
     },
     {
-      "word": "dukaan",
-      "start": 5.58,
-      "end": 5.865,
+      "word": "baje",
+      "start": 5.04,
+      "end": 5.235,
       "line": 1,
-      "startFrame": 167,
-      "endFrame": 176
-    },
-    {
-      "word": "kholna",
-      "start": 5.91,
-      "end": 6.165,
-      "line": 1,
-      "startFrame": 177,
-      "endFrame": 185
-    },
-    {
-      "word": "chahta",
-      "start": 6.21,
-      "end": 6.405,
-      "line": 1,
-      "startFrame": 186,
-      "endFrame": 192
-    },
-    {
-      "word": "hai",
-      "start": 6.42,
-      "end": 6.5,
-      "line": 1,
-      "startFrame": 193,
-      "endFrame": 195
-    },
-    {
-      "word": "Smart",
-      "start": 6.81,
-      "end": 7.125,
-      "line": 2,
-      "startFrame": 204,
-      "endFrame": 214
-    },
-    {
-      "word": "log",
-      "start": 7.2,
-      "end": 7.28,
-      "line": 2,
-      "startFrame": 216,
-      "endFrame": 218
-    },
-    {
-      "word": "dukaan",
-      "start": 7.32,
-      "end": 7.605,
-      "line": 2,
-      "startFrame": 220,
-      "endFrame": 228
-    },
-    {
-      "word": "wahan",
-      "start": 7.77,
-      "end": 7.875,
-      "line": 2,
-      "startFrame": 233,
-      "endFrame": 236
-    },
-    {
-      "word": "kholte",
-      "start": 7.95,
-      "end": 8.235,
-      "line": 2,
-      "startFrame": 238,
-      "endFrame": 247
-    },
-    {
-      "word": "hain",
-      "start": 8.28,
-      "end": 8.385,
-      "line": 2,
-      "startFrame": 248,
-      "endFrame": 252
-    },
-    {
-      "word": "jahan",
-      "start": 8.55,
-      "end": 8.685,
-      "line": 2,
-      "startFrame": 256,
-      "endFrame": 261
-    },
-    {
-      "word": "zarurat",
-      "start": 8.76,
-      "end": 9.165,
-      "line": 2,
-      "startFrame": 263,
-      "endFrame": 275
-    },
-    {
-      "word": "pehle",
-      "start": 9.21,
-      "end": 9.495,
-      "line": 2,
-      "startFrame": 276,
-      "endFrame": 285
+      "startFrame": 151,
+      "endFrame": 157
     },
     {
       "word": "se",
-      "start": 9.54,
-      "end": 9.645,
+      "start": 5.28,
+      "end": 5.385,
+      "line": 1,
+      "startFrame": 158,
+      "endFrame": 162
+    },
+    {
+      "word": "gayab",
+      "start": 5.4,
+      "end": 5.655,
+      "line": 1,
+      "startFrame": 162,
+      "endFrame": 170
+    },
+    {
+      "word": "tha",
+      "start": 5.79,
+      "end": 5.87,
+      "line": 1,
+      "startFrame": 174,
+      "endFrame": 176
+    },
+    {
+      "word": "kuch",
+      "start": 6.0,
+      "end": 6.105,
+      "line": 1,
+      "startFrame": 180,
+      "endFrame": 183
+    },
+    {
+      "word": "nahi",
+      "start": 6.24,
+      "end": 6.32,
+      "line": 1,
+      "startFrame": 187,
+      "endFrame": 190
+    },
+    {
+      "word": "bola",
+      "start": 6.42,
+      "end": 6.645,
+      "line": 1,
+      "startFrame": 193,
+      "endFrame": 199
+    },
+    {
+      "word": "phir",
+      "start": 6.76,
+      "end": 6.99,
+      "line": 1,
+      "interpolated": true,
+      "startFrame": 203,
+      "endFrame": 210
+    },
+    {
+      "word": "nikal",
+      "start": 6.99,
+      "end": 7.215,
+      "line": 1,
+      "startFrame": 210,
+      "endFrame": 216
+    },
+    {
+      "word": "gaya",
+      "start": 7.26,
+      "end": 7.365,
+      "line": 1,
+      "startFrame": 218,
+      "endFrame": 221
+    },
+    {
+      "word": "Clue",
+      "start": 7.59,
+      "end": 7.755,
       "line": 2,
-      "startFrame": 286,
-      "endFrame": 289
+      "startFrame": 228,
+      "endFrame": 233
     },
     {
-      "word": "khadi",
-      "start": 9.66,
-      "end": 9.855,
+      "word": "maa",
+      "start": 8.16,
+      "end": 8.265,
       "line": 2,
-      "startFrame": 290,
-      "endFrame": 296
-    },
-    {
-      "word": "hai",
-      "start": 9.87,
-      "end": 9.95,
-      "line": 2,
-      "startFrame": 296,
-      "endFrame": 298
-    },
-    {
-      "word": "Hospital",
-      "start": 10.11,
-      "end": 10.56,
-      "line": 3,
-      "startFrame": 303,
-      "endFrame": 317
-    },
-    {
-      "word": "ke",
-      "start": 10.56,
-      "end": 10.665,
-      "line": 3,
-      "startFrame": 317,
-      "endFrame": 320
-    },
-    {
-      "word": "bahar",
-      "start": 10.68,
-      "end": 10.905,
-      "line": 3,
-      "startFrame": 320,
-      "endFrame": 327
-    },
-    {
-      "word": "dawai",
-      "start": 10.92,
-      "end": 11.58,
-      "line": 3,
-      "startFrame": 328,
-      "endFrame": 347
-    },
-    {
-      "word": "station",
-      "start": 11.58,
-      "end": 11.895,
-      "line": 3,
-      "startFrame": 347,
-      "endFrame": 357
-    },
-    {
-      "word": "ke",
-      "start": 11.94,
-      "end": 12.02,
-      "line": 3,
-      "startFrame": 358,
-      "endFrame": 361
-    },
-    {
-      "word": "bahar",
-      "start": 12.03,
-      "end": 12.255,
-      "line": 3,
-      "startFrame": 361,
-      "endFrame": 368
-    },
-    {
-      "word": "chai",
-      "start": 12.3,
-      "end": 12.435,
-      "line": 3,
-      "startFrame": 369,
-      "endFrame": 373
-    },
-    {
-      "word": "school",
-      "start": 12.84,
-      "end": 12.975,
-      "line": 3,
-      "startFrame": 385,
-      "endFrame": 389
-    },
-    {
-      "word": "ke",
-      "start": 13.02,
-      "end": 13.125,
-      "line": 3,
-      "startFrame": 391,
-      "endFrame": 394
-    },
-    {
-      "word": "bahar",
-      "start": 13.17,
-      "end": 13.425,
-      "line": 3,
-      "startFrame": 395,
-      "endFrame": 403
-    },
-    {
-      "word": "pen",
-      "start": 13.5,
-      "end": 13.725,
-      "line": 3,
-      "startFrame": 405,
-      "endFrame": 412
-    },
-    {
-      "word": "Toh",
-      "start": 13.92,
-      "end": 14.025,
-      "line": 4,
-      "startFrame": 418,
-      "endFrame": 421
-    },
-    {
-      "word": "Arjun",
-      "start": 14.16,
-      "end": 14.385,
-      "line": 4,
-      "startFrame": 425,
-      "endFrame": 432
+      "startFrame": 245,
+      "endFrame": 248
     },
     {
       "word": "ki",
-      "start": 14.4,
-      "end": 14.505,
-      "line": 4,
-      "startFrame": 432,
-      "endFrame": 435
+      "start": 8.4,
+      "end": 8.505,
+      "line": 2,
+      "startFrame": 252,
+      "endFrame": 255
     },
     {
-      "word": "dukaan",
-      "start": 14.52,
+      "word": "BP",
+      "start": 8.64,
+      "end": 8.865,
+      "line": 2,
+      "startFrame": 259,
+      "endFrame": 266
+    },
+    {
+      "word": "ki",
+      "start": 9.0,
+      "end": 9.08,
+      "line": 2,
+      "startFrame": 270,
+      "endFrame": 272
+    },
+    {
+      "word": "dawai",
+      "start": 9.12,
+      "end": 9.435,
+      "line": 2,
+      "startFrame": 274,
+      "endFrame": 283
+    },
+    {
+      "word": "shaam",
+      "start": 9.54,
+      "end": 9.765,
+      "line": 2,
+      "startFrame": 286,
+      "endFrame": 293
+    },
+    {
+      "word": "ko",
+      "start": 9.81,
+      "end": 9.915,
+      "line": 2,
+      "startFrame": 294,
+      "endFrame": 297
+    },
+    {
+      "word": "khatam",
+      "start": 9.93,
+      "end": 10.095,
+      "line": 2,
+      "startFrame": 298,
+      "endFrame": 303
+    },
+    {
+      "word": "hui",
+      "start": 10.26,
+      "end": 10.29,
+      "line": 2,
+      "startFrame": 308,
+      "endFrame": 309
+    },
+    {
+      "word": "aur",
+      "start": 10.29,
+      "end": 10.755,
+      "line": 2,
+      "startFrame": 309,
+      "endFrame": 323
+    },
+    {
+      "word": "mohalle",
+      "start": 10.8,
+      "end": 11.145,
+      "line": 2,
+      "startFrame": 324,
+      "endFrame": 334
+    },
+    {
+      "word": "ki",
+      "start": 11.16,
+      "end": 11.265,
+      "line": 2,
+      "startFrame": 335,
+      "endFrame": 338
+    },
+    {
+      "word": "dukaanein",
+      "start": 11.28,
+      "end": 11.625,
+      "line": 2,
+      "startFrame": 338,
+      "endFrame": 349
+    },
+    {
+      "word": "nau",
+      "start": 11.67,
+      "end": 11.865,
+      "line": 2,
+      "startFrame": 350,
+      "endFrame": 356
+    },
+    {
+      "word": "baje",
+      "start": 11.97,
+      "end": 12.195,
+      "line": 2,
+      "startFrame": 359,
+      "endFrame": 366
+    },
+    {
+      "word": "band",
+      "start": 12.21,
+      "end": 12.405,
+      "line": 2,
+      "startFrame": 366,
+      "endFrame": 372
+    },
+    {
+      "word": "hoti",
+      "start": 12.42,
+      "end": 12.555,
+      "line": 2,
+      "startFrame": 373,
+      "endFrame": 377
+    },
+    {
+      "word": "hain",
+      "start": 12.57,
+      "end": 12.65,
+      "line": 2,
+      "startFrame": 377,
+      "endFrame": 380
+    },
+    {
+      "word": "Kabir",
+      "start": 12.9,
+      "end": 13.125,
+      "line": 3,
+      "startFrame": 387,
+      "endFrame": 394
+    },
+    {
+      "word": "ki",
+      "start": 13.14,
+      "end": 13.22,
+      "line": 3,
+      "startFrame": 394,
+      "endFrame": 397
+    },
+    {
+      "word": "jeb",
+      "start": 13.29,
+      "end": 13.515,
+      "line": 3,
+      "startFrame": 399,
+      "endFrame": 405
+    },
+    {
+      "word": "mein",
+      "start": 13.65,
+      "end": 13.755,
+      "line": 3,
+      "startFrame": 410,
+      "endFrame": 413
+    },
+    {
+      "word": "saade",
+      "start": 14.04,
+      "end": 14.325,
+      "line": 3,
+      "startFrame": 421,
+      "endFrame": 430
+    },
+    {
+      "word": "baarah",
+      "start": 14.4,
+      "end": 14.655,
+      "line": 3,
+      "startFrame": 432,
+      "endFrame": 440
+    },
+    {
+      "word": "baje",
+      "start": 14.7,
       "end": 14.925,
-      "line": 4,
-      "startFrame": 436,
+      "line": 3,
+      "startFrame": 441,
       "endFrame": 448
     },
     {
-      "word": "kahan",
-      "start": 15.06,
-      "end": 15.285,
+      "word": "ka",
+      "start": 14.97,
+      "end": 15.075,
+      "line": 3,
+      "startFrame": 449,
+      "endFrame": 452
+    },
+    {
+      "word": "dawai",
+      "start": 15.24,
+      "end": 15.435,
+      "line": 3,
+      "startFrame": 457,
+      "endFrame": 463
+    },
+    {
+      "word": "ka",
+      "start": 15.57,
+      "end": 15.675,
+      "line": 3,
+      "startFrame": 467,
+      "endFrame": 470
+    },
+    {
+      "word": "bill",
+      "start": 15.75,
+      "end": 15.855,
+      "line": 3,
+      "startFrame": 472,
+      "endFrame": 476
+    },
+    {
+      "word": "tha",
+      "start": 15.96,
+      "end": 16.095,
+      "line": 3,
+      "startFrame": 479,
+      "endFrame": 483
+    },
+    {
+      "word": "Toh",
+      "start": 16.26,
+      "end": 16.365,
       "line": 4,
-      "startFrame": 452,
-      "endFrame": 459
+      "startFrame": 488,
+      "endFrame": 491
     },
     {
-      "word": "chalegi",
-      "start": 15.3,
-      "end": 15.645,
+      "word": "Kabir",
+      "start": 16.41,
+      "end": 16.665,
       "line": 4,
-      "startFrame": 459,
-      "endFrame": 469
+      "startFrame": 492,
+      "endFrame": 500
     },
     {
-      "word": "A",
-      "start": 16.12,
-      "end": 16.23,
-      "line": 5,
-      "interpolated": true,
-      "startFrame": 484,
-      "endFrame": 487
+      "word": "chhe",
+      "start": 17.31,
+      "end": 17.39,
+      "line": 4,
+      "startFrame": 519,
+      "endFrame": 522
     },
     {
-      "word": "RTO",
-      "start": 16.23,
-      "end": 16.605,
-      "line": 5,
-      "startFrame": 487,
-      "endFrame": 498
-    },
-    {
-      "word": "office",
-      "start": 16.71,
-      "end": 16.995,
-      "line": 5,
-      "startFrame": 501,
-      "endFrame": 510
-    },
-    {
-      "word": "ke",
-      "start": 17.01,
-      "end": 17.115,
-      "line": 5,
-      "startFrame": 510,
-      "endFrame": 513
-    },
-    {
-      "word": "bahar",
-      "start": 17.13,
-      "end": 17.325,
-      "line": 5,
-      "startFrame": 514,
-      "endFrame": 520
-    },
-    {
-      "word": "jahan",
-      "start": 17.58,
+      "word": "ghante",
+      "start": 17.49,
       "end": 17.775,
-      "line": 5,
-      "startFrame": 527,
+      "line": 4,
+      "startFrame": 525,
       "endFrame": 533
     },
     {
-      "word": "log",
-      "start": 17.82,
-      "end": 17.925,
-      "line": 5,
-      "startFrame": 535,
-      "endFrame": 538
+      "word": "kahan",
+      "start": 18.12,
+      "end": 18.375,
+      "line": 4,
+      "startFrame": 544,
+      "endFrame": 551
     },
     {
-      "word": "form",
-      "start": 18.06,
-      "end": 18.285,
-      "line": 5,
-      "startFrame": 542,
-      "endFrame": 549
+      "word": "tha",
+      "start": 18.42,
+      "end": 18.555,
+      "line": 4,
+      "startFrame": 553,
+      "endFrame": 557
     },
     {
-      "word": "leke",
-      "start": 18.33,
-      "end": 18.525,
+      "word": "A",
+      "start": 18.81,
+      "end": 18.89,
       "line": 5,
-      "startFrame": 550,
-      "endFrame": 556
+      "startFrame": 564,
+      "endFrame": 567
     },
     {
-      "word": "line",
-      "start": 18.63,
-      "end": 18.795,
+      "word": "dawai",
+      "start": 19.2,
+      "end": 19.485,
       "line": 5,
-      "startFrame": 559,
-      "endFrame": 564
+      "startFrame": 576,
+      "endFrame": 585
     },
     {
-      "word": "mein",
-      "start": 18.93,
-      "end": 19.035,
+      "word": "ke",
+      "start": 19.62,
+      "end": 19.68,
       "line": 5,
-      "startFrame": 568,
-      "endFrame": 571
+      "startFrame": 589,
+      "endFrame": 590
     },
     {
-      "word": "khade",
-      "start": 19.05,
-      "end": 19.155,
+      "word": "liye",
+      "start": 19.68,
+      "end": 19.875,
       "line": 5,
-      "startFrame": 572,
-      "endFrame": 575
+      "startFrame": 590,
+      "endFrame": 596
     },
     {
-      "word": "hain",
-      "start": 19.17,
-      "end": 19.275,
+      "word": "poora",
+      "start": 20.1,
+      "end": 20.385,
       "line": 5,
-      "startFrame": 575,
-      "endFrame": 578
+      "startFrame": 603,
+      "endFrame": 612
+    },
+    {
+      "word": "shehar",
+      "start": 20.52,
+      "end": 20.805,
+      "line": 5,
+      "startFrame": 616,
+      "endFrame": 624
+    },
+    {
+      "word": "ghoom",
+      "start": 20.85,
+      "end": 20.985,
+      "line": 5,
+      "startFrame": 626,
+      "endFrame": 630
+    },
+    {
+      "word": "raha",
+      "start": 21.03,
+      "end": 21.195,
+      "line": 5,
+      "startFrame": 631,
+      "endFrame": 636
+    },
+    {
+      "word": "tha",
+      "start": 21.24,
+      "end": 21.345,
+      "line": 5,
+      "startFrame": 637,
+      "endFrame": 640
     },
     {
       "word": "B",
-      "start": 19.68,
-      "end": 19.785,
+      "start": 21.57,
+      "end": 21.675,
       "line": 6,
-      "startFrame": 590,
-      "endFrame": 594
+      "startFrame": 647,
+      "endFrame": 650
     },
     {
-      "word": "bade",
-      "start": 20.25,
-      "end": 20.475,
+      "word": "doston",
+      "start": 22.02,
+      "end": 22.365,
       "line": 6,
-      "startFrame": 608,
-      "endFrame": 614
-    },
-    {
-      "word": "mall",
-      "start": 20.55,
-      "end": 20.715,
-      "line": 6,
-      "startFrame": 616,
-      "endFrame": 621
+      "startFrame": 661,
+      "endFrame": 671
     },
     {
       "word": "ke",
-      "start": 20.82,
-      "end": 20.955,
+      "start": 22.38,
+      "end": 22.485,
       "line": 6,
-      "startFrame": 625,
-      "endFrame": 629
+      "startFrame": 671,
+      "endFrame": 675
     },
     {
-      "word": "andar",
-      "start": 21.0,
-      "end": 21.285,
-      "line": 6,
-      "startFrame": 630,
-      "endFrame": 639
-    },
-    {
-      "word": "jahan",
-      "start": 21.42,
-      "end": 21.705,
-      "line": 6,
-      "startFrame": 643,
-      "endFrame": 651
-    },
-    {
-      "word": "sabse",
-      "start": 21.75,
-      "end": 22.065,
-      "line": 6,
-      "startFrame": 652,
-      "endFrame": 662
-    },
-    {
-      "word": "zyada",
-      "start": 22.2,
-      "end": 22.455,
-      "line": 6,
-      "startFrame": 666,
-      "endFrame": 674
-    },
-    {
-      "word": "bheed",
+      "word": "saath",
       "start": 22.5,
-      "end": 22.635,
+      "end": 22.785,
       "line": 6,
       "startFrame": 675,
-      "endFrame": 679
-    },
-    {
-      "word": "hai",
-      "start": 22.68,
-      "end": 22.815,
-      "line": 6,
-      "startFrame": 680,
       "endFrame": 684
     },
     {
+      "word": "party",
+      "start": 22.92,
+      "end": 23.175,
+      "line": 6,
+      "startFrame": 688,
+      "endFrame": 695
+    },
+    {
+      "word": "kar",
+      "start": 23.19,
+      "end": 23.355,
+      "line": 6,
+      "startFrame": 696,
+      "endFrame": 701
+    },
+    {
+      "word": "raha",
+      "start": 23.37,
+      "end": 23.565,
+      "line": 6,
+      "startFrame": 701,
+      "endFrame": 707
+    },
+    {
+      "word": "tha",
+      "start": 23.61,
+      "end": 23.715,
+      "line": 6,
+      "startFrame": 708,
+      "endFrame": 711
+    },
+    {
       "word": "C",
-      "start": 23.13,
-      "end": 23.235,
+      "start": 24.0,
+      "end": 24.135,
       "line": 7,
-      "startFrame": 694,
-      "endFrame": 697
+      "startFrame": 720,
+      "endFrame": 724
     },
     {
-      "word": "purani",
-      "start": 23.46,
-      "end": 23.835,
+      "word": "office",
+      "start": 24.36,
+      "end": 24.705,
       "line": 7,
-      "startFrame": 704,
-      "endFrame": 715
-    },
-    {
-      "word": "xerox",
-      "start": 23.91,
-      "end": 24.255,
-      "line": 7,
-      "startFrame": 717,
-      "endFrame": 728
-    },
-    {
-      "word": "dukaan",
-      "start": 24.27,
-      "end": 24.525,
-      "line": 7,
-      "startFrame": 728,
-      "endFrame": 736
-    },
-    {
-      "word": "ke",
-      "start": 24.57,
-      "end": 24.675,
-      "line": 7,
-      "startFrame": 737,
-      "endFrame": 740
-    },
-    {
-      "word": "bagal",
-      "start": 24.72,
-      "end": 24.975,
-      "line": 7,
-      "startFrame": 742,
-      "endFrame": 749
+      "startFrame": 731,
+      "endFrame": 741
     },
     {
       "word": "mein",
-      "start": 24.99,
-      "end": 25.095,
+      "start": 24.75,
+      "end": 24.855,
       "line": 7,
-      "startFrame": 750,
-      "endFrame": 753
+      "startFrame": 742,
+      "endFrame": 746
     },
     {
-      "word": "kyunki",
-      "start": 25.32,
-      "end": 25.545,
+      "word": "overtime",
+      "start": 25.11,
+      "end": 25.605,
       "line": 7,
-      "startFrame": 760,
-      "endFrame": 766
+      "startFrame": 753,
+      "endFrame": 768
     },
     {
-      "word": "customer",
-      "start": 25.56,
-      "end": 26.055,
+      "word": "kar",
+      "start": 25.62,
+      "end": 25.7,
       "line": 7,
-      "startFrame": 767,
-      "endFrame": 782
+      "startFrame": 769,
+      "endFrame": 771
     },
     {
-      "word": "wahan",
-      "start": 26.07,
-      "end": 26.235,
+      "word": "raha",
+      "start": 25.74,
+      "end": 25.905,
       "line": 7,
-      "startFrame": 782,
-      "endFrame": 787
+      "startFrame": 772,
+      "endFrame": 777
     },
     {
-      "word": "aate",
-      "start": 26.25,
-      "end": 26.535,
+      "word": "tha",
+      "start": 25.95,
+      "end": 26.085,
       "line": 7,
-      "startFrame": 788,
-      "endFrame": 796
-    },
-    {
-      "word": "hain",
-      "start": 26.65,
-      "end": 26.94,
-      "line": 7,
-      "interpolated": true,
-      "startFrame": 800,
-      "endFrame": 808
+      "startFrame": 778,
+      "endFrame": 783
     },
     {
       "word": "D",
+      "start": 26.34,
+      "end": 26.445,
+      "line": 8,
+      "startFrame": 790,
+      "endFrame": 793
+    },
+    {
+      "word": "kahin",
+      "start": 26.64,
+      "end": 26.925,
+      "line": 8,
+      "startFrame": 799,
+      "endFrame": 808
+    },
+    {
+      "word": "baith",
       "start": 26.94,
-      "end": 27.045,
+      "end": 27.24,
       "line": 8,
       "startFrame": 808,
-      "endFrame": 811
+      "endFrame": 817
     },
     {
-      "word": "apni",
-      "start": 27.33,
-      "end": 27.585,
+      "word": "ke",
+      "start": 27.24,
+      "end": 27.345,
       "line": 8,
-      "startFrame": 820,
-      "endFrame": 828
+      "startFrame": 817,
+      "endFrame": 820
     },
     {
-      "word": "gali",
-      "start": 27.63,
-      "end": 27.825,
+      "word": "game",
+      "start": 27.36,
+      "end": 27.795,
       "line": 8,
-      "startFrame": 829,
-      "endFrame": 835
+      "startFrame": 821,
+      "endFrame": 834
     },
     {
-      "word": "mein",
+      "word": "khel",
       "start": 27.87,
-      "end": 28.335,
+      "end": 28.035,
       "line": 8,
       "startFrame": 836,
-      "endFrame": 850
+      "endFrame": 841
     },
     {
-      "word": "kyunki",
-      "start": 28.35,
-      "end": 28.53,
+      "word": "raha",
+      "start": 28.05,
+      "end": 28.215,
       "line": 8,
-      "startFrame": 850,
-      "endFrame": 856
+      "startFrame": 842,
+      "endFrame": 846
     },
     {
-      "word": "wahan",
-      "start": 28.53,
-      "end": 28.725,
+      "word": "tha",
+      "start": 28.26,
+      "end": 28.395,
       "line": 8,
-      "startFrame": 856,
-      "endFrame": 862
+      "startFrame": 848,
+      "endFrame": 852
     },
     {
-      "word": "kiraya",
-      "start": 28.74,
-      "end": 29.115,
-      "line": 8,
-      "startFrame": 862,
-      "endFrame": 873
-    },
-    {
-      "word": "zero",
-      "start": 29.19,
-      "end": 29.475,
-      "line": 8,
-      "startFrame": 876,
-      "endFrame": 884
-    },
-    {
-      "word": "hai",
-      "start": 29.56,
-      "end": 29.79,
-      "line": 8,
-      "interpolated": true,
-      "startFrame": 887,
-      "endFrame": 894
-    },
-    {
-      "word": "Comment",
-      "start": 29.79,
-      "end": 29.925,
+      "word": "Gusse",
+      "start": 28.59,
+      "end": 28.875,
       "line": 9,
-      "startFrame": 894,
-      "endFrame": 898
+      "startFrame": 858,
+      "endFrame": 866
     },
     {
-      "word": "mein",
+      "word": "ka",
+      "start": 28.89,
+      "end": 29.025,
+      "line": 9,
+      "startFrame": 867,
+      "endFrame": 871
+    },
+    {
+      "word": "ek",
+      "start": 29.16,
+      "end": 29.385,
+      "line": 9,
+      "startFrame": 875,
+      "endFrame": 882
+    },
+    {
+      "word": "shabd",
+      "start": 29.43,
+      "end": 29.835,
+      "line": 9,
+      "startFrame": 883,
+      "endFrame": 895
+    },
+    {
+      "word": "wapas",
+      "start": 29.85,
+      "end": 29.955,
+      "line": 9,
+      "startFrame": 896,
+      "endFrame": 899
+    },
+    {
+      "word": "nahi",
       "start": 29.97,
-      "end": 30.05,
+      "end": 30.135,
       "line": 9,
       "startFrame": 899,
-      "endFrame": 902
+      "endFrame": 904
     },
     {
-      "word": "answer",
-      "start": 30.21,
-      "end": 30.345,
+      "word": "aata",
+      "start": 30.18,
+      "end": 30.405,
       "line": 9,
-      "startFrame": 906,
-      "endFrame": 910
+      "startFrame": 905,
+      "endFrame": 912
     },
     {
-      "word": "likho",
+      "word": "comment",
       "start": 30.54,
-      "end": 30.765,
+      "end": 30.825,
       "line": 9,
       "startFrame": 916,
-      "endFrame": 923
-    },
-    {
-      "word": "answer",
-      "start": 31.08,
-      "end": 31.335,
-      "line": 9,
-      "startFrame": 932,
-      "endFrame": 940
-    },
-    {
-      "word": "in",
-      "start": 31.38,
-      "end": 31.44,
-      "line": 9,
-      "startFrame": 941,
-      "endFrame": 943
-    },
-    {
-      "word": "the",
-      "start": 31.44,
-      "end": 31.52,
-      "line": 9,
-      "startFrame": 943,
-      "endFrame": 946
-    },
-    {
-      "word": "next",
-      "start": 31.53,
-      "end": 31.77,
-      "line": 9,
-      "startFrame": 946,
-      "endFrame": 953
-    },
-    {
-      "word": "reel",
-      "start": 31.77,
-      "end": 31.995,
-      "line": 9,
-      "startFrame": 953,
-      "endFrame": 960
-    },
-    {
-      "word": "follow",
-      "start": 32.28,
-      "end": 32.535,
-      "line": 9,
-      "startFrame": 968,
-      "endFrame": 976
+      "endFrame": 925
     },
     {
       "word": "karo",
-      "start": 32.55,
-      "end": 32.775,
+      "start": 30.9,
+      "end": 31.095,
       "line": 9,
-      "startFrame": 976,
-      "endFrame": 983
+      "startFrame": 927,
+      "endFrame": 933
+    },
+    {
+      "word": "answer",
+      "start": 31.26,
+      "end": 31.545,
+      "line": 9,
+      "startFrame": 938,
+      "endFrame": 946
+    },
+    {
+      "word": "in",
+      "start": 31.56,
+      "end": 31.64,
+      "line": 9,
+      "startFrame": 947,
+      "endFrame": 949
+    },
+    {
+      "word": "the",
+      "start": 31.68,
+      "end": 31.74,
+      "line": 9,
+      "startFrame": 950,
+      "endFrame": 952
+    },
+    {
+      "word": "next",
+      "start": 31.74,
+      "end": 32.01,
+      "line": 9,
+      "startFrame": 952,
+      "endFrame": 960
+    },
+    {
+      "word": "reel",
+      "start": 32.01,
+      "end": 32.235,
+      "line": 9,
+      "startFrame": 960,
+      "endFrame": 967
+    },
+    {
+      "word": "follow",
+      "start": 32.46,
+      "end": 32.715,
+      "line": 9,
+      "startFrame": 974,
+      "endFrame": 981
     },
     {
       "word": "@yourhandle",
-      "start": 32.91,
-      "end": 33.555,
+      "start": 32.97,
+      "end": 33.435,
       "line": 9,
-      "startFrame": 987,
-      "endFrame": 1007
+      "startFrame": 989,
+      "endFrame": 1003
     }
   ]
 }
