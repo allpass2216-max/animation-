@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Clean a raw voice-over for reels.
+#   - trims every pause longer than 0.3 s down to 0.15 s (also leading/trailing silence)
+#   - speeds the voice up 1.1x keeping the pitch (atempo)
+#   - writes <output>.pauses.json (exact pause times, used by tools/word_times.py when Whisper is unavailable)
+#   - normalises loudness to -16 LUFS (loudnorm target I=-16, true peak -1.5 dB, verified by re-measuring)
+# Usage: tools/clean_voice voice/raw.wav [voice/clean.wav] [--speed 1.1] [--thresh -40dB]
+set -euo pipefail
+IN="${1:?usage: tools/clean_voice input.(wav|mp3|m4a) [output.wav] [--speed 1.1] [--thresh -40dB]}"; shift
+OUT="${IN%.*}_clean.wav"
+if [[ $# -gt 0 && "$1" != --* ]]; then OUT="$1"; shift; fi
+SPEED=1.1; THRESH=-40dB
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --speed) SPEED="$2"; shift 2;;
+    --thresh) THRESH="$2"; shift 2;;
+    *) echo "unknown option $1" >&2; exit 1;;
+  esac
+done
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
+
+# 1) decode to 48 kHz mono wav, remove rumble
+ffmpeg -hide_banner -loglevel error -y -i "$IN" -af "highpass=f=70" -ac 1 -ar 48000 "$TMP/a.wav"
+# 2) exact pause trimming: every pause > 0.3 s becomes 0.15 s
+python3 "$HERE/trim_pauses.py" "$TMP/a.wav" "$TMP/b.wav" --max 0.3 --keep 0.15 --thresh "${THRESH%dB}" \
+  --pauses "${OUT%.*}.pauses.json" --speed "$SPEED"   # exact pause times for word_times.py fallback
+# 3) speed up 1.1x keeping the pitch (gaps shrink with it, so check pauses before the speed-up)
+ffmpeg -hide_banner -loglevel error -y -i "$TMP/b.wav" -af "atempo=${SPEED}" "$TMP/c.wav"
+IN_ORIG="$IN"; IN="$TMP/c.wav"
+
+# 4) normalise to -16 LUFS, true peak -1.5 dBTP (gain + true-peak limiter, re-measured until exact)
+python3 "$HERE/loudness.py" "$IN" --lufs -16 --tp -1.5 --out "$TMP/d.wav" >/dev/null
+ffmpeg -hide_banner -loglevel error -y -i "$TMP/d.wav" -ac 1 -ar 48000 -c:a pcm_s16le "$OUT"
+
+D_IN=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$IN_ORIG")
+D_OUT=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT")
+LUFS=$(ffmpeg -hide_banner -nostats -i "$OUT" -af ebur128 -f null - 2>&1 | grep -E '^\s+I:' | tail -1 | awk '{print $2}')
+printf 'clean_voice: %s (%.2fs) -> %s (%.2fs), loudness %s LUFS\n' "$IN_ORIG" "$D_IN" "$OUT" "$D_OUT" "$LUFS"

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Contact sheet of stills. See tools/stills.mjs for options.
+exec node "$(dirname "${BASH_SOURCE[0]}")/stills.mjs" "$@"

@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# Renders and big caches (never commit)
+out
+models
+__pycache__/
+*.pyc

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Final master for upload:
+#   - loudness -14 LUFS integrated, true peak -1.5 dBTP (measured, gain + true-peak limiter, re-measured)
+#   - overlays a watermark PNG at 30% opacity (default public/watermark.png, make it with tools/make_watermark.py)
+# Usage: tools/finish out/video.mp4 [out/video_final.mp4] [--wm public/watermark.png] [--opacity 0.3] [--pos x:y]
+#   --pos default "48:H*0.60": left edge, 60% down (clear of faces' usual spot, platform UI and the right edge).
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+IN="${1:?usage: tools/finish input.mp4 [output.mp4] [--wm file.png] [--opacity 0.3] [--pos x:y]}"; shift
+OUT="${IN%.*}_final.mp4"
+if [[ $# -gt 0 && "$1" != --* ]]; then OUT="$1"; shift; fi
+WM="$HERE/../public/watermark.png"; OP=0.3; POS="48:H*0.60"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --wm) WM="$2"; shift 2;;
+    --opacity) OP="$2"; shift 2;;
+    --pos) POS="$2"; shift 2;;
+    *) echo "unknown option $1" >&2; exit 1;;
+  esac
+done
+[[ -f "$WM" ]] || { echo "watermark not found: $WM (run: python3 tools/make_watermark.py @handle)" >&2; exit 1; }
+
+# Audio chain that lands on exactly -14 LUFS / <= -1.5 dBTP for this input.
+# -2.2 for the limiter leaves 0.7 dB for AAC encoding overshoot, so the final file stays <= -1.5 dBTP.
+CHAIN=$(python3 "$HERE/loudness.py" "$IN" --lufs -14 --tp -2.2)
+
+ffmpeg -hide_banner -loglevel error -y -i "$IN" -i "$WM" -filter_complex \
+  "[1:v]format=rgba,colorchannelmixer=aa=${OP}[wm];[0:v][wm]overlay=${POS%%:*}:${POS#*:}:format=auto,format=yuv420p[v];[0:a]${CHAIN}[a]" \
+  -map "[v]" -map "[a]" -c:v libx264 -preset medium -crf 18 -profile:v high -r 30 \
+  -c:a aac -b:a 192k -ar 48000 -movflags +faststart "$OUT"
+
+STATS=$(ffmpeg -hide_banner -nostats -i "$OUT" -af ebur128=peak=true -f null - 2>&1 | sed -n '/Summary:/,$p')
+I=$(grep -E '^\s+I:' <<<"$STATS" | awk '{print $2}'); TP=$(grep -E '^\s+Peak:' <<<"$STATS" | awk '{print $2}')
+echo "finish: $OUT  loudness ${I} LUFS, true peak ${TP} dBTP, watermark $(basename "$WM") @ ${OP}"
