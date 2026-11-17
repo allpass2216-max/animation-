@@ -73,7 +73,8 @@
   + coin rain -> transfers list counting 2,500 -> AI chat "HO GAYA / KISI KO MAT BATANA" -> unknown call, red rays, "PAISA HUMARA
   HAI", "10% TUMHARA" -> A cyber cell + bank / B money flies to hooded scammer / C app into trash / D party -> outro + follow.
   Answer A. Handle placeholder. night.tsx moved to src/lib/night.tsx (shared).
-- `OyoSecret` (src/videos/OyoSecret): STAGE 1 BUILT, waiting for fixes or "go to final".
+- `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
+  watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.
   Recording matches script.md. Voice 43.1 s -> 34.3 s clean; allosaurus-align 110 words, "A" corrected to f641 from the
   pause file (aligner had put it on top of "the"). ~1084 f. Music: loop.wav.
   Scenes: hotel lobby (neon ROOMS 24x7, key rack, counter + bell): girlfriend left, you right, Chachu at reception turns round on
