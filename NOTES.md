@@ -1,6 +1,7 @@
 # NOTES
 
 ## Studio status (2026-11-17)
+- USER HANDLE: **@rehanfact** (given 2026-11-17). Use it in scripts, watermark (tools/make_watermark.py @rehanfact) and post.md.
 - Remotion 4.0.544 (blank TS template), React 19, rspack. Browser: pre-installed Chrome headless shell 153
   (`/opt/pw-browsers/chromium_headless_shell-1243/...`), set in `remotion.config.ts` (override with `REMOTION_BROWSER`).
   Remotion's own browser download (remotion.media) is blocked by the network policy.
@@ -72,3 +73,7 @@
   + coin rain -> transfers list counting 2,500 -> AI chat "HO GAYA / KISI KO MAT BATANA" -> unknown call, red rays, "PAISA HUMARA
   HAI", "10% TUMHARA" -> A cyber cell + bank / B money flies to hooded scammer / C app into trash / D party -> outro + follow.
   Answer A. Handle placeholder. night.tsx moved to src/lib/night.tsx (shared).
+- `OyoSecret` (src/videos/OyoSecret): SCRIPT WRITTEN (Hinglish, 10 lines, 110 words). The DinnerSecret idea moved to an OYO
+  hotel at the user's request. Twist: Chachu lost his job and secretly works the hotel's night reception; "you" (college
+  student, adult) walk in with your girlfriend. Generic "ROOMS 24x7" sign, no OYO logo. Answer A. Handle @rehanfact.
+  NEXT: wait for voice file in voice/; check which script version was recorded.
