@@ -60,6 +60,7 @@ const CUT_IN = F.chachu - 8; // hard cut from the street to inside the mall, jus
 
 // cast
 const YOU = { skin: "#B97A50", shirt: "#2f9e44", pants: "#2b3a67", hair: "#1d1420" } as const;
+const YOU_BAG = { ...YOU, backpack: "#1c7ed6" } as const; // tuition bag: street, mall, eye-lock
 const CHACHU = { skin: "#C98B5E", shirt: "#f1f3f5", pants: "#343a40", hair: "#1d1420", mustache: true, tie: "#c92a2a" } as const;
 const PAPA = { skin: "#B97A50", shirt: "#e8a33d", pants: "#5c3d2e", hair: "#2a1e22", mustache: true, glasses: true } as const;
 const DADI = { mom: true, skin: "#C98B5E", shirt: "#c2255c", pants: "#7a1f4f", hair: "#dee2e6" } as const;
@@ -85,7 +86,7 @@ const EntryScene: React.FC = () => {
         </svg>
         <div style={{ opacity: fade }}>
           <Character
-            {...YOU}
+            {...YOU_BAG}
             x={x}
             y={1760 + bob - (1 - away) * 160}
             scale={0.92 * away}
@@ -133,7 +134,7 @@ const MallScene: React.FC = () => {
           <Extra x={100} y={1520} s={0.75} shirt="#a5d8ff" seed={4} walk={1.6} t0={CUT_IN} />
         </svg>
         <Character
-          {...YOU}
+          {...YOU_BAG}
           x={youX}
           y={1740 + walk}
           scale={0.92}
@@ -251,7 +252,7 @@ const LookScene: React.FC = () => (
       <Mall />
     </Layer>
     <Character
-      {...YOU}
+      {...YOU_BAG}
       x={320}
       y={1740}
       scale={0.92}

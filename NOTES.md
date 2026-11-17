@@ -57,6 +57,7 @@
   watermark @yourhandle (PLACEHOLDER) low-left. Caption + pinned comment in post.md. Part 2 must reveal A (own your truth only).
   v2 (user fix): opening now starts OUTSIDE: street with COACHING + CITY MALL; shrug at coaching on "coaching", points at the mall
   and walks in on "mall"; hard cut inside just before "Chachu"; he jumps back scared and drops the ice-cream (it no longer covers his face).
+  v3 (user fix): he wears a blue tuition backpack (Character `backpack` prop) outside, in the mall and in the eye-lock scene.
   Recording matches script.md. Voice 43.1 s -> 34.0 s clean; allosaurus-align 107/109 measured; ~1077 f. Music: loop.wav.
   Scenes: mall (you + ice-cream, Chachu slides in on "Chachu", scoop falls + splats) -> Chachu leaves "for office", Dadi waves
   -> park bench, calendar SEP/OCT tear off -> eye-lock zap "TU KUCH MAT BOLNA" -> dinner (two-row seating, close-ups per beat)

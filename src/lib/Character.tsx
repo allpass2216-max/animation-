@@ -59,6 +59,7 @@ export const Character: React.FC<{
   money?: Cue<boolean>[];
   holding?: Cue<"none" | "bag" | "phone" | "helmet" | "icecream">[]; // prop in the right hand
   mustache?: boolean;
+  backpack?: string; // school/tuition bag colour (worn on the back, straps in front)
   tie?: string; // tie colour
   glasses?: boolean;
   sweat?: Cue<boolean>[];
@@ -81,6 +82,7 @@ export const Character: React.FC<{
   holding = [{ f: 0, v: "none" }],
   mom = false,
   mustache = false,
+  backpack,
   tie,
   glasses = false,
   sweat = [{ f: 0, v: false }],
@@ -202,6 +204,15 @@ export const Character: React.FC<{
         <path d="M58 -250 L66 -40" stroke={pants} strokeWidth={66} strokeLinecap="round" />
         <ellipse cx={-80} cy={-16} rx={66} ry={34} fill="#3a2a2a" stroke={INK} strokeWidth={9} />
         <ellipse cx={80} cy={-16} rx={66} ry={34} fill="#3a2a2a" stroke={INK} strokeWidth={9} />
+        {/* backpack behind the body: peeks out at both sides and above the shoulders */}
+        {backpack && (
+          <g transform={`translate(0 ${breathe * 3})`}>
+            <rect x={-188} y={-560} width={376} height={330} rx={46} fill={backpack} stroke={INK} strokeWidth={10} />
+            <path d="M-50 -560 Q0 -610 50 -560" fill="none" stroke={INK} strokeWidth={12} />
+            <rect x={-188} y={-420} width={40} height={120} rx={12} fill={backpack} stroke={INK} strokeWidth={7} />
+            <rect x={148} y={-420} width={40} height={120} rx={12} fill={backpack} stroke={INK} strokeWidth={7} />
+          </g>
+        )}
         {/* torso (breathes) */}
         <g transform={`translate(0 -250) scale(${1 + breathe * 0.012} ${1 + breathe * 0.025}) translate(0 250)`}>
           <path
@@ -214,6 +225,16 @@ export const Character: React.FC<{
           <path d="M0 -470 L0 -240" stroke={INK} strokeWidth={5} opacity={0.35} />
           {tie && <path d="M-16 -490 L16 -490 L22 -330 L0 -300 L-22 -330 Z" fill={tie} stroke={INK} strokeWidth={7} strokeLinejoin="round" />}
         </g>
+        {backpack && (
+          <g fill="none" strokeLinecap="round">
+            <path d="M-92 -528 L-112 -300" stroke={INK} strokeWidth={30} />
+            <path d="M92 -528 L112 -300" stroke={INK} strokeWidth={30} />
+            <path d="M-92 -528 L-112 -300" stroke={backpack} strokeWidth={18} />
+            <path d="M92 -528 L112 -300" stroke={backpack} strokeWidth={18} />
+            <rect x={-124} y={-400} width={26} height={18} rx={4} fill="#adb5bd" stroke={INK} strokeWidth={5} />
+            <rect x={98} y={-400} width={26} height={18} rx={4} fill="#adb5bd" stroke={INK} strokeWidth={5} />
+          </g>
+        )}
         {/* left arm (behind props) */}
         <path d={L.d} fill="none" stroke={INK} strokeWidth={60} strokeLinecap="round" strokeLinejoin="round" />
         <path d={L.d} fill="none" stroke={shirt} strokeWidth={44} strokeLinecap="round" strokeLinejoin="round" />
