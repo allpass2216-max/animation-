@@ -75,6 +75,8 @@
   Answer A. Handle placeholder. night.tsx moved to src/lib/night.tsx (shared).
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.
+  TOON experiment (round heads, stick limbs; composition `OyoSecretToon`, src/lib/ToonCharacter.tsx, src/lib/atmosphere.tsx,
+  CharStyle switch in Character.tsx): user did NOT like it ("bekar ha, rehne do"). Shelved; not used. Do not use unless asked.
   Recording matches script.md. Voice 43.1 s -> 34.3 s clean; allosaurus-align 110 words, "A" corrected to f641 from the
   pause file (aligner had put it on top of "the"). ~1084 f. Music: loop.wav.
   Scenes: hotel lobby (neon ROOMS 24x7, key rack, counter + bell): girlfriend left, you right, Chachu at reception turns round on
