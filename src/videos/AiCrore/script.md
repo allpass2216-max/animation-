@@ -1,6 +1,6 @@
 # AiCrore — script (Part 1)
 
-Status: SCRIPT ONLY. No voice, no build yet. Waiting for the voice file in `voice/`.
+Status: STAGE 1 BUILT. Recording voice/aicrore.mp3 matches this script word for word. Ishaan is styled as a rapper (user request).
 Voice language: Hinglish (Roman script). Handle: `@yourhandle` (placeholder; template blanks were not filled).
 Target: 10 lines, 109 words, about 36-39 s after clean_voice (+2 s tail).
 

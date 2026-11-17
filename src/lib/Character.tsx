@@ -60,6 +60,10 @@ export const Character: React.FC<{
   holding?: Cue<"none" | "bag" | "phone" | "helmet" | "icecream">[]; // prop in the right hand
   mustache?: boolean;
   backpack?: string; // school/tuition bag colour (worn on the back, straps in front)
+  cap?: string; // snapback cap colour (brim to the side)
+  chain?: boolean; // thick gold chain
+  hood?: string; // hoodie hood colour (behind the neck)
+  shades?: Cue<boolean>[]; // sunglasses on (true) / pushed up on the cap (false)
   tie?: string; // tie colour
   glasses?: boolean;
   sweat?: Cue<boolean>[];
@@ -83,6 +87,10 @@ export const Character: React.FC<{
   mom = false,
   mustache = false,
   backpack,
+  cap,
+  chain = false,
+  hood,
+  shades = [{ f: 0, v: false }],
   tie,
   glasses = false,
   sweat = [{ f: 0, v: false }],
@@ -110,6 +118,7 @@ export const Character: React.FC<{
   const hasMoney = pick(money, frame).cur.v;
   const held = pick(holding, frame).cur.v;
   const sweating = sweat[0].f <= frame && pick(sweat, frame).cur.v; // no sweat before the first cue
+  const shadesOn = shades[0].f <= frame && pick(shades, frame).cur.v;
 
   // idle life
   const breathe = Math.sin((frame + seed * 13) / 14);
@@ -213,6 +222,7 @@ export const Character: React.FC<{
             <rect x={148} y={-420} width={40} height={120} rx={12} fill={backpack} stroke={INK} strokeWidth={7} />
           </g>
         )}
+        {hood && <path d="M-150 -500 Q-170 -600 0 -610 Q170 -600 150 -500 Q80 -540 0 -540 Q-80 -540 -150 -500Z" fill={hood} stroke={INK} strokeWidth={10} />}
         {/* torso (breathes) */}
         <g transform={`translate(0 -250) scale(${1 + breathe * 0.012} ${1 + breathe * 0.025}) translate(0 250)`}>
           <path
@@ -233,6 +243,14 @@ export const Character: React.FC<{
             <path d="M92 -528 L112 -300" stroke={backpack} strokeWidth={18} />
             <rect x={-124} y={-400} width={26} height={18} rx={4} fill="#adb5bd" stroke={INK} strokeWidth={5} />
             <rect x={98} y={-400} width={26} height={18} rx={4} fill="#adb5bd" stroke={INK} strokeWidth={5} />
+          </g>
+        )}
+        {chain && (
+          <g>
+            <path d="M-70 -525 Q0 -380 70 -525" fill="none" stroke="#8a6d1d" strokeWidth={22} />
+            <path d="M-70 -525 Q0 -380 70 -525" fill="none" stroke="#ffd43b" strokeWidth={14} strokeDasharray="10 6" />
+            <circle cx={0} cy={-430 + Math.sin(frame / 6) * 3} r={30} fill="#ffd43b" stroke={INK} strokeWidth={8} />
+            <path d={`M-12 ${-440 + Math.sin(frame / 6) * 3} L12 ${-440 + Math.sin(frame / 6) * 3} M-12 ${-420 + Math.sin(frame / 6) * 3} L12 ${-420 + Math.sin(frame / 6) * 3}`} stroke="#8a6d1d" strokeWidth={6} />
           </g>
         )}
         {/* left arm (behind props) */}
@@ -265,6 +283,20 @@ export const Character: React.FC<{
               opacity={0.96}
             />
           )}
+          {cap && (
+            <g>
+              <path d="M-182 -742 Q-180 -930 0 -935 Q180 -930 182 -742 Z" fill={cap} stroke={INK} strokeWidth={10} strokeLinejoin="round" />
+              <path d="M110 -760 Q260 -770 300 -730 Q240 -715 110 -735 Z" fill={cap} stroke={INK} strokeWidth={9} strokeLinejoin="round" />
+              <rect x={-60} y={-860} width={120} height={50} rx={10} fill="#fff" stroke={INK} strokeWidth={6} />
+              <path d="M-40 -835 L40 -835" stroke={INK} strokeWidth={8} />
+              {!shadesOn && (
+                <g transform="translate(0 -790)">
+                  <rect x={-120} y={-24} width={100} height={48} rx={18} fill="#212529" stroke={INK} strokeWidth={7} />
+                  <rect x={20} y={-24} width={100} height={48} rx={18} fill="#212529" stroke={INK} strokeWidth={7} />
+                </g>
+              )}
+            </g>
+          )}
           {/* brows */}
           <g transform={`translate(0 ${browY})`}>
             <path d={`M-100 ${-782 + browTilt} L-30 ${-790 - browTilt * 0.4}`} stroke={INK} strokeWidth={14} strokeLinecap="round" />
@@ -289,6 +321,14 @@ export const Character: React.FC<{
                 </>
               )}
             </>
+          )}
+          {shadesOn && (
+            <g>
+              <path d="M-130 -745 L130 -745" stroke={INK} strokeWidth={10} />
+              <rect x={-128} y={-750} width={112} height={66} rx={22} fill="#212529" stroke={INK} strokeWidth={8} />
+              <rect x={16} y={-750} width={112} height={66} rx={22} fill="#212529" stroke={INK} strokeWidth={8} />
+              <path d="M-110 -735 L-80 -735 M34 -735 L64 -735" stroke="#868e96" strokeWidth={6} strokeLinecap="round" />
+            </g>
           )}
           {mustache && <path d="M-62 -632 Q-30 -660 0 -640 Q30 -660 62 -632 Q30 -618 0 -628 Q-30 -618 -62 -632Z" fill="#2a1e22" stroke={INK} strokeWidth={6} />}
           {sweating &&

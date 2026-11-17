@@ -1,8 +1,8 @@
 // Night-time world pieces for LateNight: sky, interior, door, wall clock, pill strip, shop shutters, bill, bike, party, office, lamp.
 import React from "react";
 import { AbsoluteFill, interpolate, random, useCurrentFrame } from "remotion";
-import { H, INK, W } from "../../lib/reel";
-import { SignText } from "../../lib/world";
+import { H, INK, W } from "./reel";
+import { SignText } from "./world";
 
 export const NightSky: React.FC<{ top?: string; bottom?: string; moon?: boolean }> = ({ top = "#0b1033", bottom = "#2b3a7a", moon = true }) => {
   const frame = useCurrentFrame();

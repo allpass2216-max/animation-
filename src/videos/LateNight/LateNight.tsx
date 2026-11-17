@@ -6,7 +6,7 @@ import { Character, Extra } from "../../lib/Character";
 import { Camera, Chip, Dust, Grain, H, INK, makeCue, popSpring, SoftLight, Sparkles, Vignette, W, WordsFile } from "../../lib/reel";
 import { FollowButton, Tiles } from "../../lib/ui";
 import { Foreground, Layer, Rays, SignText } from "../../lib/world";
-import { Bike, Door, Interior, NightSky, OfficeDesk, Party, PillStrip, PocketBill, ShopRow, StreetLamp, WallClock } from "./night";
+import { Bike, Door, Interior, NightSky, OfficeDesk, Party, PillStrip, PocketBill, ShopRow, StreetLamp, WallClock } from "../../lib/night";
 import wordsData from "./words.json";
 
 const data = wordsData as unknown as WordsFile;

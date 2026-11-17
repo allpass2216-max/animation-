@@ -63,7 +63,10 @@
   -> park bench, calendar SEP/OCT tear off -> eye-lock zap "TU KUCH MAT BOLNA" -> dinner (two-row seating, close-ups per beat)
   -> Papa asks, slam "AAJ KYA PADHAYA?" -> A-D framed on who it's about -> outro + follow tap. Answer A. Handle placeholder.
   Rig additions: mustache, tie, glasses, sweat cue, ice-cream prop. Fixed: sweat no longer shows before its first cue.
-- `AiCrore` (src/videos/AiCrore): SCRIPT WRITTEN (Hinglish, 10 lines, 109 words, A-D from refs/ai100crore.mp4, idea only: an
-  "AI app" fills Ishaan's account with 50 crore (2,500 x 2 lakh, checked), caller wants it forwarded = money-mule). Answer A
-  (bank + cyber police). Reference's maths was wrong (4,700 x ~37 lakh = ~1,739 crore, not 100). Handle placeholder.
-  NEXT: wait for voice file in voice/; check which script version was recorded.
+- `AiCrore` (src/videos/AiCrore): STAGE 1 BUILT, waiting for fixes or "go to final".
+  Recording matches script.md. Voice 41.9 s -> 33.9 s clean; allosaurus-align 109/109; ~1074 f. Music: loop.wav.
+  Ishaan = RAPPER look (user asked): red snapback, gold chain, black hoodie, shades on/off cues (Character cap/chain/hood/shades).
+  Scenes: hostel midnight + big phone (balance 2,000, chat "MUJHE AMEER BANA DE") -> 6 AM balance races to 50 crore + bank alert
+  + coin rain -> transfers list counting 2,500 -> AI chat "HO GAYA / KISI KO MAT BATANA" -> unknown call, red rays, "PAISA HUMARA
+  HAI", "10% TUMHARA" -> A cyber cell + bank / B money flies to hooded scammer / C app into trash / D party -> outro + follow.
+  Answer A. Handle placeholder. night.tsx moved to src/lib/night.tsx (shared).
