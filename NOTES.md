@@ -7,8 +7,10 @@
 - Fonts: Poppins 700/800 woff2 in `public/fonts/`, loaded by `src/lib/fonts.ts` (FontFace + delayRender). Import `FONT_FAMILY` from there.
 - Sound pack: `public/sfx/*.wav` (whoosh pop ding tick click thud splash sparkle buzzer slam) + `public/music/loop.wav` (8 s loop).
   Regenerate with `python3 tools/make_sfx.py`.
-- Whisper: installed, but the model download host (openaipublic.azureedge.net) is BLOCKED, so `word_times.py`
-  falls back to line times. Allow that host under Network access to get real word times.
+- Whisper: installed, but the model download host (openaipublic.azureedge.net) is BLOCKED.
+  `word_times.py --script` then uses `tools/align_words.py`: Allosaurus phone recognition (pip `allosaurus`,
+  model from GitHub) + forced alignment to the script = MEASURED word times (`"source": "allosaurus-align"`).
+  Words with no matched phones are flagged `"interpolated"` (placed just before the next measured word).
 
 ## Pipeline for a new reel
 1. Voice arrives in `voice/<name>.wav` (+ optional `voice/<name>.txt`, one script line per line).
@@ -27,7 +29,13 @@
 - `tools/trim_pauses.py`: exact numpy pause trimmer (ffmpeg silenceremove left ~0.4 s gaps).
 
 ## Videos
-- `ShopSpot` (src/videos/ShopSpot): SCRIPT WRITTEN (Hinglish, 10 lines, 109 words, A-D location puzzle from
-  refs/business_ideas.mp4, idea only). Answer A (RTO office). Handle is still the placeholder @yourhandle.
-  NEXT: wait for voice file in voice/, then clean_voice -> word_times -> build.
+- `ShopSpot` (src/videos/ShopSpot): STAGE 1 BUILT, waiting for fixes or "go to final".
+  Voice: voice/shopspot.mp3 (ElevenLabs, 41.0 s) -> voice/shopspot_clean.wav (33.7 s) -> public/voice/shopspot.wav.
+  Recording matches script.md word for word. Word times: allosaurus-align, 104/109 measured; snapshot in
+  src/videos/ShopSpot/words.json (cues are checked by word text in ShopSpot.tsx). Duration 1072 f (voice + 2 s).
+  Scenes: hook street (title 50,000 RUPEES / 4 SPOTS, 1 WINNER, money drop on "doob") -> shop (xerox prints,
+  photo flash) -> idea bulb (punch-in on "jahan") -> hospital/station/school stalls -> re-hook rays + slam ->
+  A RTO queue / B mall crowd / C two xerox shops / D sleepy gali, tiles stacked at top -> outro, Follow tap on handle.
+  Answer A (RTO office). Handle still the placeholder @yourhandle (Follow button shows no handle text).
+  Shared code made for this: src/lib/reel.tsx (Chip, Camera, Dust, Sparkles, Grain...), src/lib/Character.tsx (rig + Extra).
 - `Test` (src/videos/Test): 5 s gradient + "STUDIO READY!" pop. Setup check only.

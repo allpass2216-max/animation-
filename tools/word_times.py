@@ -2,7 +2,9 @@
 """Word timestamps for a voice-over -> public/words.json (times in seconds AND frames @30fps).
 
 1) Whisper ("small" by default) with word_timestamps=True. The model is cached in ./models/.
-2) If Whisper or its model download fails (e.g. network blocked), FALL BACK to ffmpeg silencedetect:
+2) If Whisper fails and --script is given: Allosaurus phone recognition + forced alignment (tools/align_words.py)
+   gives MEASURED word times ("source": "allosaurus-align"; words marked "interpolated" had no phones matched).
+3) Last resort, ffmpeg silencedetect:
    speech segments between pauses become "lines". If you pass --script (one line of the voice
    script per text line), the lines are labelled with that text and words are spread across each
    line by length. Fallback word times are APPROXIMATE (marked "approx": true); line times are real.
@@ -135,6 +137,7 @@ def main():
     ap.add_argument("--model", default="small")
     ap.add_argument("--language", default=None, help="e.g. en, hi (default: auto-detect)")
     ap.add_argument("--force-fallback", action="store_true")
+    ap.add_argument("--no-align", action="store_true", help="skip the Allosaurus forced alignment fallback")
     a = ap.parse_args()
 
     script_lines = None
@@ -153,11 +156,26 @@ def main():
             print(f"[word_times] {note}\n[word_times] falling back to ffmpeg silencedetect line times. "
                   "To get real word times allow openaipublic.azureedge.net in this environment's Network access.",
                   file=sys.stderr)
+    if source == "silencedetect" and script_lines and not a.no_align:
+        try:  # measured word times from phone recognition + forced alignment to the script
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            from align_words import align
+            al = align(script_lines, a.audio)
+            words = [with_frames({"word": w["word"], "start": w["start"], "end": w["end"], "line": w["line"],
+                                  **({"interpolated": True} if w.get("interpolated") else {})}) for w in al]
+            lines = []
+            for li, text in enumerate(script_lines):
+                ws = [w for w in words if w["line"] == li]
+                if ws:
+                    lines.append(with_frames({"text": text, "start": ws[0]["start"], "end": ws[-1]["end"]}))
+            source = "allosaurus-align"
+        except Exception as e:
+            print(f"[word_times] allosaurus alignment failed ({type(e).__name__}: {e}); using line times", file=sys.stderr)
     if source == "silencedetect":
         words, lines = run_fallback(a.audio, script_lines)
 
     data = {"audio": os.path.relpath(os.path.abspath(a.audio), ROOT), "fps": FPS, "duration": round(duration(a.audio), 3),
-            "source": source, "approxWords": source != "whisper", "note": note, "lines": lines, "words": words}
+            "source": source, "approxWords": source == "silencedetect", "note": note, "lines": lines, "words": words}
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     with open(a.out, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
