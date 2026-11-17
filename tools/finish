@@ -3,13 +3,13 @@
 #   - loudness -14 LUFS integrated, true peak -1.5 dBTP (measured, gain + true-peak limiter, re-measured)
 #   - overlays a watermark PNG at 30% opacity (default public/watermark.png, make it with tools/make_watermark.py)
 # Usage: tools/finish out/video.mp4 [out/video_final.mp4] [--wm public/watermark.png] [--opacity 0.3] [--pos x:y]
-#   --pos default "48:H*0.60": left edge, 60% down (clear of faces' usual spot, platform UI and the right edge).
+#   --pos default "48:H-380": left edge, just above the bottom 300 px (below faces, clear of platform UI and the right edge).
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 IN="${1:?usage: tools/finish input.mp4 [output.mp4] [--wm file.png] [--opacity 0.3] [--pos x:y]}"; shift
 OUT="${IN%.*}_final.mp4"
 if [[ $# -gt 0 && "$1" != --* ]]; then OUT="$1"; shift; fi
-WM="$HERE/../public/watermark.png"; OP=0.3; POS="48:H*0.60"
+WM="$HERE/../public/watermark.png"; OP=0.3; POS="48:H-380"
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --wm) WM="$2"; shift 2;;

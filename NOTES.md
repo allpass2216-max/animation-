@@ -26,6 +26,7 @@
 ## Tool notes
 - `tools/loudness.py` is shared by clean_voice and finish: gain + true-peak limiter, re-measured until within 0.1 LU.
   (Plain loudnorm undershot by ~1 LU on peaky voices, so it is not used.) finish limits at -2.2 so AAC encoding stays <= -1.5 dBTP.
+- `tools/finish` watermark default is now left, just above the bottom 300 px (48:H-380); the old 60% spot can cover faces.
 - `tools/trim_pauses.py`: exact numpy pause trimmer (ffmpeg silenceremove left ~0.4 s gaps).
 
 ## Videos
@@ -42,7 +43,9 @@
   Answer A (RTO office). Handle still the placeholder @yourhandle (Follow button shows no handle text).
   Shared code made for this: src/lib/reel.tsx (Chip, Camera, Dust, Sparkles, Grain...), src/lib/Character.tsx (rig + Extra).
 - `Test` (src/videos/Test): 5 s gradient + "STUDIO READY!" pop. Setup check only.
-- `LateNight` (src/videos/LateNight): STAGE 1 BUILT, waiting for fixes or "go to final".
+- `LateNight` (src/videos/LateNight): FINAL DONE (2026-11-17). out/latenight_final.mp4: 35.4 s, -14.0 LUFS, TP -2.7 dBTP,
+  watermark @yourhandle (PLACEHOLDER) at the new default spot 48:H-380 (H*0.60 covered Maa's face). Caption + pinned comment in post.md.
+  Part 2 must reveal A: he searched the city for her BP medicine (12:30 AM bill), and the mother's regret.
   Recording voice/latenight.mp3 = script v1 WITH A-D options (not the v2 story); built as recorded. Recorded text: voice/latenight.txt.
   Voice 42.0 s -> 33.6 s clean; allosaurus-align 109/110 measured; duration ~1063 f. Sad music: public/music/sad_loop.wav.
   Scenes: doorway 1 AM (Maa shouts) -> clock time-lapse 7->1 -> Kabir leaves on bike -> CLUE 1 empty pill strip -> CLUE 2 shutters at 9
