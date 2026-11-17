@@ -57,11 +57,16 @@ export const Character: React.FC<{
   look?: Cue<number>[]; // pupil x offset -1..1
   hops?: number[]; // frames where he does a small jump
   money?: Cue<boolean>[];
-  holding?: Cue<"none" | "bag" | "phone" | "helmet" | "icecream">[]; // prop in the right hand
+  holding?: Cue<"none" | "bag" | "phone" | "helmet" | "icecream" | "purse">[]; // prop in the right hand
   mustache?: boolean;
   backpack?: string; // school/tuition bag colour (worn on the back, straps in front)
   cap?: string; // snapback cap colour (brim to the side)
   longHair?: string; // long hair falling to the shoulders (colour)
+  lipstick?: string; // lip colour (outlines the mouth in every expression)
+  lashes?: boolean;
+  dress?: string; // flared knee-length dress over the legs
+  blazer?: string; // open blazer over the shirt, with lapels
+  quiff?: boolean; // styled quiff hairstyle
   earrings?: boolean;
   chain?: boolean; // thick gold chain
   hood?: string; // hoodie hood colour (behind the neck)
@@ -91,6 +96,11 @@ export const Character: React.FC<{
   backpack,
   cap,
   longHair,
+  lipstick,
+  lashes = false,
+  dress,
+  blazer,
+  quiff = false,
   earrings = false,
   chain = false,
   hood,
@@ -217,6 +227,18 @@ export const Character: React.FC<{
         <path d="M58 -250 L66 -40" stroke={pants} strokeWidth={66} strokeLinecap="round" />
         <ellipse cx={-80} cy={-16} rx={66} ry={34} fill="#3a2a2a" stroke={INK} strokeWidth={9} />
         <ellipse cx={80} cy={-16} rx={66} ry={34} fill="#3a2a2a" stroke={INK} strokeWidth={9} />
+        {dress && (
+          <g transform={`translate(0 ${breathe * 2})`}>
+            <path
+              d={`M-130 -330 L${-200 - Math.sin(frame / 9) * 6} -130 Q0 -95 ${200 + Math.sin(frame / 9) * 6} -130 L130 -330 Z`}
+              fill={dress}
+              stroke={INK}
+              strokeWidth={10}
+              strokeLinejoin="round"
+            />
+            <path d="M-110 -170 Q0 -150 110 -170" fill="none" stroke="#fff" strokeWidth={5} opacity={0.35} />
+          </g>
+        )}
         {/* backpack behind the body: peeks out at both sides and above the shoulders */}
         {backpack && (
           <g transform={`translate(0 ${breathe * 3})`}>
@@ -239,6 +261,16 @@ export const Character: React.FC<{
           <path d="M0 -470 L0 -240" stroke={INK} strokeWidth={5} opacity={0.35} />
           {tie && <path d="M-16 -490 L16 -490 L22 -330 L0 -300 L-22 -330 Z" fill={tie} stroke={INK} strokeWidth={7} strokeLinejoin="round" />}
         </g>
+        {blazer && (
+          <g transform={`translate(0 -250) scale(${1 + breathe * 0.012} ${1 + breathe * 0.025}) translate(0 250)`}>
+            <path d="M-150 -470 Q-160 -520 -100 -530 L-40 -530 L-10 -240 L-100 -220 Q-140 -220 -140 -260 Z" fill={blazer} stroke={INK} strokeWidth={10} strokeLinejoin="round" />
+            <path d="M150 -470 Q160 -520 100 -530 L40 -530 L10 -240 L100 -220 Q140 -220 140 -260 Z" fill={blazer} stroke={INK} strokeWidth={10} strokeLinejoin="round" />
+            <path d="M-40 -530 L-75 -420 L-30 -440" fill="none" stroke={INK} strokeWidth={7} strokeLinejoin="round" />
+            <path d="M40 -530 L75 -420 L30 -440" fill="none" stroke={INK} strokeWidth={7} strokeLinejoin="round" />
+            <path d="M-110 -360 L-60 -360" stroke="#fff" strokeWidth={8} opacity={0.6} />
+            <circle cx={-22} cy={-300} r={9} fill="#ced4da" stroke={INK} strokeWidth={4} />
+          </g>
+        )}
         {backpack && (
           <g fill="none" strokeLinecap="round">
             <path d="M-92 -528 L-112 -300" stroke={INK} strokeWidth={30} />
@@ -259,7 +291,7 @@ export const Character: React.FC<{
         )}
         {/* left arm (behind props) */}
         <path d={L.d} fill="none" stroke={INK} strokeWidth={60} strokeLinecap="round" strokeLinejoin="round" />
-        <path d={L.d} fill="none" stroke={shirt} strokeWidth={44} strokeLinecap="round" strokeLinejoin="round" />
+        <path d={L.d} fill="none" stroke={blazer ?? shirt} strokeWidth={44} strokeLinecap="round" strokeLinejoin="round" />
         <circle cx={L.hx} cy={L.hy} r={31} fill={skin} stroke={INK} strokeWidth={9} />
         {/* head (bobs with breath) */}
         <g transform={`translate(0 ${breathe * 4})`}>
@@ -296,6 +328,9 @@ export const Character: React.FC<{
               opacity={0.96}
             />
           )}
+          {quiff && !cap && (
+            <path d="M-120 -830 Q-90 -960 60 -950 Q160 -940 150 -860 Q110 -900 40 -880 Q-40 -860 -120 -830Z" fill={hair} stroke={INK} strokeWidth={10} strokeLinejoin="round" />
+          )}
           {cap && (
             <g>
               <path d="M-182 -742 Q-180 -930 0 -935 Q180 -930 182 -742 Z" fill={cap} stroke={INK} strokeWidth={10} strokeLinejoin="round" />
@@ -329,6 +364,13 @@ export const Character: React.FC<{
             </>
           ) : (
             <>
+              {lashes &&
+                [-1, 1].map((sd) => (
+                  <g key={sd} stroke={INK} strokeWidth={7} strokeLinecap="round">
+                    <path d={`M${sd * 92} ${-718 - eyeRy * 0.6} L${sd * 112} ${-718 - eyeRy * 0.95}`} />
+                    <path d={`M${sd * 80} ${-718 - eyeRy * 0.85} L${sd * 94} ${-718 - eyeRy * 1.25}`} />
+                  </g>
+                ))}
               <ellipse cx={-64} cy={-718} rx={36} ry={eyeRy} fill="#fff" stroke={INK} strokeWidth={8} />
               <ellipse cx={64} cy={-718} rx={36} ry={eyeRy} fill="#fff" stroke={INK} strokeWidth={8} />
               {blink < 0.6 && (
@@ -366,6 +408,7 @@ export const Character: React.FC<{
           <path d="M-8 -676 Q12 -650 -6 -640" fill="none" stroke={INK} strokeWidth={8} strokeLinecap="round" />
           <ellipse cx={-110} cy={-640} rx={26} ry={14} fill="#e9716b" opacity={0.45} />
           <ellipse cx={110} cy={-640} rx={26} ry={14} fill="#e9716b" opacity={0.45} />
+          {lipstick && <g style={{ filter: "none" }}>{React.cloneElement(mouth, { stroke: lipstick, strokeWidth: 22 })}</g>}
           {mouth}
           {expr === "cry" &&
             [-64, 64].map((tx, i) => {
@@ -385,7 +428,7 @@ export const Character: React.FC<{
         </g>
         {/* right arm in front */}
         <path d={R.d} fill="none" stroke={INK} strokeWidth={60} strokeLinecap="round" strokeLinejoin="round" />
-        <path d={R.d} fill="none" stroke={shirt} strokeWidth={44} strokeLinecap="round" strokeLinejoin="round" />
+        <path d={R.d} fill="none" stroke={blazer ?? shirt} strokeWidth={44} strokeLinecap="round" strokeLinejoin="round" />
         {hasMoney && <Money hx={R.hx} hy={R.hy} />}
         {held === "bag" && (
           <g transform={`translate(${R.hx} ${R.hy + 20}) rotate(${Math.sin(frame / 8) * 6})`}>
@@ -408,6 +451,13 @@ export const Character: React.FC<{
             <path d="M-20 20 L20 60 M20 20 L-10 80" stroke="#c98a4b" strokeWidth={5} />
             <circle cx={0} cy={-26} r={42} fill="#ffc9de" stroke={INK} strokeWidth={8} />
             <circle cx={-10} cy={-70} r={28} fill="#8b5a3c" stroke={INK} strokeWidth={7} />
+          </g>
+        )}
+        {held === "purse" && (
+          <g transform={`translate(${R.hx} ${R.hy}) rotate(${Math.sin(frame / 8) * 8})`}>
+            <path d="M-34 10 Q0 -50 34 10" fill="none" stroke="#ffd43b" strokeWidth={6} />
+            <rect x={-56} y={10} width={112} height={78} rx={18} fill="#f783ac" stroke={INK} strokeWidth={8} />
+            <circle cx={0} cy={44} r={9} fill="#ffd43b" stroke={INK} strokeWidth={4} />
           </g>
         )}
         {held === "helmet" && (

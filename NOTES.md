@@ -80,3 +80,7 @@
   "Chachu", all three shocked -> office lie (Dadi waves) -> park bench + calendar -> eye-lock at the counter -> dinner (shared
   family layout) -> Papa asks, slam "KAL RAAT KAHAN THE?" -> A-D close-ups -> outro + follow tap. Answer A. Handle @rehanfact.
   Shared code: DinnerSecret places moved to src/lib/family.tsx; Character longHair + earrings; parked shades only if shades used.
+  v2 (user fixes): hotel redone dark pink + purple (neon ROOMS 24x7 glow, neon heart, chandelier, pink LED strips, velvet sofa,
+  glossy floor, purple counter with pink LED edge); boy = smart (navy blazer, white shirt, quiff); girl = glam (party dress,
+  lipstick, lashes, hoop earrings, purse, dropped when she panics). Rig: blazer/quiff/dress/lipstick/lashes/purse; sleeves
+  take the blazer colour.

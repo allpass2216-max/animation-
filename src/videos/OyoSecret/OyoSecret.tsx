@@ -59,8 +59,8 @@ const END = OYOSECRET_DURATION;
 const inRange = (f: number, a: number, b: number) => f >= a && f < b;
 
 // cast
-const YOU = { skin: "#B97A50", shirt: "#1971c2", pants: "#2b3a67", hair: "#1d1420", hood: "#1864ab" } as const; // college hoodie
-const GF = { skin: "#C98B5E", shirt: "#e64980", pants: "#5f3dc4", hair: "#1d1420", longHair: "#1d1420", earrings: true } as const;
+const YOU = { skin: "#B97A50", shirt: "#f8f9fa", pants: "#1b1f3b", hair: "#1d1420", blazer: "#1b1f3b", quiff: true } as const; // smart: navy blazer, white shirt, quiff
+const GF = { skin: "#C98B5E", shirt: "#c2255c", pants: "#c98b5e", hair: "#2a1622", longHair: "#2a1622", earrings: true, lipstick: "#e03174", lashes: true, dress: "#c2255c" } as const; // glam: party dress, lipstick, lashes
 const CHACHU_DESK = { skin: "#C98B5E", shirt: "#862e9c", pants: "#343a40", hair: "#1d1420", mustache: true, tie: "#ffd43b", cap: "#862e9c" } as const;
 const CHACHU = { skin: "#C98B5E", shirt: "#f1f3f5", pants: "#343a40", hair: "#1d1420", mustache: true, tie: "#c92a2a" } as const;
 const PAPA = { skin: "#B97A50", shirt: "#e8a33d", pants: "#5c3d2e", hair: "#2a1e22", mustache: true, glasses: true } as const;
@@ -106,6 +106,7 @@ const LobbyScene: React.FC = () => {
           x={200 + walk}
           y={1740 + bob}
           scale={0.82}
+          holding={[{ f: 0, v: "purse" }, { f: F.chachu, v: "none" }]}
           poses={[
             { f: 0, v: "hold" },
             { f: F.chachu, v: "panic" },
