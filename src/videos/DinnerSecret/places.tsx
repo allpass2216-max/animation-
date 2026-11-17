@@ -181,3 +181,45 @@ export const EyeZap: React.FC<{ at: number; x1: number; x2: number; y: number }>
     </AbsoluteFill>
   );
 };
+
+/** Street outside: COACHING building on the left, CITY MALL entrance with sliding glass doors on the right. */
+export const MallEntrance: React.FC<{ doorsAt: number }> = ({ doorsAt }) => {
+  const frame = useCurrentFrame();
+  const open = interpolate(frame, [doorsAt, doorsAt + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <>
+      <rect x={-200} y={0} width={W + 400} height={H} fill="#9fd4ff" />
+      {[0, 1].map((i) => (
+        <g key={i} opacity={0.85} transform={`translate(${200 + i * 520} ${200 + i * 60})`}>
+          <ellipse cx={0} cy={0} rx={110} ry={38} fill="#fff" />
+          <ellipse cx={50} cy={-24} rx={60} ry={40} fill="#fff" />
+        </g>
+      ))}
+      {/* coaching building (left) */}
+      <rect x={-200} y={560} width={640} height={940} fill="#adb5bd" stroke={INK} strokeWidth={10} />
+      <rect x={20} y={600} width={400} height={110} rx={14} fill="#1971c2" stroke={INK} strokeWidth={9} />
+      <SignText x={220} y={680} size={64} text="COACHING" />
+      {[0, 1].map((r) =>
+        [0, 1].map((c) => <rect key={`${r}${c}`} x={60 + c * 200} y={780 + r * 170} width={130} height={120} rx={8} fill="#e7f5ff" stroke={INK} strokeWidth={7} />),
+      )}
+      <rect x={140} y={1180} width={170} height={320} fill="#5c636a" stroke={INK} strokeWidth={9} />
+      {/* mall facade (right) */}
+      <rect x={480} y={480} width={800} height={1020} fill="#f3d9fa" stroke={INK} strokeWidth={10} />
+      <rect x={530} y={520} width={480} height={130} rx={18} fill="#c2255c" stroke={INK} strokeWidth={9} />
+      <SignText x={770} y={612} size={74} text="CITY MALL" />
+      {[0, 1].map((c) => (
+        <rect key={c} x={560 + c * 230} y={700} width={190} height={300} rx={10} fill="#d0ebff" stroke={INK} strokeWidth={7} />
+      ))}
+      {/* sliding glass doors */}
+      <rect x={560} y={1080} width={400} height={420} fill="#fff3bf" stroke={INK} strokeWidth={9} />
+      <rect x={560 - open * 190} y={1080} width={200} height={420} fill="#a5d8ff" stroke={INK} strokeWidth={8} opacity={0.9} />
+      <rect x={760 + open * 190} y={1080} width={200} height={420} fill="#a5d8ff" stroke={INK} strokeWidth={8} opacity={0.9} />
+      {/* pavement */}
+      <rect x={-200} y={1500} width={W + 400} height={H - 1500} fill="#ced4da" />
+      <rect x={-200} y={1500} width={W + 400} height={14} fill={INK} opacity={0.25} />
+      {Array.from({ length: 8 }).map((_, i) => (
+        <path key={i} d={`M${-200 + i * 200} 1500 L${-260 + i * 220} ${H}`} stroke="#adb5bd" strokeWidth={5} />
+      ))}
+    </>
+  );
+};

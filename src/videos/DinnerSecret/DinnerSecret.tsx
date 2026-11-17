@@ -6,7 +6,7 @@ import { Character, Cue, Expr, Extra, PoseName } from "../../lib/Character";
 import { Camera, Chip, Dust, Grain, H, INK, makeCue, popSpring, SoftLight, Vignette, W, WordsFile } from "../../lib/reel";
 import { FollowButton, Tiles } from "../../lib/ui";
 import { Foreground, Layer, Rays, SignText } from "../../lib/world";
-import { DinnerRoom, DinnerTable, EyeZap, HomeFront, Mall, ParkBench } from "./places";
+import { DinnerRoom, DinnerTable, EyeZap, HomeFront, Mall, MallEntrance, ParkBench } from "./places";
 import wordsData from "./words.json";
 
 const data = wordsData as unknown as WordsFile;
@@ -56,6 +56,7 @@ const F = {
 };
 const END = DINNERSECRET_DURATION;
 const inRange = (f: number, a: number, b: number) => f >= a && f < b;
+const CUT_IN = F.chachu - 8; // hard cut from the street to inside the mall, just before "Chachu"
 
 // cast
 const YOU = { skin: "#B97A50", shirt: "#2f9e44", pants: "#2b3a67", hair: "#1d1420" } as const;
@@ -64,24 +65,72 @@ const PAPA = { skin: "#B97A50", shirt: "#e8a33d", pants: "#5c3d2e", hair: "#2a1e
 const DADI = { mom: true, skin: "#C98B5E", shirt: "#c2255c", pants: "#7a1f4f", hair: "#dee2e6" } as const;
 
 // ---------------- scenes ----------------
+/** Outside: he walks past the coaching centre, eyes it on "coaching", then slips into the mall on "mall". */
+const EntryScene: React.FC = () => {
+  const frame = useCurrentFrame();
+  const x = interpolate(frame, [0, F.coaching, F.mall, F.mall + 26, CUT_IN], [190, 400, 400, 760, 780], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const walking = frame < F.coaching || (frame >= F.mall && frame < F.mall + 26);
+  const bob = walking ? Math.abs(Math.sin(frame / 3.2)) * -10 : 0;
+  // as he goes through the doors he shrinks a little (moving away from camera) and fades into the doorway
+  const away = interpolate(frame, [F.mall + 14, CUT_IN], [1, 0.82], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const fade = interpolate(frame, [CUT_IN - 8, CUT_IN], [1, 0.2], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <>
+      <Camera from={0} to={CUT_IN} zoom={[1.0, 1.08]} pan={[0, -30]}>
+        <Layer depth={0.3} from={0} drift={-0.15}>
+          <MallEntrance doorsAt={F.mall + 6} />
+        </Layer>
+        <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
+          <Extra x={950} y={1620} s={0.8} shirt="#ffa8a8" seed={2} walk={-1.8} t0={0} bag="#e64980" />
+        </svg>
+        <div style={{ opacity: fade }}>
+          <Character
+            {...YOU}
+            x={x}
+            y={1760 + bob - (1 - away) * 160}
+            scale={0.92 * away}
+            poses={[
+              { f: 0, v: "idle" },
+              { f: F.coaching, v: "shrug" },
+              { f: F.mall, v: "point" },
+              { f: F.mall + 14, v: "idle" },
+            ]}
+            exprs={[
+              { f: 0, v: "smile" },
+              { f: F.coaching, v: "sly" },
+              { f: F.mall, v: "grin" },
+            ]}
+            look={[
+              { f: 0, v: 0.6 },
+              { f: F.coaching, v: -1 },
+              { f: F.mall, v: 1 },
+            ]}
+          />
+        </div>
+      </Camera>
+      <Foreground side="left" kind="plant" />
+    </>
+  );
+};
+
 const MallScene: React.FC = () => {
   const frame = useCurrentFrame();
   const chachuX = interpolate(frame, [F.chachu - 8, F.chachu + 4], [1250, 790], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const walk = frame < F.chachu ? Math.sin(frame / 3.5) * 6 : 0;
-  const youX = interpolate(frame, [0, F.chachu], [250, 340], { extrapolateRight: "clamp" });
+  const walk = 0;
+  const youX = interpolate(frame, [F.chachu, F.chachu + 8], [380, 330], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }); // jumps back
+
   // ice-cream scoop falls with gravity on "khade" and splats
-  const t = (frame - F.khade) / 30;
+  const t = (frame - F.chachu) / 30;
   const scoopY = t < 0 ? 0 : Math.min(0.5 * 4200 * t * t, 420);
   const splat = scoopY >= 420;
   return (
     <>
-      <Camera from={0} to={F.s2} zoom={[1.0, 1.08]} pan={[frame < F.chachu ? 20 : -30, frame < F.chachu ? 0 : -40]} shakeAt={[F.chachu]}>
-        <Layer depth={0.3} from={0} drift={-0.5}>
+      <Camera from={CUT_IN} to={F.s2} zoom={[1.04, 1.12]} pan={[-20, -40]} shakeAt={[F.chachu]}>
+        <Layer depth={0.3} from={CUT_IN} drift={-0.5}>
           <Mall />
         </Layer>
         <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
-          <Extra x={900} y={1560} s={0.85} shirt="#ffa8a8" seed={2} walk={-2} bag="#e64980" />
-          <Extra x={100} y={1520} s={0.75} shirt="#a5d8ff" seed={4} walk={1.6} />
+          <Extra x={100} y={1520} s={0.75} shirt="#a5d8ff" seed={4} walk={1.6} t0={CUT_IN} />
         </svg>
         <Character
           {...YOU}
@@ -94,12 +143,12 @@ const MallScene: React.FC = () => {
           ]}
           exprs={[
             { f: 0, v: "grin" },
-            { f: F.coaching, v: "sly" },
             { f: F.chachu, v: "shock" },
           ]}
+          hops={[F.chachu - 2]}
           holding={[
             { f: 0, v: "icecream" },
-            { f: F.khade, v: "none" },
+            { f: F.chachu, v: "none" },
           ]}
           look={[
             { f: 0, v: 0.3 },
@@ -107,7 +156,7 @@ const MallScene: React.FC = () => {
           ]}
           sweat={[{ f: F.khade, v: true }]}
         />
-        {frame >= F.khade && (
+        {frame >= F.chachu && (
           <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
             {splat ? (
               <ellipse cx={330} cy={1745} rx={70} ry={18} fill="#ffc9de" stroke={INK} strokeWidth={6} />
@@ -116,7 +165,7 @@ const MallScene: React.FC = () => {
             )}
           </svg>
         )}
-        {splat && <Dust at={F.khade + 13} x={330} y={1740} color="#ffc9de" count={8} spread={0.6} />}
+        {splat && <Dust at={F.chachu + 13} x={330} y={1740} color="#ffc9de" count={8} spread={0.6} />}
         {frame >= F.chachu - 8 && (
           <Character
             {...CHACHU}
@@ -408,9 +457,10 @@ const SFX: S[] = [
   { f: 0, s: "pop", v: 0.2 },
   { f: F.gyaarah, s: "pop", v: 0.2 },
   { f: F.coaching, s: "pop", v: 0.2 },
+  { f: F.mall + 6, s: "whoosh", v: 0.12 },
   { f: F.chachu - 8, s: "whoosh", v: 0.22 },
   { f: F.chachu, s: "slam", v: 0.25 },
-  { f: F.khade + 13, s: "splash", v: 0.18 },
+  { f: F.chachu + 13, s: "splash", v: 0.18 },
   { f: F.s2, s: "whoosh", v: 0.2 },
   { f: F.office, s: "ding", v: 0.12 },
   { f: F.par, s: "whoosh", v: 0.2 },
@@ -478,7 +528,8 @@ export const DinnerSecret: React.FC = () => {
   const frame = useCurrentFrame();
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      {inRange(frame, 0, F.s2) && <MallScene />}
+      {inRange(frame, 0, CUT_IN) && <EntryScene />}
+      {inRange(frame, CUT_IN, F.s2) && <MallScene />}
       {inRange(frame, F.s2, F.par) && <OfficeLieScene />}
       {inRange(frame, F.par, F.s3) && <JoblessScene />}
       {inRange(frame, F.s3, F.s4) && <LookScene />}
