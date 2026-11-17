@@ -42,3 +42,6 @@
   Answer A (RTO office). Handle still the placeholder @yourhandle (Follow button shows no handle text).
   Shared code made for this: src/lib/reel.tsx (Chip, Camera, Dust, Sparkles, Grain...), src/lib/Character.tsx (rig + Extra).
 - `Test` (src/videos/Test): 5 s gradient + "STUDIO READY!" pop. Setup check only.
+- `LateNight` (src/videos/LateNight): SCRIPT WRITTEN (Hinglish, 10 lines, 110 words, A-D clue puzzle from refs/ref2.mp4, idea only:
+  angry mother misjudges son out late; he was hunting her BP medicine). Answer A. Handle placeholder @yourhandle.
+  NEXT: wait for voice file in voice/, then clean_voice -> word_times --script -> build.
