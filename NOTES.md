@@ -53,7 +53,8 @@
   -> Maa crying "GUSSE KA EK SHABD WAPAS NAHI AATA" -> tiles + ANSWER NEXT REEL + follow tap. Answer A. Handle placeholder.
   Shared code added: src/lib/world.tsx (moved from ShopSpot), src/lib/ui.tsx (Tiles, FollowButton), Character mom variant,
   props (bag/phone/helmet), expressions angry/sad/cry.
-- `DinnerSecret` (src/videos/DinnerSecret): STAGE 1 BUILT, waiting for fixes or "go to final".
+- `DinnerSecret` (src/videos/DinnerSecret): FINAL DONE (2026-11-17). out/dinnersecret_final.mp4: 35.9 s, -14.0 LUFS, TP -2.8 dBTP,
+  watermark @yourhandle (PLACEHOLDER) low-left. Caption + pinned comment in post.md. Part 2 must reveal A (own your truth only).
   Recording matches script.md. Voice 43.1 s -> 34.0 s clean; allosaurus-align 107/109 measured; ~1077 f. Music: loop.wav.
   Scenes: mall (you + ice-cream, Chachu slides in on "Chachu", scoop falls + splats) -> Chachu leaves "for office", Dadi waves
   -> park bench, calendar SEP/OCT tear off -> eye-lock zap "TU KUCH MAT BOLNA" -> dinner (two-row seating, close-ups per beat)
