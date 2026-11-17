@@ -29,7 +29,10 @@
 - `tools/trim_pauses.py`: exact numpy pause trimmer (ffmpeg silenceremove left ~0.4 s gaps).
 
 ## Videos
-- `ShopSpot` (src/videos/ShopSpot): STAGE 1 BUILT, waiting for fixes or "go to final".
+- `ShopSpot` (src/videos/ShopSpot): FINAL DONE (2026-11-17). out/shopspot_final.mp4: 35.6 s, -14.0 LUFS, TP -2.8 dBTP,
+  watermark @yourhandle (PLACEHOLDER: rerun `python3 tools/make_watermark.py @realhandle && tools/finish out/shopspot.mp4 out/shopspot_final.mp4`,
+  and replace @yourhandle in post.md). Mix check: voice -16 LUFS, music+sfx bed ~-30 LUFS under it. Caption + pinned comment in post.md.
+  Part 2 must reveal: A (RTO office) — need created on the spot; B rent/wrong crowd; C price war; D no footfall.
   Voice: voice/shopspot.mp3 (ElevenLabs, 41.0 s) -> voice/shopspot_clean.wav (33.7 s) -> public/voice/shopspot.wav.
   Recording matches script.md word for word. Word times: allosaurus-align, 104/109 measured; snapshot in
   src/videos/ShopSpot/words.json (cues are checked by word text in ShopSpot.tsx). Duration 1072 f (voice + 2 s).
