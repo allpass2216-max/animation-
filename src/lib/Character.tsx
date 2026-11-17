@@ -61,6 +61,8 @@ export const Character: React.FC<{
   mustache?: boolean;
   backpack?: string; // school/tuition bag colour (worn on the back, straps in front)
   cap?: string; // snapback cap colour (brim to the side)
+  longHair?: string; // long hair falling to the shoulders (colour)
+  earrings?: boolean;
   chain?: boolean; // thick gold chain
   hood?: string; // hoodie hood colour (behind the neck)
   shades?: Cue<boolean>[]; // sunglasses on (true) / pushed up on the cap (false)
@@ -88,6 +90,8 @@ export const Character: React.FC<{
   mustache = false,
   backpack,
   cap,
+  longHair,
+  earrings = false,
   chain = false,
   hood,
   shades = [{ f: 0, v: false }],
@@ -259,6 +263,15 @@ export const Character: React.FC<{
         <circle cx={L.hx} cy={L.hy} r={31} fill={skin} stroke={INK} strokeWidth={9} />
         {/* head (bobs with breath) */}
         <g transform={`translate(0 ${breathe * 4})`}>
+          {longHair && (
+            <path
+              d={`M-190 -720 Q-210 -900 0 -905 Q210 -900 190 -720 L${215 + Math.sin(frame / 12) * 4} -470 Q120 -440 110 -520 L-110 -520 Q-120 -440 ${-215 + Math.sin(frame / 12) * 4} -470 Z`}
+              fill={longHair}
+              stroke={INK}
+              strokeWidth={10}
+              strokeLinejoin="round"
+            />
+          )}
           <rect x={-40} y={-560} width={80} height={60} fill={skin} stroke={INK} strokeWidth={9} />
           <circle cx={-172} cy={-690} r={36} fill={skin} stroke={INK} strokeWidth={9} />
           <circle cx={172} cy={-690} r={36} fill={skin} stroke={INK} strokeWidth={9} />
@@ -289,12 +302,18 @@ export const Character: React.FC<{
               <path d="M110 -760 Q260 -770 300 -730 Q240 -715 110 -735 Z" fill={cap} stroke={INK} strokeWidth={9} strokeLinejoin="round" />
               <rect x={-60} y={-860} width={120} height={50} rx={10} fill="#fff" stroke={INK} strokeWidth={6} />
               <path d="M-40 -835 L40 -835" stroke={INK} strokeWidth={8} />
-              {!shadesOn && (
+              {!shadesOn && shades.some((c) => c.v) && (
                 <g transform="translate(0 -790)">
                   <rect x={-120} y={-24} width={100} height={48} rx={18} fill="#212529" stroke={INK} strokeWidth={7} />
                   <rect x={20} y={-24} width={100} height={48} rx={18} fill="#212529" stroke={INK} strokeWidth={7} />
                 </g>
               )}
+            </g>
+          )}
+          {earrings && (
+            <g>
+              <circle cx={-176} cy={-640} r={16} fill="#ffd43b" stroke={INK} strokeWidth={6} />
+              <circle cx={176} cy={-640} r={16} fill="#ffd43b" stroke={INK} strokeWidth={6} />
             </g>
           )}
           {/* brows */}

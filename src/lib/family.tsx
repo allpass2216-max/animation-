@@ -1,8 +1,8 @@
 // Places for DinnerSecret: mall atrium, home doorway (morning), park bench with calendar, dinner room + table.
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
-import { H, INK, W } from "../../lib/reel";
-import { SignText } from "../../lib/world";
+import { H, INK, W } from "./reel";
+import { SignText } from "./world";
 
 /** Bright mall atrium: back shops (far), escalator with moving steps (mid), tiled floor. */
 export const Mall: React.FC = () => {

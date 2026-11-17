@@ -73,7 +73,10 @@
   + coin rain -> transfers list counting 2,500 -> AI chat "HO GAYA / KISI KO MAT BATANA" -> unknown call, red rays, "PAISA HUMARA
   HAI", "10% TUMHARA" -> A cyber cell + bank / B money flies to hooded scammer / C app into trash / D party -> outro + follow.
   Answer A. Handle placeholder. night.tsx moved to src/lib/night.tsx (shared).
-- `OyoSecret` (src/videos/OyoSecret): SCRIPT WRITTEN (Hinglish, 10 lines, 110 words). The DinnerSecret idea moved to an OYO
-  hotel at the user's request. Twist: Chachu lost his job and secretly works the hotel's night reception; "you" (college
-  student, adult) walk in with your girlfriend. Generic "ROOMS 24x7" sign, no OYO logo. Answer A. Handle @rehanfact.
-  NEXT: wait for voice file in voice/; check which script version was recorded.
+- `OyoSecret` (src/videos/OyoSecret): STAGE 1 BUILT, waiting for fixes or "go to final".
+  Recording matches script.md. Voice 43.1 s -> 34.3 s clean; allosaurus-align 110 words, "A" corrected to f641 from the
+  pause file (aligner had put it on top of "the"). ~1084 f. Music: loop.wav.
+  Scenes: hotel lobby (neon ROOMS 24x7, key rack, counter + bell): girlfriend left, you right, Chachu at reception turns round on
+  "Chachu", all three shocked -> office lie (Dadi waves) -> park bench + calendar -> eye-lock at the counter -> dinner (shared
+  family layout) -> Papa asks, slam "KAL RAAT KAHAN THE?" -> A-D close-ups -> outro + follow tap. Answer A. Handle @rehanfact.
+  Shared code: DinnerSecret places moved to src/lib/family.tsx; Character longHair + earrings; parked shades only if shades used.

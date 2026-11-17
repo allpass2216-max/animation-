@@ -6,7 +6,7 @@ import { Character, Cue, Expr, Extra, PoseName } from "../../lib/Character";
 import { Camera, Chip, Dust, Grain, H, INK, makeCue, popSpring, SoftLight, Vignette, W, WordsFile } from "../../lib/reel";
 import { FollowButton, Tiles } from "../../lib/ui";
 import { Foreground, Layer, Rays, SignText } from "../../lib/world";
-import { DinnerRoom, DinnerTable, EyeZap, HomeFront, Mall, MallEntrance, ParkBench } from "./places";
+import { DinnerRoom, DinnerTable, EyeZap, HomeFront, Mall, MallEntrance, ParkBench } from "../../lib/family";
 import wordsData from "./words.json";
 
 const data = wordsData as unknown as WordsFile;

@@ -1,6 +1,6 @@
 # OyoSecret — script (Part 1)
 
-Status: SCRIPT ONLY. No voice, no build yet. Waiting for the voice file in `voice/`.
+Status: STAGE 1 BUILT. Recording voice/oyosecret.mp3 matches this script word for word.
 Voice language: Hinglish (Roman script). Handle: **@rehanfact**.
 Target: 10 lines, 110 words, about 36-39 s after clean_voice (+2 s tail).
 Origin: the user's DinnerSecret script, moved to an OYO hotel at the user's request ("OYO ke upar hogi tab hi maja aayega").
