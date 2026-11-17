@@ -57,7 +57,11 @@ export const Character: React.FC<{
   look?: Cue<number>[]; // pupil x offset -1..1
   hops?: number[]; // frames where he does a small jump
   money?: Cue<boolean>[];
-  holding?: Cue<"none" | "bag" | "phone" | "helmet">[]; // prop in the right hand
+  holding?: Cue<"none" | "bag" | "phone" | "helmet" | "icecream">[]; // prop in the right hand
+  mustache?: boolean;
+  tie?: string; // tie colour
+  glasses?: boolean;
+  sweat?: Cue<boolean>[];
   mom?: boolean; // mother variant: grey bun, dupatta, glasses, long kurta/saree
   skin?: string;
   shirt?: string;
@@ -76,6 +80,10 @@ export const Character: React.FC<{
   money = [{ f: 0, v: false }],
   holding = [{ f: 0, v: "none" }],
   mom = false,
+  mustache = false,
+  tie,
+  glasses = false,
+  sweat = [{ f: 0, v: false }],
   skin = "#C98B5E",
   shirt = "#FF7A3D",
   pants = "#2B3A67",
@@ -99,6 +107,7 @@ export const Character: React.FC<{
   const lookX = pick(look, frame).cur.v;
   const hasMoney = pick(money, frame).cur.v;
   const held = pick(holding, frame).cur.v;
+  const sweating = sweat[0].f <= frame && pick(sweat, frame).cur.v; // no sweat before the first cue
 
   // idle life
   const breathe = Math.sin((frame + seed * 13) / 14);
@@ -203,6 +212,7 @@ export const Character: React.FC<{
           />
           <path d="M-40 -530 L0 -470 L40 -530" fill="#fff3e0" stroke={INK} strokeWidth={8} strokeLinejoin="round" />
           <path d="M0 -470 L0 -240" stroke={INK} strokeWidth={5} opacity={0.35} />
+          {tie && <path d="M-16 -490 L16 -490 L22 -330 L0 -300 L-22 -330 Z" fill={tie} stroke={INK} strokeWidth={7} strokeLinejoin="round" />}
         </g>
         {/* left arm (behind props) */}
         <path d={L.d} fill="none" stroke={INK} strokeWidth={60} strokeLinecap="round" strokeLinejoin="round" />
@@ -259,7 +269,13 @@ export const Character: React.FC<{
               )}
             </>
           )}
-          {mom && (
+          {mustache && <path d="M-62 -632 Q-30 -660 0 -640 Q30 -660 62 -632 Q30 -618 0 -628 Q-30 -618 -62 -632Z" fill="#2a1e22" stroke={INK} strokeWidth={6} />}
+          {sweating &&
+            [0, 1].map((i) => {
+              const tt = ((frame + i * 13) % 26) / 26;
+              return <path key={i} d={`M${130 + i * 26} ${-770 + tt * 90} q12 22 0 32 q-12 -10 0 -32`} fill="#8fd3ff" stroke={INK} strokeWidth={5} opacity={1 - tt * 0.5} />;
+            })}
+          {(mom || glasses) && (
             <g fill="none" stroke={INK} strokeWidth={8}>
               <circle cx={-64} cy={-716} r={50} />
               <circle cx={64} cy={-716} r={50} />
@@ -304,6 +320,14 @@ export const Character: React.FC<{
           <g transform={`translate(${R.hx - 10} ${R.hy - 40}) rotate(-8)`}>
             <rect x={-40} y={-70} width={80} height={140} rx={14} fill="#222" stroke={INK} strokeWidth={8} />
             <rect x={-30} y={-56} width={60} height={108} rx={6} fill={`hsl(${(frame * 12) % 360},80%,60%)`} />
+          </g>
+        )}
+        {held === "icecream" && (
+          <g transform={`translate(${R.hx} ${R.hy - 30})`}>
+            <path d="M-34 0 L34 0 L0 110 Z" fill="#e8b46a" stroke={INK} strokeWidth={8} strokeLinejoin="round" />
+            <path d="M-20 20 L20 60 M20 20 L-10 80" stroke="#c98a4b" strokeWidth={5} />
+            <circle cx={0} cy={-26} r={42} fill="#ffc9de" stroke={INK} strokeWidth={8} />
+            <circle cx={-10} cy={-70} r={28} fill="#8b5a3c" stroke={INK} strokeWidth={7} />
           </g>
         )}
         {held === "helmet" && (

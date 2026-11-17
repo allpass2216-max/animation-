@@ -53,7 +53,9 @@
   -> Maa crying "GUSSE KA EK SHABD WAPAS NAHI AATA" -> tiles + ANSWER NEXT REEL + follow tap. Answer A. Handle placeholder.
   Shared code added: src/lib/world.tsx (moved from ShopSpot), src/lib/ui.tsx (Tiles, FollowButton), Character mom variant,
   props (bag/phone/helmet), expressions angry/sad/cry.
-- `DinnerSecret` (src/videos/DinnerSecret): SCRIPT WRITTEN (Hinglish, 10 lines, 109 words, A-D mutual-secret dilemma from
-  refs/mausi.mp4, idea only: you bunk coaching, meet jobless Chachu at the mall at 11 AM, dinner question). Answer A (own your
-  truth only). Handle placeholder @yourhandle. NEXT: wait for voice file in voice/.
-  Check on arrival which script version was recorded (LateNight's recording was an older version).
+- `DinnerSecret` (src/videos/DinnerSecret): STAGE 1 BUILT, waiting for fixes or "go to final".
+  Recording matches script.md. Voice 43.1 s -> 34.0 s clean; allosaurus-align 107/109 measured; ~1077 f. Music: loop.wav.
+  Scenes: mall (you + ice-cream, Chachu slides in on "Chachu", scoop falls + splats) -> Chachu leaves "for office", Dadi waves
+  -> park bench, calendar SEP/OCT tear off -> eye-lock zap "TU KUCH MAT BOLNA" -> dinner (two-row seating, close-ups per beat)
+  -> Papa asks, slam "AAJ KYA PADHAYA?" -> A-D framed on who it's about -> outro + follow tap. Answer A. Handle placeholder.
+  Rig additions: mustache, tie, glasses, sweat cue, ice-cream prop. Fixed: sweat no longer shows before its first cue.

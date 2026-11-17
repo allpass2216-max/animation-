@@ -1,0 +1,956 @@
+{
+  "audio": "voice/dinnersecret_clean.wav",
+  "fps": 30,
+  "duration": 33.989,
+  "source": "allosaurus-align",
+  "approxWords": false,
+  "note": "whisper failed: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+  "lines": [
+    {
+      "text": "Subah gyaarah baje, coaching bunk karke tum mall pahunche, aur saamne Chachu khade the.",
+      "start": 0.21,
+      "end": 4.89,
+      "startFrame": 6,
+      "endFrame": 147
+    },
+    {
+      "text": "Ghar mein sab sochte hain Chachu office jaate hain, par unki naukri, teen mahine pehle chali gayi.",
+      "start": 4.89,
+      "end": 9.465,
+      "startFrame": 147,
+      "endFrame": 284
+    },
+    {
+      "text": "Nazrein mili, Chachu ne dheere se kaha, tu kuch mat bolna, main bhi kuch nahi bolunga.",
+      "start": 9.63,
+      "end": 13.665,
+      "startFrame": 289,
+      "endFrame": 410
+    },
+    {
+      "text": "Usi raat dinner pe, Dadi boli, mera beta roz office jaata hai, aur pota roz coaching.",
+      "start": 13.83,
+      "end": 18.915,
+      "startFrame": 415,
+      "endFrame": 567
+    },
+    {
+      "text": "Tabhi Papa ne poocha, aaj coaching mein kya padhaya?",
+      "start": 19.11,
+      "end": 21.23,
+      "startFrame": 573,
+      "endFrame": 637
+    },
+    {
+      "text": "A, sirf apna sach bolo.",
+      "start": 21.69,
+      "end": 23.355,
+      "startFrame": 651,
+      "endFrame": 701
+    },
+    {
+      "text": "B, dono ka sach bol do.",
+      "start": 23.61,
+      "end": 25.095,
+      "startFrame": 708,
+      "endFrame": 753
+    },
+    {
+      "text": "C, chup raho, dono raaz rakho.",
+      "start": 25.38,
+      "end": 27.135,
+      "startFrame": 761,
+      "endFrame": 814
+    },
+    {
+      "text": "D, Chachu ka raaz bolo, apna chhupao.",
+      "start": 27.42,
+      "end": 29.565,
+      "startFrame": 823,
+      "endFrame": 887
+    },
+    {
+      "text": "Tum kya karoge? Comment karo, answer in the next reel, follow karo @yourhandle!",
+      "start": 29.67,
+      "end": 33.885,
+      "startFrame": 890,
+      "endFrame": 1017
+    }
+  ],
+  "words": [
+    {
+      "word": "Subah",
+      "start": 0.21,
+      "end": 0.435,
+      "line": 0,
+      "startFrame": 6,
+      "endFrame": 13
+    },
+    {
+      "word": "gyaarah",
+      "start": 0.66,
+      "end": 0.945,
+      "line": 0,
+      "startFrame": 20,
+      "endFrame": 28
+    },
+    {
+      "word": "baje",
+      "start": 0.96,
+      "end": 1.185,
+      "line": 0,
+      "startFrame": 29,
+      "endFrame": 36
+    },
+    {
+      "word": "coaching",
+      "start": 1.38,
+      "end": 1.695,
+      "line": 0,
+      "startFrame": 41,
+      "endFrame": 51
+    },
+    {
+      "word": "bunk",
+      "start": 1.74,
+      "end": 1.875,
+      "line": 0,
+      "startFrame": 52,
+      "endFrame": 56
+    },
+    {
+      "word": "karke",
+      "start": 1.92,
+      "end": 2.205,
+      "line": 0,
+      "startFrame": 58,
+      "endFrame": 66
+    },
+    {
+      "word": "tum",
+      "start": 2.25,
+      "end": 2.385,
+      "line": 0,
+      "startFrame": 68,
+      "endFrame": 72
+    },
+    {
+      "word": "mall",
+      "start": 2.49,
+      "end": 2.57,
+      "line": 0,
+      "startFrame": 75,
+      "endFrame": 77
+    },
+    {
+      "word": "pahunche",
+      "start": 2.7,
+      "end": 2.955,
+      "line": 0,
+      "startFrame": 81,
+      "endFrame": 89
+    },
+    {
+      "word": "aur",
+      "start": 2.97,
+      "end": 3.345,
+      "line": 0,
+      "startFrame": 89,
+      "endFrame": 100
+    },
+    {
+      "word": "saamne",
+      "start": 3.45,
+      "end": 3.795,
+      "line": 0,
+      "startFrame": 104,
+      "endFrame": 114
+    },
+    {
+      "word": "Chachu",
+      "start": 3.99,
+      "end": 4.305,
+      "line": 0,
+      "startFrame": 120,
+      "endFrame": 129
+    },
+    {
+      "word": "khade",
+      "start": 4.35,
+      "end": 4.695,
+      "line": 0,
+      "startFrame": 130,
+      "endFrame": 141
+    },
+    {
+      "word": "the",
+      "start": 4.72,
+      "end": 4.89,
+      "line": 0,
+      "interpolated": true,
+      "startFrame": 142,
+      "endFrame": 147
+    },
+    {
+      "word": "Ghar",
+      "start": 4.89,
+      "end": 5.025,
+      "line": 1,
+      "startFrame": 147,
+      "endFrame": 151
+    },
+    {
+      "word": "mein",
+      "start": 5.1,
+      "end": 5.205,
+      "line": 1,
+      "startFrame": 153,
+      "endFrame": 156
+    },
+    {
+      "word": "sab",
+      "start": 5.31,
+      "end": 5.475,
+      "line": 1,
+      "startFrame": 159,
+      "endFrame": 164
+    },
+    {
+      "word": "sochte",
+      "start": 5.52,
+      "end": 5.895,
+      "line": 1,
+      "startFrame": 166,
+      "endFrame": 177
+    },
+    {
+      "word": "hain",
+      "start": 5.94,
+      "end": 6.105,
+      "line": 1,
+      "startFrame": 178,
+      "endFrame": 183
+    },
+    {
+      "word": "Chachu",
+      "start": 6.15,
+      "end": 6.375,
+      "line": 1,
+      "startFrame": 184,
+      "endFrame": 191
+    },
+    {
+      "word": "office",
+      "start": 6.42,
+      "end": 6.885,
+      "line": 1,
+      "startFrame": 193,
+      "endFrame": 207
+    },
+    {
+      "word": "jaate",
+      "start": 6.93,
+      "end": 7.125,
+      "line": 1,
+      "startFrame": 208,
+      "endFrame": 214
+    },
+    {
+      "word": "hain",
+      "start": 7.125,
+      "end": 7.38,
+      "line": 1,
+      "interpolated": true,
+      "startFrame": 214,
+      "endFrame": 221
+    },
+    {
+      "word": "par",
+      "start": 7.38,
+      "end": 7.515,
+      "line": 1,
+      "startFrame": 221,
+      "endFrame": 225
+    },
+    {
+      "word": "unki",
+      "start": 7.53,
+      "end": 7.755,
+      "line": 1,
+      "startFrame": 226,
+      "endFrame": 233
+    },
+    {
+      "word": "naukri",
+      "start": 7.77,
+      "end": 8.205,
+      "line": 1,
+      "startFrame": 233,
+      "endFrame": 246
+    },
+    {
+      "word": "teen",
+      "start": 8.31,
+      "end": 8.475,
+      "line": 1,
+      "startFrame": 249,
+      "endFrame": 254
+    },
+    {
+      "word": "mahine",
+      "start": 8.49,
+      "end": 8.775,
+      "line": 1,
+      "startFrame": 255,
+      "endFrame": 263
+    },
+    {
+      "word": "pehle",
+      "start": 8.82,
+      "end": 9.075,
+      "line": 1,
+      "startFrame": 265,
+      "endFrame": 272
+    },
+    {
+      "word": "chali",
+      "start": 9.12,
+      "end": 9.315,
+      "line": 1,
+      "startFrame": 274,
+      "endFrame": 279
+    },
+    {
+      "word": "gayi",
+      "start": 9.36,
+      "end": 9.465,
+      "line": 1,
+      "startFrame": 281,
+      "endFrame": 284
+    },
+    {
+      "word": "Nazrein",
+      "start": 9.63,
+      "end": 9.915,
+      "line": 2,
+      "startFrame": 289,
+      "endFrame": 297
+    },
+    {
+      "word": "mili",
+      "start": 9.96,
+      "end": 10.155,
+      "line": 2,
+      "startFrame": 299,
+      "endFrame": 305
+    },
+    {
+      "word": "Chachu",
+      "start": 10.35,
+      "end": 10.635,
+      "line": 2,
+      "startFrame": 310,
+      "endFrame": 319
+    },
+    {
+      "word": "ne",
+      "start": 10.68,
+      "end": 10.76,
+      "line": 2,
+      "startFrame": 320,
+      "endFrame": 323
+    },
+    {
+      "word": "dheere",
+      "start": 10.98,
+      "end": 11.145,
+      "line": 2,
+      "startFrame": 329,
+      "endFrame": 334
+    },
+    {
+      "word": "se",
+      "start": 11.19,
+      "end": 11.295,
+      "line": 2,
+      "startFrame": 336,
+      "endFrame": 339
+    },
+    {
+      "word": "kaha",
+      "start": 11.31,
+      "end": 11.415,
+      "line": 2,
+      "startFrame": 339,
+      "endFrame": 342
+    },
+    {
+      "word": "tu",
+      "start": 11.67,
+      "end": 11.775,
+      "line": 2,
+      "startFrame": 350,
+      "endFrame": 353
+    },
+    {
+      "word": "kuch",
+      "start": 11.82,
+      "end": 12.03,
+      "line": 2,
+      "startFrame": 355,
+      "endFrame": 361
+    },
+    {
+      "word": "mat",
+      "start": 12.03,
+      "end": 12.165,
+      "line": 2,
+      "startFrame": 361,
+      "endFrame": 365
+    },
+    {
+      "word": "bolna",
+      "start": 12.21,
+      "end": 12.465,
+      "line": 2,
+      "startFrame": 366,
+      "endFrame": 374
+    },
+    {
+      "word": "main",
+      "start": 12.66,
+      "end": 12.765,
+      "line": 2,
+      "startFrame": 380,
+      "endFrame": 383
+    },
+    {
+      "word": "bhi",
+      "start": 12.81,
+      "end": 12.915,
+      "line": 2,
+      "startFrame": 384,
+      "endFrame": 387
+    },
+    {
+      "word": "kuch",
+      "start": 12.93,
+      "end": 13.11,
+      "line": 2,
+      "startFrame": 388,
+      "endFrame": 393
+    },
+    {
+      "word": "nahi",
+      "start": 13.11,
+      "end": 13.275,
+      "line": 2,
+      "startFrame": 393,
+      "endFrame": 398
+    },
+    {
+      "word": "bolunga",
+      "start": 13.29,
+      "end": 13.665,
+      "line": 2,
+      "startFrame": 399,
+      "endFrame": 410
+    },
+    {
+      "word": "Usi",
+      "start": 13.83,
+      "end": 14.025,
+      "line": 3,
+      "startFrame": 415,
+      "endFrame": 421
+    },
+    {
+      "word": "raat",
+      "start": 14.07,
+      "end": 14.235,
+      "line": 3,
+      "startFrame": 422,
+      "endFrame": 427
+    },
+    {
+      "word": "dinner",
+      "start": 14.25,
+      "end": 14.535,
+      "line": 3,
+      "startFrame": 428,
+      "endFrame": 436
+    },
+    {
+      "word": "pe",
+      "start": 14.55,
+      "end": 14.655,
+      "line": 3,
+      "startFrame": 436,
+      "endFrame": 440
+    },
+    {
+      "word": "Dadi",
+      "start": 14.97,
+      "end": 15.225,
+      "line": 3,
+      "startFrame": 449,
+      "endFrame": 457
+    },
+    {
+      "word": "boli",
+      "start": 15.24,
+      "end": 15.495,
+      "line": 3,
+      "startFrame": 457,
+      "endFrame": 465
+    },
+    {
+      "word": "mera",
+      "start": 15.69,
+      "end": 15.945,
+      "line": 3,
+      "startFrame": 471,
+      "endFrame": 478
+    },
+    {
+      "word": "beta",
+      "start": 15.99,
+      "end": 16.215,
+      "line": 3,
+      "startFrame": 480,
+      "endFrame": 486
+    },
+    {
+      "word": "roz",
+      "start": 16.35,
+      "end": 16.635,
+      "line": 3,
+      "startFrame": 491,
+      "endFrame": 499
+    },
+    {
+      "word": "office",
+      "start": 16.65,
+      "end": 16.965,
+      "line": 3,
+      "startFrame": 499,
+      "endFrame": 509
+    },
+    {
+      "word": "jaata",
+      "start": 16.98,
+      "end": 17.175,
+      "line": 3,
+      "startFrame": 509,
+      "endFrame": 515
+    },
+    {
+      "word": "hai",
+      "start": 17.22,
+      "end": 17.28,
+      "line": 3,
+      "startFrame": 517,
+      "endFrame": 518
+    },
+    {
+      "word": "aur",
+      "start": 17.28,
+      "end": 17.775,
+      "line": 3,
+      "startFrame": 518,
+      "endFrame": 533
+    },
+    {
+      "word": "pota",
+      "start": 17.82,
+      "end": 18.105,
+      "line": 3,
+      "startFrame": 535,
+      "endFrame": 543
+    },
+    {
+      "word": "roz",
+      "start": 18.27,
+      "end": 18.375,
+      "line": 3,
+      "startFrame": 548,
+      "endFrame": 551
+    },
+    {
+      "word": "coaching",
+      "start": 18.54,
+      "end": 18.915,
+      "line": 3,
+      "startFrame": 556,
+      "endFrame": 567
+    },
+    {
+      "word": "Tabhi",
+      "start": 19.11,
+      "end": 19.305,
+      "line": 4,
+      "startFrame": 573,
+      "endFrame": 579
+    },
+    {
+      "word": "Papa",
+      "start": 19.38,
+      "end": 19.665,
+      "line": 4,
+      "startFrame": 581,
+      "endFrame": 590
+    },
+    {
+      "word": "ne",
+      "start": 19.71,
+      "end": 19.79,
+      "line": 4,
+      "startFrame": 591,
+      "endFrame": 594
+    },
+    {
+      "word": "poocha",
+      "start": 19.83,
+      "end": 19.91,
+      "line": 4,
+      "startFrame": 595,
+      "endFrame": 597
+    },
+    {
+      "word": "aaj",
+      "start": 20.07,
+      "end": 20.15,
+      "line": 4,
+      "startFrame": 602,
+      "endFrame": 604
+    },
+    {
+      "word": "coaching",
+      "start": 20.55,
+      "end": 20.835,
+      "line": 4,
+      "startFrame": 616,
+      "endFrame": 625
+    },
+    {
+      "word": "mein",
+      "start": 20.85,
+      "end": 20.955,
+      "line": 4,
+      "startFrame": 626,
+      "endFrame": 629
+    },
+    {
+      "word": "kya",
+      "start": 20.97,
+      "end": 21.05,
+      "line": 4,
+      "startFrame": 629,
+      "endFrame": 632
+    },
+    {
+      "word": "padhaya",
+      "start": 21.15,
+      "end": 21.23,
+      "line": 4,
+      "startFrame": 634,
+      "endFrame": 637
+    },
+    {
+      "word": "A",
+      "start": 21.69,
+      "end": 21.77,
+      "line": 5,
+      "startFrame": 651,
+      "endFrame": 653
+    },
+    {
+      "word": "sirf",
+      "start": 22.47,
+      "end": 22.55,
+      "line": 5,
+      "startFrame": 674,
+      "endFrame": 676
+    },
+    {
+      "word": "apna",
+      "start": 22.59,
+      "end": 22.845,
+      "line": 5,
+      "startFrame": 678,
+      "endFrame": 685
+    },
+    {
+      "word": "sach",
+      "start": 22.92,
+      "end": 23.085,
+      "line": 5,
+      "startFrame": 688,
+      "endFrame": 693
+    },
+    {
+      "word": "bolo",
+      "start": 23.13,
+      "end": 23.355,
+      "line": 5,
+      "startFrame": 694,
+      "endFrame": 701
+    },
+    {
+      "word": "B",
+      "start": 23.61,
+      "end": 23.715,
+      "line": 6,
+      "startFrame": 708,
+      "endFrame": 711
+    },
+    {
+      "word": "dono",
+      "start": 24.18,
+      "end": 24.405,
+      "line": 6,
+      "startFrame": 725,
+      "endFrame": 732
+    },
+    {
+      "word": "ka",
+      "start": 24.45,
+      "end": 24.555,
+      "line": 6,
+      "startFrame": 734,
+      "endFrame": 737
+    },
+    {
+      "word": "sach",
+      "start": 24.57,
+      "end": 24.675,
+      "line": 6,
+      "startFrame": 737,
+      "endFrame": 740
+    },
+    {
+      "word": "bol",
+      "start": 24.78,
+      "end": 24.945,
+      "line": 6,
+      "startFrame": 743,
+      "endFrame": 748
+    },
+    {
+      "word": "do",
+      "start": 24.99,
+      "end": 25.095,
+      "line": 6,
+      "startFrame": 750,
+      "endFrame": 753
+    },
+    {
+      "word": "C",
+      "start": 25.38,
+      "end": 25.485,
+      "line": 7,
+      "startFrame": 761,
+      "endFrame": 765
+    },
+    {
+      "word": "chup",
+      "start": 25.74,
+      "end": 25.935,
+      "line": 7,
+      "startFrame": 772,
+      "endFrame": 778
+    },
+    {
+      "word": "raho",
+      "start": 25.95,
+      "end": 26.115,
+      "line": 7,
+      "startFrame": 778,
+      "endFrame": 783
+    },
+    {
+      "word": "dono",
+      "start": 26.4,
+      "end": 26.655,
+      "line": 7,
+      "startFrame": 792,
+      "endFrame": 800
+    },
+    {
+      "word": "raaz",
+      "start": 26.7,
+      "end": 26.865,
+      "line": 7,
+      "startFrame": 801,
+      "endFrame": 806
+    },
+    {
+      "word": "rakho",
+      "start": 26.88,
+      "end": 27.135,
+      "line": 7,
+      "startFrame": 806,
+      "endFrame": 814
+    },
+    {
+      "word": "D",
+      "start": 27.42,
+      "end": 27.525,
+      "line": 8,
+      "startFrame": 823,
+      "endFrame": 826
+    },
+    {
+      "word": "Chachu",
+      "start": 27.78,
+      "end": 28.095,
+      "line": 8,
+      "startFrame": 833,
+      "endFrame": 843
+    },
+    {
+      "word": "ka",
+      "start": 28.11,
+      "end": 28.215,
+      "line": 8,
+      "startFrame": 843,
+      "endFrame": 846
+    },
+    {
+      "word": "raaz",
+      "start": 28.23,
+      "end": 28.425,
+      "line": 8,
+      "startFrame": 847,
+      "endFrame": 853
+    },
+    {
+      "word": "bolo",
+      "start": 28.47,
+      "end": 28.695,
+      "line": 8,
+      "startFrame": 854,
+      "endFrame": 861
+    },
+    {
+      "word": "apna",
+      "start": 29.04,
+      "end": 29.205,
+      "line": 8,
+      "startFrame": 871,
+      "endFrame": 876
+    },
+    {
+      "word": "chhupao",
+      "start": 29.25,
+      "end": 29.565,
+      "line": 8,
+      "startFrame": 878,
+      "endFrame": 887
+    },
+    {
+      "word": "Tum",
+      "start": 29.67,
+      "end": 29.865,
+      "line": 9,
+      "startFrame": 890,
+      "endFrame": 896
+    },
+    {
+      "word": "kya",
+      "start": 29.91,
+      "end": 30.015,
+      "line": 9,
+      "startFrame": 897,
+      "endFrame": 900
+    },
+    {
+      "word": "karoge",
+      "start": 30.03,
+      "end": 30.375,
+      "line": 9,
+      "startFrame": 901,
+      "endFrame": 911
+    },
+    {
+      "word": "Comment",
+      "start": 30.54,
+      "end": 30.825,
+      "line": 9,
+      "startFrame": 916,
+      "endFrame": 925
+    },
+    {
+      "word": "karo",
+      "start": 30.87,
+      "end": 31.095,
+      "line": 9,
+      "startFrame": 926,
+      "endFrame": 933
+    },
+    {
+      "word": "answer",
+      "start": 31.35,
+      "end": 31.635,
+      "line": 9,
+      "startFrame": 940,
+      "endFrame": 949
+    },
+    {
+      "word": "in",
+      "start": 31.65,
+      "end": 31.74,
+      "line": 9,
+      "startFrame": 950,
+      "endFrame": 952
+    },
+    {
+      "word": "the",
+      "start": 31.74,
+      "end": 31.8,
+      "line": 9,
+      "startFrame": 952,
+      "endFrame": 954
+    },
+    {
+      "word": "next",
+      "start": 31.8,
+      "end": 32.04,
+      "line": 9,
+      "startFrame": 954,
+      "endFrame": 961
+    },
+    {
+      "word": "reel",
+      "start": 32.04,
+      "end": 32.295,
+      "line": 9,
+      "startFrame": 961,
+      "endFrame": 969
+    },
+    {
+      "word": "follow",
+      "start": 32.55,
+      "end": 32.805,
+      "line": 9,
+      "startFrame": 976,
+      "endFrame": 984
+    },
+    {
+      "word": "karo",
+      "start": 32.82,
+      "end": 33.045,
+      "line": 9,
+      "startFrame": 985,
+      "endFrame": 991
+    },
+    {
+      "word": "@yourhandle",
+      "start": 33.39,
+      "end": 33.885,
+      "line": 9,
+      "startFrame": 1002,
+      "endFrame": 1017
+    }
+  ]
+}
