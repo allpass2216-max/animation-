@@ -63,3 +63,7 @@
   -> park bench, calendar SEP/OCT tear off -> eye-lock zap "TU KUCH MAT BOLNA" -> dinner (two-row seating, close-ups per beat)
   -> Papa asks, slam "AAJ KYA PADHAYA?" -> A-D framed on who it's about -> outro + follow tap. Answer A. Handle placeholder.
   Rig additions: mustache, tie, glasses, sweat cue, ice-cream prop. Fixed: sweat no longer shows before its first cue.
+- `AiCrore` (src/videos/AiCrore): SCRIPT WRITTEN (Hinglish, 10 lines, 109 words, A-D from refs/ai100crore.mp4, idea only: an
+  "AI app" fills Ishaan's account with 50 crore (2,500 x 2 lakh, checked), caller wants it forwarded = money-mule). Answer A
+  (bank + cyber police). Reference's maths was wrong (4,700 x ~37 lakh = ~1,739 crore, not 100). Handle placeholder.
+  NEXT: wait for voice file in voice/; check which script version was recorded.
