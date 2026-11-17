@@ -42,6 +42,8 @@
   Answer A (RTO office). Handle still the placeholder @yourhandle (Follow button shows no handle text).
   Shared code made for this: src/lib/reel.tsx (Chip, Camera, Dust, Sparkles, Grain...), src/lib/Character.tsx (rig + Extra).
 - `Test` (src/videos/Test): 5 s gradient + "STUDIO READY!" pop. Setup check only.
-- `LateNight` (src/videos/LateNight): SCRIPT WRITTEN (Hinglish, 10 lines, 110 words, A-D clue puzzle from refs/ref2.mp4, idea only:
-  angry mother misjudges son out late; he was hunting her BP medicine). Answer A. Handle placeholder @yourhandle.
+- `LateNight` (src/videos/LateNight): SCRIPT v2 WRITTEN (Hinglish, 10 lines, 110 words). STORY FORMAT, no A-D options (user asked:
+  real + emotional). From refs/ref2.mp4, idea only: mother shouts at son back at 1 AM; bag at door = her BP medicine, he searched the
+  city 6 h; cliffhanger: unknown-number call. Part 2 suggestion in script.md. Handle placeholder @yourhandle.
+  RULE NOTE: for story videos the FINAL BODY is the key point (no tiles); CTA = write a dua for your mother.
   NEXT: wait for voice file in voice/, then clean_voice -> word_times --script -> build.
