@@ -121,6 +121,10 @@
   @rehanfact. post.md: caption with all 4 options + pinned comment asking for the method. Recording matches script.md.
   v2 (user fix): opening now shows the WHOLE tank (zoomed out) with Raju teetering on the top edge, leaning out, pebbles
   crumbling, wind, red "!"; the ladder up the shaft snaps on "toot" and its top half falls to the ground with dust.
+  GOLDEN version (user: "isi style se"): composition `TankiRassiGolden` (same voice/timing). tank.tsx `Golden` context:
+  painted dusk sky (brush strokes, streak clouds lit from below, setting sun at the horizon, moon), backlit town silhouettes,
+  tank/ledge/roof as dark silhouettes with a gold rim; characters get a warm drop-shadow rim (GChar). Kept as dusk because
+  the voice says "raat das baje". STAGE 1 BUILT, waiting for "go to final".
   Voice 42.8 s -> 35.2 s; 110 words aligned; ~1110 f. Scenes: roof close-up at night (height bar, ladder snaps + falls)
   -> rope coil + knife -> full-height tank diagram (scale: 120 ft = 1040 px; hooks glow when named) -> fail: whole rope from
   the top, red 30 FT gap, "ZINDA KAISE?" -> A acted out (30 loop, 60 doubled to the ledge, pull free, slide 60 ft down) /

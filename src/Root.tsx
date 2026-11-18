@@ -9,7 +9,7 @@ import { OyoSecret, OyoSecretToon, OYOSECRET_DURATION } from "./videos/OyoSecret
 import { RotiBeej, RotiBeejAnime, ROTIBEEJ_DURATION } from "./videos/RotiBeej/RotiBeej";
 import { AnimeTest, ANIMETEST_DURATION } from "./videos/AnimeTest/AnimeTest";
 import { JaaduRubber, JAADURUBBER_DURATION } from "./videos/JaaduRubber/JaaduRubber";
-import { TankiRassi, TANKIRASSI_DURATION } from "./videos/TankiRassi/TankiRassi";
+import { TankiRassi, TankiRassiGolden, TANKIRASSI_DURATION } from "./videos/TankiRassi/TankiRassi";
 import { SavannaTest, SAVANNA_DURATION } from "./videos/SavannaTest/SavannaTest";
 
 // Register every video here. One folder per video in src/videos/<name>/.
@@ -116,6 +116,14 @@ export const RemotionRoot: React.FC = () => {
         id="SavannaTest"
         component={SavannaTest}
         durationInFrames={SAVANNA_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="TankiRassiGolden"
+        component={TankiRassiGolden}
+        durationInFrames={TANKIRASSI_DURATION}
         fps={30}
         width={1080}
         height={1920}

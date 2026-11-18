@@ -1,17 +1,70 @@
 // TankiRassi (Part 1): stuck on a 120 ft water tank with a 90 ft rope, a knife, a hook at the top and one on a ledge 60 ft down.
 // Every cue frame comes from ./words.json (measured word times). Never hard-code times here.
 import React from "react";
-import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
+import {
+  AbsoluteFill,
+  Audio,
+  interpolate,
+  Sequence,
+  staticFile,
+  useCurrentFrame,
+} from "remotion";
 import { Character } from "../../lib/Character";
-import { Camera, Chip, Dust, Grain, H, INK, makeCue, SoftLight, Vignette, W, WordsFile } from "../../lib/reel";
+
+/** Character with a gold back-light rim when the video is in golden-hour mode. */
+const GChar: React.FC<React.ComponentProps<typeof Character>> = (p) => {
+  const g = React.useContext(Golden);
+  if (!g) return <Character {...p} />;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        filter:
+          "drop-shadow(0 0 2px #ffcf6e) drop-shadow(0 0 7px rgba(255,190,100,0.55)) saturate(0.9) brightness(0.88)",
+      }}
+    >
+      <Character {...p} />
+    </div>
+  );
+};
+import {
+  Camera,
+  Chip,
+  Dust,
+  Grain,
+  H,
+  INK,
+  makeCue,
+  SoftLight,
+  Vignette,
+  W,
+  WordsFile,
+} from "../../lib/reel";
 import { FollowButton, Tiles } from "../../lib/ui";
 import { Rays, SignText } from "../../lib/world";
-import { ftY, GROUND, HOOK1, HOOK2, Knife, LEDGE, Measure, NightField, Rope, RopeCoil, RoofCloseup, ROOF, TankDiagram } from "./tank";
+import {
+  Golden,
+  ftY,
+  GROUND,
+  HOOK1,
+  HOOK2,
+  Knife,
+  LEDGE,
+  Measure,
+  NightField,
+  Rope,
+  RopeCoil,
+  RoofCloseup,
+  ROOF,
+  TankDiagram,
+} from "./tank";
 import wordsData from "./words.json";
 
 const data = wordsData as unknown as WordsFile;
 const cue = makeCue(data);
-export const TANKIRASSI_DURATION = data.words[data.words.length - 1].endFrame + 60;
+export const TANKIRASSI_DURATION =
+  data.words[data.words.length - 1].endFrame + 60;
 
 const F = {
   das: cue(1, "das"),
@@ -54,11 +107,20 @@ const F = {
 const END = TANKIRASSI_DURATION;
 const inRange = (f: number, a: number, b: number) => f >= a && f < b;
 
-const RAJU = { skin: "#B97A50", shirt: "#2f9e44", pants: "#3b3a52", hair: "#1d1420" } as const;
+const RAJU = {
+  skin: "#B97A50",
+  shirt: "#2f9e44",
+  pants: "#3b3a52",
+  hair: "#1d1420",
+} as const;
 const SMALL = 0.24; // Raju's scale in the full-height diagram
 
 const Svg: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }} width={W} height={H}>
+  <svg
+    style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}
+    width={W}
+    height={H}
+  >
     {children}
   </svg>
 );
@@ -68,7 +130,13 @@ const RoofScene: React.FC<{ from: number; to: number }> = ({ from, to }) => {
   const frame = useCurrentFrame();
   const inventory = frame >= F.s3;
   return (
-    <Camera from={from} to={to} zoom={[1.0, 1.08]} pan={[0, -20]} shakeAt={[F.toot]}>
+    <Camera
+      from={from}
+      to={to}
+      zoom={[1.0, 1.08]}
+      pan={[0, -20]}
+      shakeAt={[F.toot]}
+    >
       <NightField horizon={1720} />
       {/* height bar down the right edge (frame 0: how high he is) */}
       {!inventory && (
@@ -77,20 +145,37 @@ const RoofScene: React.FC<{ from: number; to: number }> = ({ from, to }) => {
         </Svg>
       )}
       <RoofCloseup breakAt={F.toot} />
-      <Character
+      <GChar
         {...RAJU}
         x={inventory ? 330 : 440}
         y={1740}
         scale={0.95}
         poses={
           inventory
-            ? [{ f: F.s3, v: "present" }, { f: F.rassi, v: "point" }, { f: F.chaaku, v: "hold" }]
-            : [{ f: 0, v: "panic" }, { f: F.raju, v: "scratch" }, { f: F.toot, v: "panic" }, { f: F.subah, v: "think" }]
+            ? [
+                { f: F.s3, v: "present" },
+                { f: F.rassi, v: "point" },
+                { f: F.chaaku, v: "hold" },
+              ]
+            : [
+                { f: 0, v: "panic" },
+                { f: F.raju, v: "scratch" },
+                { f: F.toot, v: "panic" },
+                { f: F.subah, v: "think" },
+              ]
         }
         exprs={
           inventory
-            ? [{ f: F.s3, v: "worried" }, { f: F.rassi, v: "think" }]
-            : [{ f: 0, v: "shock" }, { f: F.raju, v: "worried" }, { f: F.toot, v: "shock" }, { f: F.subah, v: "sad" }]
+            ? [
+                { f: F.s3, v: "worried" },
+                { f: F.rassi, v: "think" },
+              ]
+            : [
+                { f: 0, v: "shock" },
+                { f: F.raju, v: "worried" },
+                { f: F.toot, v: "shock" },
+                { f: F.subah, v: "sad" },
+              ]
         }
         look={[{ f: 0, v: inventory ? 1 : 0.6 }]}
         sweat={[{ f: 0, v: true }]}
@@ -111,7 +196,12 @@ const OpeningScene: React.FC = () => {
   const frame = useCurrentFrame();
   // teeter: leaning out over the edge, swaying harder on "phans" and when the ladder breaks
   const panic = frame >= F.phans ? 1.6 : 1;
-  const ang = 9 + Math.sin(frame / 4.5) * 7 * panic + (frame >= F.toot && frame < F.toot + 12 ? Math.sin((frame - F.toot) * 1.4) * 10 : 0);
+  const ang =
+    9 +
+    Math.sin(frame / 4.5) * 7 * panic +
+    (frame >= F.toot && frame < F.toot + 12
+      ? Math.sin((frame - F.toot) * 1.4) * 10
+      : 0);
   const feetX = 588;
   const feetY = ROOF - 2;
   // ladder on the left side of the shaft; its top section snaps on "toot" and falls with gravity
@@ -120,26 +210,57 @@ const OpeningScene: React.FC = () => {
   const brokeLand = GROUND - (ROOF + 300);
   const landed = fall >= brokeLand;
   return (
-    <Camera from={0} to={F.s3} zoom={[0.8, 0.88]} pan={[-30, 150]} shakeAt={[F.toot]}>
+    <Camera
+      from={0}
+      to={F.s3}
+      zoom={[0.8, 0.88]}
+      pan={[-30, 150]}
+      shakeAt={[F.toot]}
+    >
       <NightField horizon={GROUND} />
       <TankDiagram />
       <Svg>
         {/* ladder: bottom part stays, top part falls */}
         <g>
-          <path d={`M300 ${GROUND} L300 ${ROOF + 330} M340 ${GROUND} L340 ${ROOF + 330}`} stroke="#868e96" strokeWidth={9} />
+          <path
+            d={`M300 ${GROUND} L300 ${ROOF + 330} M340 ${GROUND} L340 ${ROOF + 330}`}
+            stroke="#868e96"
+            strokeWidth={9}
+          />
           {Array.from({ length: 12 }).map((_, i) => (
-            <path key={i} d={`M300 ${GROUND - 30 - i * 40} L340 ${GROUND - 30 - i * 40}`} stroke="#868e96" strokeWidth={6} />
+            <path
+              key={i}
+              d={`M300 ${GROUND - 30 - i * 40} L340 ${GROUND - 30 - i * 40}`}
+              stroke="#868e96"
+              strokeWidth={6}
+            />
           ))}
-          <g transform={`translate(0 ${landed ? brokeLand : fall}) rotate(${Math.min(70, t * 160)} 320 ${ROOF + 330})`}>
-            <path d={`M300 ${ROOF + 330} L300 ${ROOF + 30} M340 ${ROOF + 330} L340 ${ROOF + 30}`} stroke="#868e96" strokeWidth={9} />
+          <g
+            transform={`translate(0 ${landed ? brokeLand : fall}) rotate(${Math.min(70, t * 160)} 320 ${ROOF + 330})`}
+          >
+            <path
+              d={`M300 ${ROOF + 330} L300 ${ROOF + 30} M340 ${ROOF + 330} L340 ${ROOF + 30}`}
+              stroke="#868e96"
+              strokeWidth={9}
+            />
             {Array.from({ length: 7 }).map((_, i) => (
-              <path key={i} d={`M300 ${ROOF + 300 - i * 40} L340 ${ROOF + 300 - i * 40}`} stroke="#868e96" strokeWidth={6} />
+              <path
+                key={i}
+                d={`M300 ${ROOF + 300 - i * 40} L340 ${ROOF + 300 - i * 40}`}
+                stroke="#868e96"
+                strokeWidth={6}
+              />
             ))}
           </g>
           {frame >= F.toot && frame < F.toot + 10 && (
             <g transform={`translate(320 ${ROOF + 330})`}>
               {[0, 1, 2, 3, 4].map((i) => (
-                <path key={i} d={`M0 0 L${Math.cos(i * 1.3) * 50} ${Math.sin(i * 1.3) * 50}`} stroke="#ffd43b" strokeWidth={6} />
+                <path
+                  key={i}
+                  d={`M0 0 L${Math.cos(i * 1.3) * 50} ${Math.sin(i * 1.3) * 50}`}
+                  stroke="#ffd43b"
+                  strokeWidth={6}
+                />
               ))}
             </g>
           )}
@@ -149,18 +270,53 @@ const OpeningScene: React.FC = () => {
           const period = 26;
           const tt = ((frame + i * 7) % period) / 30;
           const y = feetY + 10 + 0.5 * 3000 * tt * tt;
-          return y < GROUND ? <circle key={i} cx={feetX + 16 + i * 8 + tt * 40} cy={y} r={7 - i} fill="#adb5bd" stroke={INK} strokeWidth={3} /> : null;
+          return y < GROUND ? (
+            <circle
+              key={i}
+              cx={feetX + 16 + i * 8 + tt * 40}
+              cy={y}
+              r={7 - i}
+              fill="#adb5bd"
+              stroke={INK}
+              strokeWidth={3}
+            />
+          ) : null;
         })}
         {/* wind streaks */}
         {[0, 1, 2].map((i) => {
           const x = ((frame * 22 + i * 400) % 1500) - 300;
-          return <path key={i} d={`M${x} ${ROOF - 260 + i * 90} q60 -18 120 0`} fill="none" stroke="#fff" strokeWidth={5} opacity={0.35} strokeLinecap="round" />;
+          return (
+            <path
+              key={i}
+              d={`M${x} ${ROOF - 260 + i * 90} q60 -18 120 0`}
+              fill="none"
+              stroke="#fff"
+              strokeWidth={5}
+              opacity={0.35}
+              strokeLinecap="round"
+            />
+          );
         })}
       </Svg>
-      {landed && <Dust at={F.toot + Math.ceil(Math.sqrt((2 * brokeLand) / 3200) * 30)} x={320} y={GROUND} count={12} spread={1.2} />}
+      {landed && (
+        <Dust
+          at={F.toot + Math.ceil(Math.sqrt((2 * brokeLand) / 3200) * 30)}
+          x={320}
+          y={GROUND}
+          count={12}
+          spread={1.2}
+        />
+      )}
       {/* Raju, leaning out over the edge, arms flailing */}
-      <div style={{ position: "absolute", inset: 0, transform: `rotate(${ang}deg)`, transformOrigin: `${feetX}px ${feetY}px` }}>
-        <Character
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          transform: `rotate(${ang}deg)`,
+          transformOrigin: `${feetX}px ${feetY}px`,
+        }}
+      >
+        <GChar
           {...RAJU}
           x={feetX}
           y={feetY}
@@ -176,7 +332,9 @@ const OpeningScene: React.FC = () => {
       </div>
       {/* big "!" over his head */}
       <Svg>
-        <g transform={`translate(${feetX + 130} ${ROOF - 330 + Math.sin(frame / 3) * 8})`}>
+        <g
+          transform={`translate(${feetX + 130} ${ROOF - 330 + Math.sin(frame / 3) * 8})`}
+        >
           <SignText x={0} y={0} size={110} text="!" fill="#ff6b6b" />
         </g>
       </Svg>
@@ -185,15 +343,15 @@ const OpeningScene: React.FC = () => {
 };
 
 // ---------------- diagram scenes (full height) ----------------
-const Diagram: React.FC<{ from: number; to: number; children?: React.ReactNode; glow1?: boolean; glow2?: boolean; bar?: boolean; shakeAt?: number[] }> = ({
-  from,
-  to,
-  children,
-  glow1,
-  glow2,
-  bar,
-  shakeAt = [],
-}) => (
+const Diagram: React.FC<{
+  from: number;
+  to: number;
+  children?: React.ReactNode;
+  glow1?: boolean;
+  glow2?: boolean;
+  bar?: boolean;
+  shakeAt?: number[];
+}> = ({ from, to, children, glow1, glow2, bar, shakeAt = [] }) => (
   <Camera from={from} to={to} zoom={[1.0, 1.03]} shakeAt={shakeAt}>
     <NightField horizon={GROUND} />
     <TankDiagram glow1={glow1} glow2={glow2} bar={bar} />
@@ -204,8 +362,21 @@ const Diagram: React.FC<{ from: number; to: number; children?: React.ReactNode; 
 const HooksScene: React.FC = () => {
   const frame = useCurrentFrame();
   return (
-    <Diagram from={F.s4} to={F.s5} glow1={frame >= F.kunda && frame < F.saath} glow2={frame >= F.saath}>
-      <Character {...RAJU} x={400} y={ROOF - 4} scale={SMALL} poses={[{ f: F.s4, v: "point" }]} exprs={[{ f: F.s4, v: "think" }]} look={[{ f: 0, v: 1 }]} />
+    <Diagram
+      from={F.s4}
+      to={F.s5}
+      glow1={frame >= F.kunda && frame < F.saath}
+      glow2={frame >= F.saath}
+    >
+      <GChar
+        {...RAJU}
+        x={400}
+        y={ROOF - 4}
+        scale={SMALL}
+        poses={[{ f: F.s4, v: "point" }]}
+        exprs={[{ f: F.s4, v: "think" }]}
+        look={[{ f: 0, v: 1 }]}
+      />
       {frame >= F.saath && (
         <Svg>
           <Measure x={720} y1={ROOF} y2={LEDGE} label="60 FT" />
@@ -219,14 +390,21 @@ const HooksScene: React.FC = () => {
 const FailScene: React.FC = () => {
   const frame = useCurrentFrame();
   const ropeEnd = ftY(90);
-  const slide = interpolate(frame, [F.s5, F.tees - 4], [ROOF + 60, ropeEnd + 30], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const slide = interpolate(
+    frame,
+    [F.s5, F.tees - 4],
+    [ROOF + 60, ropeEnd + 30],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+  );
   return (
     <Diagram from={F.s5} to={F.A} bar={false} shakeAt={[F.zinda]}>
       <Svg>
         <Rope x={HOOK1[0] + 14} y1={HOOK1[1] + 14} y2={ropeEnd} />
-        {frame >= F.tees && <Measure x={760} y1={ropeEnd + 40} y2={GROUND} label="30 FT" red />}
+        {frame >= F.tees && (
+          <Measure x={760} y1={ropeEnd + 40} y2={GROUND} label="30 FT" red />
+        )}
       </Svg>
-      <Character
+      <GChar
         {...RAJU}
         x={HOOK1[0] + 14}
         y={slide + 230}
@@ -243,7 +421,11 @@ const FailScene: React.FC = () => {
   );
 };
 
-const OptionScene: React.FC<{ opt: "A" | "B" | "C" | "D"; from: number; to: number }> = ({ opt, from, to }) => {
+const OptionScene: React.FC<{
+  opt: "A" | "B" | "C" | "D";
+  from: number;
+  to: number;
+}> = ({ opt, from, to }) => {
   const frame = useCurrentFrame();
   if (opt === "D") {
     // close-up: cutting the rope never makes it longer
@@ -252,28 +434,56 @@ const OptionScene: React.FC<{ opt: "A" | "B" | "C" | "D"; from: number; to: numb
       <Camera from={from} to={to} zoom={[1.0, 1.06]}>
         <NightField horizon={1720} />
         <RoofCloseup />
-        <Character
+        <GChar
           {...RAJU}
           x={330}
           y={1740}
           scale={0.9}
-          poses={[{ f: from, v: "hold" }, { f: F.lambi, v: "shrug" }]}
-          exprs={[{ f: from, v: "sly" }, { f: F.lambi, v: "think" }]}
+          poses={[
+            { f: from, v: "hold" },
+            { f: F.lambi, v: "shrug" },
+          ]}
+          exprs={[
+            { f: from, v: "sly" },
+            { f: F.lambi, v: "think" },
+          ]}
           look={[{ f: 0, v: 1 }]}
         />
         <Svg>
           {!cut ? (
-            <path d="M640 1400 L960 1400" stroke="#d9a066" strokeWidth={14} strokeDasharray="12 6" />
+            <path
+              d="M640 1400 L960 1400"
+              stroke="#d9a066"
+              strokeWidth={14}
+              strokeDasharray="12 6"
+            />
           ) : (
             <g>
-              <path d="M620 1400 L760 1400" stroke="#d9a066" strokeWidth={14} strokeDasharray="12 6" />
-              <path d="M820 1430 L960 1430" stroke="#d9a066" strokeWidth={14} strokeDasharray="12 6" />
+              <path
+                d="M620 1400 L760 1400"
+                stroke="#d9a066"
+                strokeWidth={14}
+                strokeDasharray="12 6"
+              />
+              <path
+                d="M820 1430 L960 1430"
+                stroke="#d9a066"
+                strokeWidth={14}
+                strokeDasharray="12 6"
+              />
             </g>
           )}
-          <Knife x={790} y={cut ? 1360 : 1330 + Math.sin(frame / 2) * 20} rot={-70} />
+          <Knife
+            x={790}
+            y={cut ? 1360 : 1330 + Math.sin(frame / 2) * 20}
+            rot={-70}
+          />
           {frame >= F.lambi &&
             [0, 1, 2].map((i) => (
-              <g key={i} transform={`translate(${620 + i * 160} ${1250 + Math.sin((frame + i * 9) / 8) * 12})`}>
+              <g
+                key={i}
+                transform={`translate(${620 + i * 160} ${1250 + Math.sin((frame + i * 9) / 8) * 12})`}
+              >
                 <SignText x={0} y={0} size={110} text="?" fill="#fff" />
               </g>
             ))}
@@ -284,16 +494,40 @@ const OptionScene: React.FC<{ opt: "A" | "B" | "C" | "D"; from: number; to: numb
   if (opt === "A") {
     const loopY = ftY(30);
     const pulled = frame >= F.kheench;
-    const down = interpolate(frame, [F.neecheA, F.neecheA + 14], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-    const ropeFall = pulled ? Math.min(LEDGE + 10, loopY + 0.5 * 3200 * ((frame - F.kheench) / 30) ** 2) : 0;
-    const rajuY = interpolate(frame, [from, F.chhajjeA], [ROOF + 60, LEDGE], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    const down = interpolate(frame, [F.neecheA, F.neecheA + 14], [0, 1], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
+    const ropeFall = pulled
+      ? Math.min(
+          LEDGE + 10,
+          loopY + 0.5 * 3200 * ((frame - F.kheench) / 30) ** 2,
+        )
+      : 0;
+    const rajuY = interpolate(frame, [from, F.chhajjeA], [ROOF + 60, LEDGE], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
     return (
       <Diagram from={from} to={to} bar={false}>
         <Svg>
           {/* 30 ft piece with a loop */}
-          {frame >= F.loop && <Rope x={HOOK1[0] + 14} y1={HOOK1[1] + 14} y2={loopY} sway={0.3} />}
-          {frame >= F.loop && <circle cx={HOOK1[0] + 14} cy={loopY + 14} r={16} fill="none" stroke="#d9a066" strokeWidth={8} />}
-          {frame >= F.loop && <Measure x={760} y1={ROOF} y2={loopY} label="30" />}
+          {frame >= F.loop && (
+            <Rope x={HOOK1[0] + 14} y1={HOOK1[1] + 14} y2={loopY} sway={0.3} />
+          )}
+          {frame >= F.loop && (
+            <circle
+              cx={HOOK1[0] + 14}
+              cy={loopY + 14}
+              r={16}
+              fill="none"
+              stroke="#d9a066"
+              strokeWidth={8}
+            />
+          )}
+          {frame >= F.loop && (
+            <Measure x={760} y1={ROOF} y2={loopY} label="30" />
+          )}
           {/* 60 ft piece doubled through the loop -> reaches the ledge */}
           {frame >= F.double && !pulled && (
             <g>
@@ -302,19 +536,32 @@ const OptionScene: React.FC<{ opt: "A" | "B" | "C" | "D"; from: number; to: numb
               <Measure x={760} y1={loopY + 20} y2={LEDGE} label="30 x2" />
             </g>
           )}
-          {pulled && <Rope x={HOOK1[0] + 30} y1={ropeFall - 40} y2={ropeFall} sway={0} />}
+          {pulled && (
+            <Rope x={HOOK1[0] + 30} y1={ropeFall - 40} y2={ropeFall} sway={0} />
+          )}
           {/* second leg: 60 ft from the ledge hook to the ground */}
           {frame >= F.neecheA && (
             <g>
-              <Rope x={HOOK2[0] + 14} y1={HOOK2[1] + 14} y2={GROUND} sway={0.4} />
+              <Rope
+                x={HOOK2[0] + 14}
+                y1={HOOK2[1] + 14}
+                y2={GROUND}
+                sway={0.4}
+              />
               <Measure x={760} y1={LEDGE} y2={GROUND} label="60 FT" />
             </g>
           )}
         </Svg>
-        <Character
+        <GChar
           {...RAJU}
           x={frame >= F.neecheA ? HOOK2[0] + 14 : 560}
-          y={frame >= F.neecheA ? interpolate(down, [0, 1], [LEDGE + 230, GROUND]) : frame >= F.chhajjeA ? LEDGE : rajuY + 230}
+          y={
+            frame >= F.neecheA
+              ? interpolate(down, [0, 1], [LEDGE + 230, GROUND])
+              : frame >= F.chhajjeA
+                ? LEDGE
+                : rajuY + 230
+          }
           scale={SMALL}
           poses={[
             { f: from, v: "cheer" },
@@ -337,18 +584,30 @@ const OptionScene: React.FC<{ opt: "A" | "B" | "C" | "D"; from: number; to: numb
     const fallY = Math.min(GROUND, ropeEnd + 230 + 0.5 * 3200 * t * t);
     const landed = fallY >= GROUND;
     return (
-      <Diagram from={from} to={to} bar={false} shakeAt={landed ? [F.kood + 10] : []}>
+      <Diagram
+        from={from}
+        to={to}
+        bar={false}
+        shakeAt={landed ? [F.kood + 10] : []}
+      >
         <Svg>
           <Rope x={HOOK1[0] + 14} y1={HOOK1[1] + 14} y2={ropeEnd} />
           <Measure x={780} y1={ropeEnd + 40} y2={GROUND} label="30 FT" red />
         </Svg>
-        <Character
+        <GChar
           {...RAJU}
           x={HOOK1[0] + 14}
           y={frame < F.kood ? ropeEnd + 230 : fallY}
           scale={SMALL}
-          poses={[{ f: from, v: "cheer" }, { f: F.kood, v: "panic" }]}
-          exprs={[{ f: from, v: "worried" }, { f: F.kood, v: "shock" }, { f: F.kood + 12, v: "cry" }]}
+          poses={[
+            { f: from, v: "cheer" },
+            { f: F.kood, v: "panic" },
+          ]}
+          exprs={[
+            { f: from, v: "worried" },
+            { f: F.kood, v: "shock" },
+            { f: F.kood + 12, v: "cry" },
+          ]}
           look={[{ f: 0, v: 0 }]}
         />
         <Dust at={F.kood + 10} x={HOOK1[0] + 14} y={GROUND} />
@@ -356,7 +615,16 @@ const OptionScene: React.FC<{ opt: "A" | "B" | "C" | "D"; from: number; to: numb
           <Svg>
             {[0, 1, 2].map((i) => {
               const a = frame / 6 + (i * Math.PI * 2) / 3;
-              return <path key={i} d="M0 -14 L4 -4 L14 0 L4 4 L0 14 L-4 4 L-14 0 L-4 -4Z" fill="#ffd43b" stroke={INK} strokeWidth={3} transform={`translate(${HOOK1[0] + 14 + Math.cos(a) * 60} ${GROUND - 250 + Math.sin(a) * 20})`} />;
+              return (
+                <path
+                  key={i}
+                  d="M0 -14 L4 -4 L14 0 L4 4 L0 14 L-4 4 L-14 0 L-4 -4Z"
+                  fill="#ffd43b"
+                  stroke={INK}
+                  strokeWidth={3}
+                  transform={`translate(${HOOK1[0] + 14 + Math.cos(a) * 60} ${GROUND - 250 + Math.sin(a) * 20})`}
+                />
+              );
             })}
           </Svg>
         )}
@@ -364,7 +632,10 @@ const OptionScene: React.FC<{ opt: "A" | "B" | "C" | "D"; from: number; to: numb
     );
   }
   // C: down to the ledge, but the knot is 60 ft above
-  const rajuY = interpolate(frame, [from, F.utro + 6], [ROOF + 60, LEDGE], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const rajuY = interpolate(frame, [from, F.utro + 6], [ROOF + 60, LEDGE], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
   const onLedge = frame >= F.utro + 6;
   return (
     <Diagram from={from} to={to} bar={false}>
@@ -372,19 +643,39 @@ const OptionScene: React.FC<{ opt: "A" | "B" | "C" | "D"; from: number; to: numb
         <Rope x={HOOK1[0] + 14} y1={HOOK1[1] + 14} y2={ftY(90)} />
         {frame >= F.gaanth && (
           <g>
-            <circle cx={HOOK1[0] + 14} cy={HOOK1[1] + 18} r={40 + Math.sin(frame / 3) * 6} fill="none" stroke="#ff6b6b" strokeWidth={7} />
-            <SignText x={HOOK1[0] + 120} y={HOOK1[1] + 40} size={90} text="?" fill="#fff" />
+            <circle
+              cx={HOOK1[0] + 14}
+              cy={HOOK1[1] + 18}
+              r={40 + Math.sin(frame / 3) * 6}
+              fill="none"
+              stroke="#ff6b6b"
+              strokeWidth={7}
+            />
+            <SignText
+              x={HOOK1[0] + 120}
+              y={HOOK1[1] + 40}
+              size={90}
+              text="?"
+              fill="#fff"
+            />
             <Measure x={780} y1={ROOF} y2={LEDGE} label="60 FT" red />
           </g>
         )}
       </Svg>
-      <Character
+      <GChar
         {...RAJU}
         x={onLedge ? 560 : HOOK1[0] + 14}
         y={onLedge ? LEDGE : rajuY + 230}
         scale={SMALL}
-        poses={[{ f: from, v: "cheer" }, { f: F.utro + 6, v: "idle" }, { f: F.gaanth, v: "scratch" }]}
-        exprs={[{ f: from, v: "think" }, { f: F.gaanth, v: "worried" }]}
+        poses={[
+          { f: from, v: "cheer" },
+          { f: F.utro + 6, v: "idle" },
+          { f: F.gaanth, v: "scratch" },
+        ]}
+        exprs={[
+          { f: from, v: "think" },
+          { f: F.gaanth, v: "worried" },
+        ]}
         look={[{ f: 0, v: 1 }]}
       />
     </Diagram>
@@ -399,7 +690,7 @@ const OutroScene: React.FC = () => (
       <RopeCoil x={780} y={1690} s={1.0} />
       <Knife x={880} y={1570} s={1.0} />
     </Svg>
-    <Character
+    <GChar
       {...RAJU}
       x={380}
       y={1740}
@@ -461,7 +752,13 @@ const SFX: S[] = [
 ];
 
 const speaking = new Float32Array(END + 1);
-for (const l of data.lines) for (let f = Math.max(0, l.startFrame - 3); f <= Math.min(END, l.endFrame + 3); f++) speaking[f] = 1;
+for (const l of data.lines)
+  for (
+    let f = Math.max(0, l.startFrame - 3);
+    f <= Math.min(END, l.endFrame + 3);
+    f++
+  )
+    speaking[f] = 1;
 const musicVol = (f: number) => {
   let s = 0;
   let n = 0;
@@ -472,7 +769,10 @@ const musicVol = (f: number) => {
       n++;
     }
   }
-  const fadeOut = interpolate(f, [END - 20, END], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const fadeOut = interpolate(f, [END - 20, END], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
   return (0.18 - 0.08 * (s / n)) * fadeOut;
 };
 
@@ -484,53 +784,163 @@ const TILES = [
 ];
 
 // ---------------- composition ----------------
-export const TankiRassi: React.FC = () => {
+export const TankiRassi: React.FC<{ golden?: boolean }> = ({
+  golden = false,
+}) => {
   const frame = useCurrentFrame();
   return (
-    <AbsoluteFill style={{ background: "#000" }}>
-      {inRange(frame, 0, F.s3) && <OpeningScene />}
-      {inRange(frame, F.s3, F.s4) && <RoofScene from={F.s3} to={F.s4} />}
-      {inRange(frame, F.s4, F.s5) && <HooksScene />}
-      {inRange(frame, F.s5, F.A) && <FailScene />}
-      {inRange(frame, F.A, F.B) && <OptionScene opt="A" from={F.A} to={F.B} />}
-      {inRange(frame, F.B, F.C) && <OptionScene opt="B" from={F.B} to={F.C} />}
-      {inRange(frame, F.C, F.D) && <OptionScene opt="C" from={F.C} to={F.D} />}
-      {inRange(frame, F.D, F.s7) && <OptionScene opt="D" from={F.D} to={F.s7} />}
-      {frame >= F.s7 && <OutroScene />}
-      {inRange(frame, F.zinda, F.A) && (
-        <AbsoluteFill style={{ opacity: 0.35, mixBlendMode: "screen" }}>
-          <Rays c1="#000" c2="#c92a2a" />
-        </AbsoluteFill>
-      )}
+    <Golden.Provider value={golden}>
+      <AbsoluteFill style={{ background: "#000" }}>
+        {inRange(frame, 0, F.s3) && <OpeningScene />}
+        {inRange(frame, F.s3, F.s4) && <RoofScene from={F.s3} to={F.s4} />}
+        {inRange(frame, F.s4, F.s5) && <HooksScene />}
+        {inRange(frame, F.s5, F.A) && <FailScene />}
+        {inRange(frame, F.A, F.B) && (
+          <OptionScene opt="A" from={F.A} to={F.B} />
+        )}
+        {inRange(frame, F.B, F.C) && (
+          <OptionScene opt="B" from={F.B} to={F.C} />
+        )}
+        {inRange(frame, F.C, F.D) && (
+          <OptionScene opt="C" from={F.C} to={F.D} />
+        )}
+        {inRange(frame, F.D, F.s7) && (
+          <OptionScene opt="D" from={F.D} to={F.s7} />
+        )}
+        {frame >= F.s7 && <OutroScene />}
+        {inRange(frame, F.zinda, F.A) && (
+          <AbsoluteFill style={{ opacity: 0.35, mixBlendMode: "screen" }}>
+            <Rays c1="#000" c2="#c92a2a" />
+          </AbsoluteFill>
+        )}
 
-      <SoftLight x="80%" y="12%" color="rgba(255,244,194,0.18)" />
-      <Vignette />
+        {golden ? (
+          <AbsoluteFill
+            style={{
+              background:
+                "radial-gradient(ellipse at 77% 92%, rgba(255,200,120,0.28), transparent 55%)",
+              mixBlendMode: "screen",
+            }}
+          />
+        ) : (
+          <SoftLight x="80%" y="12%" color="rgba(255,244,194,0.18)" />
+        )}
+        <Vignette />
 
-      <Chip text="120 FEET, 1 RAAT" at={0} until={F.s2} y={250} size={96} slam from={1.1} />
-      <Chip text="RAAT 10 BAJE" at={F.das} until={F.s2} y={380} size={66} color="#fff" />
-      <Chip text="SEEDHI TOOT GAYI" at={F.toot} until={F.s3} y={290} size={80} color="#ff6b6b" slam />
-      <Chip text="SUBAH TAK AKELA" at={F.subah} until={F.s3} y={430} size={64} color="#fff" />
-      <Chip text="RASSI: 90 FEET" at={F.rassi} until={F.s4} y={330} size={88} />
-      <Chip text="CHAAKU: 1" at={F.chaaku} until={F.s4} y={480} size={88} color="#fff" />
-      <Chip text="KUNDA #1: UPAR" at={F.kunda} until={F.s5} y={300} size={80} />
-      <Chip text="KUNDA #2" at={F.saath} until={F.s5} y={440} size={80} color="#fff" />
-      <Chip text="60 FT NEECHE" at={F.doosra} until={F.s5} y={570} size={72} color="#fff" bg="#1971c2" />
-      <Chip text="30 FEET HAWA MEIN!" at={F.tees} until={F.zinda} y={330} size={76} color="#ff6b6b" />
-      <Chip text="ZINDA KAISE?" at={F.zinda} until={F.A} y={400} size={110} slam rotate={-3} />
-      <Tiles tiles={TILES} until={F.s7} outroAt={F.s7} />
-      <Chip text="ANSWER NEXT REEL" at={F.answer} y={720} size={76} color="#fff" bg="#7048e8" />
-      <FollowButton at={F.follow} tapAt={F.handle} />
+        <Chip
+          text="120 FEET, 1 RAAT"
+          at={0}
+          until={F.s2}
+          y={250}
+          size={96}
+          slam
+          from={1.1}
+        />
+        <Chip
+          text="RAAT 10 BAJE"
+          at={F.das}
+          until={F.s2}
+          y={380}
+          size={66}
+          color="#fff"
+        />
+        <Chip
+          text="SEEDHI TOOT GAYI"
+          at={F.toot}
+          until={F.s3}
+          y={290}
+          size={80}
+          color="#ff6b6b"
+          slam
+        />
+        <Chip
+          text="SUBAH TAK AKELA"
+          at={F.subah}
+          until={F.s3}
+          y={430}
+          size={64}
+          color="#fff"
+        />
+        <Chip
+          text="RASSI: 90 FEET"
+          at={F.rassi}
+          until={F.s4}
+          y={330}
+          size={88}
+        />
+        <Chip
+          text="CHAAKU: 1"
+          at={F.chaaku}
+          until={F.s4}
+          y={480}
+          size={88}
+          color="#fff"
+        />
+        <Chip
+          text="KUNDA #1: UPAR"
+          at={F.kunda}
+          until={F.s5}
+          y={300}
+          size={80}
+        />
+        <Chip
+          text="KUNDA #2"
+          at={F.saath}
+          until={F.s5}
+          y={440}
+          size={80}
+          color="#fff"
+        />
+        <Chip
+          text="60 FT NEECHE"
+          at={F.doosra}
+          until={F.s5}
+          y={570}
+          size={72}
+          color="#fff"
+          bg="#1971c2"
+        />
+        <Chip
+          text="30 FEET HAWA MEIN!"
+          at={F.tees}
+          until={F.zinda}
+          y={330}
+          size={76}
+          color="#ff6b6b"
+        />
+        <Chip
+          text="ZINDA KAISE?"
+          at={F.zinda}
+          until={F.A}
+          y={400}
+          size={110}
+          slam
+          rotate={-3}
+        />
+        <Tiles tiles={TILES} until={F.s7} outroAt={F.s7} />
+        <Chip
+          text="ANSWER NEXT REEL"
+          at={F.answer}
+          y={720}
+          size={76}
+          color="#fff"
+          bg="#7048e8"
+        />
+        <FollowButton at={F.follow} tapAt={F.handle} />
 
-      <Grain />
+        <Grain />
 
-      <Audio src={staticFile("voice/tankirassi.wav")} volume={1} />
-      <Audio src={staticFile("music/loop.wav")} loop volume={musicVol} />
-      {SFX.map((s, i) => (
-        <Sequence key={i} from={s.f} durationInFrames={60}>
-          <Audio src={staticFile(`sfx/${s.s}.wav`)} volume={s.v} />
-        </Sequence>
-      ))}
-    </AbsoluteFill>
+        <Audio src={staticFile("voice/tankirassi.wav")} volume={1} />
+        <Audio src={staticFile("music/loop.wav")} loop volume={musicVol} />
+        {SFX.map((s, i) => (
+          <Sequence key={i} from={s.f} durationInFrames={60}>
+            <Audio src={staticFile(`sfx/${s.s}.wav`)} volume={s.v} />
+          </Sequence>
+        ))}
+      </AbsoluteFill>
+    </Golden.Provider>
   );
 };
 
+/** Same video, golden-hour painting style. */
+export const TankiRassiGolden: React.FC = () => <TankiRassi golden />;
