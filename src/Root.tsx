@@ -10,6 +10,7 @@ import { RotiBeej, RotiBeejAnime, ROTIBEEJ_DURATION } from "./videos/RotiBeej/Ro
 import { AnimeTest, ANIMETEST_DURATION } from "./videos/AnimeTest/AnimeTest";
 import { JaaduRubber, JAADURUBBER_DURATION } from "./videos/JaaduRubber/JaaduRubber";
 import { TankiRassi, TANKIRASSI_DURATION } from "./videos/TankiRassi/TankiRassi";
+import { SavannaTest, SAVANNA_DURATION } from "./videos/SavannaTest/SavannaTest";
 
 // Register every video here. One folder per video in src/videos/<name>/.
 export const RemotionRoot: React.FC = () => {
@@ -107,6 +108,14 @@ export const RemotionRoot: React.FC = () => {
         id="TankiRassi"
         component={TankiRassi}
         durationInFrames={TANKIRASSI_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="SavannaTest"
+        component={SavannaTest}
+        durationInFrames={SAVANNA_DURATION}
         fps={30}
         width={1080}
         height={1920}

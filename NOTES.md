@@ -126,3 +126,8 @@
   the top, red 30 FT gap, "ZINDA KAISE?" -> A acted out (30 loop, 60 doubled to the ledge, pull free, slide 60 ft down) /
   B jump + dizzy stars / C knot 60 ft above circled "?" / D rope cut into shorter pieces -> outro + follow. Answer A.
   Lesson: SVG shapes must sit inside an <svg> (NightField rendered nothing until wrapped).
+- `SavannaTest` (src/videos/SavannaTest): 10 s STYLE TEST (user prompt: golden-hour painting). Painted sky with turbulence-
+  displaced horizontal brush strokes, streak clouds lit from below, low sun + bloom, hazy ridges, flat-topped acacias, birds,
+  elephant family (2 adults + calf) as dark backlit silhouettes with a blurred gold rim, diagonal-pair leg gait, swinging
+  trunks, flapping ears, tusks, glowing dust at the feet, tall grass with gold tips. No voice. Awaiting user verdict.
+

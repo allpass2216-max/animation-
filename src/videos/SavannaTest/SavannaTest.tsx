@@ -23,7 +23,7 @@ const Sky: React.FC = () => {
     return { y, x: -200 + random(`bx${i}`) * 900, w: 300 + random(`bw${i}`) * 700, h: 12 + random(`bh${i}`) * 34, c, o: 0.25 + random(`bo${i}`) * 0.4 };
   });
   return (
-    <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
+    <svg width={W} height={H} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
       <defs>
         <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#2a1f4a" />
@@ -43,7 +43,7 @@ const Sky: React.FC = () => {
           <stop offset="1" stopColor="#ff9a4a" stopOpacity="0" />
         </radialGradient>
       </defs>
-      <rect width={W} height={HORIZON + 40} fill="url(#skyG)" />
+      <rect x={-200} width={W + 400} height={HORIZON + 40} fill="url(#skyG)" />
       <g filter="url(#brush)">
         {strokes.map((s, i) => (
           <rect key={i} x={s.x + Math.sin(frame / 90 + i) * 6} y={s.y} width={s.w} height={s.h} rx={s.h / 2} fill={s.c} opacity={s.o} />
@@ -76,17 +76,17 @@ const Sky: React.FC = () => {
 
 /** Distant ridges (hazy layers) + flat-topped acacias + far grassland. */
 const Land: React.FC = () => (
-  <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
+  <svg width={W} height={H} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
     <defs>
       <filter id="haze">
         <feGaussianBlur stdDeviation="2.5" />
       </filter>
     </defs>
-    <path d={`M0 ${HORIZON - 60} Q200 ${HORIZON - 130} 380 ${HORIZON - 70} T760 ${HORIZON - 90} T1080 ${HORIZON - 60} L1080 ${HORIZON + 40} L0 ${HORIZON + 40} Z`} fill="#b45a4a" opacity={0.55} filter="url(#haze)" />
-    <path d={`M0 ${HORIZON - 20} Q260 ${HORIZON - 80} 520 ${HORIZON - 30} T1080 ${HORIZON - 40} L1080 ${HORIZON + 60} L0 ${HORIZON + 60} Z`} fill="#7a3a3a" opacity={0.75} filter="url(#haze)" />
+    <path d={`M-200 ${HORIZON - 60} L0 ${HORIZON - 60} Q200 ${HORIZON - 130} 380 ${HORIZON - 70} T760 ${HORIZON - 90} T1080 ${HORIZON - 60} L1280 ${HORIZON - 60} L1280 ${HORIZON + 40} L-200 ${HORIZON + 40} Z`} fill="#b45a4a" opacity={0.55} filter="url(#haze)" />
+    <path d={`M-200 ${HORIZON - 20} L0 ${HORIZON - 20} Q260 ${HORIZON - 80} 520 ${HORIZON - 30} T1080 ${HORIZON - 40} L1280 ${HORIZON - 40} L1280 ${HORIZON + 60} L-200 ${HORIZON + 60} Z`} fill="#7a3a3a" opacity={0.75} filter="url(#haze)" />
     {/* plain */}
-    <rect x={0} y={HORIZON + 20} width={W} height={H - HORIZON} fill="#3a1d14" />
-    <rect x={0} y={HORIZON + 20} width={W} height={60} fill="#c0663a" opacity={0.35} />
+    <rect x={-200} y={HORIZON + 20} width={W + 400} height={H - HORIZON} fill="#3a1d14" />
+    <rect x={-200} y={HORIZON + 20} width={W + 400} height={60} fill="#c0663a" opacity={0.35} />
     {/* acacias: thin trunk, flat wide canopy */}
     {[
       [140, HORIZON + 30, 1.0],
@@ -115,15 +115,15 @@ const Elephant: React.FC<{ x: number; y: number; s: number; phase: number; seed:
     const ky = hy + len * 0.55;
     return `M${hx} ${hy} Q${kx} ${ky} ${fx} ${fy} L${fx + w * 0.55} ${fy}`;
   };
-  const trunkSegs = 6;
-  let tx = 168;
-  let ty = -70;
-  let ang = 90;
+  const trunkSegs = 8;
+  let tx = 198;
+  let ty = -62;
+  let ang = 80;
   const trunk: string[] = [`M${tx} ${ty}`];
   for (let i = 0; i < trunkSegs; i++) {
-    ang += Math.sin(phase * 0.5 + i * 0.6 + seed) * 7 - 2;
-    tx += Math.cos((ang * Math.PI) / 180) * 22;
-    ty += Math.sin((ang * Math.PI) / 180) * 22;
+    ang += Math.sin(phase * 0.5 + i * 0.6 + seed) * 6 + (i > 5 ? -14 : 1);
+    tx += Math.cos((ang * Math.PI) / 180) * 23;
+    ty += Math.sin((ang * Math.PI) / 180) * 23;
     trunk.push(`L${tx} ${ty}`);
   }
   const ear = 1 + Math.sin(phase * 0.8 + seed) * 0.16;
@@ -133,12 +133,13 @@ const Elephant: React.FC<{ x: number; y: number; s: number; phase: number; seed:
       <path d={leg(-80, 10, phase + Math.PI, 150, 40)} stroke="#2a1712" strokeWidth={46} strokeLinecap="round" fill="none" />
       <path d={leg(90, 10, phase, 150, 40)} stroke="#2a1712" strokeWidth={46} strokeLinecap="round" fill="none" />
       {/* body + head */}
-      <path d="M-150 20 Q-170 -80 -90 -120 Q0 -150 90 -120 Q150 -110 170 -70 Q190 -30 170 20 Q60 60 -40 50 Q-140 55 -150 20Z" />
-      <path d="M120 -120 Q170 -150 205 -110 Q225 -70 190 -40 Q160 -30 140 -60Z" />
-      {/* ear (flaps) */}
-      <path d={`M120 -110 Q${120 - 70 * ear} -140 ${120 - 60 * ear} -40 Q100 -20 120 -60Z`} />
+      <path d="M-170 -20 Q-180 -110 -90 -135 Q-20 -150 40 -135 Q90 -178 150 -168 Q208 -152 212 -95 Q214 -70 202 -55 L190 -40 Q160 20 130 30 Q40 55 -60 50 Q-160 50 -170 -20Z" />
+      {/* ear (flaps around its front edge) */}
+      <g transform={`translate(122 0) scale(${ear} 1) translate(-122 0)`}>
+        <path d="M122 -158 Q46 -160 40 -84 Q42 -6 112 -14 Q140 -70 122 -158Z" />
+      </g>
       {/* trunk */}
-      <path d={trunk.join(" ")} fill="none" strokeWidth={calf ? 20 : 26} strokeLinecap="round" stroke="currentColor" />
+      <path d={trunk.join(" ")} fill="none" strokeWidth={calf ? 22 : 30} strokeLinecap="round" stroke="currentColor" />
       {/* tail */}
       <path d={`M-150 -20 Q${-175 + Math.sin(phase) * 8} 20 ${-170 + Math.sin(phase) * 12} 60`} fill="none" strokeWidth={6} stroke="currentColor" />
       {/* near legs */}
@@ -155,6 +156,7 @@ const Elephant: React.FC<{ x: number; y: number; s: number; phase: number; seed:
       <g fill={SIL} color={SIL} stroke={SIL}>
         {body}
       </g>
+      {!calf && <path d="M196 -46 Q214 -6 246 -4" fill="none" stroke="#f3dcb0" strokeWidth={8} strokeLinecap="round" opacity={0.9} />}
     </g>
   );
 };
@@ -179,7 +181,7 @@ const Dust: React.FC<{ x: number; y: number; s: number; seed: number }> = ({ x, 
 const Grass: React.FC<{ y: number; n: number; h: number; color: string; seed: string }> = ({ y, n, h, color, seed }) => {
   const frame = useCurrentFrame();
   return (
-    <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
+    <svg width={W} height={H} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
       {Array.from({ length: n }).map((_, i) => {
         const x = -20 + (i / n) * (W + 40) + random(`${seed}x${i}`) * 20;
         const hh = h * (0.6 + random(`${seed}h${i}`) * 0.6);
@@ -187,7 +189,8 @@ const Grass: React.FC<{ y: number; n: number; h: number; color: string; seed: st
         return (
           <g key={i}>
             <path d={`M${x} ${y} Q${x + sway * 0.5} ${y - hh * 0.6} ${x + sway} ${y - hh}`} stroke={color} strokeWidth={4} fill="none" strokeLinecap="round" />
-            <path d={`M${x} ${y} Q${x + sway * 0.5} ${y - hh * 0.6} ${x + sway} ${y - hh}`} stroke={RIM} strokeWidth={1.2} fill="none" opacity={0.5} />
+            <path d={`M${x} ${y} Q${x + sway * 0.5} ${y - hh * 0.6} ${x + sway} ${y - hh}`} stroke={RIM} strokeWidth={1.6} fill="none" opacity={0.55} />
+            <circle cx={x + sway} cy={y - hh} r={3.5} fill={RIM} opacity={0.8} />
           </g>
         );
       })}
@@ -198,7 +201,7 @@ const Grass: React.FC<{ y: number; n: number; h: number; color: string; seed: st
 const Birds: React.FC = () => {
   const frame = useCurrentFrame();
   return (
-    <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
+    <svg width={W} height={H} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
       {[0, 1, 2, 3].map((i) => {
         const x = -100 + ((frame * (2.2 + i * 0.3) + i * 140) % (W + 200));
         const y = 520 + i * 40 + Math.sin(frame / 20 + i) * 12;
@@ -211,12 +214,12 @@ const Birds: React.FC = () => {
 
 export const SavannaTest: React.FC = () => {
   const frame = useCurrentFrame();
-  const walk = interpolate(frame, [0, SAVANNA_DURATION], [-80, 420]);
+  const walk = interpolate(frame, [0, SAVANNA_DURATION], [360, 760]);
   const phase = frame / 5;
   const herd = [
-    { dx: 0, y: 1500, s: 1.15, seed: 1 },
-    { dx: -330, y: 1490, s: 0.62, seed: 2, calf: true },
-    { dx: -560, y: 1470, s: 1.0, seed: 3 },
+    { dx: 0, y: 1290, s: 1.0, seed: 1 },
+    { dx: -270, y: 1300, s: 0.56, seed: 2, calf: true },
+    { dx: -470, y: 1280, s: 0.88, seed: 3 },
   ];
   const camX = interpolate(frame, [0, SAVANNA_DURATION], [0, -60]);
   return (
@@ -229,6 +232,7 @@ export const SavannaTest: React.FC = () => {
         <Land />
         <Grass y={HORIZON + 60} n={80} h={40} color="#4a2418" seed="far" />
       </AbsoluteFill>
+      <AbsoluteFill style={{ background: `radial-gradient(circle at ${SUN.x}px ${SUN.y}px, rgba(255,210,140,0.35), transparent 45%)`, mixBlendMode: "screen" }} />
       <AbsoluteFill style={{ transform: `translateX(${camX}px)` }}>
         <svg width={W} height={H} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
           <defs>
@@ -246,10 +250,10 @@ export const SavannaTest: React.FC = () => {
       </AbsoluteFill>
       {/* foreground tall grass (dark, big, soft) */}
       <AbsoluteFill style={{ filter: "blur(1.5px)", transform: `translateX(${camX * 1.4}px)` }}>
-        <Grass y={H + 20} n={46} h={300} color={SIL} seed="near" />
+        <Grass y={H + 20} n={90} h={560} color={SIL} seed="near" />
+        <Grass y={H + 20} n={60} h={380} color="#2a1410" seed="near2" />
       </AbsoluteFill>
-      {/* warm bloom + vignette */}
-      <AbsoluteFill style={{ background: `radial-gradient(circle at ${SUN.x}px ${SUN.y}px, rgba(255,210,140,0.35), transparent 45%)`, mixBlendMode: "screen" }} />
+      {/* vignette */}
       <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 55%, transparent 55%, rgba(20,8,20,0.55) 100%)" }} />
     </AbsoluteFill>
   );
