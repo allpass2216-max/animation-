@@ -4,6 +4,7 @@ import React from "react";
 import { Easing, interpolate, useCurrentFrame } from "remotion";
 import { INK } from "./reel";
 import { ToonCharacter, ToonProps } from "./ToonCharacter";
+import { AnimeCharacter, AnimeProps } from "./AnimeCharacter";
 
 export type PoseName =
   | "idle"
@@ -548,10 +549,11 @@ export const Extra: React.FC<{
 };
 
 /** Which drawing style characters use. Wrap a video in <CharStyle.Provider value="toon"> for the round-head toon style. */
-export const CharStyle = React.createContext<"chunky" | "toon">("chunky");
+export const CharStyle = React.createContext<"chunky" | "toon" | "anime">("chunky");
 
 type CharacterProps = React.ComponentProps<typeof ChunkyCharacter>;
 export const Character: React.FC<CharacterProps> = (props) => {
   const style = React.useContext(CharStyle);
+  if (style === "anime") return <AnimeCharacter {...(props as AnimeProps)} />;
   return style === "toon" ? <ToonCharacter {...(props as ToonProps)} /> : <ChunkyCharacter {...props} />;
 };

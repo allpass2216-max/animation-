@@ -6,7 +6,7 @@ import { LateNight, LATENIGHT_DURATION } from "./videos/LateNight/LateNight";
 import { DinnerSecret, DINNERSECRET_DURATION } from "./videos/DinnerSecret/DinnerSecret";
 import { AiCrore, AICRORE_DURATION } from "./videos/AiCrore/AiCrore";
 import { OyoSecret, OyoSecretToon, OYOSECRET_DURATION } from "./videos/OyoSecret/OyoSecret";
-import { RotiBeej, ROTIBEEJ_DURATION } from "./videos/RotiBeej/RotiBeej";
+import { RotiBeej, RotiBeejAnime, ROTIBEEJ_DURATION } from "./videos/RotiBeej/RotiBeej";
 import { AnimeTest, ANIMETEST_DURATION } from "./videos/AnimeTest/AnimeTest";
 
 // Register every video here. One folder per video in src/videos/<name>/.
@@ -81,6 +81,14 @@ export const RemotionRoot: React.FC = () => {
         id="AnimeTest"
         component={AnimeTest}
         durationInFrames={ANIMETEST_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="RotiBeejAnime"
+        component={RotiBeejAnime}
+        durationInFrames={ROTIBEEJ_DURATION}
         fps={30}
         width={1080}
         height={1920}

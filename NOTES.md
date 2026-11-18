@@ -94,6 +94,10 @@
 - `RotiBeej` (src/videos/RotiBeej): FINAL DONE (2026-11-18). out/rotibeej_final.mp4: 38.0 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact. Caption (with "12% is an example, not advice" note) + pinned comment in post.md.
   Part 2: answer A ~7 lakh (6,97,017); 20 yrs ~30 lakh, 30 yrs ~1.06 crore.
+  ANIME version (user: "pura cel animation style"): composition `RotiBeejAnime` (same voice/timing). src/lib/AnimeCharacter.tsx
+  (thin outlines, two-tone cel shading, big shiny eyes, spiky hair + highlight; same props as Character), switched with
+  <CharStyle.Provider value="anime">; src/lib/atmosphere.tsx AnimeLight (light rays, dust) + AnimeShock (speed lines, edge
+  flash, red "!?") on "crorepati", "kitne", "crore". Friends become anime characters too. STAGE 1 BUILT, awaiting verdict.
   Recording matches script.md. Voice 43.9 s -> 36.3 s clean; allosaurus-align 104 words, "A" corrected to f664 from the pause
   file. ~1146 f. Music loop.wav. Scenes: office front (Rohan flashy + notes flutter, Kunal neat + small BEEJ pot) -> mall
   (notes, phone) -> hard cut to party + parcels -> Kunal's room, coins into BEEJ pot, sprout on "SIP" -> friends laugh
