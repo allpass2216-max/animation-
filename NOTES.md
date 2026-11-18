@@ -134,4 +134,8 @@
   displaced horizontal brush strokes, streak clouds lit from below, low sun + bloom, hazy ridges, flat-topped acacias, birds,
   elephant family (2 adults + calf) as dark backlit silhouettes with a blurred gold rim, diagonal-pair leg gait, swinging
   trunks, flapping ears, tusks, glowing dust at the feet, tall grass with gold tips. No voice. Awaiting user verdict.
+- `SajdaRaat` (src/videos/SajdaRaat): SCRIPT WRITTEN (Hinglish/Urdu words, 10 lines, 109 words). Islamic reminder from
+  refs/ref8.mp4 (talking head on zina / haram relationships; audio not transcribable: no captions, Whisper blocked).
+  Our version: animated story of Arham, secret late-night chats -> Quran 17:32 -> sajda -> asks Ammi for nikah. NO options,
+  no "answer next reel" (genre rule). Only Quran 17:32 quoted. Handle @rehanfact. NEXT: wait for voice.
 
