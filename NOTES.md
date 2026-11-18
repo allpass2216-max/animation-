@@ -91,7 +91,9 @@
   new DinnerTableNice (perspective wood top, runner, food, dal + steam, roti basket, glasses, cloth with scalloped hem);
   Chachu ANGRY: points + glares in the lobby on "kaha", glares on "pota" and when Papa asks, points angrily in B and D.
   Rig: "angry" expr now adds red face flush, anger vein, steam puffs (affects all videos that use "angry").
-- `RotiBeej` (src/videos/RotiBeej): STAGE 1 BUILT, waiting for fixes or "go to final".
+- `RotiBeej` (src/videos/RotiBeej): FINAL DONE (2026-11-18). out/rotibeej_final.mp4: 38.0 s, -14.0 LUFS, TP -2.7 dBTP,
+  watermark @rehanfact. Caption (with "12% is an example, not advice" note) + pinned comment in post.md.
+  Part 2: answer A ~7 lakh (6,97,017); 20 yrs ~30 lakh, 30 yrs ~1.06 crore.
   Recording matches script.md. Voice 43.9 s -> 36.3 s clean; allosaurus-align 104 words, "A" corrected to f664 from the pause
   file. ~1146 f. Music loop.wav. Scenes: office front (Rohan flashy + notes flutter, Kunal neat + small BEEJ pot) -> mall
   (notes, phone) -> hard cut to party + parcels -> Kunal's room, coins into BEEJ pot, sprout on "SIP" -> friends laugh
