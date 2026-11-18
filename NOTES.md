@@ -109,7 +109,8 @@
 - `AnimeTest` (src/videos/AnimeTest): 3 s STYLE TEST only (user asked for Japanese TV anime look): thin dark outlines, two-tone
   cel shading, big shiny eyes, spiky hair with highlight, painted afternoon room (soft clouds, god rays, wooden floor);
   salary slip slips at f30 -> quick zoom f38, speed lines, sweat drop, red "!?". Waiting for user verdict before using it anywhere.
-- `JaaduRubber` (src/videos/JaaduRubber): STAGE 1 BUILT, waiting for fixes or "go to final". Genre-matched to reference
+- `JaaduRubber` (src/videos/JaaduRubber): FINAL DONE (2026-11-18). out/jaadurubber_final.mp4: 36.3 s, -14.0 LUFS, TP -2.7,
+  @rehanfact. post.md: open question caption (no options) + pinned comment promising Chintu tries the funniest idea next reel. Genre-matched to reference
   "The power of Big small" (playful what-if fantasy): NO puzzle, NO options, open comment question at the end.
   Chintu's Rs 1 eraser: blue = big, red = small. Recording matches script.md. Voice 40.4 s -> 34.4 s; 109 words aligned;
   ~1090 f. Scenes: raddi cart hook -> rules (pencil grows/shrinks) -> chai -> bucket -> 10 kg bag -> matchbox -> shrinks
