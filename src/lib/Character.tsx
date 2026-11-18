@@ -60,6 +60,7 @@ const ChunkyCharacter: React.FC<{
   money?: Cue<boolean>[];
   holding?: Cue<"none" | "bag" | "phone" | "helmet" | "icecream" | "purse">[]; // prop in the right hand
   mustache?: boolean;
+  turn?: number; // 0 = facing camera, 0.5..0.9 = three-quarter view towards local +x (flip mirrors it)
   backpack?: string; // school/tuition bag colour (worn on the back, straps in front)
   cap?: string; // snapback cap colour (brim to the side)
   longHair?: string; // long hair falling to the shoulders (colour)
@@ -94,6 +95,7 @@ const ChunkyCharacter: React.FC<{
   holding = [{ f: 0, v: "none" }],
   mom = false,
   mustache = false,
+  turn = 0,
   backpack,
   cap,
   longHair,
@@ -306,9 +308,11 @@ const ChunkyCharacter: React.FC<{
             />
           )}
           <rect x={-40} y={-560} width={80} height={60} fill={skin} stroke={INK} strokeWidth={9} />
-          <circle cx={-172} cy={-690} r={36} fill={skin} stroke={INK} strokeWidth={9} />
-          <circle cx={172} cy={-690} r={36} fill={skin} stroke={INK} strokeWidth={9} />
+          {turn < 0.6 && <circle cx={-172} cy={-690} r={36} fill={skin} stroke={INK} strokeWidth={9} />}
+          <circle cx={172 - turn * 40} cy={-690} r={36} fill={skin} stroke={INK} strokeWidth={9} />
           <circle cx={0} cy={-700} r={175} fill={skin} stroke={INK} strokeWidth={11} />
+          {/* three-quarter view: soft shade on the far side of the face */}
+          {turn > 0 && <path d={`M-60 -870 A175 175 0 0 0 -60 -530 A${175 + turn * 120} 175 0 0 1 -60 -870Z`} fill="#000" opacity={0.08 + turn * 0.06} />}
           {mom && <circle cx={0} cy={-880} r={62} fill={hair} stroke={INK} strokeWidth={10} />}
           {/* hair */}
           <path
@@ -352,6 +356,7 @@ const ChunkyCharacter: React.FC<{
               <circle cx={176} cy={-640} r={16} fill="#ffd43b" stroke={INK} strokeWidth={6} />
             </g>
           )}
+          <g transform={`translate(${turn * 55} 0) translate(0 -700) scale(${1 - turn * 0.16} 1) translate(0 700)`}>
           {/* brows */}
           <g transform={`translate(0 ${browY})`}>
             <path d={`M-100 ${-782 + browTilt} L-30 ${-790 - browTilt * 0.4}`} stroke={INK} strokeWidth={14} strokeLinecap="round" />
@@ -411,6 +416,7 @@ const ChunkyCharacter: React.FC<{
           <ellipse cx={110} cy={-640} rx={26} ry={14} fill="#e9716b" opacity={0.45} />
           {lipstick && <g style={{ filter: "none" }}>{React.cloneElement(mouth, { stroke: lipstick, strokeWidth: 22 })}</g>}
           {mouth}
+          </g>
           {expr === "angry" && (
             <g>
               <circle cx={0} cy={-700} r={170} fill="#e03131" opacity={0.22} />

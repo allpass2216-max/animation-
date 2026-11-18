@@ -54,8 +54,8 @@ const inRange = (f: number, a: number, b: number) => f >= a && f < b;
 const PARTY_CUT = F.party; // hard cut from the mall to the party on "party"
 
 // cast
-const ROHAN = { skin: "#B97A50", shirt: "#e8590c", pants: "#343a40", hair: "#1d1420", chain: true } as const; // flashy
-const KUNAL = { skin: "#C98B5E", shirt: "#a5d8ff", pants: "#2b3a67", hair: "#1d1420", tie: "#1864ab", glasses: true, quiff: true } as const; // neat
+const ROHAN = { skin: "#5c3a24", shirt: "#e8590c", pants: "#343a40", hair: "#140d10", chain: true, turn: 0.75 } as const; // flashy, deep brown skin, 3/4 view
+const KUNAL = { skin: "#f6d3b3", shirt: "#a5d8ff", pants: "#2b3a67", hair: "#1d1420", tie: "#1864ab", glasses: true, quiff: true, turn: 0.75 } as const; // neat, fair skin, 3/4 view
 
 // ---------------- scenes ----------------
 const HookScene: React.FC = () => {
