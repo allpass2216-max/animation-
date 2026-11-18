@@ -8,6 +8,7 @@ import { AiCrore, AICRORE_DURATION } from "./videos/AiCrore/AiCrore";
 import { OyoSecret, OyoSecretToon, OYOSECRET_DURATION } from "./videos/OyoSecret/OyoSecret";
 import { RotiBeej, RotiBeejAnime, ROTIBEEJ_DURATION } from "./videos/RotiBeej/RotiBeej";
 import { AnimeTest, ANIMETEST_DURATION } from "./videos/AnimeTest/AnimeTest";
+import { JaaduRubber, JAADURUBBER_DURATION } from "./videos/JaaduRubber/JaaduRubber";
 
 // Register every video here. One folder per video in src/videos/<name>/.
 export const RemotionRoot: React.FC = () => {
@@ -89,6 +90,14 @@ export const RemotionRoot: React.FC = () => {
         id="RotiBeejAnime"
         component={RotiBeejAnime}
         durationInFrames={ROTIBEEJ_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="JaaduRubber"
+        component={JaaduRubber}
+        durationInFrames={JAADURUBBER_DURATION}
         fps={30}
         width={1080}
         height={1920}
