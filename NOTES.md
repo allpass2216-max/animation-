@@ -117,7 +117,8 @@
   himself into a full auto -> giant mango + mohalla kids -> garbage shrunk + flicked into dustbin -> toy house -> real house
   for Maa + confetti -> "tum kya bada karte / kya chhota?" -> follow tap. Handle @rehanfact.
   Rule learned: match the reference's genre; never force A-D options when the reference has none.
-- `TankiRassi` (src/videos/TankiRassi): STAGE 1 BUILT, waiting for fixes or "go to final". Recording matches script.md.
+- `TankiRassi` (src/videos/TankiRassi): FINAL DONE (2026-11-18). out/tankirassi_final.mp4: 36.9 s, -14.1 LUFS, TP -2.8,
+  @rehanfact. post.md: caption with all 4 options + pinned comment asking for the method. Recording matches script.md.
   Voice 42.8 s -> 35.2 s; 110 words aligned; ~1110 f. Scenes: roof close-up at night (height bar, ladder snaps + falls)
   -> rope coil + knife -> full-height tank diagram (scale: 120 ft = 1040 px; hooks glow when named) -> fail: whole rope from
   the top, red 30 FT gap, "ZINDA KAISE?" -> A acted out (30 loop, 60 doubled to the ledge, pull free, slide 60 ft down) /
