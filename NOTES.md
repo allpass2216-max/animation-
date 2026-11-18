@@ -91,3 +91,6 @@
   new DinnerTableNice (perspective wood top, runner, food, dal + steam, roti basket, glasses, cloth with scalloped hem);
   Chachu ANGRY: points + glares in the lobby on "kaha", glares on "pota" and when Papa asks, points angrily in B and D.
   Rig: "angry" expr now adds red face flush, anger vein, steam puffs (affects all videos that use "angry").
+- `RotiBeej` (src/videos/RotiBeej): SCRIPT WRITTEN (Hinglish, 10 lines, 104 words, A-D from refs/ref5.mp4, idea only: same
+  salary 30,000; one spends all, one does SIP 3,000/month at 12% for 10 years). Answer A ~7 lakh (6,97,017, checked).
+  Handle @rehanfact. NEXT: wait for voice file in voice/; check which script version was recorded.
