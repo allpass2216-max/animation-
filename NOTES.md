@@ -97,3 +97,6 @@
   (notes, phone) -> hard cut to party + parcels -> Kunal's room, coins into BEEJ pot, sprout on "SIP" -> friends laugh
   "3,000 SE CRORE?" -> green rays, SAAL 1->10 counter, pot glows -> A-D note-bundle stacks (7/4/11/18 bundles) -> roti (empty
   plate) vs beej (pot + sprout), vine divider -> follow tap. Answer A ~7 lakh. Handle @rehanfact.
+- `AnimeTest` (src/videos/AnimeTest): 3 s STYLE TEST only (user asked for Japanese TV anime look): thin dark outlines, two-tone
+  cel shading, big shiny eyes, spiky hair with highlight, painted afternoon room (soft clouds, god rays, wooden floor);
+  salary slip slips at f30 -> quick zoom f38, speed lines, sweat drop, red "!?". Waiting for user verdict before using it anywhere.
