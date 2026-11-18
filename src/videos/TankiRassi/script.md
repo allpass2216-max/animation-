@@ -1,6 +1,6 @@
 # TankiRassi — script (Part 1)
 
-Status: SCRIPT ONLY. No voice, no build yet. Waiting for the voice file in `voice/`.
+Status: STAGE 1 BUILT. Recording voice/tankirassi.mp3 matches this script word for word.
 Voice language: Hinglish (template blank not filled; same default as before). Handle: **@rehanfact**.
 Target: 10 lines, 110 words, about 36-39 s after clean_voice (+2 s tail).
 

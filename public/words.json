@@ -1,149 +1,149 @@
 {
-  "audio": "voice/jaadurubber_clean.wav",
+  "audio": "voice/tankirassi_clean.wav",
   "fps": 30,
-  "duration": 34.396,
+  "duration": 35.171,
   "source": "allosaurus-align",
   "approxWords": false,
   "note": "whisper failed: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
   "lines": [
     {
-      "text": "Ek rupaye ka rubber, aur Chintu ki zindagi badal gayi!",
-      "start": 0.15,
-      "end": 2.96,
+      "text": "Raat das baje, Raju ek sau bees feet oonchi tanki par phans gaya!",
+      "start": 0.12,
+      "end": 3.795,
       "startFrame": 4,
-      "endFrame": 89
+      "endFrame": 114
     },
     {
-      "text": "Neela side ghisao, cheez badi, laal side ghisao, cheez chhoti.",
-      "start": 3.27,
-      "end": 6.795,
-      "startFrame": 98,
-      "endFrame": 204
+      "text": "Seedhi toot gayi, subah tak koi nahi aayega.",
+      "start": 4.17,
+      "end": 6.585,
+      "startFrame": 125,
+      "endFrame": 198
     },
     {
-      "text": "Pehle cutting chai ghisi, aur ban gayi balti bhar chai!",
-      "start": 6.99,
-      "end": 9.975,
-      "startFrame": 210,
-      "endFrame": 299
+      "text": "Paas mein nabbe feet rassi, aur ek chaaku.",
+      "start": 6.78,
+      "end": 9.135,
+      "startFrame": 203,
+      "endFrame": 274
     },
     {
-      "text": "Das kilo ka school bag, ab maachis ki dibbi jitna.",
-      "start": 10.26,
-      "end": 12.975,
-      "startFrame": 308,
-      "endFrame": 389
+      "text": "Upar ek kunda, aur saath feet neeche chhajje par doosra.",
+      "start": 9.42,
+      "end": 12.375,
+      "startFrame": 283,
+      "endFrame": 371
     },
     {
-      "text": "Auto mein jagah nahi thi, toh khud ko chhota kiya, aur aaram se baith gaya.",
-      "start": 13.68,
-      "end": 17.27,
-      "startFrame": 410,
-      "endFrame": 518
+      "text": "Poori rassi upar baandhi, toh tees feet hawa mein latkega, zinda neeche kaise utrega?",
+      "start": 12.6,
+      "end": 16.875,
+      "startFrame": 378,
+      "endFrame": 506
     },
     {
-      "text": "Ek aam bada kiya, aur poore mohalle ne mil ke khaya.",
-      "start": 17.46,
-      "end": 20.685,
-      "startFrame": 524,
-      "endFrame": 621
+      "text": "A, tees feet ka loop upar, saath feet rassi double karke chhajje tak, phir kheench ke neeche.",
+      "start": 17.1,
+      "end": 21.975,
+      "startFrame": 513,
+      "endFrame": 659
     },
     {
-      "text": "Kooda ka pahaad chhota karke, dustbin mein daal diya!",
-      "start": 20.85,
-      "end": 23.595,
-      "startFrame": 626,
-      "endFrame": 708
+      "text": "B, poori rassi upar baandho, aur aakhri tees feet kood jao.",
+      "start": 22.23,
+      "end": 25.58,
+      "startFrame": 667,
+      "endFrame": 767
     },
     {
-      "text": "Aur maa ke liye, ek khilona ghar khareeda, aur usse asli ghar bana diya.",
-      "start": 23.79,
-      "end": 27.615,
-      "startFrame": 714,
-      "endFrame": 828
+      "text": "C, chhajje tak utro, phir upar wali gaanth khol do.",
+      "start": 25.86,
+      "end": 28.58,
+      "startFrame": 776,
+      "endFrame": 857
     },
     {
-      "text": "Agar yeh rubber tumhare paas hota, toh kya bada karte, aur kya chhota?",
-      "start": 27.66,
-      "end": 31.575,
-      "startFrame": 830,
-      "endFrame": 947
+      "text": "D, chaaku se rassi kaat ke, lambi kar lo.",
+      "start": 28.86,
+      "end": 31.155,
+      "startFrame": 866,
+      "endFrame": 935
     },
     {
-      "text": "Comment mein likho, aur follow karo @rehanfact!",
-      "start": 31.74,
-      "end": 34.305,
-      "startFrame": 952,
-      "endFrame": 1029
+      "text": "Comment karo, answer in the next reel, follow karo @rehanfact!",
+      "start": 31.32,
+      "end": 34.935,
+      "startFrame": 940,
+      "endFrame": 1048
     }
   ],
   "words": [
     {
-      "word": "Ek",
-      "start": 0.15,
-      "end": 0.285,
+      "word": "Raat",
+      "start": 0.12,
+      "end": 0.225,
       "line": 0,
       "startFrame": 4,
-      "endFrame": 9
+      "endFrame": 7
     },
     {
-      "word": "rupaye",
-      "start": 0.33,
+      "word": "das",
+      "start": 0.39,
       "end": 0.585,
       "line": 0,
-      "startFrame": 10,
+      "startFrame": 12,
       "endFrame": 18
     },
     {
-      "word": "ka",
-      "start": 0.63,
-      "end": 0.71,
+      "word": "baje",
+      "start": 0.6,
+      "end": 0.855,
       "line": 0,
-      "startFrame": 19,
-      "endFrame": 21
+      "startFrame": 18,
+      "endFrame": 26
     },
     {
-      "word": "rubber",
-      "start": 0.75,
-      "end": 0.945,
+      "word": "Raju",
+      "start": 1.11,
+      "end": 1.395,
       "line": 0,
-      "startFrame": 22,
-      "endFrame": 28
+      "startFrame": 33,
+      "endFrame": 42
     },
     {
-      "word": "aur",
-      "start": 1.02,
-      "end": 1.425,
+      "word": "ek",
+      "start": 1.59,
+      "end": 1.755,
       "line": 0,
-      "startFrame": 31,
-      "endFrame": 43
+      "startFrame": 48,
+      "endFrame": 53
     },
     {
-      "word": "Chintu",
-      "start": 1.62,
-      "end": 1.935,
+      "word": "sau",
+      "start": 1.8,
+      "end": 1.995,
       "line": 0,
-      "startFrame": 49,
-      "endFrame": 58
+      "startFrame": 54,
+      "endFrame": 60
     },
     {
-      "word": "ki",
-      "start": 1.98,
-      "end": 2.235,
+      "word": "bees",
+      "start": 2.07,
+      "end": 2.355,
       "line": 0,
-      "startFrame": 59,
-      "endFrame": 67
+      "startFrame": 62,
+      "endFrame": 71
     },
     {
-      "word": "zindagi",
-      "start": 2.25,
-      "end": 2.595,
+      "word": "feet",
+      "start": 2.43,
+      "end": 2.565,
       "line": 0,
-      "startFrame": 68,
-      "endFrame": 78
+      "startFrame": 73,
+      "endFrame": 77
     },
     {
-      "word": "badal",
+      "word": "oonchi",
       "start": 2.61,
       "end": 2.805,
       "line": 0,
@@ -151,804 +151,812 @@
       "endFrame": 84
     },
     {
-      "word": "gayi",
-      "start": 2.88,
-      "end": 2.96,
+      "word": "tanki",
+      "start": 2.85,
+      "end": 3.135,
       "line": 0,
       "startFrame": 86,
-      "endFrame": 89
+      "endFrame": 94
     },
     {
-      "word": "Neela",
-      "start": 3.27,
-      "end": 3.525,
+      "word": "par",
+      "start": 3.18,
+      "end": 3.26,
+      "line": 0,
+      "startFrame": 95,
+      "endFrame": 98
+    },
+    {
+      "word": "phans",
+      "start": 3.36,
+      "end": 3.615,
+      "line": 0,
+      "startFrame": 101,
+      "endFrame": 108
+    },
+    {
+      "word": "gaya",
+      "start": 3.66,
+      "end": 3.795,
+      "line": 0,
+      "startFrame": 110,
+      "endFrame": 114
+    },
+    {
+      "word": "Seedhi",
+      "start": 4.17,
+      "end": 4.485,
       "line": 1,
-      "startFrame": 98,
-      "endFrame": 106
+      "startFrame": 125,
+      "endFrame": 135
     },
     {
-      "word": "side",
-      "start": 3.6,
-      "end": 3.885,
+      "word": "toot",
+      "start": 4.53,
+      "end": 4.785,
       "line": 1,
-      "startFrame": 108,
-      "endFrame": 117
+      "startFrame": 136,
+      "endFrame": 144
     },
     {
-      "word": "ghisao",
-      "start": 3.9,
-      "end": 4.215,
+      "word": "gayi",
+      "start": 4.8,
+      "end": 4.88,
       "line": 1,
-      "startFrame": 117,
-      "endFrame": 126
+      "startFrame": 144,
+      "endFrame": 146
     },
     {
-      "word": "cheez",
-      "start": 4.5,
-      "end": 4.695,
+      "word": "subah",
+      "start": 5.37,
+      "end": 5.565,
       "line": 1,
-      "startFrame": 135,
-      "endFrame": 141
+      "startFrame": 161,
+      "endFrame": 167
     },
     {
-      "word": "badi",
-      "start": 4.74,
-      "end": 4.965,
+      "word": "tak",
+      "start": 5.64,
+      "end": 5.745,
       "line": 1,
-      "startFrame": 142,
-      "endFrame": 149
+      "startFrame": 169,
+      "endFrame": 172
     },
     {
-      "word": "laal",
-      "start": 5.22,
-      "end": 5.325,
+      "word": "koi",
+      "start": 5.82,
+      "end": 6.075,
       "line": 1,
-      "startFrame": 157,
-      "endFrame": 160
+      "startFrame": 175,
+      "endFrame": 182
     },
     {
-      "word": "side",
-      "start": 5.52,
-      "end": 5.76,
+      "word": "nahi",
+      "start": 6.09,
+      "end": 6.15,
       "line": 1,
-      "startFrame": 166,
-      "endFrame": 173
+      "startFrame": 183,
+      "endFrame": 184
     },
     {
-      "word": "ghisao",
-      "start": 5.76,
-      "end": 5.955,
+      "word": "aayega",
+      "start": 6.15,
+      "end": 6.585,
       "line": 1,
-      "startFrame": 173,
-      "endFrame": 179
+      "startFrame": 184,
+      "endFrame": 198
     },
     {
-      "word": "cheez",
-      "start": 5.97,
-      "end": 6.345,
-      "line": 1,
-      "startFrame": 179,
-      "endFrame": 190
-    },
-    {
-      "word": "chhoti",
-      "start": 6.42,
-      "end": 6.795,
-      "line": 1,
-      "startFrame": 193,
-      "endFrame": 204
-    },
-    {
-      "word": "Pehle",
-      "start": 6.99,
-      "end": 7.275,
+      "word": "Paas",
+      "start": 6.78,
+      "end": 7.035,
       "line": 2,
-      "startFrame": 210,
-      "endFrame": 218
+      "startFrame": 203,
+      "endFrame": 211
     },
     {
-      "word": "cutting",
-      "start": 7.35,
-      "end": 7.605,
+      "word": "mein",
+      "start": 7.08,
+      "end": 7.16,
       "line": 2,
-      "startFrame": 220,
-      "endFrame": 228
+      "startFrame": 212,
+      "endFrame": 215
     },
     {
-      "word": "chai",
-      "start": 7.68,
+      "word": "nabbe",
+      "start": 7.17,
+      "end": 7.515,
+      "line": 2,
+      "startFrame": 215,
+      "endFrame": 225
+    },
+    {
+      "word": "feet",
+      "start": 7.59,
       "end": 7.785,
       "line": 2,
-      "startFrame": 230,
+      "startFrame": 228,
       "endFrame": 234
     },
     {
-      "word": "ghisi",
-      "start": 7.89,
+      "word": "rassi",
+      "start": 7.8,
       "end": 8.145,
       "line": 2,
-      "startFrame": 237,
+      "startFrame": 234,
       "endFrame": 244
     },
     {
       "word": "aur",
-      "start": 8.49,
-      "end": 8.595,
+      "start": 8.52,
+      "end": 8.655,
       "line": 2,
-      "startFrame": 255,
-      "endFrame": 258
-    },
-    {
-      "word": "ban",
-      "start": 8.64,
-      "end": 8.805,
-      "line": 2,
-      "startFrame": 259,
-      "endFrame": 264
-    },
-    {
-      "word": "gayi",
-      "start": 8.85,
-      "end": 8.93,
-      "line": 2,
-      "startFrame": 266,
-      "endFrame": 268
-    },
-    {
-      "word": "balti",
-      "start": 9.15,
-      "end": 9.495,
-      "line": 2,
-      "startFrame": 274,
-      "endFrame": 285
-    },
-    {
-      "word": "bhar",
-      "start": 9.54,
-      "end": 9.705,
-      "line": 2,
-      "startFrame": 286,
-      "endFrame": 291
-    },
-    {
-      "word": "chai",
-      "start": 9.75,
-      "end": 9.975,
-      "line": 2,
-      "startFrame": 292,
-      "endFrame": 299
-    },
-    {
-      "word": "Das",
-      "start": 10.26,
-      "end": 10.455,
-      "line": 3,
-      "startFrame": 308,
-      "endFrame": 314
-    },
-    {
-      "word": "kilo",
-      "start": 10.5,
-      "end": 10.695,
-      "line": 3,
-      "startFrame": 315,
-      "endFrame": 321
-    },
-    {
-      "word": "ka",
-      "start": 10.74,
-      "end": 10.82,
-      "line": 3,
-      "startFrame": 322,
-      "endFrame": 325
-    },
-    {
-      "word": "school",
-      "start": 10.89,
-      "end": 11.115,
-      "line": 3,
-      "startFrame": 327,
-      "endFrame": 333
-    },
-    {
-      "word": "bag",
-      "start": 11.16,
-      "end": 11.445,
-      "line": 3,
-      "startFrame": 335,
-      "endFrame": 343
-    },
-    {
-      "word": "ab",
-      "start": 11.64,
-      "end": 11.72,
-      "line": 3,
-      "startFrame": 349,
-      "endFrame": 352
-    },
-    {
-      "word": "maachis",
-      "start": 11.73,
-      "end": 12.225,
-      "line": 3,
-      "startFrame": 352,
-      "endFrame": 367
-    },
-    {
-      "word": "ki",
-      "start": 12.24,
-      "end": 12.345,
-      "line": 3,
-      "startFrame": 367,
-      "endFrame": 370
-    },
-    {
-      "word": "dibbi",
-      "start": 12.45,
-      "end": 12.705,
-      "line": 3,
-      "startFrame": 374,
-      "endFrame": 381
-    },
-    {
-      "word": "jitna",
-      "start": 12.72,
-      "end": 12.975,
-      "line": 3,
-      "startFrame": 382,
-      "endFrame": 389
-    },
-    {
-      "word": "Auto",
-      "start": 13.68,
-      "end": 13.935,
-      "line": 4,
-      "startFrame": 410,
-      "endFrame": 418
-    },
-    {
-      "word": "mein",
-      "start": 13.98,
-      "end": 14.085,
-      "line": 4,
-      "startFrame": 419,
-      "endFrame": 423
-    },
-    {
-      "word": "jagah",
-      "start": 14.13,
-      "end": 14.355,
-      "line": 4,
-      "startFrame": 424,
-      "endFrame": 431
-    },
-    {
-      "word": "nahi",
-      "start": 14.37,
-      "end": 14.565,
-      "line": 4,
-      "startFrame": 431,
-      "endFrame": 437
-    },
-    {
-      "word": "thi",
-      "start": 14.61,
-      "end": 14.745,
-      "line": 4,
-      "startFrame": 438,
-      "endFrame": 442
-    },
-    {
-      "word": "toh",
-      "start": 14.94,
-      "end": 15.045,
-      "line": 4,
-      "startFrame": 448,
-      "endFrame": 451
-    },
-    {
-      "word": "khud",
-      "start": 15.09,
-      "end": 15.255,
-      "line": 4,
-      "startFrame": 453,
-      "endFrame": 458
-    },
-    {
-      "word": "ko",
-      "start": 15.27,
-      "end": 15.375,
-      "line": 4,
-      "startFrame": 458,
-      "endFrame": 461
-    },
-    {
-      "word": "chhota",
-      "start": 15.42,
-      "end": 15.705,
-      "line": 4,
-      "startFrame": 463,
-      "endFrame": 471
-    },
-    {
-      "word": "kiya",
-      "start": 15.75,
-      "end": 15.855,
-      "line": 4,
-      "startFrame": 472,
-      "endFrame": 476
-    },
-    {
-      "word": "aur",
-      "start": 15.9,
-      "end": 16.305,
-      "line": 4,
-      "startFrame": 477,
-      "endFrame": 489
-    },
-    {
-      "word": "aaram",
-      "start": 16.41,
-      "end": 16.755,
-      "line": 4,
-      "startFrame": 492,
-      "endFrame": 503
-    },
-    {
-      "word": "se",
-      "start": 16.8,
-      "end": 16.905,
-      "line": 4,
-      "startFrame": 504,
-      "endFrame": 507
-    },
-    {
-      "word": "baith",
-      "start": 16.92,
-      "end": 17.175,
-      "line": 4,
-      "startFrame": 508,
-      "endFrame": 515
-    },
-    {
-      "word": "gaya",
-      "start": 17.19,
-      "end": 17.27,
-      "line": 4,
-      "startFrame": 516,
-      "endFrame": 518
-    },
-    {
-      "word": "Ek",
-      "start": 17.46,
-      "end": 17.715,
-      "line": 5,
-      "startFrame": 524,
-      "endFrame": 531
-    },
-    {
-      "word": "aam",
-      "start": 17.82,
-      "end": 18.075,
-      "line": 5,
-      "startFrame": 535,
-      "endFrame": 542
-    },
-    {
-      "word": "bada",
-      "start": 18.12,
-      "end": 18.345,
-      "line": 5,
-      "startFrame": 544,
-      "endFrame": 550
-    },
-    {
-      "word": "kiya",
-      "start": 18.42,
-      "end": 18.525,
-      "line": 5,
-      "startFrame": 553,
-      "endFrame": 556
-    },
-    {
-      "word": "aur",
-      "start": 18.6,
-      "end": 18.915,
-      "line": 5,
-      "startFrame": 558,
-      "endFrame": 567
-    },
-    {
-      "word": "poore",
-      "start": 19.11,
-      "end": 19.425,
-      "line": 5,
-      "startFrame": 573,
-      "endFrame": 583
-    },
-    {
-      "word": "mohalle",
-      "start": 19.5,
-      "end": 19.815,
-      "line": 5,
-      "startFrame": 585,
-      "endFrame": 594
-    },
-    {
-      "word": "ne",
-      "start": 19.86,
-      "end": 19.95,
-      "line": 5,
-      "startFrame": 596,
-      "endFrame": 598
-    },
-    {
-      "word": "mil",
-      "start": 19.95,
-      "end": 20.265,
-      "line": 5,
-      "startFrame": 598,
-      "endFrame": 608
-    },
-    {
-      "word": "ke",
-      "start": 20.28,
-      "end": 20.385,
-      "line": 5,
-      "startFrame": 608,
-      "endFrame": 612
-    },
-    {
-      "word": "khaya",
-      "start": 20.43,
-      "end": 20.685,
-      "line": 5,
-      "startFrame": 613,
-      "endFrame": 621
-    },
-    {
-      "word": "Kooda",
-      "start": 20.85,
-      "end": 21.135,
-      "line": 6,
-      "startFrame": 626,
-      "endFrame": 634
-    },
-    {
-      "word": "ka",
-      "start": 21.21,
-      "end": 21.315,
-      "line": 6,
-      "startFrame": 636,
-      "endFrame": 639
-    },
-    {
-      "word": "pahaad",
-      "start": 21.36,
-      "end": 21.585,
-      "line": 6,
-      "startFrame": 641,
-      "endFrame": 648
-    },
-    {
-      "word": "chhota",
-      "start": 21.78,
-      "end": 22.095,
-      "line": 6,
-      "startFrame": 653,
-      "endFrame": 663
-    },
-    {
-      "word": "karke",
-      "start": 22.14,
-      "end": 22.425,
-      "line": 6,
-      "startFrame": 664,
-      "endFrame": 673
-    },
-    {
-      "word": "dustbin",
-      "start": 22.77,
-      "end": 23.1,
-      "line": 6,
-      "startFrame": 683,
-      "endFrame": 693
-    },
-    {
-      "word": "mein",
-      "start": 23.1,
-      "end": 23.205,
-      "line": 6,
-      "startFrame": 693,
-      "endFrame": 696
-    },
-    {
-      "word": "daal",
-      "start": 23.22,
-      "end": 23.385,
-      "line": 6,
-      "startFrame": 697,
-      "endFrame": 702
-    },
-    {
-      "word": "diya",
-      "start": 23.43,
-      "end": 23.595,
-      "line": 6,
-      "startFrame": 703,
-      "endFrame": 708
-    },
-    {
-      "word": "Aur",
-      "start": 23.79,
-      "end": 23.925,
-      "line": 7,
-      "startFrame": 714,
-      "endFrame": 718
-    },
-    {
-      "word": "maa",
-      "start": 23.94,
-      "end": 24.075,
-      "line": 7,
-      "startFrame": 718,
-      "endFrame": 722
-    },
-    {
-      "word": "ke",
-      "start": 24.18,
-      "end": 24.285,
-      "line": 7,
-      "startFrame": 725,
-      "endFrame": 729
-    },
-    {
-      "word": "liye",
-      "start": 24.33,
-      "end": 24.525,
-      "line": 7,
-      "startFrame": 730,
-      "endFrame": 736
+      "startFrame": 256,
+      "endFrame": 260
     },
     {
       "word": "ek",
-      "start": 24.84,
-      "end": 24.92,
-      "line": 7,
-      "startFrame": 745,
-      "endFrame": 748
+      "start": 8.67,
+      "end": 8.75,
+      "line": 2,
+      "startFrame": 260,
+      "endFrame": 262
     },
     {
-      "word": "khilona",
-      "start": 24.99,
-      "end": 25.365,
-      "line": 7,
-      "startFrame": 750,
-      "endFrame": 761
+      "word": "chaaku",
+      "start": 8.82,
+      "end": 9.135,
+      "line": 2,
+      "startFrame": 265,
+      "endFrame": 274
     },
     {
-      "word": "ghar",
-      "start": 25.41,
-      "end": 25.605,
-      "line": 7,
-      "startFrame": 762,
-      "endFrame": 768
+      "word": "Upar",
+      "start": 9.42,
+      "end": 9.585,
+      "line": 3,
+      "startFrame": 283,
+      "endFrame": 288
     },
     {
-      "word": "khareeda",
-      "start": 25.62,
-      "end": 25.905,
-      "line": 7,
-      "startFrame": 769,
-      "endFrame": 777
+      "word": "ek",
+      "start": 9.66,
+      "end": 9.74,
+      "line": 3,
+      "startFrame": 290,
+      "endFrame": 292
+    },
+    {
+      "word": "kunda",
+      "start": 9.78,
+      "end": 9.945,
+      "line": 3,
+      "startFrame": 293,
+      "endFrame": 298
     },
     {
       "word": "aur",
-      "start": 25.92,
-      "end": 26.0,
-      "line": 7,
-      "startFrame": 778,
-      "endFrame": 780
+      "start": 10.05,
+      "end": 10.605,
+      "line": 3,
+      "startFrame": 302,
+      "endFrame": 318
     },
     {
-      "word": "usse",
-      "start": 26.22,
-      "end": 26.565,
-      "line": 7,
-      "startFrame": 787,
-      "endFrame": 797
+      "word": "saath",
+      "start": 10.71,
+      "end": 10.845,
+      "line": 3,
+      "startFrame": 321,
+      "endFrame": 325
     },
     {
-      "word": "asli",
-      "start": 26.73,
-      "end": 27.045,
-      "line": 7,
-      "startFrame": 802,
-      "endFrame": 811
+      "word": "feet",
+      "start": 11.25,
+      "end": 11.445,
+      "line": 3,
+      "startFrame": 338,
+      "endFrame": 343
     },
     {
-      "word": "ghar",
-      "start": 27.09,
-      "end": 27.255,
-      "line": 7,
-      "startFrame": 813,
-      "endFrame": 818
+      "word": "neeche",
+      "start": 11.46,
+      "end": 11.54,
+      "line": 3,
+      "startFrame": 344,
+      "endFrame": 346
     },
     {
-      "word": "bana",
-      "start": 27.27,
-      "end": 27.465,
-      "line": 7,
-      "startFrame": 818,
-      "endFrame": 824
+      "word": "chhajje",
+      "start": 11.67,
+      "end": 11.865,
+      "line": 3,
+      "startFrame": 350,
+      "endFrame": 356
     },
     {
-      "word": "diya",
-      "start": 27.51,
-      "end": 27.615,
-      "line": 7,
-      "startFrame": 825,
-      "endFrame": 828
+      "word": "par",
+      "start": 11.91,
+      "end": 12.045,
+      "line": 3,
+      "startFrame": 357,
+      "endFrame": 361
     },
     {
-      "word": "Agar",
-      "start": 27.66,
-      "end": 28.125,
-      "line": 8,
-      "startFrame": 830,
-      "endFrame": 844
+      "word": "doosra",
+      "start": 12.06,
+      "end": 12.375,
+      "line": 3,
+      "startFrame": 362,
+      "endFrame": 371
     },
     {
-      "word": "yeh",
-      "start": 28.23,
-      "end": 28.335,
-      "line": 8,
-      "startFrame": 847,
-      "endFrame": 850
+      "word": "Poori",
+      "start": 12.6,
+      "end": 12.825,
+      "line": 4,
+      "startFrame": 378,
+      "endFrame": 385
     },
     {
-      "word": "rubber",
-      "start": 28.41,
-      "end": 28.665,
-      "line": 8,
-      "startFrame": 852,
-      "endFrame": 860
+      "word": "rassi",
+      "start": 12.87,
+      "end": 13.155,
+      "line": 4,
+      "startFrame": 386,
+      "endFrame": 395
     },
     {
-      "word": "tumhare",
-      "start": 28.68,
-      "end": 29.055,
-      "line": 8,
-      "startFrame": 860,
-      "endFrame": 872
+      "word": "upar",
+      "start": 13.17,
+      "end": 13.395,
+      "line": 4,
+      "startFrame": 395,
+      "endFrame": 402
     },
     {
-      "word": "paas",
-      "start": 29.07,
-      "end": 29.295,
-      "line": 8,
-      "startFrame": 872,
-      "endFrame": 879
-    },
-    {
-      "word": "hota",
-      "start": 29.34,
-      "end": 29.535,
-      "line": 8,
-      "startFrame": 880,
-      "endFrame": 886
+      "word": "baandhi",
+      "start": 13.41,
+      "end": 13.725,
+      "line": 4,
+      "startFrame": 402,
+      "endFrame": 412
     },
     {
       "word": "toh",
-      "start": 29.79,
-      "end": 29.895,
-      "line": 8,
-      "startFrame": 894,
-      "endFrame": 897
+      "start": 14.01,
+      "end": 14.115,
+      "line": 4,
+      "startFrame": 420,
+      "endFrame": 423
     },
     {
-      "word": "kya",
-      "start": 29.97,
-      "end": 30.135,
-      "line": 8,
-      "startFrame": 899,
-      "endFrame": 904
+      "word": "tees",
+      "start": 14.19,
+      "end": 14.505,
+      "line": 4,
+      "startFrame": 426,
+      "endFrame": 435
     },
     {
-      "word": "bada",
-      "start": 30.21,
-      "end": 30.405,
-      "line": 8,
-      "startFrame": 906,
-      "endFrame": 912
+      "word": "feet",
+      "start": 14.52,
+      "end": 14.625,
+      "line": 4,
+      "startFrame": 436,
+      "endFrame": 439
     },
     {
-      "word": "karte",
-      "start": 30.45,
-      "end": 30.735,
-      "line": 8,
-      "startFrame": 914,
-      "endFrame": 922
+      "word": "hawa",
+      "start": 14.67,
+      "end": 14.88,
+      "line": 4,
+      "startFrame": 440,
+      "endFrame": 446
+    },
+    {
+      "word": "mein",
+      "start": 14.88,
+      "end": 15.03,
+      "line": 4,
+      "startFrame": 446,
+      "endFrame": 451
+    },
+    {
+      "word": "latkega",
+      "start": 15.03,
+      "end": 15.435,
+      "line": 4,
+      "startFrame": 451,
+      "endFrame": 463
+    },
+    {
+      "word": "zinda",
+      "start": 15.69,
+      "end": 15.945,
+      "line": 4,
+      "startFrame": 471,
+      "endFrame": 478
+    },
+    {
+      "word": "neeche",
+      "start": 16.02,
+      "end": 16.275,
+      "line": 4,
+      "startFrame": 481,
+      "endFrame": 488
+    },
+    {
+      "word": "kaise",
+      "start": 16.29,
+      "end": 16.53,
+      "line": 4,
+      "startFrame": 489,
+      "endFrame": 496
+    },
+    {
+      "word": "utrega",
+      "start": 16.53,
+      "end": 16.875,
+      "line": 4,
+      "startFrame": 496,
+      "endFrame": 506
+    },
+    {
+      "word": "A",
+      "start": 17.1,
+      "end": 17.18,
+      "line": 5,
+      "startFrame": 513,
+      "endFrame": 515
+    },
+    {
+      "word": "tees",
+      "start": 17.43,
+      "end": 17.535,
+      "line": 5,
+      "startFrame": 523,
+      "endFrame": 526
+    },
+    {
+      "word": "feet",
+      "start": 17.73,
+      "end": 17.835,
+      "line": 5,
+      "startFrame": 532,
+      "endFrame": 535
+    },
+    {
+      "word": "ka",
+      "start": 17.88,
+      "end": 17.985,
+      "line": 5,
+      "startFrame": 536,
+      "endFrame": 540
+    },
+    {
+      "word": "loop",
+      "start": 18.06,
+      "end": 18.255,
+      "line": 5,
+      "startFrame": 542,
+      "endFrame": 548
+    },
+    {
+      "word": "upar",
+      "start": 18.3,
+      "end": 18.645,
+      "line": 5,
+      "startFrame": 549,
+      "endFrame": 559
+    },
+    {
+      "word": "saath",
+      "start": 18.99,
+      "end": 19.095,
+      "line": 5,
+      "startFrame": 570,
+      "endFrame": 573
+    },
+    {
+      "word": "feet",
+      "start": 19.26,
+      "end": 19.365,
+      "line": 5,
+      "startFrame": 578,
+      "endFrame": 581
+    },
+    {
+      "word": "rassi",
+      "start": 19.44,
+      "end": 19.725,
+      "line": 5,
+      "startFrame": 583,
+      "endFrame": 592
+    },
+    {
+      "word": "double",
+      "start": 19.83,
+      "end": 20.025,
+      "line": 5,
+      "startFrame": 595,
+      "endFrame": 601
+    },
+    {
+      "word": "karke",
+      "start": 20.07,
+      "end": 20.325,
+      "line": 5,
+      "startFrame": 602,
+      "endFrame": 610
+    },
+    {
+      "word": "chhajje",
+      "start": 20.4,
+      "end": 20.715,
+      "line": 5,
+      "startFrame": 612,
+      "endFrame": 621
+    },
+    {
+      "word": "tak",
+      "start": 20.73,
+      "end": 21.015,
+      "line": 5,
+      "startFrame": 622,
+      "endFrame": 630
+    },
+    {
+      "word": "phir",
+      "start": 21.03,
+      "end": 21.11,
+      "line": 5,
+      "startFrame": 631,
+      "endFrame": 633
+    },
+    {
+      "word": "kheench",
+      "start": 21.3,
+      "end": 21.405,
+      "line": 5,
+      "startFrame": 639,
+      "endFrame": 642
+    },
+    {
+      "word": "ke",
+      "start": 21.63,
+      "end": 21.66,
+      "line": 5,
+      "startFrame": 649,
+      "endFrame": 650
+    },
+    {
+      "word": "neeche",
+      "start": 21.66,
+      "end": 21.975,
+      "line": 5,
+      "startFrame": 650,
+      "endFrame": 659
+    },
+    {
+      "word": "B",
+      "start": 22.23,
+      "end": 22.335,
+      "line": 6,
+      "startFrame": 667,
+      "endFrame": 670
+    },
+    {
+      "word": "poori",
+      "start": 22.56,
+      "end": 22.815,
+      "line": 6,
+      "startFrame": 677,
+      "endFrame": 684
+    },
+    {
+      "word": "rassi",
+      "start": 22.86,
+      "end": 23.145,
+      "line": 6,
+      "startFrame": 686,
+      "endFrame": 694
+    },
+    {
+      "word": "upar",
+      "start": 23.16,
+      "end": 23.385,
+      "line": 6,
+      "startFrame": 695,
+      "endFrame": 702
+    },
+    {
+      "word": "baandho",
+      "start": 23.4,
+      "end": 23.685,
+      "line": 6,
+      "startFrame": 702,
+      "endFrame": 711
     },
     {
       "word": "aur",
-      "start": 30.75,
-      "end": 30.975,
-      "line": 8,
-      "startFrame": 922,
-      "endFrame": 929
+      "start": 23.91,
+      "end": 24.075,
+      "line": 6,
+      "startFrame": 717,
+      "endFrame": 722
     },
     {
-      "word": "kya",
-      "start": 31.08,
-      "end": 31.17,
+      "word": "aakhri",
+      "start": 24.18,
+      "end": 24.525,
+      "line": 6,
+      "startFrame": 725,
+      "endFrame": 736
+    },
+    {
+      "word": "tees",
+      "start": 24.63,
+      "end": 24.885,
+      "line": 6,
+      "startFrame": 739,
+      "endFrame": 747
+    },
+    {
+      "word": "feet",
+      "start": 24.93,
+      "end": 25.125,
+      "line": 6,
+      "startFrame": 748,
+      "endFrame": 754
+    },
+    {
+      "word": "kood",
+      "start": 25.17,
+      "end": 25.485,
+      "line": 6,
+      "startFrame": 755,
+      "endFrame": 765
+    },
+    {
+      "word": "jao",
+      "start": 25.5,
+      "end": 25.58,
+      "line": 6,
+      "startFrame": 765,
+      "endFrame": 767
+    },
+    {
+      "word": "C",
+      "start": 25.86,
+      "end": 25.995,
+      "line": 7,
+      "startFrame": 776,
+      "endFrame": 780
+    },
+    {
+      "word": "chhajje",
+      "start": 26.31,
+      "end": 26.535,
+      "line": 7,
+      "startFrame": 789,
+      "endFrame": 796
+    },
+    {
+      "word": "tak",
+      "start": 26.55,
+      "end": 26.715,
+      "line": 7,
+      "startFrame": 796,
+      "endFrame": 801
+    },
+    {
+      "word": "utro",
+      "start": 26.73,
+      "end": 26.985,
+      "line": 7,
+      "startFrame": 802,
+      "endFrame": 810
+    },
+    {
+      "word": "phir",
+      "start": 27.3,
+      "end": 27.405,
+      "line": 7,
+      "startFrame": 819,
+      "endFrame": 822
+    },
+    {
+      "word": "upar",
+      "start": 27.48,
+      "end": 27.735,
+      "line": 7,
+      "startFrame": 824,
+      "endFrame": 832
+    },
+    {
+      "word": "wali",
+      "start": 27.78,
+      "end": 27.945,
+      "line": 7,
+      "startFrame": 833,
+      "endFrame": 838
+    },
+    {
+      "word": "gaanth",
+      "start": 28.02,
+      "end": 28.245,
+      "line": 7,
+      "startFrame": 841,
+      "endFrame": 847
+    },
+    {
+      "word": "khol",
+      "start": 28.29,
+      "end": 28.455,
+      "line": 7,
+      "startFrame": 849,
+      "endFrame": 854
+    },
+    {
+      "word": "do",
+      "start": 28.5,
+      "end": 28.58,
+      "line": 7,
+      "startFrame": 855,
+      "endFrame": 857
+    },
+    {
+      "word": "D",
+      "start": 28.86,
+      "end": 28.965,
+      "line": 8,
+      "startFrame": 866,
+      "endFrame": 869
+    },
+    {
+      "word": "chaaku",
+      "start": 29.28,
+      "end": 29.505,
+      "line": 8,
+      "startFrame": 878,
+      "endFrame": 885
+    },
+    {
+      "word": "se",
+      "start": 29.55,
+      "end": 29.655,
+      "line": 8,
+      "startFrame": 886,
+      "endFrame": 890
+    },
+    {
+      "word": "rassi",
+      "start": 29.7,
+      "end": 29.955,
+      "line": 8,
+      "startFrame": 891,
+      "endFrame": 899
+    },
+    {
+      "word": "kaat",
+      "start": 30.0,
+      "end": 30.225,
+      "line": 8,
+      "startFrame": 900,
+      "endFrame": 907
+    },
+    {
+      "word": "ke",
+      "start": 30.24,
+      "end": 30.345,
+      "line": 8,
+      "startFrame": 907,
+      "endFrame": 910
+    },
+    {
+      "word": "lambi",
+      "start": 30.6,
+      "end": 30.855,
+      "line": 8,
+      "startFrame": 918,
+      "endFrame": 926
+    },
+    {
+      "word": "kar",
+      "start": 30.93,
+      "end": 31.01,
+      "line": 8,
+      "startFrame": 928,
+      "endFrame": 930
+    },
+    {
+      "word": "lo",
+      "start": 31.05,
+      "end": 31.155,
       "line": 8,
       "startFrame": 932,
       "endFrame": 935
     },
     {
-      "word": "chhota",
-      "start": 31.17,
-      "end": 31.575,
-      "line": 8,
-      "startFrame": 935,
-      "endFrame": 947
-    },
-    {
       "word": "Comment",
-      "start": 31.74,
-      "end": 32.055,
+      "start": 31.32,
+      "end": 31.605,
       "line": 9,
-      "startFrame": 952,
-      "endFrame": 962
-    },
-    {
-      "word": "mein",
-      "start": 32.1,
-      "end": 32.18,
-      "line": 9,
-      "startFrame": 963,
-      "endFrame": 965
-    },
-    {
-      "word": "likho",
-      "start": 32.19,
-      "end": 32.415,
-      "line": 9,
-      "startFrame": 966,
-      "endFrame": 972
-    },
-    {
-      "word": "aur",
-      "start": 32.7,
-      "end": 32.78,
-      "line": 9,
-      "startFrame": 981,
-      "endFrame": 983
-    },
-    {
-      "word": "follow",
-      "start": 32.79,
-      "end": 33.045,
-      "line": 9,
-      "startFrame": 984,
-      "endFrame": 991
+      "startFrame": 940,
+      "endFrame": 948
     },
     {
       "word": "karo",
-      "start": 33.06,
-      "end": 33.285,
+      "start": 31.68,
+      "end": 31.875,
       "line": 9,
-      "startFrame": 992,
-      "endFrame": 999
+      "startFrame": 950,
+      "endFrame": 956
+    },
+    {
+      "word": "answer",
+      "start": 32.22,
+      "end": 32.475,
+      "line": 9,
+      "startFrame": 967,
+      "endFrame": 974
+    },
+    {
+      "word": "in",
+      "start": 32.52,
+      "end": 32.6,
+      "line": 9,
+      "startFrame": 976,
+      "endFrame": 978
+    },
+    {
+      "word": "the",
+      "start": 32.61,
+      "end": 32.67,
+      "line": 9,
+      "startFrame": 978,
+      "endFrame": 980
+    },
+    {
+      "word": "next",
+      "start": 32.67,
+      "end": 32.895,
+      "line": 9,
+      "startFrame": 980,
+      "endFrame": 987
+    },
+    {
+      "word": "reel",
+      "start": 32.94,
+      "end": 33.165,
+      "line": 9,
+      "startFrame": 988,
+      "endFrame": 995
+    },
+    {
+      "word": "follow",
+      "start": 33.42,
+      "end": 33.675,
+      "line": 9,
+      "startFrame": 1003,
+      "endFrame": 1010
+    },
+    {
+      "word": "karo",
+      "start": 33.72,
+      "end": 33.915,
+      "line": 9,
+      "startFrame": 1012,
+      "endFrame": 1017
     },
     {
       "word": "@rehanfact",
-      "start": 33.6,
-      "end": 34.305,
+      "start": 34.35,
+      "end": 34.935,
       "line": 9,
-      "startFrame": 1008,
-      "endFrame": 1029
+      "startFrame": 1030,
+      "endFrame": 1048
     }
   ]
 }

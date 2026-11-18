@@ -117,8 +117,9 @@
   himself into a full auto -> giant mango + mohalla kids -> garbage shrunk + flicked into dustbin -> toy house -> real house
   for Maa + confetti -> "tum kya bada karte / kya chhota?" -> follow tap. Handle @rehanfact.
   Rule learned: match the reference's genre; never force A-D options when the reference has none.
-- `TankiRassi` (src/videos/TankiRassi): SCRIPT WRITTEN (Hinglish, 10 lines, 110 words). Rope puzzle from refs/ref7.mp4 (castle
-  200/150/100) remade: 120 ft water tank, 90 ft rope, knife, hooks at top + chhajja 60 ft down. Answer A (30 ft loop + 60 ft
-  doubled, pull free, 60 ft down) — checked. A-D used because the template asks for it on a question (reference had no
-  options). Handle @rehanfact. NEXT: wait for voice; check which version was recorded.
-
+- `TankiRassi` (src/videos/TankiRassi): STAGE 1 BUILT, waiting for fixes or "go to final". Recording matches script.md.
+  Voice 42.8 s -> 35.2 s; 110 words aligned; ~1110 f. Scenes: roof close-up at night (height bar, ladder snaps + falls)
+  -> rope coil + knife -> full-height tank diagram (scale: 120 ft = 1040 px; hooks glow when named) -> fail: whole rope from
+  the top, red 30 FT gap, "ZINDA KAISE?" -> A acted out (30 loop, 60 doubled to the ledge, pull free, slide 60 ft down) /
+  B jump + dizzy stars / C knot 60 ft above circled "?" / D rope cut into shorter pieces -> outro + follow. Answer A.
+  Lesson: SVG shapes must sit inside an <svg> (NightField rendered nothing until wrapped).
