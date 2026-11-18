@@ -106,6 +106,84 @@ const RoofScene: React.FC<{ from: number; to: number }> = ({ from, to }) => {
   );
 };
 
+// ---------------- opening: the WHOLE tank, Raju teetering on the top edge ----------------
+const OpeningScene: React.FC = () => {
+  const frame = useCurrentFrame();
+  // teeter: leaning out over the edge, swaying harder on "phans" and when the ladder breaks
+  const panic = frame >= F.phans ? 1.6 : 1;
+  const ang = 9 + Math.sin(frame / 4.5) * 7 * panic + (frame >= F.toot && frame < F.toot + 12 ? Math.sin((frame - F.toot) * 1.4) * 10 : 0);
+  const feetX = 588;
+  const feetY = ROOF - 2;
+  // ladder on the left side of the shaft; its top section snaps on "toot" and falls with gravity
+  const t = Math.max(0, frame - F.toot) / 30;
+  const fall = 0.5 * 3200 * t * t;
+  const brokeLand = GROUND - (ROOF + 300);
+  const landed = fall >= brokeLand;
+  return (
+    <Camera from={0} to={F.s3} zoom={[0.8, 0.88]} pan={[-30, 150]} shakeAt={[F.toot]}>
+      <NightField horizon={GROUND} />
+      <TankDiagram />
+      <Svg>
+        {/* ladder: bottom part stays, top part falls */}
+        <g>
+          <path d={`M300 ${GROUND} L300 ${ROOF + 330} M340 ${GROUND} L340 ${ROOF + 330}`} stroke="#868e96" strokeWidth={9} />
+          {Array.from({ length: 12 }).map((_, i) => (
+            <path key={i} d={`M300 ${GROUND - 30 - i * 40} L340 ${GROUND - 30 - i * 40}`} stroke="#868e96" strokeWidth={6} />
+          ))}
+          <g transform={`translate(0 ${landed ? brokeLand : fall}) rotate(${Math.min(70, t * 160)} 320 ${ROOF + 330})`}>
+            <path d={`M300 ${ROOF + 330} L300 ${ROOF + 30} M340 ${ROOF + 330} L340 ${ROOF + 30}`} stroke="#868e96" strokeWidth={9} />
+            {Array.from({ length: 7 }).map((_, i) => (
+              <path key={i} d={`M300 ${ROOF + 300 - i * 40} L340 ${ROOF + 300 - i * 40}`} stroke="#868e96" strokeWidth={6} />
+            ))}
+          </g>
+          {frame >= F.toot && frame < F.toot + 10 && (
+            <g transform={`translate(320 ${ROOF + 330})`}>
+              {[0, 1, 2, 3, 4].map((i) => (
+                <path key={i} d={`M0 0 L${Math.cos(i * 1.3) * 50} ${Math.sin(i * 1.3) * 50}`} stroke="#ffd43b" strokeWidth={6} />
+              ))}
+            </g>
+          )}
+        </g>
+        {/* pebbles crumbling off the edge under his feet */}
+        {[0, 1, 2, 3].map((i) => {
+          const period = 26;
+          const tt = ((frame + i * 7) % period) / 30;
+          const y = feetY + 10 + 0.5 * 3000 * tt * tt;
+          return y < GROUND ? <circle key={i} cx={feetX + 16 + i * 8 + tt * 40} cy={y} r={7 - i} fill="#adb5bd" stroke={INK} strokeWidth={3} /> : null;
+        })}
+        {/* wind streaks */}
+        {[0, 1, 2].map((i) => {
+          const x = ((frame * 22 + i * 400) % 1500) - 300;
+          return <path key={i} d={`M${x} ${ROOF - 260 + i * 90} q60 -18 120 0`} fill="none" stroke="#fff" strokeWidth={5} opacity={0.35} strokeLinecap="round" />;
+        })}
+      </Svg>
+      {landed && <Dust at={F.toot + Math.ceil(Math.sqrt((2 * brokeLand) / 3200) * 30)} x={320} y={GROUND} count={12} spread={1.2} />}
+      {/* Raju, leaning out over the edge, arms flailing */}
+      <div style={{ position: "absolute", inset: 0, transform: `rotate(${ang}deg)`, transformOrigin: `${feetX}px ${feetY}px` }}>
+        <Character
+          {...RAJU}
+          x={feetX}
+          y={feetY}
+          scale={0.36}
+          poses={[{ f: 0, v: "panic" }]}
+          exprs={[
+            { f: 0, v: "shock" },
+            { f: F.subah, v: "worried" },
+          ]}
+          sweat={[{ f: 0, v: true }]}
+          look={[{ f: 0, v: 0.6 }]}
+        />
+      </div>
+      {/* big "!" over his head */}
+      <Svg>
+        <g transform={`translate(${feetX + 130} ${ROOF - 330 + Math.sin(frame / 3) * 8})`}>
+          <SignText x={0} y={0} size={110} text="!" fill="#ff6b6b" />
+        </g>
+      </Svg>
+    </Camera>
+  );
+};
+
 // ---------------- diagram scenes (full height) ----------------
 const Diagram: React.FC<{ from: number; to: number; children?: React.ReactNode; glow1?: boolean; glow2?: boolean; bar?: boolean; shakeAt?: number[] }> = ({
   from,
@@ -410,7 +488,8 @@ export const TankiRassi: React.FC = () => {
   const frame = useCurrentFrame();
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      {inRange(frame, 0, F.s4) && <RoofScene from={frame < F.s3 ? 0 : F.s3} to={frame < F.s3 ? F.s3 : F.s4} />}
+      {inRange(frame, 0, F.s3) && <OpeningScene />}
+      {inRange(frame, F.s3, F.s4) && <RoofScene from={F.s3} to={F.s4} />}
       {inRange(frame, F.s4, F.s5) && <HooksScene />}
       {inRange(frame, F.s5, F.A) && <FailScene />}
       {inRange(frame, F.A, F.B) && <OptionScene opt="A" from={F.A} to={F.B} />}
@@ -428,9 +507,9 @@ export const TankiRassi: React.FC = () => {
       <Vignette />
 
       <Chip text="120 FEET, 1 RAAT" at={0} until={F.s2} y={250} size={96} slam from={1.1} />
-      <Chip text="RAAT 10 BAJE" at={F.das} until={F.s2} y={400} size={76} color="#fff" />
-      <Chip text="SEEDHI TOOT GAYI" at={F.toot} until={F.s3} y={330} size={84} color="#ff6b6b" slam />
-      <Chip text="SUBAH TAK AKELA" at={F.subah} until={F.s3} y={480} size={76} color="#fff" />
+      <Chip text="RAAT 10 BAJE" at={F.das} until={F.s2} y={380} size={66} color="#fff" />
+      <Chip text="SEEDHI TOOT GAYI" at={F.toot} until={F.s3} y={290} size={80} color="#ff6b6b" slam />
+      <Chip text="SUBAH TAK AKELA" at={F.subah} until={F.s3} y={430} size={64} color="#fff" />
       <Chip text="RASSI: 90 FEET" at={F.rassi} until={F.s4} y={330} size={88} />
       <Chip text="CHAAKU: 1" at={F.chaaku} until={F.s4} y={480} size={88} color="#fff" />
       <Chip text="KUNDA #1: UPAR" at={F.kunda} until={F.s5} y={300} size={80} />

@@ -17,10 +17,10 @@ export const NightField: React.FC<{ horizon?: number }> = ({ horizon = 1500 }) =
   const frame = useCurrentFrame();
   return (
     <svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }} width={W} height={H}>
-      <rect x={-300} y={0} width={W + 600} height={H} fill="#0d1236" />
+      <rect x={-600} y={-900} width={W + 1200} height={H + 1800} fill="#0d1236" />
       <rect x={-300} y={horizon - 500} width={W + 600} height={500} fill="#1c2452" opacity={0.6} />
       {Array.from({ length: 50 }).map((_, i) => (
-        <circle key={i} cx={random(`s${i}`) * W} cy={random(`t${i}`) * (horizon - 200)} r={1.5 + random(`r${i}`) * 3} fill="#fff" opacity={0.3 + 0.6 * Math.abs(Math.sin(frame / 18 + i))} />
+        <circle key={i} cx={random(`s${i}`) * W} cy={-400 + random(`t${i}`) * (horizon + 200)} r={1.5 + random(`r${i}`) * 3} fill="#fff" opacity={0.3 + 0.6 * Math.abs(Math.sin(frame / 18 + i))} />
       ))}
       <g transform="translate(860 260)">
         <circle r={130} fill="#fff4c2" opacity={0.15} />
@@ -35,7 +35,7 @@ export const NightField: React.FC<{ horizon?: number }> = ({ horizon = 1500 }) =
       {Array.from({ length: 30 }).map((_, i) => (
         <circle key={i} cx={-80 + random(`lx${i}`) * 1240} cy={horizon - 10 - random(`ly${i}`) * 60} r={3} fill="#ffd27a" opacity={0.5 + 0.5 * Math.abs(Math.sin(frame / 25 + i))} />
       ))}
-      <rect x={-300} y={horizon} width={W + 600} height={H - horizon} fill="#1f3a26" />
+      <rect x={-600} y={horizon} width={W + 1200} height={H - horizon + 900} fill="#1f3a26" />
     </svg>
   );
 };
