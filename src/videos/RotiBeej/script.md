@@ -1,6 +1,6 @@
 # RotiBeej — script (Part 1)
 
-Status: SCRIPT ONLY. No voice, no build yet. Waiting for the voice file in `voice/`.
+Status: STAGE 1 BUILT. Recording voice/rotibeej.mp3 matches this script word for word.
 Voice language: Hinglish (Roman script; template blank not filled, same default as before). Handle: **@rehanfact**.
 Target: 10 lines, 104 words, about 35-38 s after clean_voice (+2 s tail).
 

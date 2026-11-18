@@ -6,6 +6,7 @@ import { LateNight, LATENIGHT_DURATION } from "./videos/LateNight/LateNight";
 import { DinnerSecret, DINNERSECRET_DURATION } from "./videos/DinnerSecret/DinnerSecret";
 import { AiCrore, AICRORE_DURATION } from "./videos/AiCrore/AiCrore";
 import { OyoSecret, OyoSecretToon, OYOSECRET_DURATION } from "./videos/OyoSecret/OyoSecret";
+import { RotiBeej, ROTIBEEJ_DURATION } from "./videos/RotiBeej/RotiBeej";
 
 // Register every video here. One folder per video in src/videos/<name>/.
 export const RemotionRoot: React.FC = () => {
@@ -63,6 +64,14 @@ export const RemotionRoot: React.FC = () => {
         id="OyoSecretToon"
         component={OyoSecretToon}
         durationInFrames={OYOSECRET_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="RotiBeej"
+        component={RotiBeej}
+        durationInFrames={ROTIBEEJ_DURATION}
         fps={30}
         width={1080}
         height={1920}

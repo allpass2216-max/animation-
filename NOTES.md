@@ -91,6 +91,9 @@
   new DinnerTableNice (perspective wood top, runner, food, dal + steam, roti basket, glasses, cloth with scalloped hem);
   Chachu ANGRY: points + glares in the lobby on "kaha", glares on "pota" and when Papa asks, points angrily in B and D.
   Rig: "angry" expr now adds red face flush, anger vein, steam puffs (affects all videos that use "angry").
-- `RotiBeej` (src/videos/RotiBeej): SCRIPT WRITTEN (Hinglish, 10 lines, 104 words, A-D from refs/ref5.mp4, idea only: same
-  salary 30,000; one spends all, one does SIP 3,000/month at 12% for 10 years). Answer A ~7 lakh (6,97,017, checked).
-  Handle @rehanfact. NEXT: wait for voice file in voice/; check which script version was recorded.
+- `RotiBeej` (src/videos/RotiBeej): STAGE 1 BUILT, waiting for fixes or "go to final".
+  Recording matches script.md. Voice 43.9 s -> 36.3 s clean; allosaurus-align 104 words, "A" corrected to f664 from the pause
+  file. ~1146 f. Music loop.wav. Scenes: office front (Rohan flashy + notes flutter, Kunal neat + small BEEJ pot) -> mall
+  (notes, phone) -> hard cut to party + parcels -> Kunal's room, coins into BEEJ pot, sprout on "SIP" -> friends laugh
+  "3,000 SE CRORE?" -> green rays, SAAL 1->10 counter, pot glows -> A-D note-bundle stacks (7/4/11/18 bundles) -> roti (empty
+  plate) vs beej (pot + sprout), vine divider -> follow tap. Answer A ~7 lakh. Handle @rehanfact.
