@@ -136,6 +136,8 @@
   trunks, flapping ears, tusks, glowing dust at the feet, tall grass with gold tips. No voice. Awaiting user verdict.
 - `SajdaRaat` (src/videos/SajdaRaat): FINAL DONE (2026-11-19). out/sajdaraat_final.mp4: 36.2 s, -14.1 LUFS, TP -2.7, @rehanfact.
   post.md: reminder caption (verse + "Ameen" comment ask), pinned dua comment. Voice 45.3 s -> 34.5 s; 109 words.
+  v2 (user fix): readable sweet chat on the phone (khana khaya? / tumse baat karke achha lagta hai / mujhe bhi / good night),
+  then her side on "ghar": the chat girl (lavender hijab, own pink-purple room) smiling at her phone with hearts; chip "KISI KO PATA NAHI".
   User asked: Muslim characters, Muslim city, Arabic text, beautiful hijabi girl. Built: arabesque-tile room, arched window with
   domes/minarets, fanoos lantern, Quran on a rehal, prayer mat; Arham (white kurta, beard, kufi after wudu); Ammi (hijab,
   glasses); hijabi bride at the nikah arch; Muslim city skyline (night / golden / dawn). Arabic (Amiri font, @fontsource/amiri,

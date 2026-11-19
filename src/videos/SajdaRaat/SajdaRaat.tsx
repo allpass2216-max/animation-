@@ -6,7 +6,7 @@ import { Character } from "../../lib/Character";
 import { Camera, Chip, Grain, makeCue, SoftLight, Sparkles, Vignette, WordsFile } from "../../lib/reel";
 import { FollowButton } from "../../lib/ui";
 import { Rays } from "../../lib/world";
-import { Phone } from "../AiCrore/screens";
+import { ChatScreen, Phone } from "../AiCrore/screens";
 import { Arabic, CityScene, HeavyHeart, NikahArch, Room, SajdaFigure, StepsPath } from "./world";
 import wordsData from "./words.json";
 
@@ -22,6 +22,7 @@ const F = {
   s2: cue(10, "Ek"),
   chhupi: cue(13, "chhupi"),
   ghar: cue(15, "ghar"),
+  kisi: cue(17, "kisi"),
   s3: cue(21, "Usne"),
   bas: cue(23, "bas"),
   gunaah: cue(30, "gunaah"),
@@ -60,32 +61,8 @@ const inRange = (f: number, a: number, b: number) => f >= a && f < b;
 const ARHAM = { skin: "#C98B5E", shirt: "#f1f3f5", pants: "#dee2e6", hair: "#1d1420", beard: true } as const; // white kurta
 const ARHAM_KUFI = { ...ARHAM, kufi: "#f8f9fa" } as const;
 const AMMI = { skin: "#C98B5E", shirt: "#2f6f5e", pants: "#2f6f5e", hair: "#1d1420", dress: "#2f6f5e", hijab: "#e9ecef", glasses: true } as const;
+const GIRL = { skin: "#e8b48a", shirt: "#7048e8", pants: "#7048e8", hair: "#2a1622", dress: "#7048e8", hijab: "#d0bfff", lashes: true } as const; // the chat girl (lavender hijab)
 const BRIDE = { skin: "#e8b48a", shirt: "#c2255c", pants: "#c2255c", hair: "#2a1622", dress: "#c2255c", hijab: "#fcc2d7", lashes: true, lipstick: "#d6336c" } as const;
-
-/** Phone screen: anonymous blurred chat (no face, no names), a heart, timestamps 2:00 AM. */
-const ChatBlur: React.FC = () => {
-  const frame = useCurrentFrame();
-  return (
-    <div style={{ position: "absolute", inset: 0, background: "#1b1f3b", padding: "70px 18px", display: "flex", flexDirection: "column", gap: 16 }}>
-      <div style={{ color: "#adb5bd", fontFamily: "Poppins", fontWeight: 800, fontSize: 24, textAlign: "center" }}>2:00 AM</div>
-      {[0, 1, 2, 3, 4].map((i) => (
-        <div
-          key={i}
-          style={{
-            alignSelf: i % 2 ? "flex-end" : "flex-start",
-            width: 180 + (i % 3) * 60,
-            height: 46,
-            borderRadius: 22,
-            background: i % 2 ? "#4263eb" : "#495057",
-            filter: "blur(5px)",
-            opacity: frame > F.s2 + i * 5 ? 1 : 0,
-          }}
-        />
-      ))}
-      <div style={{ alignSelf: "flex-start", fontSize: 60, opacity: frame > F.chhupi ? 1 : 0 }}>❤️</div>
-    </div>
-  );
-};
 
 // ---------------- scenes ----------------
 const NightRoomScene: React.FC = () => {
@@ -118,17 +95,59 @@ const NightRoomScene: React.FC = () => {
   );
 };
 
+/** Readable sweet (innocent) messages popping in on the phone, then her side: she is smiling at her phone too. */
 const PhoneScene: React.FC = () => {
   const frame = useCurrentFrame();
-  const door = frame >= F.ghar;
+  const herSide = frame >= F.ghar;
+  const step = Math.max(6, Math.floor((F.ghar - F.s2 - 4) / 5));
+  const msgs = [
+    { f: F.s2 + 2, text: "Khana khaya? 🙂" },
+    { f: F.s2 + 2 + step, text: "Haan, tumne?", me: true },
+    { f: F.s2 + 2 + step * 2, text: "Tumse baat karke achha lagta hai ☺️" },
+    { f: F.s2 + 2 + step * 3, text: "Mujhe bhi ❤️", me: true },
+    { f: F.s2 + 2 + step * 4, text: "Good night 🌙" },
+  ];
   return (
-    <Camera from={F.s2} to={F.s3} zoom={[1.0, 1.06]}>
-      <Room phoneGlow={0.8} />
-      {door ? (
-        <Character {...ARHAM} x={360} y={1740} scale={0.92} poses={[{ f: F.ghar, v: "hold" }]} holding={[{ f: 0, v: "phone" }]} exprs={[{ f: F.ghar, v: "worried" }]} look={[{ f: F.ghar, v: -1 }]} sweat={[{ f: F.ghar, v: true }]} />
+    <Camera from={herSide ? F.ghar : F.s2} to={herSide ? F.s3 : F.ghar} zoom={[1.0, 1.06]}>
+      <Room phoneGlow={0.8} wallColor={herSide ? "#4a2a52" : undefined} />
+      {herSide ? (
+        <>
+          <svg style={{ position: "absolute", left: 0, top: 0 }} width={1080} height={1920}>
+            {/* floating hearts from her phone */}
+            {[0, 1, 2, 3].map((i) => {
+              const t = ((frame - F.ghar + i * 9) % 36) / 36;
+              return (
+                <path
+                  key={i}
+                  d="M0 14 C-34 -8 -22 -36 0 -20 C22 -36 34 -8 0 14Z"
+                  fill="#ff8fab"
+                  stroke="#1b1430"
+                  strokeWidth={4}
+                  opacity={1 - t}
+                  transform={`translate(${700 + Math.sin(t * 6 + i) * 60} ${1200 - t * 420}) scale(${1.6 + t * 1.2})`}
+                />
+              );
+            })}
+          </svg>
+          <Character
+            {...GIRL}
+            x={540}
+            y={1760}
+            scale={0.92}
+            poses={[{ f: F.ghar, v: "hold" }]}
+            holding={[{ f: 0, v: "phone" }]}
+            exprs={[
+              { f: F.ghar, v: "grin" },
+              { f: F.kisi, v: "sly" },
+            ]}
+            look={[{ f: 0, v: 1 }]}
+            hops={[F.ghar + 2]}
+            seed={8}
+          />
+        </>
       ) : (
-        <Phone x={320} y={620} w={440} h={780} buzzAt={F.s2}>
-          <ChatBlur />
+        <Phone x={190} y={520} w={700} h={1000} buzzAt={F.s2}>
+          <ChatScreen msgs={msgs} title="2:00 AM · ONLINE" dark />
         </Phone>
       )}
     </Camera>
@@ -457,7 +476,8 @@ export const SajdaRaat: React.FC = () => {
       {/* TEXT (Roman chips) */}
       <Chip text="EK RAAT KA FAISLA" at={0} until={F.s2} y={250} size={86} slam from={1.08} />
       <Chip text="RAAT 2 BAJE" at={F.raat + 10} until={F.s2} y={390} size={72} color="#fff" />
-      <Chip text="CHHUPI BAATEIN" at={F.chhupi} until={F.s3} y={330} size={84} />
+      <Chip text="CHHUPI BAATEIN" at={F.chhupi} until={F.ghar} y={250} size={84} />
+      <Chip text="KISI KO PATA NAHI" at={F.ghar} until={F.s3} y={330} size={80} color="#fff" />
       <Chip text="KYA GUNAAH?" at={F.gunaah} until={F.s4} y={330} size={100} color="#fff" />
       <Chip text="DIL BHAARI" at={F.bhaari} until={F.namaz} y={330} size={96} color="#ff8787" />
       <Chip text="NAMAZ CHHOOTI" at={F.namaz} until={F.s5} y={330} size={90} color="#fff" />

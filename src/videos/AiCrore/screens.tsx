@@ -154,11 +154,11 @@ export const TxScreen: React.FC<{ a: number; countTo: number }> = ({ a, countTo 
 };
 
 /** AI chat screen: bubbles appear on their frames. */
-export const ChatScreen: React.FC<{ msgs: { f: number; text: string; me?: boolean; red?: boolean }[] }> = ({ msgs }) => {
+export const ChatScreen: React.FC<{ msgs: { f: number; text: string; me?: boolean; red?: boolean }[]; title?: string; dark?: boolean }> = ({ msgs, title = "AI MONEY BOT · ONLINE", dark }) => {
   const frame = useCurrentFrame();
   return (
-    <div style={{ ...UI, position: "absolute", inset: 0, background: "#f1f3f5", padding: "60px 18px", display: "flex", flexDirection: "column", gap: 16 }}>
-      <div style={{ fontSize: 26, color: "#495057", textAlign: "center", marginBottom: 6 }}>AI MONEY BOT · ONLINE</div>
+    <div style={{ ...UI, position: "absolute", inset: 0, background: dark ? "#1b1f3b" : "#f1f3f5", padding: "60px 18px", display: "flex", flexDirection: "column", gap: 16 }}>
+      <div style={{ fontSize: 26, color: dark ? "#adb5bd" : "#495057", textAlign: "center", marginBottom: 6 }}>{title}</div>
       {msgs.map((m, i) => {
         if (frame < m.f) return null;
         const p = Math.min(1, (frame - m.f) / 6);
@@ -170,7 +170,7 @@ export const ChatScreen: React.FC<{ msgs: { f: number; text: string; me?: boolea
               maxWidth: "86%",
               padding: "14px 18px",
               borderRadius: 24,
-              fontSize: 30,
+              fontSize: dark ? 40 : 30,
               lineHeight: 1.15,
               color: m.me ? "#fff" : m.red ? "#fff" : INK,
               background: m.me ? "#4263eb" : m.red ? "#e03131" : "#fff",

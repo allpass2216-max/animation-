@@ -122,9 +122,9 @@ const Arabesque: React.FC<{ color: string; opacity?: number }> = ({ color, opaci
 );
 
 /** Bedroom at night (or morning): arabesque wall, arched window with the city, lantern, shelf with Quran + rolled prayer mat. */
-export const Room: React.FC<{ morning?: boolean; phoneGlow?: number; dustyShelf?: boolean; lanternOn?: boolean }> = ({ morning, phoneGlow = 0, dustyShelf, lanternOn = true }) => {
+export const Room: React.FC<{ morning?: boolean; phoneGlow?: number; dustyShelf?: boolean; lanternOn?: boolean; wallColor?: string }> = ({ morning, phoneGlow = 0, dustyShelf, lanternOn = true, wallColor }) => {
   const frame = useCurrentFrame();
-  const wall = morning ? "#e9d8bd" : "#1f2346";
+  const wall = wallColor ?? (morning ? "#e9d8bd" : "#1f2346");
   return (
     <svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }} width={W} height={H}>
       <rect x={-300} y={-300} width={W + 600} height={H + 600} fill={wall} />
