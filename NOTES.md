@@ -138,6 +138,8 @@
   post.md: reminder caption (verse + "Ameen" comment ask), pinned dua comment. Voice 45.3 s -> 34.5 s; 109 words.
   v2 (user fix): readable sweet chat on the phone (khana khaya? / tumse baat karke achha lagta hai / mujhe bhi / good night),
   then her side on "ghar": the chat girl (lavender hijab, own pink-purple room) smiling at her phone with hearts; chip "KISI KO PATA NAHI".
+  v3 (user fix): "dil bhaari" scene shows him disturbed: pacing the dark room, phone put aside, holding his head, crying + sweat,
+  a rain cloud with lightning over his head, thought bubble "YEH THEEK NAHI..."; at the azan he stands crying, turned away.
   User asked: Muslim characters, Muslim city, Arabic text, beautiful hijabi girl. Built: arabesque-tile room, arched window with
   domes/minarets, fanoos lantern, Quran on a rehal, prayer mat; Arham (white kurta, beard, kufi after wudu); Ammi (hijab,
   glasses); hijabi bride at the nikah arch; Muslim city skyline (night / golden / dawn). Arabic (Amiri font, @fontsource/amiri,

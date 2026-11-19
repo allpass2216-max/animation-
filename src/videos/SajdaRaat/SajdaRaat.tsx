@@ -176,13 +176,22 @@ const ThinkScene: React.FC = () => (
   </Camera>
 );
 
+/** Restless, guilty: he paces the dark room under a rain cloud, tears and sweat, phone dimming; then turns away from the azan. */
 const HeavyScene: React.FC = () => {
   const frame = useCurrentFrame();
+  const indoors = frame < F.namaz;
+  // pacing back and forth (indoors), facing the way he walks
+  const ph = (frame - F.s4) / 16;
+  const px = indoors ? 420 + Math.sin(ph) * 150 : 300;
+  const facingLeft = indoors && Math.cos(ph) < 0;
+  const bob = indoors ? Math.abs(Math.sin(ph * 2.2)) * -8 : 0;
+  const headY = 1760 - 0.9 * 700; // head centre at this scale
+  const flash = indoors && (frame - F.s4) % 37 < 2;
   return (
     <Camera from={F.s4} to={F.s5} zoom={[1.0, 1.06]} shakeAt={[F.bhaari + 10]}>
-      {frame < F.namaz ? <Room phoneGlow={0.5} lanternOn={false} /> : <CityScene mood="night" />}
-      {frame < F.namaz && <HeavyHeart at={F.bhaari} x={800} floor={1600} />}
-      {frame >= F.namaz && (
+      {indoors ? <Room phoneGlow={0.25} lanternOn={false} /> : <CityScene mood="night" />}
+      {indoors && <HeavyHeart at={F.bhaari} x={840} floor={1600} />}
+      {!indoors && (
         <svg style={{ position: "absolute", left: 0, top: 0 }} width={1080} height={1920}>
           {/* azan sound waves from the minaret, unanswered */}
           {[0, 1, 2].map((i) => {
@@ -193,17 +202,59 @@ const HeavyScene: React.FC = () => {
       )}
       <Character
         {...ARHAM}
-        x={frame < F.namaz ? 380 : 300}
-        y={1760}
+        x={px}
+        y={1760 + bob}
         scale={0.9}
-        poses={[{ f: F.s4, v: "idle" }]}
-        holding={[{ f: 0, v: "phone" }]}
+        flip={facingLeft}
+        poses={
+          indoors
+            ? [
+                { f: F.s4, v: "hold" },
+                { f: F.dil, v: "scratch" },
+                { f: F.bhaari, v: "panic" },
+                { f: F.bhaari + 24, v: "shrug" },
+              ]
+            : [{ f: F.namaz, v: "idle" }]
+        }
+        holding={indoors ? [{ f: 0, v: "phone" }, { f: F.dil, v: "none" }] : [{ f: 0, v: "none" }]}
         exprs={[
-          { f: F.s4, v: "sad" },
-          { f: F.namaz, v: "worried" },
+          { f: F.s4, v: "worried" },
+          { f: F.dil, v: "sad" },
+          { f: F.bhaari, v: "cry" },
+          { f: F.namaz, v: "cry" },
         ]}
-        look={[{ f: 0, v: frame < F.namaz ? 1 : -1 }]}
+        sweat={[{ f: F.s4, v: true }]}
+        look={[{ f: 0, v: indoors ? 0 : -1 }]}
       />
+      {/* dark rain cloud following his head, with lightning flicker; thought bubble */}
+      <svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }} width={1080} height={1920}>
+        <g transform={`translate(${px} ${headY - 310 + bob})`}>
+          {Array.from({ length: 8 }).map((_, i) => {
+            const t = ((frame + i * 5) % 20) / 20;
+            return <path key={i} d={`M${-110 + i * 30} ${40 + t * 120} l-6 18`} stroke="#74c0fc" strokeWidth={5} strokeLinecap="round" opacity={0.8 * (1 - t)} />;
+          })}
+          {flash && <path d="M10 30 L-14 80 L10 80 L-10 130" fill="none" stroke="#ffe066" strokeWidth={8} strokeLinejoin="round" />}
+          <ellipse cx={0} cy={0} rx={150} ry={56} fill={flash ? "#6c6f8a" : "#3d4058"} stroke="#1b1430" strokeWidth={7} />
+          <ellipse cx={-60} cy={-34} rx={70} ry={52} fill={flash ? "#6c6f8a" : "#3d4058"} stroke="#1b1430" strokeWidth={7} />
+          <ellipse cx={50} cy={-44} rx={80} ry={60} fill={flash ? "#6c6f8a" : "#3d4058"} stroke="#1b1430" strokeWidth={7} />
+          <ellipse cx={0} cy={6} rx={140} ry={44} fill={flash ? "#6c6f8a" : "#3d4058"} />
+        </g>
+      </svg>
+      {indoors && frame >= F.dil && (
+        <svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }} width={1080} height={1920}>
+          <g transform={`translate(${Math.min(820, px + 260)} ${headY - 120})`} opacity={Math.min(1, (frame - F.dil) / 6)}>
+            <circle cx={-120} cy={70} r={12} fill="#f8f9fa" stroke="#1b1430" strokeWidth={4} />
+            <circle cx={-90} cy={40} r={18} fill="#f8f9fa" stroke="#1b1430" strokeWidth={4} />
+            <rect x={-110} y={-70} width={230} height={90} rx={40} fill="#f8f9fa" stroke="#1b1430" strokeWidth={5} />
+            <text x={5} y={-14} fontSize={30} textAnchor="middle" fill="#1b1430" fontFamily="Poppins" fontWeight={800}>
+              YEH THEEK
+            </text>
+            <text x={5} y={16} fontSize={30} textAnchor="middle" fill="#1b1430" fontFamily="Poppins" fontWeight={800}>
+              NAHI...
+            </text>
+          </g>
+        </svg>
+      )}
     </Camera>
   );
 };
