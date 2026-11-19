@@ -1,6 +1,6 @@
 # SajdaRaat — script
 
-Status: SCRIPT ONLY. No voice, no build yet. Waiting for the voice file in `voice/`.
+Status: STAGE 1 BUILT. Recording voice/sajdaraat.mp3 aligns with this script (109/109 words). User asked for Muslim characters + city, Arabic text and a hijabi girl, so Arabic calligraphy IS shown (overrides the note below).
 Voice language: Hinglish with Urdu words (template blank not filled). Handle: **@rehanfact**.
 Target: 10 lines, 109 words, about 36-39 s after clean_voice (+2 s tail).
 Genre: ISLAMIC REMINDER / emotional storytelling. NO puzzle, NO A-D options, NO "answer in the next reel" (the reference has

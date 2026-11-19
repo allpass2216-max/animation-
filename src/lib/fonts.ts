@@ -4,9 +4,13 @@ import { continueRender, delayRender, staticFile } from "remotion";
 // Rendering waits (delayRender) until both faces are ready.
 export const FONT_FAMILY = "Poppins";
 
+export const ARABIC_FONT = "Amiri";
+
 const weights = [
-  { weight: "700", file: "fonts/Poppins-700.woff2" },
-  { weight: "800", file: "fonts/Poppins-800.woff2" },
+  { family: FONT_FAMILY, weight: "700", file: "fonts/Poppins-700.woff2" },
+  { family: FONT_FAMILY, weight: "800", file: "fonts/Poppins-800.woff2" },
+  { family: "Amiri", weight: "400", file: "fonts/Amiri-400.woff2" },
+  { family: "Amiri", weight: "700", file: "fonts/Amiri-700.woff2" },
 ];
 
 let loaded = false;
@@ -16,8 +20,8 @@ export const loadFonts = () => {
   loaded = true;
   const handle = delayRender("Loading Poppins 700/800");
   Promise.all(
-    weights.map(async ({ weight, file }) => {
-      const face = new FontFace(FONT_FAMILY, `url('${staticFile(file)}') format('woff2')`, {
+    weights.map(async ({ family, weight, file }) => {
+      const face = new FontFace(family, `url('${staticFile(file)}') format('woff2')`, {
         weight,
         style: "normal",
       });

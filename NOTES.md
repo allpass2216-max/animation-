@@ -134,8 +134,10 @@
   displaced horizontal brush strokes, streak clouds lit from below, low sun + bloom, hazy ridges, flat-topped acacias, birds,
   elephant family (2 adults + calf) as dark backlit silhouettes with a blurred gold rim, diagonal-pair leg gait, swinging
   trunks, flapping ears, tusks, glowing dust at the feet, tall grass with gold tips. No voice. Awaiting user verdict.
-- `SajdaRaat` (src/videos/SajdaRaat): SCRIPT WRITTEN (Hinglish/Urdu words, 10 lines, 109 words). Islamic reminder from
-  refs/ref8.mp4 (talking head on zina / haram relationships; audio not transcribable: no captions, Whisper blocked).
-  Our version: animated story of Arham, secret late-night chats -> Quran 17:32 -> sajda -> asks Ammi for nikah. NO options,
-  no "answer next reel" (genre rule). Only Quran 17:32 quoted. Handle @rehanfact. NEXT: wait for voice.
-
+- `SajdaRaat` (src/videos/SajdaRaat): STAGE 1 BUILT, waiting for fixes or "go to final". Voice 45.3 s -> 34.5 s; 109 words.
+  User asked: Muslim characters, Muslim city, Arabic text, beautiful hijabi girl. Built: arabesque-tile room, arched window with
+  domes/minarets, fanoos lantern, Quran on a rehal, prayer mat; Arham (white kurta, beard, kufi after wudu); Ammi (hijab,
+  glasses); hijabi bride at the nikah arch; Muslim city skyline (night / golden / dawn). Arabic (Amiri font, @fontsource/amiri,
+  public/fonts/Amiri-*.woff2): Bismillah, Quran 17:32 "wa la taqrabu az-zina", "Subhana Rabbiyal A'la", "Barakallah",
+  "Sadaqah Jariyah". Rig additions: hijab, kufi, beard. Music: public/music/hum_loop.wav (hummed, no instruments).
+  NOTE: CLAUDE.md forbids Devanagari on screen; Arabic was explicitly requested by the user for this video.
