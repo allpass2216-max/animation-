@@ -1,0 +1,1034 @@
+{
+  "audio": "voice/aicrore2_clean.wav",
+  "fps": 30,
+  "duration": 37.948,
+  "source": "allosaurus-align",
+  "approxWords": false,
+  "note": "whisper failed: URLError: <urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
+  "lines": [
+    {
+      "text": "Ishaan ke account mein achanak pachaas crore aaye, aur caller bola, shaam tak bhej do. Sahi kya tha? Jawab ye raha!",
+      "start": 0.06,
+      "end": 6.29,
+      "startFrame": 2,
+      "endFrame": 189
+    },
+    {
+      "text": "A, turant bank aur cyber police ko batao.",
+      "start": 6.6,
+      "end": 8.775,
+      "startFrame": 198,
+      "endFrame": 263
+    },
+    {
+      "text": "Pehla, ek nau teen zero par call, ya cybercrime dot gov dot in.",
+      "start": 8.88,
+      "end": 12.555,
+      "startFrame": 266,
+      "endFrame": 377
+    },
+    {
+      "text": "Doosra, bank ko call karke account freeze karwao.",
+      "start": 12.75,
+      "end": 15.465,
+      "startFrame": 382,
+      "endFrame": 464
+    },
+    {
+      "text": "Teesra, paisa mat chhuo, mat bhejo, bas screenshots rakho.",
+      "start": 15.57,
+      "end": 18.945,
+      "startFrame": 467,
+      "endFrame": 568
+    },
+    {
+      "text": "Isliye, kyunki yeh money mule ka jaal hai, chori ka paisa tumhare naam se ghumta hai, phanste tum ho.",
+      "start": 19.14,
+      "end": 24.315,
+      "startFrame": 574,
+      "endFrame": 729
+    },
+    {
+      "text": "Ek viewer ne bilkul sahi pakda, dekho!",
+      "start": 24.57,
+      "end": 26.505,
+      "startFrame": 737,
+      "endFrame": 795
+    },
+    {
+      "text": "Account toh bach gaya, par Ishaan ke do hazaar? Woh AI lekar bhaag gaya!",
+      "start": 26.67,
+      "end": 30.645,
+      "startFrame": 800,
+      "endFrame": 919
+    },
+    {
+      "text": "Tumhare saath kabhi aisa hua? Comment karo.",
+      "start": 30.81,
+      "end": 32.625,
+      "startFrame": 924,
+      "endFrame": 979
+    },
+    {
+      "text": "Agli reel mein, ek anjaan parcel, aur andar ek OTP. Follow karo @rehanfact!",
+      "start": 32.79,
+      "end": 37.725,
+      "startFrame": 984,
+      "endFrame": 1132
+    }
+  ],
+  "words": [
+    {
+      "word": "Ishaan",
+      "start": 0.06,
+      "end": 0.405,
+      "line": 0,
+      "startFrame": 2,
+      "endFrame": 12
+    },
+    {
+      "word": "ke",
+      "start": 0.42,
+      "end": 0.5,
+      "line": 0,
+      "startFrame": 13,
+      "endFrame": 15
+    },
+    {
+      "word": "account",
+      "start": 0.69,
+      "end": 0.945,
+      "line": 0,
+      "startFrame": 21,
+      "endFrame": 28
+    },
+    {
+      "word": "mein",
+      "start": 0.96,
+      "end": 1.065,
+      "line": 0,
+      "startFrame": 29,
+      "endFrame": 32
+    },
+    {
+      "word": "achanak",
+      "start": 1.32,
+      "end": 1.605,
+      "line": 0,
+      "startFrame": 40,
+      "endFrame": 48
+    },
+    {
+      "word": "pachaas",
+      "start": 1.74,
+      "end": 2.175,
+      "line": 0,
+      "startFrame": 52,
+      "endFrame": 65
+    },
+    {
+      "word": "crore",
+      "start": 2.22,
+      "end": 2.475,
+      "line": 0,
+      "startFrame": 67,
+      "endFrame": 74
+    },
+    {
+      "word": "aaye",
+      "start": 2.49,
+      "end": 2.595,
+      "line": 0,
+      "startFrame": 75,
+      "endFrame": 78
+    },
+    {
+      "word": "aur",
+      "start": 2.91,
+      "end": 3.105,
+      "line": 0,
+      "startFrame": 87,
+      "endFrame": 93
+    },
+    {
+      "word": "caller",
+      "start": 3.12,
+      "end": 3.21,
+      "line": 0,
+      "startFrame": 94,
+      "endFrame": 96
+    },
+    {
+      "word": "bola",
+      "start": 3.21,
+      "end": 3.465,
+      "line": 0,
+      "startFrame": 96,
+      "endFrame": 104
+    },
+    {
+      "word": "shaam",
+      "start": 3.84,
+      "end": 4.035,
+      "line": 0,
+      "startFrame": 115,
+      "endFrame": 121
+    },
+    {
+      "word": "tak",
+      "start": 4.08,
+      "end": 4.305,
+      "line": 0,
+      "startFrame": 122,
+      "endFrame": 129
+    },
+    {
+      "word": "bhej",
+      "start": 4.32,
+      "end": 4.425,
+      "line": 0,
+      "startFrame": 130,
+      "endFrame": 133
+    },
+    {
+      "word": "do",
+      "start": 4.44,
+      "end": 4.575,
+      "line": 0,
+      "startFrame": 133,
+      "endFrame": 137
+    },
+    {
+      "word": "Sahi",
+      "start": 4.8,
+      "end": 5.025,
+      "line": 0,
+      "startFrame": 144,
+      "endFrame": 151
+    },
+    {
+      "word": "kya",
+      "start": 5.07,
+      "end": 5.175,
+      "line": 0,
+      "startFrame": 152,
+      "endFrame": 155
+    },
+    {
+      "word": "tha",
+      "start": 5.25,
+      "end": 5.355,
+      "line": 0,
+      "startFrame": 158,
+      "endFrame": 161
+    },
+    {
+      "word": "Jawab",
+      "start": 5.55,
+      "end": 5.925,
+      "line": 0,
+      "startFrame": 166,
+      "endFrame": 178
+    },
+    {
+      "word": "ye",
+      "start": 5.94,
+      "end": 6.135,
+      "line": 0,
+      "startFrame": 178,
+      "endFrame": 184
+    },
+    {
+      "word": "raha",
+      "start": 6.21,
+      "end": 6.29,
+      "line": 0,
+      "startFrame": 186,
+      "endFrame": 189
+    },
+    {
+      "word": "A",
+      "start": 6.6,
+      "end": 6.68,
+      "line": 1,
+      "startFrame": 198,
+      "endFrame": 200
+    },
+    {
+      "word": "turant",
+      "start": 6.9,
+      "end": 7.245,
+      "line": 1,
+      "startFrame": 207,
+      "endFrame": 217
+    },
+    {
+      "word": "bank",
+      "start": 7.32,
+      "end": 7.605,
+      "line": 1,
+      "startFrame": 220,
+      "endFrame": 228
+    },
+    {
+      "word": "aur",
+      "start": 7.65,
+      "end": 7.785,
+      "line": 1,
+      "startFrame": 230,
+      "endFrame": 234
+    },
+    {
+      "word": "cyber",
+      "start": 7.92,
+      "end": 8.115,
+      "line": 1,
+      "startFrame": 238,
+      "endFrame": 243
+    },
+    {
+      "word": "police",
+      "start": 8.13,
+      "end": 8.385,
+      "line": 1,
+      "startFrame": 244,
+      "endFrame": 252
+    },
+    {
+      "word": "ko",
+      "start": 8.4,
+      "end": 8.48,
+      "line": 1,
+      "startFrame": 252,
+      "endFrame": 254
+    },
+    {
+      "word": "batao",
+      "start": 8.49,
+      "end": 8.775,
+      "line": 1,
+      "startFrame": 255,
+      "endFrame": 263
+    },
+    {
+      "word": "Pehla",
+      "start": 8.88,
+      "end": 9.165,
+      "line": 2,
+      "startFrame": 266,
+      "endFrame": 275
+    },
+    {
+      "word": "ek",
+      "start": 9.36,
+      "end": 9.555,
+      "line": 2,
+      "startFrame": 281,
+      "endFrame": 287
+    },
+    {
+      "word": "nau",
+      "start": 9.63,
+      "end": 9.71,
+      "line": 2,
+      "startFrame": 289,
+      "endFrame": 291
+    },
+    {
+      "word": "teen",
+      "start": 9.78,
+      "end": 9.975,
+      "line": 2,
+      "startFrame": 293,
+      "endFrame": 299
+    },
+    {
+      "word": "zero",
+      "start": 10.02,
+      "end": 10.215,
+      "line": 2,
+      "startFrame": 301,
+      "endFrame": 306
+    },
+    {
+      "word": "par",
+      "start": 10.26,
+      "end": 10.34,
+      "line": 2,
+      "startFrame": 308,
+      "endFrame": 310
+    },
+    {
+      "word": "call",
+      "start": 10.38,
+      "end": 10.635,
+      "line": 2,
+      "startFrame": 311,
+      "endFrame": 319
+    },
+    {
+      "word": "ya",
+      "start": 10.83,
+      "end": 10.965,
+      "line": 2,
+      "startFrame": 325,
+      "endFrame": 329
+    },
+    {
+      "word": "cybercrime",
+      "start": 11.19,
+      "end": 11.655,
+      "line": 2,
+      "startFrame": 336,
+      "endFrame": 350
+    },
+    {
+      "word": "dot",
+      "start": 11.67,
+      "end": 11.775,
+      "line": 2,
+      "startFrame": 350,
+      "endFrame": 353
+    },
+    {
+      "word": "gov",
+      "start": 11.97,
+      "end": 12.05,
+      "line": 2,
+      "startFrame": 359,
+      "endFrame": 362
+    },
+    {
+      "word": "dot",
+      "start": 12.15,
+      "end": 12.345,
+      "line": 2,
+      "startFrame": 364,
+      "endFrame": 370
+    },
+    {
+      "word": "in",
+      "start": 12.39,
+      "end": 12.555,
+      "line": 2,
+      "startFrame": 372,
+      "endFrame": 377
+    },
+    {
+      "word": "Doosra",
+      "start": 12.75,
+      "end": 13.095,
+      "line": 3,
+      "startFrame": 382,
+      "endFrame": 393
+    },
+    {
+      "word": "bank",
+      "start": 13.47,
+      "end": 13.755,
+      "line": 3,
+      "startFrame": 404,
+      "endFrame": 413
+    },
+    {
+      "word": "ko",
+      "start": 13.86,
+      "end": 13.965,
+      "line": 3,
+      "startFrame": 416,
+      "endFrame": 419
+    },
+    {
+      "word": "call",
+      "start": 14.01,
+      "end": 14.07,
+      "line": 3,
+      "startFrame": 420,
+      "endFrame": 422
+    },
+    {
+      "word": "karke",
+      "start": 14.07,
+      "end": 14.355,
+      "line": 3,
+      "startFrame": 422,
+      "endFrame": 431
+    },
+    {
+      "word": "account",
+      "start": 14.46,
+      "end": 14.715,
+      "line": 3,
+      "startFrame": 434,
+      "endFrame": 441
+    },
+    {
+      "word": "freeze",
+      "start": 14.91,
+      "end": 15.135,
+      "line": 3,
+      "startFrame": 447,
+      "endFrame": 454
+    },
+    {
+      "word": "karwao",
+      "start": 15.15,
+      "end": 15.465,
+      "line": 3,
+      "startFrame": 454,
+      "endFrame": 464
+    },
+    {
+      "word": "Teesra",
+      "start": 15.57,
+      "end": 15.885,
+      "line": 4,
+      "startFrame": 467,
+      "endFrame": 477
+    },
+    {
+      "word": "paisa",
+      "start": 16.05,
+      "end": 16.335,
+      "line": 4,
+      "startFrame": 482,
+      "endFrame": 490
+    },
+    {
+      "word": "mat",
+      "start": 16.47,
+      "end": 16.575,
+      "line": 4,
+      "startFrame": 494,
+      "endFrame": 497
+    },
+    {
+      "word": "chhuo",
+      "start": 16.77,
+      "end": 16.85,
+      "line": 4,
+      "startFrame": 503,
+      "endFrame": 506
+    },
+    {
+      "word": "mat",
+      "start": 17.19,
+      "end": 17.355,
+      "line": 4,
+      "startFrame": 516,
+      "endFrame": 521
+    },
+    {
+      "word": "bhejo",
+      "start": 17.4,
+      "end": 17.685,
+      "line": 4,
+      "startFrame": 522,
+      "endFrame": 531
+    },
+    {
+      "word": "bas",
+      "start": 17.94,
+      "end": 18.045,
+      "line": 4,
+      "startFrame": 538,
+      "endFrame": 541
+    },
+    {
+      "word": "screenshots",
+      "start": 18.27,
+      "end": 18.705,
+      "line": 4,
+      "startFrame": 548,
+      "endFrame": 561
+    },
+    {
+      "word": "rakho",
+      "start": 18.72,
+      "end": 18.945,
+      "line": 4,
+      "startFrame": 562,
+      "endFrame": 568
+    },
+    {
+      "word": "Isliye",
+      "start": 19.14,
+      "end": 19.515,
+      "line": 5,
+      "startFrame": 574,
+      "endFrame": 585
+    },
+    {
+      "word": "kyunki",
+      "start": 19.74,
+      "end": 19.935,
+      "line": 5,
+      "startFrame": 592,
+      "endFrame": 598
+    },
+    {
+      "word": "yeh",
+      "start": 19.95,
+      "end": 20.055,
+      "line": 5,
+      "startFrame": 598,
+      "endFrame": 602
+    },
+    {
+      "word": "money",
+      "start": 20.13,
+      "end": 20.355,
+      "line": 5,
+      "startFrame": 604,
+      "endFrame": 611
+    },
+    {
+      "word": "mule",
+      "start": 20.4,
+      "end": 20.625,
+      "line": 5,
+      "startFrame": 612,
+      "endFrame": 619
+    },
+    {
+      "word": "ka",
+      "start": 20.67,
+      "end": 20.75,
+      "line": 5,
+      "startFrame": 620,
+      "endFrame": 622
+    },
+    {
+      "word": "jaal",
+      "start": 20.79,
+      "end": 21.015,
+      "line": 5,
+      "startFrame": 624,
+      "endFrame": 630
+    },
+    {
+      "word": "hai",
+      "start": 21.09,
+      "end": 21.17,
+      "line": 5,
+      "startFrame": 633,
+      "endFrame": 635
+    },
+    {
+      "word": "chori",
+      "start": 21.33,
+      "end": 21.585,
+      "line": 5,
+      "startFrame": 640,
+      "endFrame": 648
+    },
+    {
+      "word": "ka",
+      "start": 21.63,
+      "end": 21.71,
+      "line": 5,
+      "startFrame": 649,
+      "endFrame": 651
+    },
+    {
+      "word": "paisa",
+      "start": 21.75,
+      "end": 22.035,
+      "line": 5,
+      "startFrame": 652,
+      "endFrame": 661
+    },
+    {
+      "word": "tumhare",
+      "start": 22.11,
+      "end": 22.485,
+      "line": 5,
+      "startFrame": 663,
+      "endFrame": 675
+    },
+    {
+      "word": "naam",
+      "start": 22.53,
+      "end": 22.695,
+      "line": 5,
+      "startFrame": 676,
+      "endFrame": 681
+    },
+    {
+      "word": "se",
+      "start": 22.74,
+      "end": 22.845,
+      "line": 5,
+      "startFrame": 682,
+      "endFrame": 685
+    },
+    {
+      "word": "ghumta",
+      "start": 22.89,
+      "end": 23.175,
+      "line": 5,
+      "startFrame": 687,
+      "endFrame": 695
+    },
+    {
+      "word": "hai",
+      "start": 23.22,
+      "end": 23.325,
+      "line": 5,
+      "startFrame": 697,
+      "endFrame": 700
+    },
+    {
+      "word": "phanste",
+      "start": 23.55,
+      "end": 23.895,
+      "line": 5,
+      "startFrame": 706,
+      "endFrame": 717
+    },
+    {
+      "word": "tum",
+      "start": 24.0,
+      "end": 24.165,
+      "line": 5,
+      "startFrame": 720,
+      "endFrame": 725
+    },
+    {
+      "word": "ho",
+      "start": 24.21,
+      "end": 24.315,
+      "line": 5,
+      "startFrame": 726,
+      "endFrame": 729
+    },
+    {
+      "word": "Ek",
+      "start": 24.57,
+      "end": 24.705,
+      "line": 6,
+      "startFrame": 737,
+      "endFrame": 741
+    },
+    {
+      "word": "viewer",
+      "start": 24.72,
+      "end": 24.945,
+      "line": 6,
+      "startFrame": 742,
+      "endFrame": 748
+    },
+    {
+      "word": "ne",
+      "start": 24.96,
+      "end": 25.095,
+      "line": 6,
+      "startFrame": 749,
+      "endFrame": 753
+    },
+    {
+      "word": "bilkul",
+      "start": 25.23,
+      "end": 25.485,
+      "line": 6,
+      "startFrame": 757,
+      "endFrame": 765
+    },
+    {
+      "word": "sahi",
+      "start": 25.56,
+      "end": 25.665,
+      "line": 6,
+      "startFrame": 767,
+      "endFrame": 770
+    },
+    {
+      "word": "pakda",
+      "start": 25.74,
+      "end": 25.995,
+      "line": 6,
+      "startFrame": 772,
+      "endFrame": 780
+    },
+    {
+      "word": "dekho",
+      "start": 26.25,
+      "end": 26.505,
+      "line": 6,
+      "startFrame": 788,
+      "endFrame": 795
+    },
+    {
+      "word": "Account",
+      "start": 26.67,
+      "end": 26.955,
+      "line": 7,
+      "startFrame": 800,
+      "endFrame": 809
+    },
+    {
+      "word": "toh",
+      "start": 27.03,
+      "end": 27.135,
+      "line": 7,
+      "startFrame": 811,
+      "endFrame": 814
+    },
+    {
+      "word": "bach",
+      "start": 27.15,
+      "end": 27.255,
+      "line": 7,
+      "startFrame": 814,
+      "endFrame": 818
+    },
+    {
+      "word": "gaya",
+      "start": 27.3,
+      "end": 27.495,
+      "line": 7,
+      "startFrame": 819,
+      "endFrame": 825
+    },
+    {
+      "word": "par",
+      "start": 27.72,
+      "end": 27.825,
+      "line": 7,
+      "startFrame": 832,
+      "endFrame": 835
+    },
+    {
+      "word": "Ishaan",
+      "start": 27.93,
+      "end": 28.275,
+      "line": 7,
+      "startFrame": 838,
+      "endFrame": 848
+    },
+    {
+      "word": "ke",
+      "start": 28.32,
+      "end": 28.425,
+      "line": 7,
+      "startFrame": 850,
+      "endFrame": 853
+    },
+    {
+      "word": "do",
+      "start": 28.5,
+      "end": 28.605,
+      "line": 7,
+      "startFrame": 855,
+      "endFrame": 858
+    },
+    {
+      "word": "hazaar",
+      "start": 28.71,
+      "end": 29.055,
+      "line": 7,
+      "startFrame": 861,
+      "endFrame": 872
+    },
+    {
+      "word": "Woh",
+      "start": 29.37,
+      "end": 29.655,
+      "line": 7,
+      "startFrame": 881,
+      "endFrame": 890
+    },
+    {
+      "word": "AI",
+      "start": 29.79,
+      "end": 29.925,
+      "line": 7,
+      "startFrame": 894,
+      "endFrame": 898
+    },
+    {
+      "word": "lekar",
+      "start": 29.94,
+      "end": 30.195,
+      "line": 7,
+      "startFrame": 898,
+      "endFrame": 906
+    },
+    {
+      "word": "bhaag",
+      "start": 30.24,
+      "end": 30.345,
+      "line": 7,
+      "startFrame": 907,
+      "endFrame": 910
+    },
+    {
+      "word": "gaya",
+      "start": 30.42,
+      "end": 30.645,
+      "line": 7,
+      "startFrame": 913,
+      "endFrame": 919
+    },
+    {
+      "word": "Tumhare",
+      "start": 30.81,
+      "end": 31.155,
+      "line": 8,
+      "startFrame": 924,
+      "endFrame": 935
+    },
+    {
+      "word": "saath",
+      "start": 31.17,
+      "end": 31.335,
+      "line": 8,
+      "startFrame": 935,
+      "endFrame": 940
+    },
+    {
+      "word": "kabhi",
+      "start": 31.35,
+      "end": 31.5,
+      "line": 8,
+      "startFrame": 940,
+      "endFrame": 945
+    },
+    {
+      "word": "aisa",
+      "start": 31.5,
+      "end": 31.755,
+      "line": 8,
+      "startFrame": 945,
+      "endFrame": 953
+    },
+    {
+      "word": "hua",
+      "start": 31.77,
+      "end": 31.935,
+      "line": 8,
+      "startFrame": 953,
+      "endFrame": 958
+    },
+    {
+      "word": "Comment",
+      "start": 32.1,
+      "end": 32.385,
+      "line": 8,
+      "startFrame": 963,
+      "endFrame": 972
+    },
+    {
+      "word": "karo",
+      "start": 32.4,
+      "end": 32.625,
+      "line": 8,
+      "startFrame": 972,
+      "endFrame": 979
+    },
+    {
+      "word": "Agli",
+      "start": 32.79,
+      "end": 32.955,
+      "line": 9,
+      "startFrame": 984,
+      "endFrame": 989
+    },
+    {
+      "word": "reel",
+      "start": 33.06,
+      "end": 33.255,
+      "line": 9,
+      "startFrame": 992,
+      "endFrame": 998
+    },
+    {
+      "word": "mein",
+      "start": 33.27,
+      "end": 33.33,
+      "line": 9,
+      "startFrame": 998,
+      "endFrame": 1000
+    },
+    {
+      "word": "ek",
+      "start": 33.33,
+      "end": 33.41,
+      "line": 9,
+      "startFrame": 1000,
+      "endFrame": 1002
+    },
+    {
+      "word": "anjaan",
+      "start": 33.84,
+      "end": 34.245,
+      "line": 9,
+      "startFrame": 1015,
+      "endFrame": 1027
+    },
+    {
+      "word": "parcel",
+      "start": 34.29,
+      "end": 34.605,
+      "line": 9,
+      "startFrame": 1029,
+      "endFrame": 1038
+    },
+    {
+      "word": "aur",
+      "start": 34.62,
+      "end": 35.085,
+      "line": 9,
+      "startFrame": 1039,
+      "endFrame": 1053
+    },
+    {
+      "word": "andar",
+      "start": 35.13,
+      "end": 35.385,
+      "line": 9,
+      "startFrame": 1054,
+      "endFrame": 1062
+    },
+    {
+      "word": "ek",
+      "start": 35.55,
+      "end": 35.715,
+      "line": 9,
+      "startFrame": 1066,
+      "endFrame": 1071
+    },
+    {
+      "word": "OTP",
+      "start": 35.82,
+      "end": 36.195,
+      "line": 9,
+      "startFrame": 1075,
+      "endFrame": 1086
+    },
+    {
+      "word": "Follow",
+      "start": 36.45,
+      "end": 36.705,
+      "line": 9,
+      "startFrame": 1094,
+      "endFrame": 1101
+    },
+    {
+      "word": "karo",
+      "start": 36.72,
+      "end": 36.945,
+      "line": 9,
+      "startFrame": 1102,
+      "endFrame": 1108
+    },
+    {
+      "word": "@rehanfact",
+      "start": 37.17,
+      "end": 37.725,
+      "line": 9,
+      "startFrame": 1115,
+      "endFrame": 1132
+    }
+  ]
+}

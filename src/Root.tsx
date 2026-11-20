@@ -5,6 +5,7 @@ import { ShopSpot, SHOPSPOT_DURATION } from "./videos/ShopSpot/ShopSpot";
 import { LateNight, LATENIGHT_DURATION } from "./videos/LateNight/LateNight";
 import { DinnerSecret, DINNERSECRET_DURATION } from "./videos/DinnerSecret/DinnerSecret";
 import { AiCrore, AICRORE_DURATION } from "./videos/AiCrore/AiCrore";
+import { AiCrore2, AICRORE2_DURATION } from "./videos/AiCrore2/AiCrore2";
 import { OyoSecret, OyoSecretToon, OYOSECRET_DURATION } from "./videos/OyoSecret/OyoSecret";
 import { RotiBeej, RotiBeejAnime, ROTIBEEJ_DURATION } from "./videos/RotiBeej/RotiBeej";
 import { AnimeTest, ANIMETEST_DURATION } from "./videos/AnimeTest/AnimeTest";
@@ -54,6 +55,14 @@ export const RemotionRoot: React.FC = () => {
         id="AiCrore"
         component={AiCrore}
         durationInFrames={AICRORE_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="AiCrore2"
+        component={AiCrore2}
+        durationInFrames={AICRORE2_DURATION}
         fps={30}
         width={1080}
         height={1920}

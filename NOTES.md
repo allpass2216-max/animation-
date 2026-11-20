@@ -73,7 +73,12 @@
   + coin rain -> transfers list counting 2,500 -> AI chat "HO GAYA / KISI KO MAT BATANA" -> unknown call, red rays, "PAISA HUMARA
   HAI", "10% TUMHARA" -> A cyber cell + bank / B money flies to hooded scammer / C app into trash / D party -> outro + follow.
   Answer A. Handle placeholder. night.tsx moved to src/lib/night.tsx (shared).
-- `AiCrore2` (src/videos/AiCrore2): Part 2 (answer A) of AiCrore. SCRIPT ONLY (2026-11-20), waiting for voice/aicrore2.mp3 and
+- `AiCrore2` (src/videos/AiCrore2): Part 2 (answer A). STAGE 1 BUILT, waiting for fixes or "go to final". Voice 47.2 s -> 37.9 s,
+  allosaurus-align 119/119, recording matches script. Scenes: recap (balance + unknown call, rays on "jawab ye raha") -> A-D tiles,
+  B/C/D crossed, A green -> dial 1930 + cybercrime.gov.in -> bank fraud line, FROZEN lock -> SEND crossed, screenshots -> money-mule
+  diagram (victims -> Ishaan -> hooded scammer, siren on "phanste") -> comment card -> AI bot runs off with ₹2,000 -> ask -> parcel +
+  OTP teaser + follow. VIEWER_COMMENT const in AiCrore2.tsx is null (fallback card) until the user sends a real comment.
+  Originally: SCRIPT ONLY (2026-11-20), waiting for voice/aicrore2.mp3 and
   the real viewer comment + username (user left the template blank; never invent one, fallback card "AAPKA COMMENT YAHAN?").
   Same Ishaan rapper look + hostel/phone/cyber-cell world. Steps: 1930 / cybercrime.gov.in, bank freeze, don't touch + screenshots.
   Twist: account safe but the AI ran off with his ₹2,000. Teaser: parcel + OTP. Handle @rehanfact.
