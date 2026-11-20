@@ -153,3 +153,6 @@
   Sahil (hoodie) presents from the bottom right. No options (genre rule). Handle @rehanfact.
   v2 (user fix): background = the user's sky image (public/freeeditor/sky.jpg, slow drift); presenter = the user's
   sunglasses avatar (public/freeeditor/avatar.jpg) in a rounded white app-icon card that bobs, tilts, pops on beats, shakes on "band".
+  v3 (user ref10, Apple-style UI motion): every laptop screen change is a focus-pull (blur 26->0, scale .84->1 overshoot,
+  3D rotateX/Y settle; exit blurs out), idle 3D tilt + deep soft shadow, Face-ID style glowing blue brackets + scan line
+  around the Kdenlive icon, feature cards slide in with 3 stacked colour cards behind, badges blur in.

@@ -1,15 +1,37 @@
 // FreeEditor: tech-tip / free-tool reveal (no puzzle, no options). "Stop paying for video editing apps: Kdenlive is free + open source."
 // Pastel hostel desk, a big laptop whose screen changes per point, numbered feature cards, Sahil presenting. Cues from ./words.json.
 import React from "react";
-import { AbsoluteFill, Audio, Img, interpolate, random, Sequence, staticFile, useCurrentFrame } from "remotion";
+import {
+  AbsoluteFill,
+  Audio,
+  Img,
+  interpolate,
+  random,
+  Sequence,
+  staticFile,
+  useCurrentFrame,
+} from "remotion";
 import { FONT_FAMILY } from "../../lib/fonts";
-import { Camera, Chip, dropBounce, Grain, INK, makeCue, popSpring, SoftLight, Sparkles, Vignette, WordsFile } from "../../lib/reel";
+import {
+  Camera,
+  Chip,
+  dropBounce,
+  Grain,
+  INK,
+  makeCue,
+  popSpring,
+  SoftLight,
+  Sparkles,
+  Vignette,
+  WordsFile,
+} from "../../lib/reel";
 import { FollowButton } from "../../lib/ui";
 import wordsData from "./words.json";
 
 const data = wordsData as unknown as WordsFile;
 const cue = makeCue(data);
-export const FREEEDITOR_DURATION = data.words[data.words.length - 1].endFrame + 60;
+export const FREEEDITOR_DURATION =
+  data.words[data.words.length - 1].endFrame + 60;
 const W = 1080;
 const H = 1920;
 
@@ -59,9 +81,22 @@ const Desk: React.FC = () => {
     <AbsoluteFill>
       <Img
         src={staticFile("freeeditor/sky.jpg")}
-        style={{ position: "absolute", left: -60, top: -80, width: W + 120, height: H + 160, objectFit: "cover", transform: `translateY(${-frame * 0.12}px) scale(${1 + frame * 0.00008})` }}
+        style={{
+          position: "absolute",
+          left: -60,
+          top: -80,
+          width: W + 120,
+          height: H + 160,
+          objectFit: "cover",
+          transform: `translateY(${-frame * 0.12}px) scale(${1 + frame * 0.00008})`,
+        }}
       />
-      <AbsoluteFill style={{ background: "radial-gradient(circle at 50% 40%, rgba(255,255,255,0.18), transparent 60%)" }} />
+      <AbsoluteFill
+        style={{
+          background:
+            "radial-gradient(circle at 50% 40%, rgba(255,255,255,0.18), transparent 60%)",
+        }}
+      />
       {icons.map((ic, i) => (
         <div
           key={i}
@@ -81,13 +116,108 @@ const Desk: React.FC = () => {
   );
 };
 
+/** Apple-style motion: an element arrives out of focus (blurred, small, tilted in 3D) and settles sharp with a soft
+ *  overshoot; it leaves by blurring out and growing slightly. Returns CSS for a wrapper. */
+const motion = (
+  frame: number,
+  start: number,
+  end = 1e9,
+  tilt = 1,
+): React.CSSProperties => {
+  const tin = Math.max(0, frame - start);
+  const ein = Math.min(1, tin / 14);
+  const back = 1 - Math.pow(1 - ein, 3) + Math.sin(ein * Math.PI) * 0.06; // ease-out + small overshoot
+  const tout = Math.max(0, Math.min(1, (frame - (end - 8)) / 8));
+  const blur = (1 - ein) * 26 + tout * 20;
+  const scale = (0.84 + 0.16 * back) * (1 + tout * 0.06);
+  const rx = (1 - ein) * 22 * tilt;
+  const ry = (1 - ein) * -16 * tilt;
+  return {
+    filter: blur > 0.3 ? `blur(${blur}px)` : undefined,
+    opacity: Math.min(1, ein * 1.6) * (1 - tout),
+    transform: `perspective(1600px) rotateX(${rx}deg) rotateY(${ry}deg) scale(${scale})`,
+  };
+};
+
+/** Face-ID style glowing corner brackets that scan in around a point. */
+const GlowBrackets: React.FC<{
+  at: number;
+  until: number;
+  x: number;
+  y: number;
+  size: number;
+}> = ({ at, until, x, y, size }) => {
+  const frame = useCurrentFrame();
+  if (frame < at || frame >= until) return null;
+  const t = Math.min(1, (frame - at) / 10);
+  const s = size * (1.35 - 0.35 * t);
+  const c = s / 2;
+  const L = s * 0.24;
+  const pulse = 0.7 + Math.sin((frame - at) / 4) * 0.3;
+  const d = `M${-c} ${-c + L} L${-c} ${-c + 18} Q${-c} ${-c} ${-c + 18} ${-c} L${-c + L} ${-c} M${c - L} ${-c} L${c - 18} ${-c} Q${c} ${-c} ${c} ${-c + 18} L${c} ${-c + L} M${c} ${c - L} L${c} ${c - 18} Q${c} ${c} ${c - 18} ${c} L${c - L} ${c} M${-c + L} ${c} L${-c + 18} ${c} Q${-c} ${c} ${-c} ${c - 18} L${-c} ${c - L}`;
+  return (
+    <svg
+      style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}
+      width={W}
+      height={H}
+    >
+      <g transform={`translate(${x} ${y})`} opacity={t * pulse}>
+        <path
+          d={d}
+          fill="none"
+          stroke="#339af0"
+          strokeWidth={22}
+          strokeLinecap="round"
+          opacity={0.35}
+          style={{ filter: "blur(10px)" }}
+        />
+        <path
+          d={d}
+          fill="none"
+          stroke="#4dabf7"
+          strokeWidth={10}
+          strokeLinecap="round"
+        />
+        {/* scan line sweeping down */}
+        <rect
+          x={-c + 20}
+          y={-c + (((frame - at) * 14) % s)}
+          width={s - 40}
+          height={6}
+          rx={3}
+          fill="#74c0fc"
+          opacity={0.7}
+        />
+      </g>
+    </svg>
+  );
+};
+
 /** Big laptop (screen-space). `children` = screen content. */
-const Laptop: React.FC<{ children: React.ReactNode; slamAt?: number }> = ({ children, slamAt }) => {
+const Laptop: React.FC<{
+  children: React.ReactNode;
+  slamAt?: number;
+  segStart: number;
+  segEnd: number;
+}> = ({ children, slamAt, segStart, segEnd }) => {
   const frame = useCurrentFrame();
   const t = slamAt !== undefined ? frame - slamAt : -1;
   const lid = t >= 0 && t < 14 ? Math.sin((t / 14) * Math.PI) * 55 : 0; // lid slams half-shut then bounces back
+  const m = motion(frame, segStart, segEnd);
+  const idle = `rotateY(${Math.sin(frame / 40) * 4}deg) rotateX(${Math.sin(frame / 55) * 2}deg)`;
   return (
-    <div style={{ position: "absolute", left: 120, top: 520, width: 840, height: 980 }}>
+    <div
+      style={{
+        position: "absolute",
+        left: 120,
+        top: 520,
+        width: 840,
+        height: 980,
+        ...m,
+        transform: `${m.transform} ${idle}`,
+        transformOrigin: "50% 40%",
+      }}
+    >
       <div
         style={{
           position: "absolute",
@@ -98,53 +228,131 @@ const Laptop: React.FC<{ children: React.ReactNode; slamAt?: number }> = ({ chil
           borderRadius: 28,
           background: "#1f2433",
           border: `8px solid ${INK}`,
-          boxShadow: `0 14px 0 ${INK}, 0 30px 60px rgba(80,60,140,0.25)`,
+          boxShadow: `0 14px 0 ${INK}, 0 40px 80px rgba(20,50,110,0.35)`,
           transformOrigin: "50% 100%",
           transform: `perspective(1400px) rotateX(${lid}deg)`,
           overflow: "hidden",
         }}
       >
-        <div style={{ position: "absolute", inset: 16, borderRadius: 16, background: "#f8f9fa", overflow: "hidden" }}>{children}</div>
+        <div
+          style={{
+            position: "absolute",
+            inset: 16,
+            borderRadius: 16,
+            background: "#f8f9fa",
+            overflow: "hidden",
+          }}
+        >
+          {children}
+        </div>
       </div>
-      <div style={{ position: "absolute", left: -60, top: 568, width: 960, height: 44, borderRadius: "0 0 30px 30px", background: "#ced4da", border: `8px solid ${INK}` }} />
+      <div
+        style={{
+          position: "absolute",
+          left: -60,
+          top: 568,
+          width: 960,
+          height: 44,
+          borderRadius: "0 0 30px 30px",
+          background: "#ced4da",
+          border: `8px solid ${INK}`,
+        }}
+      />
     </div>
   );
 };
 
 /** Numbered feature card (top area). */
-const FeatureCard: React.FC<{ n: number; text: string; at: number; until: number }> = ({ n, text, at, until }) => {
+const FeatureCard: React.FC<{
+  n: number;
+  text: string;
+  at: number;
+  until: number;
+}> = ({ n, text, at, until }) => {
   const frame = useCurrentFrame();
   if (frame < at || frame >= until) return null;
-  const p = popSpring(frame, at);
+  const m = motion(frame, at, until, 1.2);
+  const stack = ["#4dabf7", "#69db7c", "#ff8787"];
   return (
     <div
       style={{
-        ...UI,
         position: "absolute",
-        left: "50%",
+        left: 0,
+        right: 0,
         top: 400,
-        transform: `translateX(-50%) scale(${p})`,
         display: "flex",
-        alignItems: "center",
-        gap: 14,
-        padding: "12px 28px 12px 14px",
-        background: "#fff",
-        border: `6px solid ${INK}`,
-        borderRadius: 40,
-        boxShadow: `0 8px 0 ${INK}`,
-        fontSize: 40,
-        color: INK,
-        whiteSpace: "nowrap",
+        justifyContent: "center",
+        ...m,
       }}
     >
-      <span style={{ width: 54, height: 54, borderRadius: 27, background: "#4263eb", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 32 }}>{n}</span>
-      {text}
+      {/* stacked coloured cards peeking out behind, sliding up one after another */}
+      {stack.map((c, i) => {
+        const up = Math.min(1, Math.max(0, (frame - at - 4 - i * 3) / 8));
+        return (
+          <div
+            key={c}
+            style={{
+              position: "absolute",
+              top: -(14 + i * 14) * up,
+              width: 520 - i * 50,
+              height: 80,
+              borderRadius: 40,
+              background: c,
+              border: `5px solid ${INK}`,
+              opacity: 0.9,
+              zIndex: -1 - i,
+            }}
+          />
+        );
+      })}
+      <div
+        style={{
+          ...UI,
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          padding: "12px 28px 12px 14px",
+          background: "#fff",
+          border: `6px solid ${INK}`,
+          borderRadius: 40,
+          boxShadow: `0 8px 0 ${INK}`,
+          fontSize: 40,
+          color: INK,
+          whiteSpace: "nowrap",
+        }}
+      >
+        <span
+          style={{
+            width: 54,
+            height: 54,
+            borderRadius: 27,
+            background: "#4263eb",
+            color: "#fff",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 32,
+          }}
+        >
+          {n}
+        </span>
+        {text}
+      </div>
     </div>
   );
 };
 
 /** Pill badge that drops in with a bounce. */
-const Badge: React.FC<{ text: string; at: number; x: number; y: number; bg: string; color?: string; size?: number }> = ({ text, at, x, y, bg, color = "#fff", size = 46 }) => {
+const Badge: React.FC<{
+  text: string;
+  at: number;
+  x: number;
+  y: number;
+  bg: string;
+  color?: string;
+  size?: number;
+}> = ({ text, at, x, y, bg, color = "#fff", size = 46 }) => {
   const frame = useCurrentFrame();
   if (frame < at) return null;
   const d = dropBounce(frame, at, 200);
@@ -156,6 +364,8 @@ const Badge: React.FC<{ text: string; at: number; x: number; y: number; bg: stri
         left: x,
         top: y + d.y,
         transform: `translate(-50%, -50%) scale(${1 + d.squash * 0.1}, ${1 - d.squash * 0.15})`,
+        filter:
+          frame - at < 10 ? `blur(${(10 - (frame - at)) * 2}px)` : undefined,
         padding: "10px 26px",
         borderRadius: 22,
         background: bg,
@@ -176,12 +386,40 @@ const PayPopup: React.FC = () => {
   const frame = useCurrentFrame();
   const b = 1 + Math.abs(Math.sin(frame / 5)) * 0.05;
   return (
-    <AbsoluteFill style={{ background: "#e9ecef", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ ...UI, transform: `scale(${b})`, background: "#fff", border: `6px solid #e03131`, borderRadius: 24, padding: "28px 40px", textAlign: "center", color: INK }}>
+    <AbsoluteFill
+      style={{
+        background: "#e9ecef",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          ...UI,
+          transform: `scale(${b})`,
+          background: "#fff",
+          border: `6px solid #e03131`,
+          borderRadius: 24,
+          padding: "28px 40px",
+          textAlign: "center",
+          color: INK,
+        }}
+      >
         <div style={{ fontSize: 30, color: "#e03131" }}>SUBSCRIPTION ENDED</div>
         <div style={{ fontSize: 64, marginTop: 8 }}>RENEW RS 999</div>
         <div style={{ fontSize: 28, color: "#868e96" }}>/ MONTH</div>
-        <div style={{ marginTop: 18, background: "#e03131", color: "#fff", borderRadius: 16, padding: "12px 20px", fontSize: 34 }}>PAY NOW</div>
+        <div
+          style={{
+            marginTop: 18,
+            background: "#e03131",
+            color: "#fff",
+            borderRadius: 16,
+            padding: "12px 20px",
+            fontSize: 34,
+          }}
+        >
+          PAY NOW
+        </div>
       </div>
     </AbsoluteFill>
   );
@@ -192,10 +430,25 @@ const AppReveal: React.FC = () => {
   const frame = useCurrentFrame();
   const p = popSpring(frame, F.kden);
   return (
-    <AbsoluteFill style={{ background: "linear-gradient(135deg,#e7f5ff,#f3f0ff)", alignItems: "center", justifyContent: "center" }}>
+    <AbsoluteFill
+      style={{
+        background: "linear-gradient(135deg,#e7f5ff,#f3f0ff)",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <div style={{ transform: `scale(${p})`, textAlign: "center" }}>
         <svg width={220} height={220}>
-          <rect x={10} y={10} width={200} height={200} rx={48} fill="#1c7ed6" stroke={INK} strokeWidth={8} />
+          <rect
+            x={10}
+            y={10}
+            width={200}
+            height={200}
+            rx={48}
+            fill="#1c7ed6"
+            stroke={INK}
+            strokeWidth={8}
+          />
           {[40, 80, 120, 160].map((y) => (
             <g key={y}>
               <rect x={30} y={y} width={18} height={14} rx={3} fill="#fff" />
@@ -204,8 +457,12 @@ const AppReveal: React.FC = () => {
           ))}
           <path d="M90 70 L150 110 L90 150 Z" fill="#fff" />
         </svg>
-        <div style={{ ...UI, fontSize: 70, color: INK, marginTop: 6 }}>Kdenlive</div>
-        <div style={{ ...UI, fontSize: 26, color: "#495057" }}>VIDEO EDITOR</div>
+        <div style={{ ...UI, fontSize: 70, color: INK, marginTop: 6 }}>
+          Kdenlive
+        </div>
+        <div style={{ ...UI, fontSize: 26, color: "#495057" }}>
+          VIDEO EDITOR
+        </div>
       </div>
     </AbsoluteFill>
   );
@@ -224,10 +481,53 @@ const Timeline: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: "#212529" }}>
       {/* preview */}
-      <div style={{ position: "absolute", left: 40, top: 24, width: 360, height: 210, borderRadius: 10, background: "linear-gradient(135deg,#ff8787,#9775fa)", overflow: "hidden" }}>
-        {frame >= F.titles && <div style={{ ...UI, position: "absolute", left: 20, top: 70, fontSize: 40, color: "#fff", WebkitTextStroke: `6px ${INK}`, paintOrder: "stroke fill" }}>MY REEL</div>}
-        {frame >= F.trans && <div style={{ position: "absolute", inset: 0, background: `linear-gradient(90deg, transparent ${((frame - F.trans) * 6) % 100}%, rgba(255,255,255,0.55) ${(((frame - F.trans) * 6) % 100) + 10}%, transparent ${(((frame - F.trans) * 6) % 100) + 20}%)` }} />}
-        {frame >= F.effects && <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 70% 30%, rgba(255,240,150,0.6), transparent 50%)" }} />}
+      <div
+        style={{
+          position: "absolute",
+          left: 40,
+          top: 24,
+          width: 360,
+          height: 210,
+          borderRadius: 10,
+          background: "linear-gradient(135deg,#ff8787,#9775fa)",
+          overflow: "hidden",
+        }}
+      >
+        {frame >= F.titles && (
+          <div
+            style={{
+              ...UI,
+              position: "absolute",
+              left: 20,
+              top: 70,
+              fontSize: 40,
+              color: "#fff",
+              WebkitTextStroke: `6px ${INK}`,
+              paintOrder: "stroke fill",
+            }}
+          >
+            MY REEL
+          </div>
+        )}
+        {frame >= F.trans && (
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: `linear-gradient(90deg, transparent ${((frame - F.trans) * 6) % 100}%, rgba(255,255,255,0.55) ${(((frame - F.trans) * 6) % 100) + 10}%, transparent ${(((frame - F.trans) * 6) % 100) + 20}%)`,
+            }}
+          />
+        )}
+        {frame >= F.effects && (
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "radial-gradient(circle at 70% 30%, rgba(255,240,150,0.6), transparent 50%)",
+            }}
+          />
+        )}
       </div>
       {/* tool buttons */}
       {[
@@ -235,22 +535,86 @@ const Timeline: React.FC = () => {
         { t: "TRANSITIONS", f: F.trans },
         { t: "EFFECTS", f: F.effects },
       ].map((b, i) => (
-        <div key={b.t} style={{ ...UI, position: "absolute", left: 430, top: 30 + i * 70, padding: "8px 18px", borderRadius: 12, fontSize: 26, background: frame >= b.f ? "#4263eb" : "#343a40", color: "#fff", transform: `scale(${frame >= b.f && frame < b.f + 6 ? 1.12 : 1})` }}>
+        <div
+          key={b.t}
+          style={{
+            ...UI,
+            position: "absolute",
+            left: 430,
+            top: 30 + i * 70,
+            padding: "8px 18px",
+            borderRadius: 12,
+            fontSize: 26,
+            background: frame >= b.f ? "#4263eb" : "#343a40",
+            color: "#fff",
+            transform: `scale(${frame >= b.f && frame < b.f + 6 ? 1.12 : 1})`,
+          }}
+        >
           {b.t}
         </div>
       ))}
       {/* tracks */}
       {tracks.map((tr, i) => (
-        <div key={i} style={{ position: "absolute", left: 20, top: 260 + i * 56, right: 20, height: 46, background: "#343a40", borderRadius: 8 }}>
-          <div style={{ ...UI, position: "absolute", left: 8, top: 10, fontSize: 20, color: "#adb5bd" }}>{tr.label}</div>
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            left: 20,
+            top: 260 + i * 56,
+            right: 20,
+            height: 46,
+            background: "#343a40",
+            borderRadius: 8,
+          }}
+        >
+          <div
+            style={{
+              ...UI,
+              position: "absolute",
+              left: 8,
+              top: 10,
+              fontSize: 20,
+              color: "#adb5bd",
+            }}
+          >
+            {tr.label}
+          </div>
           {[0, 1, 2].map((k) => {
             const inAt = F.s4 + i * 4 + k * 6;
-            const x = interpolate(frame, [inAt, inAt + 8], [800, 60 + k * 230 + i * 20], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-            return <div key={k} style={{ position: "absolute", left: x, top: 6, width: 200, height: 34, borderRadius: 6, background: tr.c, border: `3px solid ${INK}` }} />;
+            const x = interpolate(
+              frame,
+              [inAt, inAt + 8],
+              [800, 60 + k * 230 + i * 20],
+              { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+            );
+            return (
+              <div
+                key={k}
+                style={{
+                  position: "absolute",
+                  left: x,
+                  top: 6,
+                  width: 200,
+                  height: 34,
+                  borderRadius: 6,
+                  background: tr.c,
+                  border: `3px solid ${INK}`,
+                }}
+              />
+            );
           })}
         </div>
       ))}
-      <div style={{ position: "absolute", left: 60 + ph, top: 250, width: 4, height: 240, background: "#ff6b6b" }} />
+      <div
+        style={{
+          position: "absolute",
+          left: 60 + ph,
+          top: 250,
+          width: 4,
+          height: 240,
+          background: "#ff6b6b",
+        }}
+      />
     </AbsoluteFill>
   );
 };
@@ -258,14 +622,45 @@ const Timeline: React.FC = () => {
 /** Render / export screen: progress bar fills, MP4 + 4K badges. */
 const ExportScreen: React.FC = () => {
   const frame = useCurrentFrame();
-  const p = interpolate(frame, [F.s6, F.four + 6], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const p = interpolate(frame, [F.s6, F.four + 6], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
   return (
-    <AbsoluteFill style={{ background: "#f1f3f5", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ ...UI, fontSize: 40, color: INK }}>RENDERING… {Math.round(p * 100)}%</div>
-      <div style={{ width: 600, height: 34, marginTop: 24, borderRadius: 17, background: "#dee2e6", border: `5px solid ${INK}`, overflow: "hidden" }}>
-        <div style={{ width: `${p * 100}%`, height: "100%", background: "linear-gradient(90deg,#4263eb,#9775fa)" }} />
+    <AbsoluteFill
+      style={{
+        background: "#f1f3f5",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div style={{ ...UI, fontSize: 40, color: INK }}>
+        RENDERING… {Math.round(p * 100)}%
       </div>
-      {p >= 1 && <div style={{ ...UI, marginTop: 24, fontSize: 34, color: "#2b8a3e" }}>DONE ✓ my_reel.mp4</div>}
+      <div
+        style={{
+          width: 600,
+          height: 34,
+          marginTop: 24,
+          borderRadius: 17,
+          background: "#dee2e6",
+          border: `5px solid ${INK}`,
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            width: `${p * 100}%`,
+            height: "100%",
+            background: "linear-gradient(90deg,#4263eb,#9775fa)",
+          }}
+        />
+      </div>
+      {p >= 1 && (
+        <div style={{ ...UI, marginTop: 24, fontSize: 34, color: "#2b8a3e" }}>
+          DONE ✓ my_reel.mp4
+        </div>
+      )}
     </AbsoluteFill>
   );
 };
@@ -275,7 +670,16 @@ const ReelsGrid: React.FC = () => {
   const frame = useCurrentFrame();
   const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
   return (
-    <AbsoluteFill style={{ background: "#fff", padding: 24, display: "flex", flexWrap: "wrap", gap: 14, alignContent: "flex-start" }}>
+    <AbsoluteFill
+      style={{
+        background: "#fff",
+        padding: 24,
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 14,
+        alignContent: "flex-start",
+      }}
+    >
       {days.map((d, i) => {
         const on = frame >= F.s7 + 4 + i * 5;
         return (
@@ -287,7 +691,9 @@ const ReelsGrid: React.FC = () => {
               height: 205,
               borderRadius: 16,
               border: `5px solid ${INK}`,
-              background: on ? `linear-gradient(160deg, hsl(${i * 47},80%,70%), hsl(${i * 47 + 60},75%,55%))` : "#e9ecef",
+              background: on
+                ? `linear-gradient(160deg, hsl(${i * 47},80%,70%), hsl(${i * 47 + 60},75%,55%))`
+                : "#e9ecef",
               color: "#fff",
               fontSize: 28,
               display: "flex",
@@ -310,17 +716,51 @@ const ReelsGrid: React.FC = () => {
 /** Instagram-style comment box with "EDIT" typed on its word. */
 const CommentBox: React.FC = () => {
   const frame = useCurrentFrame();
-  const typed = "EDIT".slice(0, Math.max(0, Math.min(4, Math.floor((frame - F.edit) / 3) + 1)));
+  const typed = "EDIT".slice(
+    0,
+    Math.max(0, Math.min(4, Math.floor((frame - F.edit) / 3) + 1)),
+  );
   const sent = frame >= F.edit + 16;
   return (
-    <div style={{ ...UI, position: "absolute", left: 140, top: 760, width: 800, padding: "22px 26px", borderRadius: 30, background: "#fff", border: `6px solid ${INK}`, boxShadow: `0 10px 0 ${INK}` }}>
+    <div
+      style={{
+        ...UI,
+        position: "absolute",
+        left: 140,
+        top: 760,
+        width: 800,
+        padding: "22px 26px",
+        borderRadius: 30,
+        background: "#fff",
+        border: `6px solid ${INK}`,
+        boxShadow: `0 10px 0 ${INK}`,
+      }}
+    >
       <div style={{ fontSize: 26, color: "#868e96" }}>Add a comment…</div>
       <div style={{ display: "flex", alignItems: "center", marginTop: 10 }}>
         <div style={{ flex: 1, fontSize: 64, color: "#e03131" }}>
           {frame >= F.edit ? typed : ""}
-          <span style={{ opacity: Math.floor(frame / 8) % 2 ? 1 : 0, color: INK }}>|</span>
+          <span
+            style={{ opacity: Math.floor(frame / 8) % 2 ? 1 : 0, color: INK }}
+          >
+            |
+          </span>
         </div>
-        <div style={{ width: 70, height: 70, borderRadius: 35, background: sent ? "#2b8a3e" : "#4263eb", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 36 }}>{sent ? "✓" : "➤"}</div>
+        <div
+          style={{
+            width: 70,
+            height: 70,
+            borderRadius: 35,
+            background: sent ? "#2b8a3e" : "#4263eb",
+            color: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 36,
+          }}
+        >
+          {sent ? "✓" : "➤"}
+        </div>
       </div>
     </div>
   );
@@ -334,8 +774,26 @@ const CoinsOut: React.FC<{ at: number }> = ({ at }) => {
   return (
     <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
       <g transform="translate(300 1440)">
-        <rect x={-80} y={-50} width={160} height={100} rx={16} fill="#8a5530" stroke={INK} strokeWidth={7} />
-        <rect x={20} y={-20} width={70} height={40} rx={10} fill="#a0663f" stroke={INK} strokeWidth={6} />
+        <rect
+          x={-80}
+          y={-50}
+          width={160}
+          height={100}
+          rx={16}
+          fill="#8a5530"
+          stroke={INK}
+          strokeWidth={7}
+        />
+        <rect
+          x={20}
+          y={-20}
+          width={70}
+          height={40}
+          rx={10}
+          fill="#a0663f"
+          stroke={INK}
+          strokeWidth={6}
+        />
       </g>
       {Array.from({ length: 8 }).map((_, i) => {
         const tt = t - i * 0.06;
@@ -345,7 +803,17 @@ const CoinsOut: React.FC<{ at: number }> = ({ at }) => {
         const x = 300 + vx * tt;
         const y = 1400 + vy * tt + 0.5 * 3000 * tt * tt;
         if (y > 1500) return null;
-        return <circle key={i} cx={x} cy={y} r={22} fill="#ffd43b" stroke={INK} strokeWidth={5} />;
+        return (
+          <circle
+            key={i}
+            cx={x}
+            cy={y}
+            r={22}
+            fill="#ffd43b"
+            stroke={INK}
+            strokeWidth={5}
+          />
+        );
       })}
     </svg>
   );
@@ -353,14 +821,18 @@ const CoinsOut: React.FC<{ at: number }> = ({ at }) => {
 
 // ---------------- scenes ----------------
 /** The user's avatar in a rounded white app-icon card: idle bob + tilt, pops on `pops`, shakes on `shakes`. */
-const Presenter: React.FC<{ pops: number[]; shakes: number[] }> = ({ pops, shakes }) => {
+const Presenter: React.FC<{ pops: number[]; shakes: number[] }> = ({
+  pops,
+  shakes,
+}) => {
   const frame = useCurrentFrame();
   const bob = Math.sin(frame / 14) * 10;
   const tilt = Math.sin(frame / 26) * 3;
   let pop = 0;
   for (const f of pops) {
     const t = frame - f;
-    if (t >= 0 && t < 18) pop = Math.max(pop, Math.sin((t / 18) * Math.PI) * (1 - t / 24));
+    if (t >= 0 && t < 18)
+      pop = Math.max(pop, Math.sin((t / 18) * Math.PI) * (1 - t / 24));
   }
   let sx = 0;
   for (const f of shakes) {
@@ -385,7 +857,10 @@ const Presenter: React.FC<{ pops: number[]; shakes: number[] }> = ({ pops, shake
         transform: `rotate(${tilt + sx * 0.3}deg) scale(${1 + pop * 0.14}, ${1 - pop * 0.06})`,
       }}
     >
-      <Img src={staticFile("freeeditor/avatar.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      <Img
+        src={staticFile("freeeditor/avatar.jpg")}
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+      />
     </div>
   );
 };
@@ -412,51 +887,146 @@ const Scene: React.FC = () => {
   return (
     <Camera from={0} to={END} zoom={[1.0, 1.04]}>
       <Desk />
-      {showLaptop && <Laptop slamAt={F.band}>{screen}</Laptop>}
+      {showLaptop &&
+        (() => {
+          const cuts = [0, F.s2, F.s4, F.s6, F.s7, F.s8];
+          let k = 0;
+          while (k < cuts.length - 2 && frame >= cuts[k + 1]) k++;
+          return (
+            <Laptop
+              slamAt={F.band}
+              segStart={k === 0 ? -20 : cuts[k]}
+              segEnd={cuts[k + 1]}
+            >
+              {screen}
+            </Laptop>
+          );
+        })()}
+      <GlowBrackets at={F.kden} until={F.s3} x={540} y={760} size={330} />
       {frame < F.s2 && <CoinsOut at={F.paise} />}
       {/* platforms badges */}
       {inRange(frame, F.s3, F.s4) && (
         <>
           <Badge text="WINDOWS" at={F.win} x={175} y={1240} bg="#1c7ed6" />
           <Badge text="MAC" at={F.mac} x={385} y={1240} bg="#495057" />
-          <Badge text="LINUX" at={F.linux} x={545} y={1240} bg="#f59f00" color={INK} />
+          <Badge
+            text="LINUX"
+            at={F.linux}
+            x={545}
+            y={1240}
+            bg="#f59f00"
+            color={INK}
+          />
         </>
       )}
       {/* no watermark / no subscription: stamps crossed out */}
       {inRange(frame, F.s5, F.s6) && (
         <>
-          <Badge text="WATERMARK" at={F.watermark} x={540} y={760} bg="#868e96" size={56} />
+          <Badge
+            text="WATERMARK"
+            at={F.watermark}
+            x={540}
+            y={760}
+            bg="#868e96"
+            size={56}
+          />
           {frame >= F.watermark + 6 && (
-            <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
-              <path d={`M300 790 L${300 + Math.min(1, (frame - F.watermark - 6) / 6) * 480} 730`} stroke="#e03131" strokeWidth={16} strokeLinecap="round" />
+            <svg
+              style={{ position: "absolute", left: 0, top: 0 }}
+              width={W}
+              height={H}
+            >
+              <path
+                d={`M300 790 L${300 + Math.min(1, (frame - F.watermark - 6) / 6) * 480} 730`}
+                stroke="#e03131"
+                strokeWidth={16}
+                strokeLinecap="round"
+              />
             </svg>
           )}
-          <Badge text="RS 999/MONTH" at={F.subs} x={540} y={940} bg="#868e96" size={56} />
+          <Badge
+            text="RS 999/MONTH"
+            at={F.subs}
+            x={540}
+            y={940}
+            bg="#868e96"
+            size={56}
+          />
           {frame >= F.subs + 6 && (
-            <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
-              <path d={`M300 970 L${300 + Math.min(1, (frame - F.subs - 6) / 6) * 480} 910`} stroke="#e03131" strokeWidth={16} strokeLinecap="round" />
+            <svg
+              style={{ position: "absolute", left: 0, top: 0 }}
+              width={W}
+              height={H}
+            >
+              <path
+                d={`M300 970 L${300 + Math.min(1, (frame - F.subs - 6) / 6) * 480} 910`}
+                stroke="#e03131"
+                strokeWidth={16}
+                strokeLinecap="round"
+              />
             </svg>
           )}
         </>
       )}
       {inRange(frame, F.s6, F.s7) && (
         <>
-          <Badge text="MP4" at={F.mp4} x={260} y={1250} bg="#4263eb" size={60} />
-          <Badge text="4K" at={F.four} x={500} y={1250} bg="#e64980" size={60} />
+          <Badge
+            text="MP4"
+            at={F.mp4}
+            x={260}
+            y={1250}
+            bg="#4263eb"
+            size={60}
+          />
+          <Badge
+            text="4K"
+            at={F.four}
+            x={500}
+            y={1250}
+            bg="#e64980"
+            size={60}
+          />
         </>
       )}
       {/* save: big bookmark */}
       {inRange(frame, F.s8, F.s9) && (
-        <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
-          <g transform={`translate(540 900) scale(${frame >= F.save ? popSpring(frame, F.save) * 1.2 : 0.9})`}>
-            <path d="M-120 -170 L120 -170 L120 170 L0 80 L-120 170 Z" fill={frame >= F.save ? "#ffd43b" : "#fff"} stroke={INK} strokeWidth={12} strokeLinejoin="round" />
+        <svg
+          style={{ position: "absolute", left: 0, top: 0 }}
+          width={W}
+          height={H}
+        >
+          <g
+            transform={`translate(540 900) scale(${frame >= F.save ? popSpring(frame, F.save) * 1.2 : 0.9})`}
+          >
+            <path
+              d="M-120 -170 L120 -170 L120 170 L0 80 L-120 170 Z"
+              fill={frame >= F.save ? "#ffd43b" : "#fff"}
+              stroke={INK}
+              strokeWidth={12}
+              strokeLinejoin="round"
+            />
           </g>
           <Sparkles at={F.save} x={540} y={900} r={220} />
         </svg>
       )}
       {inRange(frame, F.s9, F.s10) && <CommentBox />}
       {/* presenter */}
-      <Presenter pops={[F.kden, F.open, F.win, F.mac, F.linux, F.s5, F.four, F.rupaya, F.save, F.edit, F.handle]} shakes={[F.band, F.watermark + 6, F.subs + 6]} />
+      <Presenter
+        pops={[
+          F.kden,
+          F.open,
+          F.win,
+          F.mac,
+          F.linux,
+          F.s5,
+          F.four,
+          F.rupaya,
+          F.save,
+          F.edit,
+          F.handle,
+        ]}
+        shakes={[F.band, F.watermark + 6, F.subs + 6]}
+      />
     </Camera>
   );
 };
@@ -502,7 +1072,13 @@ const SFX: S[] = [
 ];
 
 const speaking = new Float32Array(END + 1);
-for (const l of data.lines) for (let f = Math.max(0, l.startFrame - 3); f <= Math.min(END, l.endFrame + 3); f++) speaking[f] = 1;
+for (const l of data.lines)
+  for (
+    let f = Math.max(0, l.startFrame - 3);
+    f <= Math.min(END, l.endFrame + 3);
+    f++
+  )
+    speaking[f] = 1;
 const musicVol = (f: number) => {
   let s = 0;
   let n = 0;
@@ -513,7 +1089,10 @@ const musicVol = (f: number) => {
       n++;
     }
   }
-  const fadeOut = interpolate(f, [END - 20, END], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const fadeOut = interpolate(f, [END - 20, END], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
   return (0.18 - 0.08 * (s / n)) * fadeOut;
 };
 
@@ -526,18 +1105,60 @@ export const FreeEditor: React.FC = () => {
       <SoftLight x="20%" y="10%" color="rgba(255,220,180,0.25)" />
       <Vignette />
 
-      <Chip text="PAISE DENA BAND!" at={0} until={F.s2} y={250} size={84} slam from={1.06} color="#ff6b6b" />
+      <Chip
+        text="PAISE DENA BAND!"
+        at={0}
+        until={F.s2}
+        y={250}
+        size={84}
+        slam
+        from={1.06}
+        color="#ff6b6b"
+      />
       <Chip text="KDENLIVE" at={F.kden} until={F.s3} y={250} size={100} />
-      <Chip text="100% FREE + OPEN SOURCE" at={F.open} until={F.s3} y={390} size={56} color="#fff" bg="#2b8a3e" />
+      <Chip
+        text="100% FREE + OPEN SOURCE"
+        at={F.open}
+        until={F.s3}
+        y={390}
+        size={56}
+        color="#fff"
+        bg="#2b8a3e"
+      />
       <FeatureCard n={1} text="WINDOWS · MAC · LINUX" at={F.s3} until={F.s4} />
       <FeatureCard n={2} text="MULTI-TRACK TIMELINE" at={F.s4} until={F.s5} />
       <FeatureCard n={3} text="NO WATERMARK" at={F.s5} until={F.s6} />
-      <Chip text="NO SUBSCRIPTION" at={F.subs + 8} until={F.s6} y={250} size={80} slam />
+      <Chip
+        text="NO SUBSCRIPTION"
+        at={F.subs + 8}
+        until={F.s6}
+        y={250}
+        size={80}
+        slam
+      />
       <FeatureCard n={4} text="EXPORT MP4 · 4K" at={F.s6} until={F.s7} />
-      <Chip text="RS 0 KHARCH" at={F.rupaya} until={F.s8} y={330} size={110} color="#fff" bg="#2b8a3e" />
+      <Chip
+        text="RS 0 KHARCH"
+        at={F.rupaya}
+        until={F.s8}
+        y={330}
+        size={110}
+        color="#fff"
+        bg="#2b8a3e"
+      />
       <Chip text="SAVE KARO" at={F.save} until={F.s9} y={330} size={110} />
-      <Chip text="LINK DM MEIN" at={F.edit + 16} until={F.s10} y={330} size={96} color="#fff" bg="#4263eb" />
-      {frame >= F.s10 && <Chip text="FREE TOOLS" at={F.s10} y={330} size={100} />}
+      <Chip
+        text="LINK DM MEIN"
+        at={F.edit + 16}
+        until={F.s10}
+        y={330}
+        size={96}
+        color="#fff"
+        bg="#4263eb"
+      />
+      {frame >= F.s10 && (
+        <Chip text="FREE TOOLS" at={F.s10} y={330} size={100} />
+      )}
       <FollowButton at={F.follow} tapAt={F.handle} />
 
       <Grain opacity={0.04} />
