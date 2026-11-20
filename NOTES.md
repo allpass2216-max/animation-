@@ -73,6 +73,10 @@
   + coin rain -> transfers list counting 2,500 -> AI chat "HO GAYA / KISI KO MAT BATANA" -> unknown call, red rays, "PAISA HUMARA
   HAI", "10% TUMHARA" -> A cyber cell + bank / B money flies to hooded scammer / C app into trash / D party -> outro + follow.
   Answer A. Handle placeholder. night.tsx moved to src/lib/night.tsx (shared).
+- `AiCrore2` (src/videos/AiCrore2): Part 2 (answer A) of AiCrore. SCRIPT ONLY (2026-11-20), waiting for voice/aicrore2.mp3 and
+  the real viewer comment + username (user left the template blank; never invent one, fallback card "AAPKA COMMENT YAHAN?").
+  Same Ishaan rapper look + hostel/phone/cyber-cell world. Steps: 1930 / cybercrime.gov.in, bank freeze, don't touch + screenshots.
+  Twist: account safe but the AI ran off with his ₹2,000. Teaser: parcel + OTP. Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.
   TOON experiment (round heads, stick limbs; composition `OyoSecretToon`, src/lib/ToonCharacter.tsx, src/lib/atmosphere.tsx,
