@@ -146,3 +146,8 @@
   public/fonts/Amiri-*.woff2): Bismillah, Quran 17:32 "wa la taqrabu az-zina", "Subhana Rabbiyal A'la", "Barakallah",
   "Sadaqah Jariyah". Rig additions: hijab, kufi, beard. Music: public/music/hum_loop.wav (hummed, no instruments).
   NOTE: CLAUDE.md forbids Devanagari on screen; Arabic was explicitly requested by the user for this video.
+- `FreeEditor` (src/videos/FreeEditor): SCRIPT WRITTEN (Hinglish, 10 lines, 103 words). Tech-tip / free-tool reveal from
+  refs/ref9.mp4 ("Canvix" free Canva on GitHub; its claims unverified, not reused). Ours: Kdenlive (real, free, open-source
+  video editor; only safe claims). NO options (genre rule). CTA: save + comment EDIT for the link + follow. Handle @rehanfact.
+  NEXT: wait for voice.
+
