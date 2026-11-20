@@ -146,7 +146,7 @@
   public/fonts/Amiri-*.woff2): Bismillah, Quran 17:32 "wa la taqrabu az-zina", "Subhana Rabbiyal A'la", "Barakallah",
   "Sadaqah Jariyah". Rig additions: hijab, kufi, beard. Music: public/music/hum_loop.wav (hummed, no instruments).
   NOTE: CLAUDE.md forbids Devanagari on screen; Arabic was explicitly requested by the user for this video.
-- `FreeEditor` (src/videos/FreeEditor): STAGE 1 BUILT, waiting for fixes or "go to final". Voice 37.7 s -> 33.0 s; 103 words.
+- `FreeEditor` (src/videos/FreeEditor): FINAL out/freeeditor_final.mp4 (34.9 s, -14.1 LUFS, @rehanfact watermark), post.md written. Voice 37.7 s -> 33.0 s; 103 words.
   Tech-tip format: pastel desk, big laptop whose screen changes (paywall popup -> generic app icon "Kdenlive" (NOT the official
   logo) -> multi-track timeline with titles/transitions/effects -> render to MP4 -> week of reels), numbered feature cards 1-4,
   crossed-out WATERMARK / RS 999/MONTH, MP4 + 4K badges, big bookmark on "save", comment box typing EDIT, follow tap.
@@ -156,3 +156,4 @@
   v3 (user ref10, Apple-style UI motion): every laptop screen change is a focus-pull (blur 26->0, scale .84->1 overshoot,
   3D rotateX/Y settle; exit blurs out), idle 3D tilt + deep soft shadow, Face-ID style glowing blue brackets + scan line
   around the Kdenlive icon, feature cards slide in with 3 stacked colour cards behind, badges blur in.
+  Final fix: WINDOWS/MAC/LINUX badges no longer overlap (size 40, LINUX on a second row).

@@ -907,13 +907,14 @@ const Scene: React.FC = () => {
       {/* platforms badges */}
       {inRange(frame, F.s3, F.s4) && (
         <>
-          <Badge text="WINDOWS" at={F.win} x={175} y={1240} bg="#1c7ed6" />
-          <Badge text="MAC" at={F.mac} x={385} y={1240} bg="#495057" />
+          <Badge text="WINDOWS" at={F.win} x={185} y={1230} bg="#1c7ed6" size={40} />
+          <Badge text="MAC" at={F.mac} x={440} y={1230} bg="#495057" size={40} />
           <Badge
             text="LINUX"
             at={F.linux}
-            x={545}
-            y={1240}
+            x={310}
+            y={1345}
+            size={40}
             bg="#f59f00"
             color={INK}
           />
