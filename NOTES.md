@@ -146,8 +146,8 @@
   public/fonts/Amiri-*.woff2): Bismillah, Quran 17:32 "wa la taqrabu az-zina", "Subhana Rabbiyal A'la", "Barakallah",
   "Sadaqah Jariyah". Rig additions: hijab, kufi, beard. Music: public/music/hum_loop.wav (hummed, no instruments).
   NOTE: CLAUDE.md forbids Devanagari on screen; Arabic was explicitly requested by the user for this video.
-- `FreeEditor` (src/videos/FreeEditor): SCRIPT WRITTEN (Hinglish, 10 lines, 103 words). Tech-tip / free-tool reveal from
-  refs/ref9.mp4 ("Canvix" free Canva on GitHub; its claims unverified, not reused). Ours: Kdenlive (real, free, open-source
-  video editor; only safe claims). NO options (genre rule). CTA: save + comment EDIT for the link + follow. Handle @rehanfact.
-  NEXT: wait for voice.
-
+- `FreeEditor` (src/videos/FreeEditor): STAGE 1 BUILT, waiting for fixes or "go to final". Voice 37.7 s -> 33.0 s; 103 words.
+  Tech-tip format: pastel desk, big laptop whose screen changes (paywall popup -> generic app icon "Kdenlive" (NOT the official
+  logo) -> multi-track timeline with titles/transitions/effects -> render to MP4 -> week of reels), numbered feature cards 1-4,
+  crossed-out WATERMARK / RS 999/MONTH, MP4 + 4K badges, big bookmark on "save", comment box typing EDIT, follow tap.
+  Sahil (hoodie) presents from the bottom right. No options (genre rule). Handle @rehanfact.

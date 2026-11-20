@@ -1,0 +1,908 @@
+{
+  "audio": "voice/freeeditor_clean.wav",
+  "fps": 30,
+  "duration": 33.014,
+  "source": "allosaurus-align",
+  "approxWords": false,
+  "note": "whisper failed: URLError: <urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
+  "lines": [
+    {
+      "text": "Video editing app ke liye har mahine paise dena band karo!",
+      "start": 0.12,
+      "end": 3.075,
+      "startFrame": 4,
+      "endFrame": 92
+    },
+    {
+      "text": "Kyunki ek free tool hai, naam hai Kdenlive, aur poora open source.",
+      "start": 3.24,
+      "end": 7.005,
+      "startFrame": 97,
+      "endFrame": 210
+    },
+    {
+      "text": "Laptop par chalta hai, Windows, Mac, Linux, sab par.",
+      "start": 7.32,
+      "end": 10.34,
+      "startFrame": 220,
+      "endFrame": 310
+    },
+    {
+      "text": "Multi track timeline, titles, transitions, effects, sab kuch.",
+      "start": 10.47,
+      "end": 13.88,
+      "startFrame": 314,
+      "endFrame": 416
+    },
+    {
+      "text": "Aur sabse badhiya baat, koi watermark nahi, koi subscription nahi.",
+      "start": 14.49,
+      "end": 17.445,
+      "startFrame": 435,
+      "endFrame": 523
+    },
+    {
+      "text": "Export karo MP4 mein, woh bhi four K tak.",
+      "start": 17.88,
+      "end": 20.535,
+      "startFrame": 536,
+      "endFrame": 616
+    },
+    {
+      "text": "Sahil ne isi se poore hafte ki reels banayi, aur ek rupaya kharch nahi kiya.",
+      "start": 20.88,
+      "end": 24.705,
+      "startFrame": 626,
+      "endFrame": 741
+    },
+    {
+      "text": "Toh is reel ko abhi save kar lo.",
+      "start": 24.87,
+      "end": 26.355,
+      "startFrame": 746,
+      "endFrame": 791
+    },
+    {
+      "text": "Download link chahiye, toh comment mein likho EDIT, main bhej dunga.",
+      "start": 26.55,
+      "end": 29.535,
+      "startFrame": 796,
+      "endFrame": 886
+    },
+    {
+      "text": "Aur follow karo @rehanfact, aise aur free tools ke liye!",
+      "start": 29.55,
+      "end": 32.865,
+      "startFrame": 886,
+      "endFrame": 986
+    }
+  ],
+  "words": [
+    {
+      "word": "Video",
+      "start": 0.12,
+      "end": 0.495,
+      "line": 0,
+      "startFrame": 4,
+      "endFrame": 15
+    },
+    {
+      "word": "editing",
+      "start": 0.51,
+      "end": 0.735,
+      "line": 0,
+      "startFrame": 15,
+      "endFrame": 22
+    },
+    {
+      "word": "app",
+      "start": 0.78,
+      "end": 0.86,
+      "line": 0,
+      "startFrame": 23,
+      "endFrame": 26
+    },
+    {
+      "word": "ke",
+      "start": 0.99,
+      "end": 1.095,
+      "line": 0,
+      "startFrame": 30,
+      "endFrame": 33
+    },
+    {
+      "word": "liye",
+      "start": 1.11,
+      "end": 1.275,
+      "line": 0,
+      "startFrame": 33,
+      "endFrame": 38
+    },
+    {
+      "word": "har",
+      "start": 1.44,
+      "end": 1.635,
+      "line": 0,
+      "startFrame": 43,
+      "endFrame": 49
+    },
+    {
+      "word": "mahine",
+      "start": 1.68,
+      "end": 1.965,
+      "line": 0,
+      "startFrame": 50,
+      "endFrame": 59
+    },
+    {
+      "word": "paise",
+      "start": 2.01,
+      "end": 2.295,
+      "line": 0,
+      "startFrame": 60,
+      "endFrame": 69
+    },
+    {
+      "word": "dena",
+      "start": 2.31,
+      "end": 2.505,
+      "line": 0,
+      "startFrame": 69,
+      "endFrame": 75
+    },
+    {
+      "word": "band",
+      "start": 2.64,
+      "end": 2.805,
+      "line": 0,
+      "startFrame": 79,
+      "endFrame": 84
+    },
+    {
+      "word": "karo",
+      "start": 2.85,
+      "end": 3.075,
+      "line": 0,
+      "startFrame": 86,
+      "endFrame": 92
+    },
+    {
+      "word": "Kyunki",
+      "start": 3.24,
+      "end": 3.33,
+      "line": 1,
+      "startFrame": 97,
+      "endFrame": 100
+    },
+    {
+      "word": "ek",
+      "start": 3.33,
+      "end": 3.41,
+      "line": 1,
+      "startFrame": 100,
+      "endFrame": 102
+    },
+    {
+      "word": "free",
+      "start": 3.45,
+      "end": 3.53,
+      "line": 1,
+      "startFrame": 104,
+      "endFrame": 106
+    },
+    {
+      "word": "tool",
+      "start": 3.96,
+      "end": 4.065,
+      "line": 1,
+      "startFrame": 119,
+      "endFrame": 122
+    },
+    {
+      "word": "hai",
+      "start": 4.23,
+      "end": 4.31,
+      "line": 1,
+      "startFrame": 127,
+      "endFrame": 129
+    },
+    {
+      "word": "naam",
+      "start": 4.56,
+      "end": 4.815,
+      "line": 1,
+      "startFrame": 137,
+      "endFrame": 144
+    },
+    {
+      "word": "hai",
+      "start": 4.83,
+      "end": 4.965,
+      "line": 1,
+      "startFrame": 145,
+      "endFrame": 149
+    },
+    {
+      "word": "Kdenlive",
+      "start": 5.04,
+      "end": 5.715,
+      "line": 1,
+      "startFrame": 151,
+      "endFrame": 171
+    },
+    {
+      "word": "aur",
+      "start": 5.82,
+      "end": 5.9,
+      "line": 1,
+      "startFrame": 175,
+      "endFrame": 177
+    },
+    {
+      "word": "poora",
+      "start": 6.06,
+      "end": 6.375,
+      "line": 1,
+      "startFrame": 182,
+      "endFrame": 191
+    },
+    {
+      "word": "open",
+      "start": 6.42,
+      "end": 6.675,
+      "line": 1,
+      "startFrame": 193,
+      "endFrame": 200
+    },
+    {
+      "word": "source",
+      "start": 6.72,
+      "end": 7.005,
+      "line": 1,
+      "startFrame": 202,
+      "endFrame": 210
+    },
+    {
+      "word": "Laptop",
+      "start": 7.32,
+      "end": 7.605,
+      "line": 2,
+      "startFrame": 220,
+      "endFrame": 228
+    },
+    {
+      "word": "par",
+      "start": 7.62,
+      "end": 7.755,
+      "line": 2,
+      "startFrame": 229,
+      "endFrame": 233
+    },
+    {
+      "word": "chalta",
+      "start": 7.8,
+      "end": 7.995,
+      "line": 2,
+      "startFrame": 234,
+      "endFrame": 240
+    },
+    {
+      "word": "hai",
+      "start": 8.01,
+      "end": 8.115,
+      "line": 2,
+      "startFrame": 240,
+      "endFrame": 243
+    },
+    {
+      "word": "Windows",
+      "start": 8.37,
+      "end": 8.655,
+      "line": 2,
+      "startFrame": 251,
+      "endFrame": 260
+    },
+    {
+      "word": "Mac",
+      "start": 8.94,
+      "end": 9.315,
+      "line": 2,
+      "startFrame": 268,
+      "endFrame": 279
+    },
+    {
+      "word": "Linux",
+      "start": 9.33,
+      "end": 9.645,
+      "line": 2,
+      "startFrame": 280,
+      "endFrame": 289
+    },
+    {
+      "word": "sab",
+      "start": 9.9,
+      "end": 10.155,
+      "line": 2,
+      "startFrame": 297,
+      "endFrame": 305
+    },
+    {
+      "word": "par",
+      "start": 10.26,
+      "end": 10.34,
+      "line": 2,
+      "startFrame": 308,
+      "endFrame": 310
+    },
+    {
+      "word": "Multi",
+      "start": 10.47,
+      "end": 10.725,
+      "line": 3,
+      "startFrame": 314,
+      "endFrame": 322
+    },
+    {
+      "word": "track",
+      "start": 10.77,
+      "end": 11.13,
+      "line": 3,
+      "startFrame": 323,
+      "endFrame": 334
+    },
+    {
+      "word": "timeline",
+      "start": 11.13,
+      "end": 11.805,
+      "line": 3,
+      "startFrame": 334,
+      "endFrame": 354
+    },
+    {
+      "word": "titles",
+      "start": 11.82,
+      "end": 11.985,
+      "line": 3,
+      "startFrame": 355,
+      "endFrame": 360
+    },
+    {
+      "word": "transitions",
+      "start": 12.21,
+      "end": 12.615,
+      "line": 3,
+      "startFrame": 366,
+      "endFrame": 378
+    },
+    {
+      "word": "effects",
+      "start": 12.66,
+      "end": 13.065,
+      "line": 3,
+      "startFrame": 380,
+      "endFrame": 392
+    },
+    {
+      "word": "sab",
+      "start": 13.59,
+      "end": 13.785,
+      "line": 3,
+      "startFrame": 408,
+      "endFrame": 414
+    },
+    {
+      "word": "kuch",
+      "start": 13.8,
+      "end": 13.88,
+      "line": 3,
+      "startFrame": 414,
+      "endFrame": 416
+    },
+    {
+      "word": "Aur",
+      "start": 14.49,
+      "end": 14.57,
+      "line": 4,
+      "startFrame": 435,
+      "endFrame": 437
+    },
+    {
+      "word": "sabse",
+      "start": 14.58,
+      "end": 14.895,
+      "line": 4,
+      "startFrame": 437,
+      "endFrame": 447
+    },
+    {
+      "word": "badhiya",
+      "start": 14.91,
+      "end": 15.135,
+      "line": 4,
+      "startFrame": 447,
+      "endFrame": 454
+    },
+    {
+      "word": "baat",
+      "start": 15.18,
+      "end": 15.285,
+      "line": 4,
+      "startFrame": 455,
+      "endFrame": 459
+    },
+    {
+      "word": "koi",
+      "start": 15.45,
+      "end": 15.675,
+      "line": 4,
+      "startFrame": 464,
+      "endFrame": 470
+    },
+    {
+      "word": "watermark",
+      "start": 15.75,
+      "end": 16.155,
+      "line": 4,
+      "startFrame": 472,
+      "endFrame": 485
+    },
+    {
+      "word": "nahi",
+      "start": 16.17,
+      "end": 16.395,
+      "line": 4,
+      "startFrame": 485,
+      "endFrame": 492
+    },
+    {
+      "word": "koi",
+      "start": 16.59,
+      "end": 16.815,
+      "line": 4,
+      "startFrame": 498,
+      "endFrame": 504
+    },
+    {
+      "word": "subscription",
+      "start": 16.86,
+      "end": 17.325,
+      "line": 4,
+      "startFrame": 506,
+      "endFrame": 520
+    },
+    {
+      "word": "nahi",
+      "start": 17.34,
+      "end": 17.445,
+      "line": 4,
+      "startFrame": 520,
+      "endFrame": 523
+    },
+    {
+      "word": "Export",
+      "start": 17.88,
+      "end": 18.255,
+      "line": 5,
+      "startFrame": 536,
+      "endFrame": 548
+    },
+    {
+      "word": "karo",
+      "start": 18.33,
+      "end": 18.465,
+      "line": 5,
+      "startFrame": 550,
+      "endFrame": 554
+    },
+    {
+      "word": "MP4",
+      "start": 18.63,
+      "end": 18.735,
+      "line": 5,
+      "startFrame": 559,
+      "endFrame": 562
+    },
+    {
+      "word": "mein",
+      "start": 19.23,
+      "end": 19.335,
+      "line": 5,
+      "startFrame": 577,
+      "endFrame": 580
+    },
+    {
+      "word": "woh",
+      "start": 19.56,
+      "end": 19.64,
+      "line": 5,
+      "startFrame": 587,
+      "endFrame": 589
+    },
+    {
+      "word": "bhi",
+      "start": 19.71,
+      "end": 19.815,
+      "line": 5,
+      "startFrame": 591,
+      "endFrame": 594
+    },
+    {
+      "word": "four",
+      "start": 19.95,
+      "end": 20.175,
+      "line": 5,
+      "startFrame": 598,
+      "endFrame": 605
+    },
+    {
+      "word": "K",
+      "start": 20.175,
+      "end": 20.22,
+      "line": 5,
+      "interpolated": true,
+      "startFrame": 605,
+      "endFrame": 607
+    },
+    {
+      "word": "tak",
+      "start": 20.22,
+      "end": 20.535,
+      "line": 5,
+      "startFrame": 607,
+      "endFrame": 616
+    },
+    {
+      "word": "Sahil",
+      "start": 20.88,
+      "end": 21.225,
+      "line": 6,
+      "startFrame": 626,
+      "endFrame": 637
+    },
+    {
+      "word": "ne",
+      "start": 21.24,
+      "end": 21.32,
+      "line": 6,
+      "startFrame": 637,
+      "endFrame": 640
+    },
+    {
+      "word": "isi",
+      "start": 21.39,
+      "end": 21.585,
+      "line": 6,
+      "startFrame": 642,
+      "endFrame": 648
+    },
+    {
+      "word": "se",
+      "start": 21.63,
+      "end": 21.735,
+      "line": 6,
+      "startFrame": 649,
+      "endFrame": 652
+    },
+    {
+      "word": "poore",
+      "start": 21.84,
+      "end": 22.155,
+      "line": 6,
+      "startFrame": 655,
+      "endFrame": 665
+    },
+    {
+      "word": "hafte",
+      "start": 22.2,
+      "end": 22.425,
+      "line": 6,
+      "startFrame": 666,
+      "endFrame": 673
+    },
+    {
+      "word": "ki",
+      "start": 22.53,
+      "end": 22.59,
+      "line": 6,
+      "startFrame": 676,
+      "endFrame": 678
+    },
+    {
+      "word": "reels",
+      "start": 22.59,
+      "end": 22.815,
+      "line": 6,
+      "startFrame": 678,
+      "endFrame": 684
+    },
+    {
+      "word": "banayi",
+      "start": 22.83,
+      "end": 23.085,
+      "line": 6,
+      "startFrame": 685,
+      "endFrame": 693
+    },
+    {
+      "word": "aur",
+      "start": 23.38,
+      "end": 23.61,
+      "line": 6,
+      "interpolated": true,
+      "startFrame": 701,
+      "endFrame": 708
+    },
+    {
+      "word": "ek",
+      "start": 23.61,
+      "end": 23.82,
+      "line": 6,
+      "startFrame": 708,
+      "endFrame": 715
+    },
+    {
+      "word": "rupaya",
+      "start": 23.82,
+      "end": 24.075,
+      "line": 6,
+      "startFrame": 715,
+      "endFrame": 722
+    },
+    {
+      "word": "kharch",
+      "start": 24.12,
+      "end": 24.345,
+      "line": 6,
+      "startFrame": 724,
+      "endFrame": 730
+    },
+    {
+      "word": "nahi",
+      "start": 24.36,
+      "end": 24.495,
+      "line": 6,
+      "startFrame": 731,
+      "endFrame": 735
+    },
+    {
+      "word": "kiya",
+      "start": 24.6,
+      "end": 24.705,
+      "line": 6,
+      "startFrame": 738,
+      "endFrame": 741
+    },
+    {
+      "word": "Toh",
+      "start": 24.87,
+      "end": 24.95,
+      "line": 7,
+      "startFrame": 746,
+      "endFrame": 748
+    },
+    {
+      "word": "is",
+      "start": 25.05,
+      "end": 25.185,
+      "line": 7,
+      "startFrame": 752,
+      "endFrame": 756
+    },
+    {
+      "word": "reel",
+      "start": 25.26,
+      "end": 25.34,
+      "line": 7,
+      "startFrame": 758,
+      "endFrame": 760
+    },
+    {
+      "word": "ko",
+      "start": 25.38,
+      "end": 25.485,
+      "line": 7,
+      "startFrame": 761,
+      "endFrame": 765
+    },
+    {
+      "word": "abhi",
+      "start": 25.62,
+      "end": 25.815,
+      "line": 7,
+      "startFrame": 769,
+      "endFrame": 774
+    },
+    {
+      "word": "save",
+      "start": 25.89,
+      "end": 26.175,
+      "line": 7,
+      "startFrame": 777,
+      "endFrame": 785
+    },
+    {
+      "word": "kar",
+      "start": 26.19,
+      "end": 26.25,
+      "line": 7,
+      "startFrame": 786,
+      "endFrame": 788
+    },
+    {
+      "word": "lo",
+      "start": 26.25,
+      "end": 26.355,
+      "line": 7,
+      "startFrame": 788,
+      "endFrame": 791
+    },
+    {
+      "word": "Download",
+      "start": 26.55,
+      "end": 26.925,
+      "line": 8,
+      "startFrame": 796,
+      "endFrame": 808
+    },
+    {
+      "word": "link",
+      "start": 26.94,
+      "end": 27.075,
+      "line": 8,
+      "startFrame": 808,
+      "endFrame": 812
+    },
+    {
+      "word": "chahiye",
+      "start": 27.09,
+      "end": 27.405,
+      "line": 8,
+      "startFrame": 813,
+      "endFrame": 822
+    },
+    {
+      "word": "toh",
+      "start": 27.54,
+      "end": 27.645,
+      "line": 8,
+      "startFrame": 826,
+      "endFrame": 829
+    },
+    {
+      "word": "comment",
+      "start": 27.69,
+      "end": 28.005,
+      "line": 8,
+      "startFrame": 831,
+      "endFrame": 840
+    },
+    {
+      "word": "mein",
+      "start": 28.05,
+      "end": 28.13,
+      "line": 8,
+      "startFrame": 842,
+      "endFrame": 844
+    },
+    {
+      "word": "likho",
+      "start": 28.14,
+      "end": 28.365,
+      "line": 8,
+      "startFrame": 844,
+      "endFrame": 851
+    },
+    {
+      "word": "EDIT",
+      "start": 28.5,
+      "end": 28.695,
+      "line": 8,
+      "startFrame": 855,
+      "endFrame": 861
+    },
+    {
+      "word": "main",
+      "start": 28.98,
+      "end": 29.085,
+      "line": 8,
+      "startFrame": 869,
+      "endFrame": 873
+    },
+    {
+      "word": "bhej",
+      "start": 29.1,
+      "end": 29.295,
+      "line": 8,
+      "startFrame": 873,
+      "endFrame": 879
+    },
+    {
+      "word": "dunga",
+      "start": 29.34,
+      "end": 29.535,
+      "line": 8,
+      "startFrame": 880,
+      "endFrame": 886
+    },
+    {
+      "word": "Aur",
+      "start": 29.55,
+      "end": 29.865,
+      "line": 9,
+      "startFrame": 886,
+      "endFrame": 896
+    },
+    {
+      "word": "follow",
+      "start": 29.91,
+      "end": 30.135,
+      "line": 9,
+      "startFrame": 897,
+      "endFrame": 904
+    },
+    {
+      "word": "karo",
+      "start": 30.18,
+      "end": 30.795,
+      "line": 9,
+      "startFrame": 905,
+      "endFrame": 924
+    },
+    {
+      "word": "@rehanfact",
+      "start": 30.84,
+      "end": 31.215,
+      "line": 9,
+      "startFrame": 925,
+      "endFrame": 936
+    },
+    {
+      "word": "aise",
+      "start": 31.26,
+      "end": 31.815,
+      "line": 9,
+      "startFrame": 938,
+      "endFrame": 954
+    },
+    {
+      "word": "aur",
+      "start": 31.95,
+      "end": 32.115,
+      "line": 9,
+      "startFrame": 958,
+      "endFrame": 963
+    },
+    {
+      "word": "free",
+      "start": 32.16,
+      "end": 32.28,
+      "line": 9,
+      "startFrame": 965,
+      "endFrame": 968
+    },
+    {
+      "word": "tools",
+      "start": 32.28,
+      "end": 32.58,
+      "line": 9,
+      "startFrame": 968,
+      "endFrame": 977
+    },
+    {
+      "word": "ke",
+      "start": 32.58,
+      "end": 32.685,
+      "line": 9,
+      "startFrame": 977,
+      "endFrame": 981
+    },
+    {
+      "word": "liye",
+      "start": 32.7,
+      "end": 32.865,
+      "line": 9,
+      "startFrame": 981,
+      "endFrame": 986
+    }
+  ]
+}

@@ -12,6 +12,7 @@ import { JaaduRubber, JAADURUBBER_DURATION } from "./videos/JaaduRubber/JaaduRub
 import { TankiRassi, TankiRassiGolden, TANKIRASSI_DURATION } from "./videos/TankiRassi/TankiRassi";
 import { SavannaTest, SAVANNA_DURATION } from "./videos/SavannaTest/SavannaTest";
 import { SajdaRaat, SAJDARAAT_DURATION } from "./videos/SajdaRaat/SajdaRaat";
+import { FreeEditor, FREEEDITOR_DURATION } from "./videos/FreeEditor/FreeEditor";
 
 // Register every video here. One folder per video in src/videos/<name>/.
 export const RemotionRoot: React.FC = () => {
@@ -133,6 +134,14 @@ export const RemotionRoot: React.FC = () => {
         id="SajdaRaat"
         component={SajdaRaat}
         durationInFrames={SAJDARAAT_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="FreeEditor"
+        component={FreeEditor}
+        durationInFrames={FREEEDITOR_DURATION}
         fps={30}
         width={1080}
         height={1920}

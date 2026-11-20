@@ -1,6 +1,6 @@
 # FreeEditor — script
 
-Status: SCRIPT ONLY. No voice, no build yet. Waiting for the voice file in `voice/`.
+Status: STAGE 1 BUILT. Recording voice/freeeditor.mp3 matches this script (103/103 words).
 Voice language: Hinglish (template blank not filled). Handle: **@rehanfact**.
 Target: 10 lines, 103 words, about 34-37 s after clean_voice (+2 s tail).
 Genre: TECH TIP / free-tool reveal (informational, upbeat). NO puzzle, NO A-D options, NO "answer in the next reel" (the
