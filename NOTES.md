@@ -73,7 +73,8 @@
   + coin rain -> transfers list counting 2,500 -> AI chat "HO GAYA / KISI KO MAT BATANA" -> unknown call, red rays, "PAISA HUMARA
   HAI", "10% TUMHARA" -> A cyber cell + bank / B money flies to hooded scammer / C app into trash / D party -> outro + follow.
   Answer A. Handle placeholder. night.tsx moved to src/lib/night.tsx (shared).
-- `AiCrore2` (src/videos/AiCrore2): Part 2 (answer A). STAGE 1 BUILT, waiting for fixes or "go to final". Voice 47.2 s -> 37.9 s,
+- `AiCrore2` (src/videos/AiCrore2): Part 2 (answer A). FINAL (2026-11-20): out/aicrore2_final.mp4, 39.7 s, -14.0 LUFS,
+  TP -2.7 dBTP, @rehanfact watermark, post.md written. Comment card went out with the fallback (no real comment given). Voice 47.2 s -> 37.9 s,
   allosaurus-align 119/119, recording matches script. Scenes: recap (balance + unknown call, rays on "jawab ye raha") -> A-D tiles,
   B/C/D crossed, A green -> dial 1930 + cybercrime.gov.in -> bank fraud line, FROZEN lock -> SEND crossed, screenshots -> money-mule
   diagram (victims -> Ishaan -> hooded scammer, siren on "phanste") -> comment card -> AI bot runs off with ₹2,000 -> ask -> parcel +
