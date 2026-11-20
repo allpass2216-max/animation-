@@ -151,3 +151,5 @@
   logo) -> multi-track timeline with titles/transitions/effects -> render to MP4 -> week of reels), numbered feature cards 1-4,
   crossed-out WATERMARK / RS 999/MONTH, MP4 + 4K badges, big bookmark on "save", comment box typing EDIT, follow tap.
   Sahil (hoodie) presents from the bottom right. No options (genre rule). Handle @rehanfact.
+  v2 (user fix): background = the user's sky image (public/freeeditor/sky.jpg, slow drift); presenter = the user's
+  sunglasses avatar (public/freeeditor/avatar.jpg) in a rounded white app-icon card that bobs, tilts, pops on beats, shakes on "band".

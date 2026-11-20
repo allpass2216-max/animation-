@@ -1,8 +1,7 @@
 // FreeEditor: tech-tip / free-tool reveal (no puzzle, no options). "Stop paying for video editing apps: Kdenlive is free + open source."
 // Pastel hostel desk, a big laptop whose screen changes per point, numbered feature cards, Sahil presenting. Cues from ./words.json.
 import React from "react";
-import { AbsoluteFill, Audio, interpolate, random, Sequence, staticFile, useCurrentFrame } from "remotion";
-import { Character } from "../../lib/Character";
+import { AbsoluteFill, Audio, Img, interpolate, random, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { FONT_FAMILY } from "../../lib/fonts";
 import { Camera, Chip, dropBounce, Grain, INK, makeCue, popSpring, SoftLight, Sparkles, Vignette, WordsFile } from "../../lib/reel";
 import { FollowButton } from "../../lib/ui";
@@ -50,39 +49,34 @@ const F = {
 const END = FREEEDITOR_DURATION;
 const inRange = (f: number, a: number, b: number) => f >= a && f < b;
 const UI: React.CSSProperties = { fontFamily: FONT_FAMILY, fontWeight: 800 };
-const SAHIL = { skin: "#C98B5E", shirt: "#7048e8", pants: "#2b3a67", hair: "#1d1420", hood: "#5f3dc4" } as const;
 
 // ---------------- world ----------------
-/** Pastel desk room with soft blurred floating icons (depth). */
+/** The user's sky image as the background (slow drift + gentle zoom), soft floating icons for depth. */
 const Desk: React.FC = () => {
   const frame = useCurrentFrame();
   const icons = ["🎬", "🎵", "✨", "📱", "🎞️", "💡"];
   return (
     <AbsoluteFill>
-      <AbsoluteFill style={{ background: "linear-gradient(160deg, #fdf0e6 0%, #f3e8ff 45%, #e6f0ff 100%)" }} />
-      <AbsoluteFill style={{ background: "radial-gradient(circle at 20% 15%, rgba(255,190,150,0.5), transparent 40%), radial-gradient(circle at 85% 70%, rgba(170,190,255,0.45), transparent 45%)" }} />
-      {/* far: floating icons, blurred */}
+      <Img
+        src={staticFile("freeeditor/sky.jpg")}
+        style={{ position: "absolute", left: -60, top: -80, width: W + 120, height: H + 160, objectFit: "cover", transform: `translateY(${-frame * 0.12}px) scale(${1 + frame * 0.00008})` }}
+      />
+      <AbsoluteFill style={{ background: "radial-gradient(circle at 50% 40%, rgba(255,255,255,0.18), transparent 60%)" }} />
       {icons.map((ic, i) => (
         <div
           key={i}
           style={{
             position: "absolute",
             left: 60 + random(`ix${i}`) * 940,
-            top: 120 + random(`iy${i}`) * 1500 + Math.sin(frame / 30 + i) * 18,
-            fontSize: 70 + random(`is${i}`) * 40,
+            top: 120 + random(`iy${i}`) * 1400 + Math.sin(frame / 30 + i) * 18,
+            fontSize: 64 + random(`is${i}`) * 36,
             filter: `blur(${3 + (i % 3) * 2}px)`,
-            opacity: 0.55,
+            opacity: 0.5,
           }}
         >
           {ic}
         </div>
       ))}
-      {/* desk */}
-      <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
-        <rect x={-50} y={1480} width={W + 100} height={500} fill="#e0c3a0" />
-        <rect x={-50} y={1480} width={W + 100} height={26} fill="#c9a27a" />
-        <rect x={-50} y={1506} width={W + 100} height={10} fill={INK} opacity={0.15} />
-      </svg>
     </AbsoluteFill>
   );
 };
@@ -358,9 +352,43 @@ const CoinsOut: React.FC<{ at: number }> = ({ at }) => {
 };
 
 // ---------------- scenes ----------------
-const Presenter: React.FC<{ poses: Parameters<typeof Character>[0]["poses"]; exprs: Parameters<typeof Character>[0]["exprs"]; hops?: number[] }> = ({ poses, exprs, hops }) => (
-  <Character {...SAHIL} x={850} y={1830} scale={0.74} flip poses={poses} exprs={exprs} hops={hops} look={[{ f: 0, v: 1 }]} />
-);
+/** The user's avatar in a rounded white app-icon card: idle bob + tilt, pops on `pops`, shakes on `shakes`. */
+const Presenter: React.FC<{ pops: number[]; shakes: number[] }> = ({ pops, shakes }) => {
+  const frame = useCurrentFrame();
+  const bob = Math.sin(frame / 14) * 10;
+  const tilt = Math.sin(frame / 26) * 3;
+  let pop = 0;
+  for (const f of pops) {
+    const t = frame - f;
+    if (t >= 0 && t < 18) pop = Math.max(pop, Math.sin((t / 18) * Math.PI) * (1 - t / 24));
+  }
+  let sx = 0;
+  for (const f of shakes) {
+    const t = frame - f;
+    if (t >= 0 && t < 12) sx += Math.sin(t * 2.6) * 16 * (1 - t / 12);
+  }
+  const hop = -pop * 70;
+  const size = 330;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 820 - size / 2 + sx,
+        top: 1290 - size / 2 + bob + hop,
+        width: size,
+        height: size,
+        borderRadius: 78,
+        background: "#fff",
+        border: `7px solid ${INK}`,
+        boxShadow: `0 14px 0 ${INK}, 0 30px 50px rgba(20,60,120,0.35)`,
+        overflow: "hidden",
+        transform: `rotate(${tilt + sx * 0.3}deg) scale(${1 + pop * 0.14}, ${1 - pop * 0.06})`,
+      }}
+    >
+      <Img src={staticFile("freeeditor/avatar.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+    </div>
+  );
+};
 
 const Scene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -389,9 +417,9 @@ const Scene: React.FC = () => {
       {/* platforms badges */}
       {inRange(frame, F.s3, F.s4) && (
         <>
-          <Badge text="WINDOWS" at={F.win} x={190} y={1240} bg="#1c7ed6" />
-          <Badge text="MAC" at={F.mac} x={420} y={1240} bg="#495057" />
-          <Badge text="LINUX" at={F.linux} x={590} y={1240} bg="#f59f00" color={INK} />
+          <Badge text="WINDOWS" at={F.win} x={175} y={1240} bg="#1c7ed6" />
+          <Badge text="MAC" at={F.mac} x={385} y={1240} bg="#495057" />
+          <Badge text="LINUX" at={F.linux} x={545} y={1240} bg="#f59f00" color={INK} />
         </>
       )}
       {/* no watermark / no subscription: stamps crossed out */}
@@ -428,32 +456,7 @@ const Scene: React.FC = () => {
       )}
       {inRange(frame, F.s9, F.s10) && <CommentBox />}
       {/* presenter */}
-      <Presenter
-        poses={[
-          { f: 0, v: "panic" },
-          { f: F.band, v: "point" },
-          { f: F.s2, v: "present" },
-          { f: F.kden, v: "cheer" },
-          { f: F.s3, v: "point" },
-          { f: F.s4, v: "present" },
-          { f: F.s5, v: "cheer" },
-          { f: F.s6, v: "point" },
-          { f: F.s7, v: "present" },
-          { f: F.rupaya, v: "cheer" },
-          { f: F.s8, v: "point" },
-          { f: F.s9, v: "present" },
-          { f: F.s10, v: "wave" },
-        ]}
-        exprs={[
-          { f: 0, v: "shock" },
-          { f: F.band, v: "angry" },
-          { f: F.s2, v: "sly" },
-          { f: F.kden, v: "grin" },
-          { f: F.s5, v: "wow" },
-          { f: F.s6, v: "grin" },
-        ]}
-        hops={[F.kden, F.s5 + 4, F.rupaya]}
-      />
+      <Presenter pops={[F.kden, F.open, F.win, F.mac, F.linux, F.s5, F.four, F.rupaya, F.save, F.edit, F.handle]} shakes={[F.band, F.watermark + 6, F.subs + 6]} />
     </Camera>
   );
 };
