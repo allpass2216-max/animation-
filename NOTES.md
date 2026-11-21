@@ -97,6 +97,10 @@
   v3 (user fix): the dividing wall is now a full mud-brick wall in the FOREGROUND, dead centre (x 440-640, from y 1140 down past
   the frame bottom), between the two men; rooster starts on Sonu's side at his feet, flies up onto it; egg falls to Monu's feet. Indore mohalla, padosi Sonu (blue house) + Monu (pink house), wall between, Sonu's laal murga "lays" an egg.
   Answer D (kisi ka nahi: a rooster can't lay eggs). Only riddle 1 used (riddle 2 not understood without audio). Handle @rehanfact.
+- `ShaadiChor` (src/videos/ShaadiChor): SCRIPT ONLY (2026-11-21), ref refs/ref12.mov (detective lineup, sling swaps arms).
+  Waiting for voice/shaadichor.mp3. Wedding night in Lucknow, haar gayab; Inspector Rana; suspects Ramesh (halwai), Neha (cousin),
+  Vicky (photographer, plaster: SAYS right hand broken, plaster on LEFT in the lineup), Kamla bai. Answer C (Vicky).
+  User add-on: ₹100 cash prize for a correct comment + "share with a friend for help" + winner paid in Part 2. Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.
   TOON experiment (round heads, stick limbs; composition `OyoSecretToon`, src/lib/ToonCharacter.tsx, src/lib/atmosphere.tsx,
