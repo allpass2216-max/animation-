@@ -83,6 +83,9 @@
   the real viewer comment + username (user left the template blank; never invent one, fallback card "AAPKA COMMENT YAHAN?").
   Same Ishaan rapper look + hostel/phone/cyber-cell world. Steps: 1930 / cybercrime.gov.in, bank freeze, don't touch + screenshots.
   Twist: account safe but the AI ran off with his ₹2,000. Teaser: parcel + OTP. Handle @rehanfact.
+- `MurgaAnda` (src/videos/MurgaAnda): SCRIPT ONLY (2026-11-21), ref refs/ref11.mp4 (tricky-riddle reel). Waiting for
+  voice/murgaanda.mp3. Indore mohalla, padosi Sonu (blue house) + Monu (pink house), wall between, Sonu's laal murga "lays" an egg.
+  Answer D (kisi ka nahi: a rooster can't lay eggs). Only riddle 1 used (riddle 2 not understood without audio). Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.
   TOON experiment (round heads, stick limbs; composition `OyoSecretToon`, src/lib/ToonCharacter.tsx, src/lib/atmosphere.tsx,
