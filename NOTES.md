@@ -97,7 +97,9 @@
   v3 (user fix): the dividing wall is now a full mud-brick wall in the FOREGROUND, dead centre (x 440-640, from y 1140 down past
   the frame bottom), between the two men; rooster starts on Sonu's side at his feet, flies up onto it; egg falls to Monu's feet. Indore mohalla, padosi Sonu (blue house) + Monu (pink house), wall between, Sonu's laal murga "lays" an egg.
   Answer D (kisi ka nahi: a rooster can't lay eggs). Only riddle 1 used (riddle 2 not understood without audio). Handle @rehanfact.
-- `ShaadiChor` (src/videos/ShaadiChor): STAGE 1 BUILT (2026-11-21), waiting for fixes or "go to final". ref refs/ref12.mov.
+- `ShaadiChor` (src/videos/ShaadiChor): FINAL (2026-11-21) out/shaadichor_final.mp4, 36.4 s, -14.0 LUFS, TP -2.4 dBTP,
+  @rehanfact watermark, post.md (prize rules: letter + reason, follow, random pick among correct answers). Part 2: reveal C
+  (plaster side swap, arrow comparison) + announce a REAL winner the user picks. ref refs/ref12.mov.
   Recording matches script. Voice 44.6 s -> 34.5 s. Aligner drifted in quiet spans, so some cues use afterPause() over
   ./pauses.json (measured). Costumes (Character got policeCap, police [belt + holstered pistol + epaulettes], sling right/left
   [plaster + blue sling], camera, apron, haar, veil, bindi, mehendi; holding ladle / broom). Scenes: bride in dressing room
