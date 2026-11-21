@@ -83,7 +83,8 @@
   the real viewer comment + username (user left the template blank; never invent one, fallback card "AAPKA COMMENT YAHAN?").
   Same Ishaan rapper look + hostel/phone/cyber-cell world. Steps: 1930 / cybercrime.gov.in, bank freeze, don't touch + screenshots.
   Twist: account safe but the AI ran off with his ₹2,000. Teaser: parcel + OTP. Handle @rehanfact.
-- `MurgaAnda` (src/videos/MurgaAnda): STAGE 1 BUILT (2026-11-21), waiting for fixes or "go to final". ref refs/ref11.mp4.
+- `MurgaAnda` (src/videos/MurgaAnda): FINAL (2026-11-21) out/murgaanda_final.mp4, 29.6 s, -14.0 LUFS, TP -2.6 dBTP,
+  @rehanfact watermark, post.md written. Part 2 must reveal D (a rooster does not lay eggs). ref refs/ref11.mp4.
   RECORDING DIFFERS: it starts at "Sonu aur Monu padosi hain" (hook line + "Indore ke ek mohalle mein" not recorded); built from
   the recording (voice/murgaanda.txt = what was said). Voice 36.3 s -> 27.7 s, so the video is 29.7 s (just under 30 s).
   "A" moved +8 f onto the word (pause file). One mohalla world (sky, far city, houses SONU/MONU, neem, wall, crowd heads),
