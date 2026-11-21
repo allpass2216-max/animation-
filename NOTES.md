@@ -97,8 +97,13 @@
   v3 (user fix): the dividing wall is now a full mud-brick wall in the FOREGROUND, dead centre (x 440-640, from y 1140 down past
   the frame bottom), between the two men; rooster starts on Sonu's side at his feet, flies up onto it; egg falls to Monu's feet. Indore mohalla, padosi Sonu (blue house) + Monu (pink house), wall between, Sonu's laal murga "lays" an egg.
   Answer D (kisi ka nahi: a rooster can't lay eggs). Only riddle 1 used (riddle 2 not understood without audio). Handle @rehanfact.
-- `ShaadiChor` (src/videos/ShaadiChor): SCRIPT ONLY (2026-11-21), ref refs/ref12.mov (detective lineup, sling swaps arms).
-  Waiting for voice/shaadichor.mp3. Wedding night in Lucknow, haar gayab; Inspector Rana; suspects Ramesh (halwai), Neha (cousin),
+- `ShaadiChor` (src/videos/ShaadiChor): STAGE 1 BUILT (2026-11-21), waiting for fixes or "go to final". ref refs/ref12.mov.
+  Recording matches script. Voice 44.6 s -> 34.5 s. Aligner drifted in quiet spans, so some cues use afterPause() over
+  ./pauses.json (measured). Costumes (Character got policeCap, police [belt + holstered pistol + epaulettes], sling right/left
+  [plaster + blue sling], camera, apron, haar, veil, bindi, mehendi; holding ladle / broom). Scenes: bride in dressing room
+  finds her neck empty -> inspector walks in, 4 suspects pop into a lineup -> kitchen / mehendi corner / photo stage / chhat
+  close-ups -> inspector smiles -> lineup (Vicky's plaster now on LEFT), magnifier sweep -> A-D with spotlights -> ₹100 prize
+  (note, coins, confetti, share plane) -> outro with inspector + follow. Wedding night in Lucknow, haar gayab; Inspector Rana; suspects Ramesh (halwai), Neha (cousin),
   Vicky (photographer, plaster: SAYS right hand broken, plaster on LEFT in the lineup), Kamla bai. Answer C (Vicky).
   User add-on: ₹100 cash prize for a correct comment + "share with a friend for help" + winner paid in Part 2. Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,

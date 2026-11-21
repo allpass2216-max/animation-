@@ -69,7 +69,7 @@ const ChunkyCharacter: React.FC<{
   look?: Cue<number>[]; // pupil x offset -1..1
   hops?: number[]; // frames where he does a small jump
   money?: Cue<boolean>[];
-  holding?: Cue<"none" | "bag" | "phone" | "helmet" | "icecream" | "purse">[]; // prop in the right hand
+  holding?: Cue<"none" | "bag" | "phone" | "helmet" | "icecream" | "purse" | "ladle" | "broom">[]; // prop in the right hand
   mustache?: boolean;
   turn?: number; // 0 = facing camera, 0.5..0.9 = three-quarter view towards local +x (flip mirrors it)
   backpack?: string; // school/tuition bag colour (worn on the back, straps in front)
@@ -81,6 +81,15 @@ const ChunkyCharacter: React.FC<{
   pagdi?: string; // turban colour (village elder look)
   mustacheColor?: string; // e.g. white/grey for an old man
   wrinkles?: boolean; // forehead lines + crow's feet (old man)
+  policeCap?: boolean; // khaki peaked police cap with badge
+  police?: boolean; // police uniform details: epaulettes, name plate, belt with a holstered pistol
+  sling?: "right" | "left"; // that arm (the character's own right/left) in a white plaster cast + blue sling across the chest
+  camera?: boolean; // DSLR on a neck strap
+  apron?: string; // apron colour (cook / halwai)
+  haar?: Cue<boolean>[]; // gold bridal necklace on/off
+  veil?: string; // bridal dupatta over the head (behind the face, hair still visible)
+  bindi?: boolean;
+  mehendi?: boolean; // hands coloured with henna
   beard?: boolean; // short beard
   lipstick?: string; // lip colour (outlines the mouth in every expression)
   lashes?: boolean;
@@ -123,6 +132,15 @@ const ChunkyCharacter: React.FC<{
   pagdi,
   mustacheColor = "#2a1e22",
   wrinkles = false,
+  policeCap = false,
+  police = false,
+  sling,
+  camera = false,
+  apron,
+  haar = [{ f: 0, v: false }],
+  veil,
+  bindi = false,
+  mehendi = false,
   beard = false,
   lipstick,
   lashes = false,
@@ -196,8 +214,29 @@ const ChunkyCharacter: React.FC<{
     const ey = syp + Math.cos(r1) * 120;
     const hx = ex + side * Math.sin(r2) * 118;
     const hy = ey + Math.cos(r2) * 118;
-    return { d: `M${sxp} ${syp} L${ex} ${ey} L${hx} ${hy}`, hx, hy };
+    return { d: `M${sxp} ${syp} L${ex} ${ey} L${hx} ${hy}`, hx, hy, ex, ey };
   };
+  // an arm in a sling stays bent across the chest whatever the pose (L = the character's own right arm)
+  if (sling === "right") {
+    a[0] = 12;
+    a[1] = -104;
+  }
+  if (sling === "left") {
+    a[2] = 12;
+    a[3] = -104;
+  }
+  const handFill = mehendi ? "#b5562a" : skin;
+  const haarOn = pick(haar, frame).cur.v;
+  const Sling: React.FC<{ A: { hx: number; hy: number; ex: number; ey: number }; side: -1 | 1 }> = ({ A, side }) => (
+    <g>
+      <path d={`M${A.ex} ${A.ey + 10} L${A.hx} ${A.hy + 10} L${(A.ex + A.hx) / 2} ${A.ey + 70} Z`} fill="#3b5bdb" stroke={INK} strokeWidth={7} strokeLinejoin="round" />
+      <path d={`M${A.hx} ${A.hy} L${-side * 70} -530`} stroke={INK} strokeWidth={30} strokeLinecap="round" />
+      <path d={`M${A.hx} ${A.hy} L${-side * 70} -530`} stroke="#4c6ef5" strokeWidth={18} strokeLinecap="round" />
+      <path d={`M${A.ex} ${A.ey} L${A.hx} ${A.hy}`} stroke={INK} strokeWidth={66} strokeLinecap="round" />
+      <path d={`M${A.ex} ${A.ey} L${A.hx} ${A.hy}`} stroke="#f8f9fa" strokeWidth={50} strokeLinecap="round" />
+      <path d={`M${A.ex + (A.hx - A.ex) * 0.35} ${A.ey - 22} l0 44 M${A.ex + (A.hx - A.ex) * 0.65} ${A.ey - 22} l0 44`} stroke="#ced4da" strokeWidth={5} />
+    </g>
+  );
   const L = arm(-1, a[0], a[1]);
   const R = arm(1, a[2], a[3]);
 
@@ -584,6 +623,58 @@ const ChunkyCharacter: React.FC<{
             />
           </g>
         )}
+        {apron && (
+          <g>
+            <path d="M-95 -470 L95 -470 L120 -215 L-120 -215 Z" fill={apron} stroke={INK} strokeWidth={8} strokeLinejoin="round" />
+            <path d="M-70 -470 Q0 -560 70 -470" fill="none" stroke={INK} strokeWidth={6} />
+            <rect x={-45} y={-380} width={90} height={60} rx={8} fill="none" stroke={INK} strokeWidth={5} opacity={0.5} />
+          </g>
+        )}
+        {police && (
+          <g>
+            {[-1, 1].map((sd) => (
+              <g key={sd}>
+                <rect x={sd * 118 - 34} y={-534} width={68} height={26} rx={8} fill="#7a6a3f" stroke={INK} strokeWidth={6} transform={`rotate(${sd * 12} ${sd * 118} -521)`} />
+                <circle cx={sd * 118} cy={-521} r={6} fill="#ffd43b" />
+                <path d={`M${sd * 95} -440 l${sd * 50} 0 l0 40 l${-sd * 50} 0 Z`} fill="none" stroke={INK} strokeWidth={5} opacity={0.55} />
+              </g>
+            ))}
+            <rect x={30} y={-470} width={70} height={18} rx={4} fill="#f8f9fa" stroke={INK} strokeWidth={4} />
+            <path d="M-50 -470 l-20 0 l0 20 l20 0Z" fill="#c92a2a" stroke={INK} strokeWidth={3} />
+            <path d="M-118 -500 Q-80 -470 -60 -440" fill="none" stroke="#f8f9fa" strokeWidth={6} />
+            <rect x={-145} y={-268} width={290} height={34} rx={6} fill="#5c3d1e" stroke={INK} strokeWidth={7} />
+            <rect x={-22} y={-272} width={44} height={42} rx={6} fill="#ffd43b" stroke={INK} strokeWidth={6} />
+            {/* holster with a pistol on the right hip */}
+            <g transform="translate(-170 -250) rotate(8)">
+              <path d="M-10 -40 L-34 -64 L-52 -50 L-30 -24 Z" fill="#212529" stroke={INK} strokeWidth={6} strokeLinejoin="round" />
+              <rect x={-36} y={-36} width={58} height={110} rx={12} fill="#6b4423" stroke={INK} strokeWidth={7} />
+              <rect x={-36} y={-36} width={58} height={26} rx={8} fill="#4a2f17" stroke={INK} strokeWidth={6} />
+              <circle cx={-7} cy={-22} r={5} fill="#ced4da" />
+            </g>
+          </g>
+        )}
+        {camera && (
+          <g>
+            <path d="M-80 -525 L-60 -380 M80 -525 L60 -380" stroke={INK} strokeWidth={14} strokeLinecap="round" />
+            <path d="M-80 -525 L-60 -380 M80 -525 L60 -380" stroke="#e03131" strokeWidth={7} strokeLinecap="round" />
+            <rect x={-80} y={-410} width={160} height={100} rx={16} fill="#343a40" stroke={INK} strokeWidth={8} />
+            <rect x={-60} y={-428} width={50} height={22} rx={5} fill="#495057" stroke={INK} strokeWidth={5} />
+            <circle cx={10} cy={-360} r={36} fill="#212529" stroke={INK} strokeWidth={7} />
+            <circle cx={10} cy={-360} r={18} fill="#4dabf7" opacity={0.8} />
+            <circle cx={4} cy={-366} r={6} fill="#fff" />
+          </g>
+        )}
+        {haarOn && (
+          <g>
+            <path d="M-78 -528 Q0 -400 78 -528" fill="none" stroke="#8a6d1d" strokeWidth={20} />
+            <path d="M-78 -528 Q0 -400 78 -528" fill="none" stroke="#ffd43b" strokeWidth={12} strokeDasharray="12 7" />
+            {[-40, 0, 40].map((hx) => (
+              <circle key={hx} cx={hx} cy={hx === 0 ? -455 : -478} r={hx === 0 ? 0 : 12} fill="#e03131" stroke={INK} strokeWidth={4} />
+            ))}
+            <path d={`M-26 -462 L26 -462 L0 ${-410 + Math.sin(frame / 6) * 3} Z`} fill="#ffd43b" stroke={INK} strokeWidth={6} strokeLinejoin="round" />
+            <circle cx={0} cy={-445} r={9} fill="#2f9e44" stroke={INK} strokeWidth={3} />
+          </g>
+        )}
         {backpack && (
           <g fill="none" strokeLinecap="round">
             <path d="M-92 -528 L-112 -300" stroke={INK} strokeWidth={30} />
@@ -663,10 +754,20 @@ const ChunkyCharacter: React.FC<{
           cx={L.hx}
           cy={L.hy}
           r={31}
-          fill={skin}
+          fill={handFill}
           stroke={INK}
           strokeWidth={9}
         />
+        {sling === "right" && <Sling A={L} side={-1} />}
+        {veil && (
+          <path
+            d={`M-222 -470 Q-250 ${-1010 + breathe * 3} 0 -1024 Q250 ${-1010 + breathe * 3} 222 -470 Q120 -540 0 -540 Q-120 -540 -222 -470Z`}
+            fill={veil}
+            stroke="#f2c94c"
+            strokeWidth={14}
+            strokeLinejoin="round"
+          />
+        )}
         {/* head (bobs with breath) */}
         <g transform={`translate(0 ${breathe * 4})`}>
           {hijab && (
@@ -822,6 +923,16 @@ const ChunkyCharacter: React.FC<{
               />
               <path d="M-140 -846 L140 -846" stroke={INK} strokeWidth={5} opacity={0.35} />
               <path d="M0 -936 L0 -846" stroke={INK} strokeWidth={4} opacity={0.25} />
+            </g>
+          )}
+          {policeCap && (
+            <g>
+              <path d="M-178 -830 Q-190 -975 0 -985 Q190 -975 178 -830 Z" fill="#b59f6b" stroke={INK} strokeWidth={9} strokeLinejoin="round" />
+              <rect x={-170} y={-848} width={340} height={44} rx={10} fill="#2b2118" stroke={INK} strokeWidth={8} />
+              <path d="M-175 -806 Q0 -760 175 -806 Q0 -790 -175 -806Z" fill="#1a1a1a" stroke={INK} strokeWidth={8} strokeLinejoin="round" />
+              <circle cx={0} cy={-900} r={30} fill="#ffd43b" stroke={INK} strokeWidth={7} />
+              <path d="M0 -918 L8 -902 L-8 -902Z" fill="#c92a2a" />
+              <path d="M-60 -840 L60 -840" stroke="#f2c94c" strokeWidth={6} />
             </g>
           )}
           {pagdi && (
@@ -1092,6 +1203,7 @@ const ChunkyCharacter: React.FC<{
                   />
                 );
               })}
+            {bindi && <circle cx={0} cy={-782} r={12} fill="#e03131" stroke={INK} strokeWidth={3} />}
             {wrinkles && (
               <g fill="none" stroke={INK} strokeWidth={5} strokeLinecap="round" opacity={0.45}>
                 <path d="M-60 -790 Q0 -802 60 -790" />
@@ -1338,11 +1450,29 @@ const ChunkyCharacter: React.FC<{
             />
           </g>
         )}
+        {held === "ladle" && (
+          <g transform={`translate(${R.hx} ${R.hy}) rotate(${-20 + Math.sin(frame / 7) * 6})`}>
+            <path d="M0 0 L0 -170" stroke={INK} strokeWidth={18} strokeLinecap="round" />
+            <path d="M0 0 L0 -170" stroke="#adb5bd" strokeWidth={9} strokeLinecap="round" />
+            <path d="M-40 -170 Q0 -110 40 -170 Z" fill="#ced4da" stroke={INK} strokeWidth={7} />
+          </g>
+        )}
+        {held === "broom" && (
+          <g transform={`translate(${R.hx} ${R.hy}) rotate(${10 + Math.sin(frame / 9) * 4})`}>
+            <path d="M0 -120 L0 150" stroke={INK} strokeWidth={22} strokeLinecap="round" />
+            <path d="M0 -120 L0 150" stroke="#c08552" strokeWidth={12} strokeLinecap="round" />
+            <path d="M-20 140 L-60 290 L60 290 L20 140 Z" fill="#e9c46a" stroke={INK} strokeWidth={8} strokeLinejoin="round" />
+            {[-36, -12, 12, 36].map((bx) => (
+              <path key={bx} d={`M${bx * 0.5} 160 L${bx} 285`} stroke="#b08035" strokeWidth={4} />
+            ))}
+          </g>
+        )}
+        {sling === "left" && <Sling A={R} side={1} />}
         <circle
           cx={R.hx}
           cy={R.hy}
           r={31}
-          fill={skin}
+          fill={handFill}
           stroke={INK}
           strokeWidth={9}
         />
