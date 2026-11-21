@@ -92,7 +92,9 @@
   v2 (user fix): old-man village elders (Character got topi / pagdi / mustacheColor / wrinkles props): Sonu orange pagdi + white
   kurta-dhoti, Monu white Gandhi topi, glasses, grey beard. Whole video at night in a village: mud huts with thatched roofs,
   wooden name planks, lanterns, moon, hills + palms, haystack, matkas, fireflies, moonlight grade (NightGrade). Voice says
-  "ek subah", so that chip is now "SUBAH 4 BAJE" (still dark, rooster time). Indore mohalla, padosi Sonu (blue house) + Monu (pink house), wall between, Sonu's laal murga "lays" an egg.
+  "ek subah", so that chip is now "SUBAH 4 BAJE" (still dark, rooster time).
+  v3 (user fix): the dividing wall is now a full mud-brick wall in the FOREGROUND, dead centre (x 440-640, from y 1140 down past
+  the frame bottom), between the two men; rooster starts on Sonu's side at his feet, flies up onto it; egg falls to Monu's feet. Indore mohalla, padosi Sonu (blue house) + Monu (pink house), wall between, Sonu's laal murga "lays" an egg.
   Answer D (kisi ka nahi: a rooster can't lay eggs). Only riddle 1 used (riddle 2 not understood without audio). Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.

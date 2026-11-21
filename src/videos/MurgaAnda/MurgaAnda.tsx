@@ -79,9 +79,12 @@ const END = MURGAANDA_DURATION;
 const inRange = (f: number, a: number, b: number) => f >= a && f < b;
 
 // ---------------- positions ----------------
-const WALL = { x0: 450, x1: 630, top: 1080, base: 1310 };
+// The dividing wall stands in the FOREGROUND, dead centre, from the ground line down past the bottom of the frame,
+// so it clearly splits Sonu's side from Monu's side (user fix).
+const GROUND_Y = 1310;
+const WALL = { x0: 440, x1: 640, top: 1140, base: H + 40 };
 const EGG_ON_WALL = { x: 612, y: WALL.top - 26 };
-const EGG_GROUND = { x: 660, y: WALL.base + 40 };
+const EGG_GROUND = { x: 690, y: 1760 };
 
 // ---------------- characters ----------------
 // Village elders: grey hair, white mustache, wrinkles; Sonu in an orange pagdi, Monu in a white Gandhi topi + glasses.
@@ -180,34 +183,48 @@ const Hut: React.FC<{ x: number; w: number; wall: string; door: string; name: st
 
 const Wall: React.FC<{ bricksAt?: number }> = ({ bricksAt = -1 }) => {
   const frame = useCurrentFrame();
-  const rows = 6;
-  const rh = (WALL.base - WALL.top) / rows;
+  const bw = 50;
+  const bh = 46;
+  const rows = Math.ceil((WALL.base - WALL.top) / bh);
+  const cols = Math.round((WALL.x1 - WALL.x0) / bw);
   return (
     <g>
-      {Array.from({ length: rows }).map((_, r) =>
-        Array.from({ length: 3 }).map((__, c) => {
-          const off = r % 2 ? -30 : 0;
-          const bx = WALL.x0 + off + c * 60 + (r % 2 ? 30 : 0);
-          const by = WALL.top + r * rh;
-          // the top row of mud bricks bounces in on "chhoti"
-          const pop = r === 0 && bricksAt > 0 ? popSpring(frame, bricksAt + c * 2) : 1;
-          return (
-            <rect
-              key={`${r}-${c}`}
-              x={bx}
-              y={by - (1 - pop) * 60}
-              width={60}
-              height={rh}
-              rx={6}
-              fill={(r + c) % 2 ? "#8c5a3a" : "#9c6844"}
-              stroke={INK}
-              strokeWidth={5}
-              opacity={pop}
-            />
-          );
-        }),
-      )}
-      <rect x={WALL.x0 - 8} y={WALL.top - 14} width={WALL.x1 - WALL.x0 + 16} height={18} rx={8} fill="#b08055" stroke={INK} strokeWidth={6} />
+      {/* shadow the wall throws on the ground */}
+      <path d={`M${WALL.x1} ${WALL.top + 160} L${WALL.x1 + 70} ${WALL.top + 200} L${WALL.x1 + 70} ${H} L${WALL.x1} ${H} Z`} fill={INK} opacity={0.25} />
+      <clipPath id="wallClip">
+        <rect x={WALL.x0} y={WALL.top} width={WALL.x1 - WALL.x0} height={WALL.base - WALL.top} />
+      </clipPath>
+      <g clipPath="url(#wallClip)">
+        <rect x={WALL.x0} y={WALL.top} width={WALL.x1 - WALL.x0} height={WALL.base - WALL.top} fill="#7a4a2e" />
+        {Array.from({ length: rows }).map((_, r) =>
+          Array.from({ length: cols + 1 }).map((__, c) => {
+            const bx = WALL.x0 + c * bw - (r % 2 ? bw / 2 : 0);
+            const by = WALL.top + r * bh;
+            // the top row of mud bricks bounces in on "chhoti"
+            const pop = r === 0 && bricksAt > 0 ? popSpring(frame, bricksAt + c * 2) : 1;
+            return (
+              <rect
+                key={`${r}-${c}`}
+                x={bx + 2}
+                y={by + 2 - (1 - pop) * 60}
+                width={bw - 4}
+                height={bh - 4}
+                rx={6}
+                fill={(r * 3 + c) % 3 === 0 ? "#8c5a3a" : (r + c) % 2 ? "#9c6844" : "#a6714a"}
+                stroke={INK}
+                strokeWidth={4}
+                opacity={pop}
+              />
+            );
+          }),
+        )}
+        {/* mud plaster patches */}
+        {[0, 1, 2].map((i) => (
+          <ellipse key={i} cx={WALL.x0 + 60 + i * 50} cy={WALL.top + 200 + i * 170} rx={44} ry={26} fill="#b08055" opacity={0.55} />
+        ))}
+      </g>
+      <rect x={WALL.x0} y={WALL.top} width={WALL.x1 - WALL.x0} height={WALL.base - WALL.top} fill="none" stroke={INK} strokeWidth={10} />
+      <rect x={WALL.x0 - 12} y={WALL.top - 18} width={WALL.x1 - WALL.x0 + 24} height={24} rx={8} fill="#b08055" stroke={INK} strokeWidth={7} />
     </g>
   );
 };
@@ -318,18 +335,18 @@ const Mohalla: React.FC<{ from: number; bricksAt?: number; crowdAt?: number; daw
         <Hut x={640} w={460} wall="#9c5f3c" door="#2b8a3e" name="MONU" lanternX={770} art />
         <Crowd at={crowdAt} />
         {/* village ground: dirt with a cart track */}
-        <rect x={-200} y={WALL.base} width={W + 400} height={H - WALL.base} fill="#6e5236" />
-        <rect x={-200} y={WALL.base} width={W + 400} height={14} fill={INK} opacity={0.3} />
-        <path d={`M-200 ${WALL.base + 200} Q540 ${WALL.base + 140} 1280 ${WALL.base + 210}`} stroke="#5a412a" strokeWidth={26} fill="none" opacity={0.7} />
+        <rect x={-200} y={GROUND_Y} width={W + 400} height={H - GROUND_Y} fill="#6e5236" />
+        <rect x={-200} y={GROUND_Y} width={W + 400} height={14} fill={INK} opacity={0.3} />
+        <path d={`M-200 ${GROUND_Y + 200} Q540 ${GROUND_Y + 140} 1280 ${GROUND_Y + 210}`} stroke="#5a412a" strokeWidth={26} fill="none" opacity={0.7} />
         {/* matkas by Monu's door */}
         {[1000, 1060].map((mx, i) => (
-          <g key={i} transform={`translate(${mx} ${WALL.base - 40 + i * 6})`}>
+          <g key={i} transform={`translate(${mx} ${GROUND_Y - 40 + i * 6})`}>
             <ellipse rx={40} ry={44} fill="#b5523b" stroke={INK} strokeWidth={7} />
             <rect x={-18} y={-58} width={36} height={18} rx={4} fill="#b5523b" stroke={INK} strokeWidth={6} />
           </g>
         ))}
         {[60, 300, 760, 980].map((gx, i) => (
-          <path key={i} d={`M${gx} ${WALL.base + 60} l-14 -30 M${gx} ${WALL.base + 60} l0 -36 M${gx} ${WALL.base + 60} l14 -30`} stroke="#3f6212" strokeWidth={6} strokeLinecap="round" />
+          <path key={i} d={`M${gx} ${GROUND_Y + 60} l-14 -30 M${gx} ${GROUND_Y + 60} l0 -36 M${gx} ${GROUND_Y + 60} l14 -30`} stroke="#3f6212" strokeWidth={6} strokeLinecap="round" />
         ))}
         <Wall bricksAt={bricksAt} />
       </Layer>
@@ -498,7 +515,7 @@ const QMark: React.FC<{ at: number; x: number; y: number }> = ({ at, x, y }) => 
 
 // ---------------- scenes ----------------
 const ROO_WALL = { x: 510, y: WALL.top - 86 };
-const ROO_GROUND_Y = 1400;
+const ROO_GROUND_Y = 1690;
 const RoosterOnWall = () => <Rooster path={[{ f: 0, ...ROO_WALL }]} />;
 
 const IntroScene: React.FC = () => (
@@ -507,8 +524,8 @@ const IntroScene: React.FC = () => (
       <Mohalla from={0} />
       <Rooster
         path={[
-          { f: 0, x: 420, y: ROO_GROUND_Y },
-          { f: F.s2, x: 540, y: ROO_GROUND_Y },
+          { f: 0, x: 300, y: ROO_GROUND_Y },
+          { f: F.s2, x: 370, y: ROO_GROUND_Y },
         ]}
       />
       <Sonu
@@ -537,12 +554,12 @@ const IntroScene: React.FC = () => (
 );
 
 const WallScene: React.FC = () => (
-  <Camera from={F.s2} to={F.s3} zoom={[1.22, 1.3]} panY={[60, 60]}>
+  <Camera from={F.s2} to={F.s3} zoom={[1.14, 1.2]} panY={[-60, -60]}>
     <Mohalla from={F.s2} bricksAt={F.chhoti} />
     <Rooster
       path={[
-        { f: F.s2, x: 540, y: ROO_GROUND_Y },
-        { f: F.s3, x: 600, y: ROO_GROUND_Y },
+        { f: F.s2, x: 370, y: ROO_GROUND_Y },
+        { f: F.s3, x: 340, y: ROO_GROUND_Y },
       ]}
     />
     <Sparkles at={F.deewar} x={540} y={WALL.top} r={140} />
@@ -577,11 +594,11 @@ const EggScene: React.FC = () => (
       <Mohalla from={F.s3} dawn />
       <Rooster
         path={[
-          { f: F.s3, x: 480, y: ROO_GROUND_Y },
-          { f: F.chadha - 12, x: 480, y: ROO_GROUND_Y },
-          { f: F.chadha, ...ROO_WALL },
+          { f: F.s3, x: 340, y: ROO_GROUND_Y },
+          { f: F.chadha - 14, x: 360, y: ROO_GROUND_Y },
+          { f: F.chadha + 2, ...ROO_WALL },
         ]}
-        flapAt={[F.chadha - 12, F.anda - 6]}
+        flapAt={[F.chadha - 14, F.chadha - 4, F.anda - 6]}
       />
       <Dust at={F.chadha} x={ROO_WALL.x} y={WALL.top} color="#e9d8b6" count={8} spread={0.6} />
       <Egg x={EGG_ON_WALL.x} y={EGG_ON_WALL.y} at={F.anda} />
