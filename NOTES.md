@@ -88,7 +88,11 @@
   the recording (voice/murgaanda.txt = what was said). Voice 36.3 s -> 27.7 s, so the video is 29.7 s (just under 30 s).
   "A" moved +8 f onto the word (pause file). One mohalla world (sky, far city, houses SONU/MONU, neem, wall, crowd heads),
   chunky rooster that walks, flaps up the wall and "lays" the egg, which rolls off and falls to Monu's side; arrows/split/? per
-  option. FollowButton got enter="below" (finger comes straight up between the two characters). Indore mohalla, padosi Sonu (blue house) + Monu (pink house), wall between, Sonu's laal murga "lays" an egg.
+  option. FollowButton got enter="below" (finger comes straight up between the two characters).
+  v2 (user fix): old-man village elders (Character got topi / pagdi / mustacheColor / wrinkles props): Sonu orange pagdi + white
+  kurta-dhoti, Monu white Gandhi topi, glasses, grey beard. Whole video at night in a village: mud huts with thatched roofs,
+  wooden name planks, lanterns, moon, hills + palms, haystack, matkas, fireflies, moonlight grade (NightGrade). Voice says
+  "ek subah", so that chip is now "SUBAH 4 BAJE" (still dark, rooster time). Indore mohalla, padosi Sonu (blue house) + Monu (pink house), wall between, Sonu's laal murga "lays" an egg.
   Answer D (kisi ka nahi: a rooster can't lay eggs). Only riddle 1 used (riddle 2 not understood without audio). Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.

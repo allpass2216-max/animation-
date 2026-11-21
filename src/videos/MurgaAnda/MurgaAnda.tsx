@@ -7,6 +7,7 @@ import {
   AbsoluteFill,
   Audio,
   interpolate,
+  random,
   Sequence,
   staticFile,
   useCurrentFrame,
@@ -21,14 +22,14 @@ import {
   INK,
   makeCue,
   popSpring,
-  SoftLight,
   Sparkles,
   Vignette,
   W,
   WordsFile,
 } from "../../lib/reel";
 import { FollowButton, Tiles } from "../../lib/ui";
-import { FarCity, Foreground, Layer, SignText, Sky } from "../../lib/world";
+import { NightSky } from "../../lib/night";
+import { Foreground, Layer, SignText } from "../../lib/world";
 import wordsData from "./words.json";
 
 const data = wordsData as unknown as WordsFile;
@@ -83,22 +84,31 @@ const EGG_ON_WALL = { x: 612, y: WALL.top - 26 };
 const EGG_GROUND = { x: 660, y: WALL.base + 40 };
 
 // ---------------- characters ----------------
+// Village elders: grey hair, white mustache, wrinkles; Sonu in an orange pagdi, Monu in a white Gandhi topi + glasses.
 const SONU = {
   skin: "#C68B59",
-  shirt: "#1c7ed6",
-  pants: "#f1f3f5",
-  hair: "#2b2118",
+  shirt: "#f1f3f5",
+  pants: "#f8f9fa",
+  hair: "#ced4da",
   mustache: true,
+  mustacheColor: "#f8f9fa",
+  pagdi: "#f08c00",
+  wrinkles: true,
   seed: 3,
 } as const;
 const MONU = {
   skin: "#8D5A3B",
-  shirt: "#f8f9fa",
-  pants: "#495057",
-  hair: "#141414",
+  shirt: "#c5a572",
+  pants: "#f1f3f5",
+  hair: "#dee2e6",
+  beard: true,
+  mustache: true,
+  mustacheColor: "#f8f9fa",
+  glasses: true,
+  topi: "#f8f9fa",
+  wrinkles: true,
   seed: 8,
 } as const;
-
 type Act = {
   poses: Cue<PoseName>[];
   exprs: Cue<Expr>[];
@@ -112,29 +122,61 @@ const Monu: React.FC<Act> = (p) => (
   <Character {...MONU} x={890} y={1800} scale={0.7} flip look={[{ f: 0, v: 1 }]} {...p} />
 );
 
-// ---------------- world ----------------
-const House: React.FC<{ x: number; w: number; color: string; roof: string; name: string; door: string }> = ({
+// ---------------- world: village at night ----------------
+/** Village hut: mud walls, thatched roof, wooden name plank, lantern by the door. */
+const Hut: React.FC<{ x: number; w: number; wall: string; door: string; name: string; lanternX: number; art?: boolean }> = ({
   x,
   w,
-  color,
-  roof,
-  name,
+  wall,
   door,
-}) => (
-  <g>
-    <rect x={x} y={760} width={w} height={550} fill={color} stroke={INK} strokeWidth={10} />
-    <path d={`M${x - 40} 780 L${x + w / 2} 600 L${x + w + 40} 780 Z`} fill={roof} stroke={INK} strokeWidth={10} strokeLinejoin="round" />
-    {[0, 1, 2, 3].map((i) => (
-      <path key={i} d={`M${x - 10 + i * (w / 3)} 772 l40 -40`} stroke={INK} strokeWidth={4} opacity={0.3} />
-    ))}
-    <rect x={x + w / 2 - 110} y={810} width={220} height={74} rx={12} fill="#fff8e7" stroke={INK} strokeWidth={8} />
-    <SignText x={x + w / 2} y={866} size={50} text={name} fill={INK} stroke="#fff8e7" />
-    <rect x={x + 40} y={950} width={130} height={130} fill="#a5d8ff" stroke={INK} strokeWidth={8} />
-    <path d={`M${x + 105} 950 L${x + 105} 1080 M${x + 40} 1015 L${x + 170} 1015`} stroke={INK} strokeWidth={6} />
-    <rect x={x + w - 200} y={1000} width={140} height={310} rx={10} fill={door} stroke={INK} strokeWidth={8} />
-    <circle cx={x + w - 82} cy={1160} r={9} fill="#ffd43b" stroke={INK} strokeWidth={4} />
-  </g>
-);
+  name,
+  lanternX,
+  art,
+}) => {
+  const frame = useCurrentFrame();
+  const flick = 0.5 + Math.sin(frame / 3) * 0.04 + Math.sin(frame / 7.3) * 0.03;
+  const roofTop = 610;
+  return (
+    <g>
+      {/* lantern glow on the wall */}
+      <circle cx={lanternX} cy={1010} r={230} fill="url(#lanternGlow)" opacity={flick} />
+      <rect x={x} y={800} width={w} height={510} fill={wall} stroke={INK} strokeWidth={10} />
+      {/* mud plaster patches */}
+      {[0, 1, 2, 3].map((i) => (
+        <ellipse key={i} cx={x + 60 + i * (w / 4)} cy={1180 - (i % 2) * 220} rx={42} ry={22} fill="#000" opacity={0.08} />
+      ))}
+      {art &&
+        [0, 1, 2, 3, 4].map((i) => (
+          <path key={i} d={`M${x + 30 + i * 80} 1270 l30 -36 l30 36`} fill="none" stroke="#f1e3c8" strokeWidth={6} opacity={0.75} />
+        ))}
+      {/* thatched roof */}
+      <path d={`M${x - 70} 830 L${x + w / 2} ${roofTop} L${x + w + 70} 830 Q${x + w / 2} 860 ${x - 70} 830 Z`} fill="#8a6a2e" stroke={INK} strokeWidth={10} strokeLinejoin="round" />
+      {Array.from({ length: 14 }).map((_, i) => {
+        const t = (i + 0.5) / 14;
+        const bx = x - 70 + (w + 140) * t;
+        const by = 830 + Math.sin(t * Math.PI) * 14;
+        return <path key={i} d={`M${bx} ${by} L${x + w / 2 + (bx - x - w / 2) * 0.25} ${roofTop + 40}`} stroke="#5c4519" strokeWidth={5} opacity={0.6} />;
+      })}
+      <path d={`M${x - 70} 830 Q${x + w / 2} 862 ${x + w + 70} 830`} fill="none" stroke="#c9a24a" strokeWidth={8} opacity={0.7} />
+      {/* name plank */}
+      <rect x={x + w / 2 - 105} y={870} width={210} height={70} rx={8} fill="#6b4423" stroke={INK} strokeWidth={8} />
+      <SignText x={x + w / 2} y={924} size={48} text={name} fill="#fff4d6" stroke={INK} />
+      {/* small window with warm light */}
+      <rect x={x + 50} y={990} width={110} height={100} fill="#ffd27a" opacity={0.85} stroke={INK} strokeWidth={8} />
+      <path d={`M${x + 87} 990 L${x + 87} 1090 M${x + 123} 990 L${x + 123} 1090`} stroke={INK} strokeWidth={6} />
+      {/* door */}
+      <path d={`M${x + w - 200} 1310 L${x + w - 200} 1060 Q${x + w - 130} 1000 ${x + w - 60} 1060 L${x + w - 60} 1310 Z`} fill={door} stroke={INK} strokeWidth={8} />
+      <path d={`M${x + w - 130} 1040 L${x + w - 130} 1310`} stroke={INK} strokeWidth={5} opacity={0.5} />
+      {/* lantern */}
+      <g transform={`translate(${lanternX} 1000)`}>
+        <path d="M0 -60 L0 -30" stroke={INK} strokeWidth={5} />
+        <rect x={-22} y={-30} width={44} height={56} rx={10} fill="#ffe8a3" stroke={INK} strokeWidth={6} />
+        <ellipse cx={0} cy={0} rx={8} ry={14} fill="#ff922b" opacity={flick + 0.3} />
+        <rect x={-26} y={22} width={52} height={12} rx={4} fill="#495057" stroke={INK} strokeWidth={5} />
+      </g>
+    </g>
+  );
+};
 
 const Wall: React.FC<{ bricksAt?: number }> = ({ bricksAt = -1 }) => {
   const frame = useCurrentFrame();
@@ -147,7 +189,7 @@ const Wall: React.FC<{ bricksAt?: number }> = ({ bricksAt = -1 }) => {
           const off = r % 2 ? -30 : 0;
           const bx = WALL.x0 + off + c * 60 + (r % 2 ? 30 : 0);
           const by = WALL.top + r * rh;
-          // the top row of bricks bounces in on "chhoti"
+          // the top row of mud bricks bounces in on "chhoti"
           const pop = r === 0 && bricksAt > 0 ? popSpring(frame, bricksAt + c * 2) : 1;
           return (
             <rect
@@ -156,7 +198,8 @@ const Wall: React.FC<{ bricksAt?: number }> = ({ bricksAt = -1 }) => {
               y={by - (1 - pop) * 60}
               width={60}
               height={rh}
-              fill={(r + c) % 2 ? "#c0644a" : "#d9774f"}
+              rx={6}
+              fill={(r + c) % 2 ? "#8c5a3a" : "#9c6844"}
               stroke={INK}
               strokeWidth={5}
               opacity={pop}
@@ -164,22 +207,22 @@ const Wall: React.FC<{ bricksAt?: number }> = ({ bricksAt = -1 }) => {
           );
         }),
       )}
-      <rect x={WALL.x0 - 8} y={WALL.top - 14} width={WALL.x1 - WALL.x0 + 16} height={18} rx={6} fill="#adb5bd" stroke={INK} strokeWidth={6} />
+      <rect x={WALL.x0 - 8} y={WALL.top - 14} width={WALL.x1 - WALL.x0 + 16} height={18} rx={8} fill="#b08055" stroke={INK} strokeWidth={6} />
     </g>
   );
 };
 
-/** Neighbours peek out of windows and over the roofs on "mohalla". */
+/** Village neighbours (topi / pagdi) peek out of windows and over the roofs on "mohalla", some with lanterns. */
 const Crowd: React.FC<{ at: number }> = ({ at }) => {
   const frame = useCurrentFrame();
   if (frame < at) return null;
   const heads = [
-    { x: 105, y: 1020, c: "#e0a370", d: 0 },
-    { x: 815, y: 1020, c: "#b97a50", d: 3 },
-    { x: 60, y: 760, c: "#c68b59", d: 6 },
-    { x: 330, y: 700, c: "#8d5a3b", d: 9 },
-    { x: 960, y: 740, c: "#e0a370", d: 12 },
-    { x: 700, y: 690, c: "#c68b59", d: 15 },
+    { x: 105, y: 1040, c: "#e0a370", d: 0, cap: "#f8f9fa" },
+    { x: 815, y: 1040, c: "#b97a50", d: 3, cap: "#e8590c" },
+    { x: 60, y: 780, c: "#c68b59", d: 6, cap: "#f8f9fa" },
+    { x: 330, y: 700, c: "#8d5a3b", d: 9, cap: "#fab005" },
+    { x: 960, y: 760, c: "#e0a370", d: 12, cap: "#f8f9fa" },
+    { x: 700, y: 690, c: "#c68b59", d: 15, cap: "#e03131" },
   ];
   return (
     <g>
@@ -188,11 +231,13 @@ const Crowd: React.FC<{ at: number }> = ({ at }) => {
         const bob = Math.sin((frame + i * 7) / 6) * 4;
         return (
           <g key={i} transform={`translate(${h.x} ${h.y + (1 - p) * 80 + bob})`} opacity={Math.min(1, p * 2)}>
+            <circle r={70} fill="url(#lanternGlow)" opacity={0.5} />
             <circle r={48} fill={h.c} stroke={INK} strokeWidth={7} />
-            <path d="M-46 -12 Q0 -70 46 -12" fill="#2b2118" stroke={INK} strokeWidth={6} />
+            <path d="M-46 -18 Q0 -78 46 -18 Q0 -30 -46 -18Z" fill={h.cap} stroke={INK} strokeWidth={6} />
             <circle cx={-15} cy={4} r={7} fill={INK} />
             <circle cx={15} cy={4} r={7} fill={INK} />
-            <ellipse cx={0} cy={26} rx={10} ry={12} fill={INK} />
+            <path d="M-18 20 Q0 12 18 20" fill="#f1f3f5" stroke={INK} strokeWidth={4} />
+            <ellipse cx={0} cy={30} rx={9} ry={10} fill={INK} />
           </g>
         );
       })}
@@ -200,49 +245,112 @@ const Crowd: React.FC<{ at: number }> = ({ at }) => {
   );
 };
 
-const Mohalla: React.FC<{ from: number; bricksAt?: number; crowdAt?: number; sunrise?: number }> = ({
+/** Fireflies drifting in the night air (screen space). */
+const Fireflies: React.FC = () => {
+  const frame = useCurrentFrame();
+  return (
+    <svg style={{ position: "absolute", left: 0, top: 0 }} width={W} height={H}>
+      {Array.from({ length: 14 }).map((_, i) => {
+        const x = (random(`fx${i}`) * W + Math.sin(frame / 25 + i) * 60 + frame * 0.3) % W;
+        const y = 900 + random(`fy${i}`) * 700 + Math.cos(frame / 18 + i * 2) * 40;
+        const on = 0.3 + 0.7 * Math.max(0, Math.sin(frame / 9 + i * 1.7));
+        return (
+          <g key={i} opacity={on}>
+            <circle cx={x} cy={y} r={14} fill="#d8f5a2" opacity={0.3} />
+            <circle cx={x} cy={y} r={5} fill="#f4fce3" />
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+const Mohalla: React.FC<{ from: number; bricksAt?: number; crowdAt?: number; dawn?: boolean }> = ({
   from,
   bricksAt,
   crowdAt = 1e9,
-  sunrise,
+  dawn,
 }) => {
   const frame = useCurrentFrame();
-  const sunY = sunrise !== undefined ? interpolate(frame, [sunrise, sunrise + 40], [560, 330], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 300;
   return (
     <>
-      <Sky top={sunrise !== undefined ? "#ffb26b" : "#74c0fc"} bottom={sunrise !== undefined ? "#ffe8a3" : "#d0ebff"} />
+      <NightSky top="#070b24" bottom={dawn ? "#45508f" : "#26336e"} moon={false} />
       <Layer depth={0.12} from={from} drift={-0.5}>
-        <circle cx={900} cy={sunY} r={80} fill="#ffd43b" opacity={0.95} />
-        <FarCity seed="indore" color="#c9a27e" baseY={1000} />
+        {/* moon */}
+        <circle cx={860} cy={300} r={150} fill="#fff4c2" opacity={0.12} />
+        <circle cx={860} cy={300} r={74} fill="#fff4c2" stroke={INK} strokeWidth={8} />
+        <circle cx={838} cy={286} r={13} fill="#f0e2a0" />
+        <circle cx={882} cy={320} r={9} fill="#f0e2a0" />
+        {/* far hills, palms, distant hut lights */}
+        <path d="M-200 1000 Q100 820 380 960 Q620 840 900 950 Q1100 860 1300 960 L1300 1100 L-200 1100Z" fill="#1d2756" />
+        {[60, 420, 980].map((px, i) => (
+          <g key={i} transform={`translate(${px} ${960 - i * 10})`}>
+            <path d="M0 0 Q10 -150 0 -260" stroke="#141a3d" strokeWidth={16} fill="none" />
+            {[-70, -30, 20, 60].map((a) => (
+              <path key={a} d={`M0 -260 q${a} -40 ${a * 1.8} 30`} stroke="#141a3d" strokeWidth={14} fill="none" strokeLinecap="round" />
+            ))}
+          </g>
+        ))}
+        {[200, 700, 1050].map((lx, i) => (
+          <circle key={i} cx={lx} cy={1010 - i * 6} r={6} fill="#ffd27a" opacity={0.6 + 0.3 * Math.sin(frame / 10 + i)} />
+        ))}
       </Layer>
       {/* near layer does not drift: the rooster and egg stand on the wall in screen space */}
       <Layer depth={0.3} from={from} drift={0}>
+        <defs>
+          <radialGradient id="lanternGlow">
+            <stop offset="0%" stopColor="#ffcf6e" stopOpacity={0.75} />
+            <stop offset="100%" stopColor="#ffcf6e" stopOpacity={0} />
+          </radialGradient>
+        </defs>
         {/* neem tree behind the wall */}
-        <rect x={510} y={620} width={60} height={460} fill="#7a4f2a" stroke={INK} strokeWidth={8} />
+        <rect x={510} y={620} width={60} height={460} fill="#4a3220" stroke={INK} strokeWidth={8} />
         {[
           [540, 560, 170],
           [440, 640, 120],
           [650, 640, 120],
         ].map(([cx, cy, r], i) => (
-          <circle key={i} cx={cx} cy={cy} r={r} fill={i ? "#2f9e44" : "#37b24d"} stroke={INK} strokeWidth={8} />
+          <circle key={i} cx={cx} cy={cy} r={r} fill={i ? "#1e5631" : "#24693b"} stroke={INK} strokeWidth={8} />
         ))}
-        {/* washing line */}
-        <path d="M-150 960 Q-60 990 30 960" stroke={INK} strokeWidth={4} fill="none" />
-        <rect x={-120} y={965} width={50} height={70} fill="#ff8787" stroke={INK} strokeWidth={4} />
-        <House x={-20} w={460} color="#74c0fc" roof="#c0644a" name="SONU" door="#1864ab" />
-        <House x={640} w={460} color="#f783ac" roof="#b5523b" name="MONU" door="#a61e4d" />
+        {/* haystack behind Sonu's hut */}
+        <path d="M-190 1310 Q-150 1060 -60 1060 Q10 1060 30 1310Z" fill="#a88536" stroke={INK} strokeWidth={8} />
+        <Hut x={-20} w={460} wall="#a87447" door="#3b5bdb" name="SONU" lanternX={290} />
+        <Hut x={640} w={460} wall="#9c5f3c" door="#2b8a3e" name="MONU" lanternX={770} art />
         <Crowd at={crowdAt} />
-        {/* ground */}
-        <rect x={-200} y={WALL.base} width={W + 400} height={H - WALL.base} fill="#d8b98a" />
-        <rect x={-200} y={WALL.base} width={W + 400} height={14} fill={INK} opacity={0.25} />
+        {/* village ground: dirt with a cart track */}
+        <rect x={-200} y={WALL.base} width={W + 400} height={H - WALL.base} fill="#6e5236" />
+        <rect x={-200} y={WALL.base} width={W + 400} height={14} fill={INK} opacity={0.3} />
+        <path d={`M-200 ${WALL.base + 200} Q540 ${WALL.base + 140} 1280 ${WALL.base + 210}`} stroke="#5a412a" strokeWidth={26} fill="none" opacity={0.7} />
+        {/* matkas by Monu's door */}
+        {[1000, 1060].map((mx, i) => (
+          <g key={i} transform={`translate(${mx} ${WALL.base - 40 + i * 6})`}>
+            <ellipse rx={40} ry={44} fill="#b5523b" stroke={INK} strokeWidth={7} />
+            <rect x={-18} y={-58} width={36} height={18} rx={4} fill="#b5523b" stroke={INK} strokeWidth={6} />
+          </g>
+        ))}
         {[60, 300, 760, 980].map((gx, i) => (
-          <path key={i} d={`M${gx} ${WALL.base + 60} l-14 -30 M${gx} ${WALL.base + 60} l0 -36 M${gx} ${WALL.base + 60} l14 -30`} stroke="#5c940d" strokeWidth={6} strokeLinecap="round" />
+          <path key={i} d={`M${gx} ${WALL.base + 60} l-14 -30 M${gx} ${WALL.base + 60} l0 -36 M${gx} ${WALL.base + 60} l14 -30`} stroke="#3f6212" strokeWidth={6} strokeLinecap="round" />
         ))}
         <Wall bricksAt={bricksAt} />
       </Layer>
     </>
   );
 };
+
+/** Moonlight grade over the scene (below the text): cool blue multiply + soft warm lantern pools near the ground. */
+const NightGrade: React.FC = () => (
+  <>
+    <AbsoluteFill style={{ background: "rgba(40,60,140,0.28)", mixBlendMode: "multiply", pointerEvents: "none" }} />
+    <AbsoluteFill
+      style={{
+        background:
+          "radial-gradient(circle at 26% 55%, rgba(255,200,110,0.16), transparent 30%), radial-gradient(circle at 72% 55%, rgba(255,200,110,0.16), transparent 30%)",
+        mixBlendMode: "screen",
+        pointerEvents: "none",
+      }}
+    />
+  </>
+);
 
 /** Chunky rooster (screen space, inside the camera). Walks, hops/flaps on cues. */
 const Rooster: React.FC<{
@@ -466,7 +574,7 @@ const WallScene: React.FC = () => (
 const EggScene: React.FC = () => (
   <>
     <Camera from={F.s3} to={F.s4} zoom={[1.0, 1.08]} panY={[0, 30]}>
-      <Mohalla from={F.s3} sunrise={F.s3} />
+      <Mohalla from={F.s3} dawn />
       <Rooster
         path={[
           { f: F.s3, x: 480, y: ROO_GROUND_Y },
@@ -740,7 +848,8 @@ export const MurgaAnda: React.FC = () => {
       {inRange(frame, F.A, F.s7) && <OptionsScene />}
       {frame >= F.s7 && <OutroScene />}
 
-      <SoftLight />
+      <NightGrade />
+      <Fireflies />
       <Vignette />
 
       {/* TEXT */}
@@ -748,7 +857,7 @@ export const MurgaAnda: React.FC = () => {
       <Chip text="ANDA KISKA?" at={0} until={F.s2} y={400} size={80} color="#fff" bg="#e8590c" />
       <Chip text="PADOSI" at={F.padosi} until={F.s2} y={540} size={72} color="#fff" />
       <Chip text="BEECH MEIN DEEWAR" at={F.beech} until={F.s3} y={330} size={80} />
-      <Chip text="EK SUBAH" at={F.s3} until={F.murga} y={330} size={88} color="#fff" />
+      <Chip text="SUBAH 4 BAJE" at={F.s3} until={F.murga} y={330} size={88} color="#fff" />
       <Chip text="LAAL MURGA" at={F.murga} until={F.anda} y={330} size={72} color="#fff" />
       <Chip text="ANDA!" at={F.anda} until={F.s4} y={330} size={120} slam />
       <Chip text="MONU KI TARAF" at={F.monu2} until={F.lad} y={330} size={84} color="#a5d8ff" />

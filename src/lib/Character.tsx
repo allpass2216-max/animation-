@@ -77,6 +77,10 @@ const ChunkyCharacter: React.FC<{
   longHair?: string; // long hair falling to the shoulders (colour)
   hijab?: string; // hijab colour: frames the face, covers hair + ears, drapes to the shoulders
   kufi?: string; // prayer cap colour
+  topi?: string; // Gandhi-style boat cap colour (village elder look)
+  pagdi?: string; // turban colour (village elder look)
+  mustacheColor?: string; // e.g. white/grey for an old man
+  wrinkles?: boolean; // forehead lines + crow's feet (old man)
   beard?: boolean; // short beard
   lipstick?: string; // lip colour (outlines the mouth in every expression)
   lashes?: boolean;
@@ -115,6 +119,10 @@ const ChunkyCharacter: React.FC<{
   longHair,
   hijab,
   kufi,
+  topi,
+  pagdi,
+  mustacheColor = "#2a1e22",
+  wrinkles = false,
   beard = false,
   lipstick,
   lashes = false,
@@ -803,6 +811,41 @@ const ChunkyCharacter: React.FC<{
               ))}
             </g>
           )}
+          {topi && (
+            <g>
+              <path
+                d="M-152 -826 L152 -826 L124 -910 Q0 -946 -124 -910 Z"
+                fill={topi}
+                stroke={INK}
+                strokeWidth={9}
+                strokeLinejoin="round"
+              />
+              <path d="M-140 -846 L140 -846" stroke={INK} strokeWidth={5} opacity={0.35} />
+              <path d="M0 -936 L0 -846" stroke={INK} strokeWidth={4} opacity={0.25} />
+            </g>
+          )}
+          {pagdi && (
+            <g>
+              <path
+                d="M-172 -790 Q-182 -965 0 -980 Q182 -965 172 -790 Q0 -836 -172 -790Z"
+                fill={pagdi}
+                stroke={INK}
+                strokeWidth={9}
+                strokeLinejoin="round"
+              />
+              {[0, 1, 2].map((k) => (
+                <path
+                  key={k}
+                  d={`M${-165 + k * 10} ${-820 - k * 45} Q0 ${-880 - k * 45} ${165 - k * 10} ${-830 - k * 45}`}
+                  fill="none"
+                  stroke={INK}
+                  strokeWidth={5}
+                  opacity={0.35}
+                />
+              ))}
+              <path d="M150 -820 Q215 -760 190 -660 Q170 -720 140 -790Z" fill={pagdi} stroke={INK} strokeWidth={7} strokeLinejoin="round" />
+            </g>
+          )}
           {beard && (
             <path
               d="M-150 -640 Q-140 -520 0 -505 Q140 -520 150 -640 Q120 -570 60 -585 Q0 -560 -60 -585 Q-120 -570 -150 -640Z"
@@ -1030,7 +1073,7 @@ const ChunkyCharacter: React.FC<{
             {mustache && (
               <path
                 d="M-62 -632 Q-30 -660 0 -640 Q30 -660 62 -632 Q30 -618 0 -628 Q-30 -618 -62 -632Z"
-                fill="#2a1e22"
+                fill={mustacheColor}
                 stroke={INK}
                 strokeWidth={6}
               />
@@ -1049,6 +1092,13 @@ const ChunkyCharacter: React.FC<{
                   />
                 );
               })}
+            {wrinkles && (
+              <g fill="none" stroke={INK} strokeWidth={5} strokeLinecap="round" opacity={0.45}>
+                <path d="M-60 -790 Q0 -802 60 -790" />
+                <path d="M-44 -774 Q0 -784 44 -774" />
+                <path d="M-128 -722 l-18 -8 M-128 -708 l-20 0 M128 -722 l18 -8 M128 -708 l20 0" />
+              </g>
+            )}
             {(mom || glasses) && (
               <g fill="none" stroke={INK} strokeWidth={8}>
                 <circle cx={-64} cy={-716} r={50} />
