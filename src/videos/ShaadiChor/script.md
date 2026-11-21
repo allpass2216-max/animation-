@@ -2,7 +2,7 @@
 
 Status: SCRIPT ONLY (2026-11-21). Waiting for the user's recording voice/shaadichor.mp3.
 Voice language: Hinglish (Roman script; the template blank was not filled, Hinglish is the default). Handle: **@rehanfact**.
-Target: 10 lines, ~108 words, about 33-37 s after clean_voice (+2 s tail).
+Target: 10 lines, 110 words, about 33-37 s after clean_voice (+2 s tail).
 Genre: detective / "who is the culprit" puzzle with a visual clue, so A-D options + "answer in the next reel" fit.
 User add-on (2026-11-21): in the question part, a ₹100 cash prize for a correct comment, "share with a friend for help", and
 "the winner gets the money in Part 2".
@@ -30,14 +30,14 @@ the plaster is on his right arm; in the lineup shot after it, the plaster is on 
 
 ## Script with parts (for checking)
 **1 HOOK (0-3 s)**
-1. [dramatically] Shaadi ki raat, dulhan ka haar gayab, aur chor isi kamre mein hai!
+1. [dramatically] Shaadi ki raat, dulhan ka haar gayab, chor isi kamre mein hai!
 
 **2 BODY**
 2. Inspector Rana ne chaaron ko line mein khada kiya.
 3. Halwai Ramesh bola, main poori raat kitchen mein tha.
 4. Cousin Neha boli, main mehendi lagwa rahi thi.
 5. Photographer Vicky bola, mera daayan haath toota hai, main kaise churaunga?
-6. Kamla bai boli, main toh chhat par bartan dho rahi thi.
+6. Kamla bai boli, main toh chhat par thi.
 
 **3 RE-HOOK**
 7. [curious] Tabhi inspector muskuraya, dhyan se dekho, ek ne khud ko pakadwa diya!
@@ -46,20 +46,20 @@ the plaster is on his right arm; in the lineup shot after it, the plaster is on 
 8. A, Ramesh. B, Neha. C, Vicky. D, Kamla bai.
 
 **5 CLIFFHANGER (with the cash prize the user asked for)**
-9. [excited] Sahi jawab batane wale ko sau rupaye cash prize, comment mein likho, dost ko share karke uski help bhi lo!
+9. [excited] Sahi jawab batane wale ko sau rupaye cash prize, comment mein likho, dost ko share karke help lo!
 10. Winner ko paisa part two mein, answer in the next reel, follow karo @rehanfact!
 
 ## Clean text for ElevenLabs
 ```
-[dramatically] Shaadi ki raat, dulhan ka haar gayab, aur chor isi kamre mein hai!
+[dramatically] Shaadi ki raat, dulhan ka haar gayab, chor isi kamre mein hai!
 Inspector Rana ne chaaron ko line mein khada kiya.
 Halwai Ramesh bola, main poori raat kitchen mein tha.
 Cousin Neha boli, main mehendi lagwa rahi thi.
 Photographer Vicky bola, mera daayan haath toota hai, main kaise churaunga?
-Kamla bai boli, main toh chhat par bartan dho rahi thi.
+Kamla bai boli, main toh chhat par thi.
 [curious] Tabhi inspector muskuraya, dhyan se dekho, ek ne khud ko pakadwa diya!
 A, Ramesh. B, Neha. C, Vicky. D, Kamla bai.
-[excited] Sahi jawab batane wale ko sau rupaye cash prize, comment mein likho, dost ko share karke uski help bhi lo!
+[excited] Sahi jawab batane wale ko sau rupaye cash prize, comment mein likho, dost ko share karke help lo!
 Winner ko paisa part two mein, answer in the next reel, follow karo @rehanfact!
 ```
 
