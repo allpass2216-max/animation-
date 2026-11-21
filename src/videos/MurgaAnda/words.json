@@ -1,0 +1,774 @@
+{
+  "audio": "voice/murgaanda_clean.wav",
+  "fps": 30,
+  "duration": 27.697,
+  "source": "allosaurus-align",
+  "approxWords": false,
+  "note": "whisper failed: URLError: <urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
+  "lines": [
+    {
+      "text": "Sonu aur Monu padosi hain.",
+      "start": 0.12,
+      "end": 1.58,
+      "startFrame": 4,
+      "endFrame": 47
+    },
+    {
+      "text": "Dono gharon ke beech, ek chhoti si deewar hai.",
+      "start": 1.86,
+      "end": 4.245,
+      "startFrame": 56,
+      "endFrame": 127
+    },
+    {
+      "text": "Ek subah, Sonu ka laal murga deewar par chadha, aur wahin ek anda de diya.",
+      "start": 4.38,
+      "end": 8.385,
+      "startFrame": 131,
+      "endFrame": 252
+    },
+    {
+      "text": "Anda Monu ki taraf gira, aur dono lad pade, anda kiska?",
+      "start": 8.4,
+      "end": 11.69,
+      "startFrame": 252,
+      "endFrame": 351
+    },
+    {
+      "text": "Poora mohalla jama ho gaya, ab faisla tumhare haath mein hai!",
+      "start": 12.13,
+      "end": 15.08,
+      "startFrame": 364,
+      "endFrame": 452
+    },
+    {
+      "text": "A, Sonu ka, kyunki murga uska hai. B, Monu ka, kyunki anda uski taraf gira.",
+      "start": 15.09,
+      "end": 20.115,
+      "startFrame": 453,
+      "endFrame": 603
+    },
+    {
+      "text": "C, aadha aadha baant lo. D, kisi ka nahi.",
+      "start": 20.31,
+      "end": 22.995,
+      "startFrame": 609,
+      "endFrame": 690
+    },
+    {
+      "text": "Dhyan se socho, comment karo, answer in the next reel, follow karo @rehanfact!",
+      "start": 23.01,
+      "end": 27.615,
+      "startFrame": 690,
+      "endFrame": 828
+    }
+  ],
+  "words": [
+    {
+      "word": "Sonu",
+      "start": 0.12,
+      "end": 0.39,
+      "line": 0,
+      "startFrame": 4,
+      "endFrame": 12
+    },
+    {
+      "word": "aur",
+      "start": 0.39,
+      "end": 0.735,
+      "line": 0,
+      "startFrame": 12,
+      "endFrame": 22
+    },
+    {
+      "word": "Monu",
+      "start": 0.78,
+      "end": 1.065,
+      "line": 0,
+      "startFrame": 23,
+      "endFrame": 32
+    },
+    {
+      "word": "padosi",
+      "start": 1.14,
+      "end": 1.485,
+      "line": 0,
+      "startFrame": 34,
+      "endFrame": 45
+    },
+    {
+      "word": "hain",
+      "start": 1.5,
+      "end": 1.58,
+      "line": 0,
+      "startFrame": 45,
+      "endFrame": 47
+    },
+    {
+      "word": "Dono",
+      "start": 1.86,
+      "end": 2.085,
+      "line": 1,
+      "startFrame": 56,
+      "endFrame": 63
+    },
+    {
+      "word": "gharon",
+      "start": 2.1,
+      "end": 2.295,
+      "line": 1,
+      "startFrame": 63,
+      "endFrame": 69
+    },
+    {
+      "word": "ke",
+      "start": 2.34,
+      "end": 2.445,
+      "line": 1,
+      "startFrame": 70,
+      "endFrame": 73
+    },
+    {
+      "word": "beech",
+      "start": 2.49,
+      "end": 2.595,
+      "line": 1,
+      "startFrame": 75,
+      "endFrame": 78
+    },
+    {
+      "word": "ek",
+      "start": 3.19,
+      "end": 3.36,
+      "line": 1,
+      "interpolated": true,
+      "startFrame": 96,
+      "endFrame": 101
+    },
+    {
+      "word": "chhoti",
+      "start": 3.36,
+      "end": 3.585,
+      "line": 1,
+      "startFrame": 101,
+      "endFrame": 108
+    },
+    {
+      "word": "si",
+      "start": 3.63,
+      "end": 3.765,
+      "line": 1,
+      "startFrame": 109,
+      "endFrame": 113
+    },
+    {
+      "word": "deewar",
+      "start": 3.81,
+      "end": 3.89,
+      "line": 1,
+      "startFrame": 114,
+      "endFrame": 117
+    },
+    {
+      "word": "hai",
+      "start": 3.93,
+      "end": 4.245,
+      "line": 1,
+      "startFrame": 118,
+      "endFrame": 127
+    },
+    {
+      "word": "Ek",
+      "start": 4.38,
+      "end": 4.545,
+      "line": 2,
+      "startFrame": 131,
+      "endFrame": 136
+    },
+    {
+      "word": "subah",
+      "start": 4.56,
+      "end": 4.815,
+      "line": 2,
+      "startFrame": 137,
+      "endFrame": 144
+    },
+    {
+      "word": "Sonu",
+      "start": 5.19,
+      "end": 5.415,
+      "line": 2,
+      "startFrame": 156,
+      "endFrame": 162
+    },
+    {
+      "word": "ka",
+      "start": 5.49,
+      "end": 5.57,
+      "line": 2,
+      "startFrame": 165,
+      "endFrame": 167
+    },
+    {
+      "word": "laal",
+      "start": 5.7,
+      "end": 5.925,
+      "line": 2,
+      "startFrame": 171,
+      "endFrame": 178
+    },
+    {
+      "word": "murga",
+      "start": 5.97,
+      "end": 6.225,
+      "line": 2,
+      "startFrame": 179,
+      "endFrame": 187
+    },
+    {
+      "word": "deewar",
+      "start": 6.3,
+      "end": 6.615,
+      "line": 2,
+      "startFrame": 189,
+      "endFrame": 198
+    },
+    {
+      "word": "par",
+      "start": 6.63,
+      "end": 6.765,
+      "line": 2,
+      "startFrame": 199,
+      "endFrame": 203
+    },
+    {
+      "word": "chadha",
+      "start": 6.87,
+      "end": 6.95,
+      "line": 2,
+      "startFrame": 206,
+      "endFrame": 208
+    },
+    {
+      "word": "aur",
+      "start": 6.99,
+      "end": 7.305,
+      "line": 2,
+      "startFrame": 210,
+      "endFrame": 219
+    },
+    {
+      "word": "wahin",
+      "start": 7.38,
+      "end": 7.575,
+      "line": 2,
+      "startFrame": 221,
+      "endFrame": 227
+    },
+    {
+      "word": "ek",
+      "start": 7.65,
+      "end": 7.73,
+      "line": 2,
+      "startFrame": 230,
+      "endFrame": 232
+    },
+    {
+      "word": "anda",
+      "start": 7.83,
+      "end": 8.055,
+      "line": 2,
+      "startFrame": 235,
+      "endFrame": 242
+    },
+    {
+      "word": "de",
+      "start": 8.13,
+      "end": 8.265,
+      "line": 2,
+      "startFrame": 244,
+      "endFrame": 248
+    },
+    {
+      "word": "diya",
+      "start": 8.28,
+      "end": 8.385,
+      "line": 2,
+      "startFrame": 248,
+      "endFrame": 252
+    },
+    {
+      "word": "Anda",
+      "start": 8.4,
+      "end": 8.835,
+      "line": 3,
+      "startFrame": 252,
+      "endFrame": 265
+    },
+    {
+      "word": "Monu",
+      "start": 8.97,
+      "end": 9.195,
+      "line": 3,
+      "startFrame": 269,
+      "endFrame": 276
+    },
+    {
+      "word": "ki",
+      "start": 9.24,
+      "end": 9.345,
+      "line": 3,
+      "startFrame": 277,
+      "endFrame": 280
+    },
+    {
+      "word": "taraf",
+      "start": 9.36,
+      "end": 9.585,
+      "line": 3,
+      "startFrame": 281,
+      "endFrame": 288
+    },
+    {
+      "word": "gira",
+      "start": 9.6,
+      "end": 9.765,
+      "line": 3,
+      "startFrame": 288,
+      "endFrame": 293
+    },
+    {
+      "word": "aur",
+      "start": 9.78,
+      "end": 9.86,
+      "line": 3,
+      "startFrame": 293,
+      "endFrame": 296
+    },
+    {
+      "word": "dono",
+      "start": 10.44,
+      "end": 10.695,
+      "line": 3,
+      "startFrame": 313,
+      "endFrame": 321
+    },
+    {
+      "word": "lad",
+      "start": 10.74,
+      "end": 10.875,
+      "line": 3,
+      "startFrame": 322,
+      "endFrame": 326
+    },
+    {
+      "word": "pade",
+      "start": 10.89,
+      "end": 11.055,
+      "line": 3,
+      "startFrame": 327,
+      "endFrame": 332
+    },
+    {
+      "word": "anda",
+      "start": 11.22,
+      "end": 11.385,
+      "line": 3,
+      "startFrame": 337,
+      "endFrame": 342
+    },
+    {
+      "word": "kiska",
+      "start": 11.61,
+      "end": 11.69,
+      "line": 3,
+      "startFrame": 348,
+      "endFrame": 351
+    },
+    {
+      "word": "Poora",
+      "start": 12.13,
+      "end": 12.42,
+      "line": 4,
+      "interpolated": true,
+      "startFrame": 364,
+      "endFrame": 373
+    },
+    {
+      "word": "mohalla",
+      "start": 12.42,
+      "end": 12.765,
+      "line": 4,
+      "startFrame": 373,
+      "endFrame": 383
+    },
+    {
+      "word": "jama",
+      "start": 12.87,
+      "end": 13.035,
+      "line": 4,
+      "startFrame": 386,
+      "endFrame": 391
+    },
+    {
+      "word": "ho",
+      "start": 13.08,
+      "end": 13.16,
+      "line": 4,
+      "startFrame": 392,
+      "endFrame": 395
+    },
+    {
+      "word": "gaya",
+      "start": 13.26,
+      "end": 13.29,
+      "line": 4,
+      "startFrame": 398,
+      "endFrame": 399
+    },
+    {
+      "word": "ab",
+      "start": 13.29,
+      "end": 13.755,
+      "line": 4,
+      "startFrame": 399,
+      "endFrame": 413
+    },
+    {
+      "word": "faisla",
+      "start": 13.92,
+      "end": 14.115,
+      "line": 4,
+      "startFrame": 418,
+      "endFrame": 423
+    },
+    {
+      "word": "tumhare",
+      "start": 14.28,
+      "end": 14.685,
+      "line": 4,
+      "startFrame": 428,
+      "endFrame": 441
+    },
+    {
+      "word": "haath",
+      "start": 14.7,
+      "end": 14.895,
+      "line": 4,
+      "startFrame": 441,
+      "endFrame": 447
+    },
+    {
+      "word": "mein",
+      "start": 14.94,
+      "end": 15.0,
+      "line": 4,
+      "startFrame": 448,
+      "endFrame": 450
+    },
+    {
+      "word": "hai",
+      "start": 15.0,
+      "end": 15.08,
+      "line": 4,
+      "startFrame": 450,
+      "endFrame": 452
+    },
+    {
+      "word": "A",
+      "start": 15.09,
+      "end": 15.17,
+      "line": 5,
+      "startFrame": 453,
+      "endFrame": 455
+    },
+    {
+      "word": "Sonu",
+      "start": 15.81,
+      "end": 16.065,
+      "line": 5,
+      "startFrame": 474,
+      "endFrame": 482
+    },
+    {
+      "word": "ka",
+      "start": 16.11,
+      "end": 16.215,
+      "line": 5,
+      "startFrame": 483,
+      "endFrame": 486
+    },
+    {
+      "word": "kyunki",
+      "start": 16.41,
+      "end": 16.605,
+      "line": 5,
+      "startFrame": 492,
+      "endFrame": 498
+    },
+    {
+      "word": "murga",
+      "start": 16.68,
+      "end": 16.965,
+      "line": 5,
+      "startFrame": 500,
+      "endFrame": 509
+    },
+    {
+      "word": "uska",
+      "start": 17.07,
+      "end": 17.295,
+      "line": 5,
+      "startFrame": 512,
+      "endFrame": 519
+    },
+    {
+      "word": "hai",
+      "start": 17.31,
+      "end": 17.475,
+      "line": 5,
+      "startFrame": 519,
+      "endFrame": 524
+    },
+    {
+      "word": "B",
+      "start": 17.7,
+      "end": 17.805,
+      "line": 5,
+      "startFrame": 531,
+      "endFrame": 534
+    },
+    {
+      "word": "Monu",
+      "start": 18.12,
+      "end": 18.375,
+      "line": 5,
+      "startFrame": 544,
+      "endFrame": 551
+    },
+    {
+      "word": "ka",
+      "start": 18.42,
+      "end": 18.525,
+      "line": 5,
+      "startFrame": 553,
+      "endFrame": 556
+    },
+    {
+      "word": "kyunki",
+      "start": 18.69,
+      "end": 18.885,
+      "line": 5,
+      "startFrame": 561,
+      "endFrame": 567
+    },
+    {
+      "word": "anda",
+      "start": 18.96,
+      "end": 19.245,
+      "line": 5,
+      "startFrame": 569,
+      "endFrame": 577
+    },
+    {
+      "word": "uski",
+      "start": 19.38,
+      "end": 19.635,
+      "line": 5,
+      "startFrame": 581,
+      "endFrame": 589
+    },
+    {
+      "word": "taraf",
+      "start": 19.68,
+      "end": 19.905,
+      "line": 5,
+      "startFrame": 590,
+      "endFrame": 597
+    },
+    {
+      "word": "gira",
+      "start": 19.92,
+      "end": 20.115,
+      "line": 5,
+      "startFrame": 598,
+      "endFrame": 603
+    },
+    {
+      "word": "C",
+      "start": 20.31,
+      "end": 20.445,
+      "line": 6,
+      "startFrame": 609,
+      "endFrame": 613
+    },
+    {
+      "word": "aadha",
+      "start": 20.76,
+      "end": 20.925,
+      "line": 6,
+      "startFrame": 623,
+      "endFrame": 628
+    },
+    {
+      "word": "aadha",
+      "start": 20.94,
+      "end": 21.225,
+      "line": 6,
+      "startFrame": 628,
+      "endFrame": 637
+    },
+    {
+      "word": "baant",
+      "start": 21.27,
+      "end": 21.375,
+      "line": 6,
+      "startFrame": 638,
+      "endFrame": 641
+    },
+    {
+      "word": "lo",
+      "start": 21.51,
+      "end": 21.615,
+      "line": 6,
+      "startFrame": 645,
+      "endFrame": 648
+    },
+    {
+      "word": "D",
+      "start": 21.84,
+      "end": 21.945,
+      "line": 6,
+      "startFrame": 655,
+      "endFrame": 658
+    },
+    {
+      "word": "kisi",
+      "start": 22.17,
+      "end": 22.425,
+      "line": 6,
+      "startFrame": 665,
+      "endFrame": 673
+    },
+    {
+      "word": "ka",
+      "start": 22.44,
+      "end": 22.545,
+      "line": 6,
+      "startFrame": 673,
+      "endFrame": 676
+    },
+    {
+      "word": "nahi",
+      "start": 22.56,
+      "end": 22.995,
+      "line": 6,
+      "startFrame": 677,
+      "endFrame": 690
+    },
+    {
+      "word": "Dhyan",
+      "start": 23.01,
+      "end": 23.175,
+      "line": 7,
+      "startFrame": 690,
+      "endFrame": 695
+    },
+    {
+      "word": "se",
+      "start": 23.22,
+      "end": 23.325,
+      "line": 7,
+      "startFrame": 697,
+      "endFrame": 700
+    },
+    {
+      "word": "socho",
+      "start": 23.34,
+      "end": 23.655,
+      "line": 7,
+      "startFrame": 700,
+      "endFrame": 710
+    },
+    {
+      "word": "comment",
+      "start": 23.91,
+      "end": 24.195,
+      "line": 7,
+      "startFrame": 717,
+      "endFrame": 726
+    },
+    {
+      "word": "karo",
+      "start": 24.24,
+      "end": 24.465,
+      "line": 7,
+      "startFrame": 727,
+      "endFrame": 734
+    },
+    {
+      "word": "answer",
+      "start": 24.78,
+      "end": 25.065,
+      "line": 7,
+      "startFrame": 743,
+      "endFrame": 752
+    },
+    {
+      "word": "in",
+      "start": 25.11,
+      "end": 25.19,
+      "line": 7,
+      "startFrame": 753,
+      "endFrame": 756
+    },
+    {
+      "word": "the",
+      "start": 25.23,
+      "end": 25.29,
+      "line": 7,
+      "startFrame": 757,
+      "endFrame": 759
+    },
+    {
+      "word": "next",
+      "start": 25.29,
+      "end": 25.515,
+      "line": 7,
+      "startFrame": 759,
+      "endFrame": 765
+    },
+    {
+      "word": "reel",
+      "start": 25.65,
+      "end": 25.73,
+      "line": 7,
+      "startFrame": 770,
+      "endFrame": 772
+    },
+    {
+      "word": "follow",
+      "start": 26.13,
+      "end": 26.355,
+      "line": 7,
+      "startFrame": 784,
+      "endFrame": 791
+    },
+    {
+      "word": "karo",
+      "start": 26.4,
+      "end": 27.015,
+      "line": 7,
+      "startFrame": 792,
+      "endFrame": 810
+    },
+    {
+      "word": "@rehanfact",
+      "start": 27.06,
+      "end": 27.615,
+      "line": 7,
+      "startFrame": 812,
+      "endFrame": 828
+    }
+  ]
+}

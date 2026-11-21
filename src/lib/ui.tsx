@@ -86,7 +86,15 @@ export const Tiles: React.FC<{ tiles: Tile[]; until: number; outroAt?: number; t
 };
 
 /** "+ FOLLOW" pops in at `at`; a finger slides in and taps it on `tapAt`, and it turns into "FOLLOWING". */
-export const FollowButton: React.FC<{ at: number; tapAt: number; x?: number; y?: number }> = ({ at, tapAt, x = 90, y = 1380 }) => {
+/** `enter`: where the finger slides in from ("right" = bottom-right corner, default; "below" = straight up from the bottom,
+ *  for scenes where a character stands on the right and the finger must not cross a face). */
+export const FollowButton: React.FC<{ at: number; tapAt: number; x?: number; y?: number; enter?: "right" | "below" }> = ({
+  at,
+  tapAt,
+  x = 90,
+  y = 1380,
+  enter = "right",
+}) => {
   const frame = useCurrentFrame();
   if (frame < at) return null;
   const p = popSpring(frame, at);
@@ -94,8 +102,8 @@ export const FollowButton: React.FC<{ at: number; tapAt: number; x?: number; y?:
   const press = frame >= tapAt && frame < tapAt + 5 ? 0.9 : 1;
   const tx = x + 470;
   const ty = y + 100;
-  const fx = interpolate(frame, [at + 4, tapAt - 2], [W + 100, tx], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const fy = interpolate(frame, [at + 4, tapAt - 2, tapAt, tapAt + 6], [H - 220, ty + 20, ty, ty + 30], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const fx = interpolate(frame, [at + 4, tapAt - 2], [enter === "below" ? tx : W + 100, tx], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const fy = interpolate(frame, [at + 4, tapAt - 2, tapAt, tapAt + 6], [enter === "below" ? H + 60 : H - 220, ty + 20, ty, ty + 30], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <>
       <div
