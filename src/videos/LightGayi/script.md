@@ -2,7 +2,7 @@
 
 Status: SCRIPT ONLY (2026-11-27). Waiting for the user's recording voice/lightgayi.mp3.
 Voice language: Hinglish (Roman script; the template blank was not filled, Hinglish is the default). Handle: **@rehanfact**.
-Target: 9 lines, 90 words, about 28-32 s after clean_voice (+2 s tail).
+Target: 9 lines, 94 words, about 28-32 s after clean_voice (+2 s tail).
 Genre: logic puzzle ("which one do you charge first?"), so A-D options + "answer in the next reel" fit.
 User add-on (2026-11-27): the FIRST person to comment the right answer gets a ₹100 cash prize, "jaldi comment karo".
 
