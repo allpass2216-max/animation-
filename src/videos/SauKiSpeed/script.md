@@ -2,7 +2,7 @@
 
 Status: SCRIPT ONLY (2026-11-27). Waiting for the user's recording voice/saukispeed.mp3.
 Voice language: Hinglish (Roman script; template blank not filled, Hinglish is the default). Handle: **@rehanfact**.
-Target: 9 lines, 101 words, about 31-34 s after clean_voice (+2 s tail).
+Target: 9 lines, 108 words, about 33-36 s after clean_voice (+2 s tail).
 Genre: "kisko maaroge?" dilemma riddle with a hidden on-screen clue, so A-D options + "answer in the next reel" fit.
 Look: HOUSE STYLE v2 (NOTES.md): POV dashboard shots, in-car shots, close-ups, HUD, name pills, karaoke captions.
 
