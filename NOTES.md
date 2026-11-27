@@ -108,7 +108,9 @@
   (note, coins, confetti, share plane) -> outro with inspector + follow. Wedding night in Lucknow, haar gayab; Inspector Rana; suspects Ramesh (halwai), Neha (cousin),
   Vicky (photographer, plaster: SAYS right hand broken, plaster on LEFT in the lineup), Kamla bai. Answer C (Vicky).
   User add-on: ₹100 cash prize for a correct comment + "share with a friend for help" + winner paid in Part 2. Handle @rehanfact.
-- `LightGayi` (src/videos/LightGayi): STAGE 1 BUILT (2026-11-27), waiting for fixes or "go to final". ref refs/ref13.mp4.
+- `LightGayi` (src/videos/LightGayi): FINAL (2026-11-27) out/lightgayi_final.mp4, 31.3 s, -14.1 LUFS, TP -2.7 dBTP,
+  @rehanfact watermark, post.md (first correct comment wins ₹100). Part 2: reveal C + announce the REAL first correct
+  commenter. ref refs/ref13.mp4.
   Recording matches script. Voice 39.0 s -> 29.4 s (video ~31.4 s). light/A/B/C/D cues from pauses.json (afterPause).
   Room (tube light flickers off on "light", fan slows down, window, calendar EXAM, almirah with a fingerprint locker), Dark
   overlay with phone glow, device cards with battery bars (phone fills to 70%, torch/locker blink red at 0%), power bank,
