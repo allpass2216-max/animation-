@@ -108,6 +108,10 @@
   (note, coins, confetti, share plane) -> outro with inspector + follow. Wedding night in Lucknow, haar gayab; Inspector Rana; suspects Ramesh (halwai), Neha (cousin),
   Vicky (photographer, plaster: SAYS right hand broken, plaster on LEFT in the lineup), Kamla bai. Answer C (Vicky).
   User add-on: ₹100 cash prize for a correct comment + "share with a friend for help" + winner paid in Part 2. Handle @rehanfact.
+- `LightGayi` (src/videos/LightGayi): SCRIPT ONLY (2026-11-27), ref refs/ref13.mp4 (detective: charge which device?).
+  Waiting for voice/lightgayi.mp3. Riya in Patna, night before the exam, power cut, admit card in a fingerprint locker; one
+  power bank charges ONE thing; phone 70%, torch 0%, locker 0%. Answer C (locker; phone flashlight solves the dark).
+  User add-on: FIRST correct comment wins ₹100. Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.
   TOON experiment (round heads, stick limbs; composition `OyoSecretToon`, src/lib/ToonCharacter.tsx, src/lib/atmosphere.tsx,
