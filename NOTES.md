@@ -137,6 +137,10 @@
   dashes + verge bushes), PovFrame (pillars, mirror + garland, dashboard, wheel + hands, tremble), CarInterior (window with
   scrolling fields, seat, cushion) + DoorFront, our Goat + Buffalo. Character got `seatbelt`. Sharma ji at 100 km/h; bakri, bhains, selfie boy on the road; Mummy / Pinki / the boy pull
   different ways. HUD clue: 150 m. Answer D (kisi ko nahi, brake: ~84 m stopping distance at 100 km/h). Build in HOUSE STYLE v2.
+- `KarzShaadi` (src/videos/KarzShaadi): SCRIPT ONLY (2026-11-27), ref refs/ref16.mp4 ("samaaj khana khayega" wedding-debt
+  story). Waiting for voice/karzshaadi.mp3. LESSON genre (no puzzle). Verma ji (Kanpur) takes an ₹8 lakh loan for an 800-guest
+  wedding; 14% for 5 years = EMI ~₹18,600, ~₹11.2 lakh repaid; no guest pays an EMI. SEEKH: celebrate within your savings,
+  never take a loan for show. HOUSE STYLE v2. Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.
   TOON experiment (round heads, stick limbs; composition `OyoSecretToon`, src/lib/ToonCharacter.tsx, src/lib/atmosphere.tsx,
