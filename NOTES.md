@@ -128,7 +128,9 @@
   for voice/fitrat.mp3. LESSON genre (no puzzle, no A-D): neem + honey, cat guarding milk; Aman paid friend Rohit's fees and
   gave his bike, Rohit's phone was off the night Aman's papa was in hospital; twist: Rohit didn't change, the signs were there.
   SEEKH: love everyone, but give trust by watching small actions. Handle @rehanfact.
-- `SauKiSpeed` (src/videos/SauKiSpeed): STAGE 1 BUILT (2026-11-27), waiting for fixes or "go to final". FIRST video in
+- `SauKiSpeed` (src/videos/SauKiSpeed): FINAL (2026-11-27) out/saukispeed_final.mp4, 35.2 s, -14.0 LUFS, TP -2.7 dBTP,
+  post.md written. Watermark at --pos 48:H-320 (the default H-380 touches the karaoke captions; use this for style-v2
+  videos). Part 2: reveal D (brake, HUD 150 m vs ~84 m stopping distance) + first correct username. FIRST video in
   HOUSE STYLE v2. Recording matches script; voice 41.6 s -> 33.3 s (video ~35.3 s). clue/A cues from pauses.json.
   New shared kit src/lib/style2.tsx (KaraokeCaptions, Pill, QuestionBanner, Hud, OptionList, CountdownBadge, CtaStrip,
   ShareBubble, ProfileCard with the user's avatar public/freeeditor/avatar.jpg). World: Highway (vanishing point, rushing
