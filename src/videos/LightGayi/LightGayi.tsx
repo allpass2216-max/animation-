@@ -5,6 +5,7 @@ import React from "react";
 import {
   AbsoluteFill,
   Audio,
+  Easing,
   interpolate,
   Sequence,
   staticFile,
@@ -25,7 +26,7 @@ import { CoinRain } from "../AiCrore/screens";
 import { HundredNote, PrizeBackdrop } from "../ShaadiChor/world";
 import pausesData from "./pauses.json";
 import wordsData from "./words.json";
-import { BusClock, Countdown, Dark, DeviceCard, PowerBank, Room } from "./world";
+import { Blanket, BusClock, Countdown, Dark, DeviceCard, PowerBank, Room, Zzz } from "./world";
 
 const data = wordsData as unknown as WordsFile;
 const cue = makeCue(data);
@@ -36,6 +37,7 @@ const pauses = (pausesData as { pauses: { start: number; end: number }[] }).paus
 const afterPause = (t: number) => Math.round((pauses.find((p) => p.end >= t)?.end ?? t) * 30);
 
 const F = {
+  wake: cue(3, "raat"), // she jumps out of bed on "raat"
   light: afterPause(1.5), // pause 1.54-1.67 s, then "light gayi"
   gayi: cue(6, "gayi"),
   admit: cue(8, "admit"),
@@ -102,36 +104,51 @@ const CARDS = [
 const RoomScene: React.FC = () => {
   const frame = useCurrentFrame();
   const dark = frame >= F.light ? Math.min(1, (frame - F.light) / 4) : 0;
+  // asleep on the bed (lying, head on the pillow) -> jumps up on "raat" -> stands in front of the bed
+  const w = interpolate(frame, [F.wake, F.wake + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.4)) });
+  const feetX = 860 + (520 - 860) * w;
+  const feetY = 1310 + (1760 - 1310) * w - Math.sin(Math.min(1, w) * Math.PI) * 120;
+  const rot = -90 * (1 - w);
   return (
     <>
-      <Camera from={0} to={F.s2} zoom={[1.0, 1.08]} pan={[0, -20]} shakeAt={[F.light]}>
-        <Room cutAt={F.light} />
-        <Riya
-          x={330}
-          poses={[
-            { f: 0, v: "hold" },
-            { f: F.light, v: "shrug" },
-            { f: F.admit, v: "point" },
-          ]}
-          exprs={[
-            { f: 0, v: "smile" },
-            { f: F.light, v: "shock" },
-            { f: F.admit, v: "worried" },
-          ]}
-          holding={[
-            { f: 0, v: "phone" },
-            { f: F.light, v: "none" },
-            { f: F.admit, v: "phone" },
-          ]}
-          hops={[F.light]}
-          look={[
-            { f: 0, v: -1 },
-            { f: F.admit, v: 1 },
-          ]}
-          sweat={[{ f: F.gayi, v: true }]}
-        />
+      <Camera from={0} to={F.s2} zoom={[1.0, 1.08]} pan={[0, -20]} shakeAt={[F.wake, F.light]}>
+        <Room cutAt={F.light} bed />
+        {/* once she jumps up, the blanket falls BEHIND her so it never crosses her face */}
+        {frame >= F.wake && <Blanket offAt={F.wake} />}
+        <AbsoluteFill style={{ transform: `rotate(${rot}deg)`, transformOrigin: `${feetX}px ${feetY}px` }}>
+          <Riya
+            x={feetX}
+            y={feetY}
+            scale={0.78}
+            poses={[
+              { f: 0, v: "idle" },
+              { f: F.wake, v: "shrug" },
+              { f: F.light, v: "shrug" },
+              { f: F.admit, v: "point" },
+            ]}
+            exprs={[
+              { f: 0, v: "sleep" },
+              { f: F.wake, v: "wow" },
+              { f: F.light, v: "shock" },
+              { f: F.admit, v: "worried" },
+            ]}
+            holding={[
+              { f: 0, v: "none" },
+              { f: F.admit, v: "phone" },
+            ]}
+            hops={[F.light]}
+            look={[
+              { f: 0, v: 0 },
+              { f: F.light, v: -1 },
+              { f: F.admit, v: 1 },
+            ]}
+            sweat={[{ f: F.gayi, v: true }]}
+          />
+        </AbsoluteFill>
+        {frame < F.wake && <Blanket offAt={F.wake} />}
+        <Zzz x={260} y={1100} until={F.wake} />
       </Camera>
-      {dark > 0 && <Dark glowX={460} glowY={1150} amount={dark} />}
+      {dark > 0 && <Dark glowX={560} glowY={1250} amount={dark} />}
     </>
   );
 };
@@ -439,7 +456,7 @@ export const LightGayi: React.FC = () => {
 
       {/* TEXT */}
       <Chip text="EXAM KAL HAI!" at={0} until={F.light} y={250} size={110} slam from={1.08} />
-      <Chip text="LIGHT GAYI!" at={F.light} until={F.s2} y={250} size={120} color="#fff" slam />
+      <Chip text="MOHALLE KI LIGHT GAYI!" at={F.light} until={F.s2} y={250} size={70} color="#fff" slam from={1.15} />
       <Chip text="ADMIT CARD LOCKED" at={F.admit} until={F.s2} y={400} size={70} color="#fff" bg="#c92a2a" />
       <Chip text="1 POWER BANK" at={F.power} until={F.s3} y={300} size={96} color="#fff" bg="#3b5bdb" />
       <Chip text="SIRF 1 CHARGE" at={F.sirf} until={F.s3} y={450} size={84} />

@@ -28,7 +28,8 @@ export type Expr =
   | "sly"
   | "angry"
   | "sad"
-  | "cry";
+  | "cry"
+  | "sleep"; // eyes shut (downward arcs), small open mouth
 
 // [leftShoulder, leftElbow, rightShoulder, rightElbow] in degrees; 0 = arm hanging down, + = outward/up.
 const POSES: Record<PoseName, [number, number, number, number]> = {
@@ -319,6 +320,8 @@ const ChunkyCharacter: React.FC<{
             strokeLinecap="round"
           />
         );
+      case "sleep":
+        return <ellipse cx={0} cy={-598} rx={14} ry={12 + Math.sin(frame / 10) * 4} fill="#7a1f2b" stroke={INK} strokeWidth={7} />;
       case "sly":
         return (
           <path
@@ -1077,7 +1080,12 @@ const ChunkyCharacter: React.FC<{
               />
             </g>
             {/* eyes */}
-            {happyEyes ? (
+            {expr === "sleep" ? (
+              <>
+                <path d="M-96 -716 Q-64 -688 -32 -716" fill="none" stroke={INK} strokeWidth={11} strokeLinecap="round" />
+                <path d="M32 -716 Q64 -688 96 -716" fill="none" stroke={INK} strokeWidth={11} strokeLinecap="round" />
+              </>
+            ) : happyEyes ? (
               <>
                 <path
                   d="M-96 -712 Q-64 -752 -32 -712"
