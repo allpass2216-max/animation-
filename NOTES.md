@@ -212,3 +212,21 @@
   3D rotateX/Y settle; exit blurs out), idle 3D tilt + deep soft shadow, Face-ID style glowing blue brackets + scan line
   around the Kdenlive icon, feature cards slide in with 3 stacked colour cards behind, badges blur in.
   Final fix: WINDOWS/MAC/LINUX badges no longer overlap (size 40, LINUX on a second row).
+
+## HOUSE STYLE v2 (user request 2026-11-27, from refs/ref15.mp4 "120 ki speed, kisko maaroge?")
+Use this FORMAT and production quality for every new video. Copyright (CLAUDE.md): take only the format and quality, never
+that channel's characters, their designs, its name/mascot/branding or its scenes. Our own characters, our own handle.
+- **Look:** flat 2D Indian cartoon, clean thick dark outlines, soft cel shading, bright saturated daylight palette (sky blue,
+  green and mustard fields, grey highway), big round heads, big expressive eyes, every character with a clear costume identity.
+- **Shots (hard cut every 1-1.5 s, slow push-in inside a shot):** first-person POV (hands on the wheel / handlebar, dashboard,
+  mirror with a marigold garland) looking down a vanishing-point road; medium shots of people INSIDE the vehicle (seats,
+  seatbelt); extreme close-ups where a face or animal fills the frame; insert shots (foot on the brake, phone screen);
+  wide shot of the subjects on the road.
+- **On-screen system:** small series pill top-left ("PAHELI #N"); a name pill top-left when a character speaks; 2-line
+  question banner at the top (white + yellow highlight word + emoji); a HUD when it fits (speed km/h, distance counting down);
+  word-by-word karaoke captions with the key word in yellow (kept ABOVE the bottom 300 px, ~y 1450-1520, per CLAUDE.md);
+  options as a small numbered list at the left (1, 2, 3 or A-D) with an emoji icon each; a countdown badge (12 -> 1) during
+  the question; CTA strips ("COMMENT 1, 2 YA 3? + REASON", green "SABSE PEHLE SAHI = NAAM PART 2 MEIN"); a white speech-bubble
+  share prompt ("... DOST KO BHEJO!"); end card = OUR profile card (@rehanfact) with FOLLOW tapped by a hand.
+- **To build once and reuse:** src/lib/style2.tsx: KaraokeCaptions (from words.json), NamePill, SeriesPill, QuestionBanner,
+  Hud, OptionList, CountdownBadge, CtaStrip, ShareBubble, ProfileCard, POV dashboard frame.
