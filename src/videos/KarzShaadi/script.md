@@ -3,7 +3,7 @@
 Status: SCRIPT ONLY (2026-11-27). Waiting for the user's recording voice/karzshaadi.mp3.
 Genre: LESSON / SEEKH reel (story + money lesson). NO puzzle, NO A-D options, NO "answer in the next reel".
 Voice language: Hinglish (Roman script). Handle: **@rehanfact** (not given in the brief; the user's handle).
-Look: HOUSE STYLE v2 (NOTES.md). Target: 9 lines, 108 words, about 32-35 s after clean_voice (+2 s tail).
+Look: HOUSE STYLE v2 (NOTES.md). Target: 9 lines, 110 words, about 32-35 s after clean_voice (+2 s tail).
 
 ## Reference study: refs/ref16.mp4 (85 s, 720x1280, "Samaaj khana khayega, fir ghar chala jayega", @sochozaratv)
 Whisper is still blocked; the reel has word-by-word captions, read from 1 fps frames.
