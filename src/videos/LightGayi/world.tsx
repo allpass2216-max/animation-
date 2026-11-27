@@ -866,3 +866,84 @@ export const Zzz: React.FC<{ x: number; y: number; until: number }> = ({
     </Svg>
   );
 };
+
+/** Huge steel safe filling the right side: thick door, rivets, a spoked wheel handle, three heavy bolts, crossed chains
+ *  with a giant padlock and a dead fingerprint pad. `tugAt` frames make the wheel jerk (it never turns far: it's stuck). */
+export const BigLocker: React.FC<{ tugAt: number[] }> = ({ tugAt }) => {
+  const frame = useCurrentFrame();
+  const tug = tugAt.reduce((m, f) => {
+    const t = frame - f;
+    return t >= 0 && t < 10 ? m + Math.sin(t * 2.2) * (10 - t) * 0.9 : m;
+  }, 0);
+  const blink = Math.floor(frame / 8) % 2 === 0;
+  return (
+    <Svg>
+      <g transform={`translate(${tug * 0.4} 0)`}>
+        {/* body + shadow */}
+        <ellipse cx={810} cy={1745} rx={330} ry={40} fill={INK} opacity={0.35} />
+        <rect x={500} y={430} width={600} height={1320} rx={30} fill="#3d4450" stroke={INK} strokeWidth={14} />
+        <rect x={540} y={470} width={540} height={1240} rx={20} fill="#535b68" stroke={INK} strokeWidth={10} />
+        {/* rivets */}
+        {Array.from({ length: 12 }).map((_, i) => (
+          <g key={i}>
+            <circle cx={565} cy={510 + i * 100} r={10} fill="#868e96" stroke={INK} strokeWidth={4} />
+            <circle cx={1055} cy={510 + i * 100} r={10} fill="#868e96" stroke={INK} strokeWidth={4} />
+          </g>
+        ))}
+        {/* three heavy bolts sticking into the frame */}
+        {[700, 1050, 1400].map((by) => (
+          <g key={by}>
+            <rect x={470} y={by - 26} width={110} height={52} rx={10} fill="#adb5bd" stroke={INK} strokeWidth={8} />
+            <rect x={455} y={by - 34} width={30} height={68} rx={6} fill="#495057" stroke={INK} strokeWidth={6} />
+          </g>
+        ))}
+        {/* spoked wheel handle (jerks a little, never turns) */}
+        <g transform={`translate(810 1000) rotate(${tug * 1.5})`}>
+          <circle r={130} fill="none" stroke={INK} strokeWidth={30} />
+          <circle r={130} fill="none" stroke="#ced4da" strokeWidth={16} />
+          {[0, 60, 120].map((a) => (
+            <path key={a} d="M-130 0 L130 0" stroke={INK} strokeWidth={22} transform={`rotate(${a})`} />
+          ))}
+          {[0, 60, 120].map((a) => (
+            <path key={`i${a}`} d="M-126 0 L126 0" stroke="#adb5bd" strokeWidth={10} transform={`rotate(${a})`} />
+          ))}
+          <circle r={44} fill="#868e96" stroke={INK} strokeWidth={10} />
+        </g>
+        {/* fingerprint pad, dead (red blink, 0%) */}
+        <rect x={720} y={590} width={180} height={230} rx={22} fill="#212529" stroke={INK} strokeWidth={9} />
+        <rect x={755} y={620} width={110} height={130} rx={16} fill="#111" stroke="#495057" strokeWidth={4} />
+        {[0, 1, 2, 3].map((i) => (
+          <path key={i} d={`M${785 + i * 3} ${645 + i * 22} Q810 ${630 + i * 22} ${835 - i * 3} ${645 + i * 22}`} fill="none" stroke="#343a40" strokeWidth={5} />
+        ))}
+        <circle cx={810} cy={785} r={14} fill={blink ? "#e03131" : "#5c1010"} stroke={INK} strokeWidth={4} />
+        {/* crossed chains + giant padlock */}
+        {[-1, 1].map((sd) => (
+          <g key={sd}>
+            {Array.from({ length: 11 }).map((_, k) => {
+              const t = k / 10;
+              const cx = 540 + 540 * (sd > 0 ? t : 1 - t);
+              const cy = 1150 + 420 * t;
+              return <ellipse key={k} cx={cx} cy={cy} rx={34} ry={18} fill="none" stroke={INK} strokeWidth={16} transform={`rotate(${sd * 38} ${cx} ${cy})`} />;
+            })}
+            {Array.from({ length: 11 }).map((_, k) => {
+              const t = k / 10;
+              const cx = 540 + 540 * (sd > 0 ? t : 1 - t);
+              const cy = 1150 + 420 * t;
+              return <ellipse key={`h${k}`} cx={cx} cy={cy} rx={34} ry={18} fill="none" stroke="#adb5bd" strokeWidth={7} transform={`rotate(${sd * 38} ${cx} ${cy})`} />;
+            })}
+          </g>
+        ))}
+        <g transform={`translate(810 ${1430 + Math.abs(tug) * 1.2})`}>
+          <path d="M-60 -40 L-60 -100 Q-60 -170 0 -170 Q60 -170 60 -100 L60 -40" fill="none" stroke={INK} strokeWidth={34} />
+          <path d="M-60 -40 L-60 -100 Q-60 -170 0 -170 Q60 -170 60 -100 L60 -40" fill="none" stroke="#adb5bd" strokeWidth={18} />
+          <rect x={-110} y={-50} width={220} height={190} rx={26} fill="#f2c94c" stroke={INK} strokeWidth={12} />
+          <circle cx={0} cy={30} r={22} fill={INK} />
+          <rect x={-8} y={36} width={16} height={56} rx={6} fill={INK} />
+        </g>
+        <text x={810} y={545} fontSize={44} textAnchor="middle" fill="#ced4da" stroke={INK} strokeWidth={6} paintOrder="stroke" fontFamily={FONT_FAMILY} fontWeight={800}>
+          SAFE
+        </text>
+      </g>
+    </Svg>
+  );
+};

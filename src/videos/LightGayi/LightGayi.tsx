@@ -26,7 +26,7 @@ import { CoinRain } from "../AiCrore/screens";
 import { HundredNote, PrizeBackdrop } from "../ShaadiChor/world";
 import pausesData from "./pauses.json";
 import wordsData from "./words.json";
-import { Blanket, BusClock, Countdown, Dark, DeviceCard, PowerBank, Room, Zzz } from "./world";
+import { BigLocker, Blanket, BusClock, Countdown, Dark, DeviceCard, PowerBank, Room, Zzz } from "./world";
 
 const data = wordsData as unknown as WordsFile;
 const cue = makeCue(data);
@@ -41,6 +41,7 @@ const F = {
   light: afterPause(1.5), // pause 1.54-1.67 s, then "light gayi"
   gayi: cue(6, "gayi"),
   admit: cue(8, "admit"),
+  band: cue(10, "band"),
   locker: cue(11, "locker"),
   s2: cue(14, "Riya"),
   power: cue(18, "power"),
@@ -91,6 +92,7 @@ const Riya: React.FC<{
   sweat?: Cue<boolean>[];
   holding?: Cue<"none" | "phone">[];
   look?: Cue<number>[];
+  turn?: number;
 }> = ({ y = 1760, scale = 0.92, ...p }) => <Character {...RIYA} y={y} scale={scale} {...p} />;
 
 // the three device cards, laid out across the middle of the frame
@@ -149,6 +151,42 @@ const RoomScene: React.FC = () => {
         <Zzz x={260} y={1100} until={F.wake} />
       </Camera>
       {dark > 0 && <Dark glowX={560} glowY={1250} amount={dark} />}
+    </>
+  );
+};
+
+// Riya walks right up to the huge safe (three-quarter view towards it: her face stays visible, never her back) and
+// tugs the wheel: it doesn't budge.
+const LockerScene: React.FC = () => {
+  const frame = useCurrentFrame();
+  const walk = interpolate(frame, [F.admit, F.admit + 14], [120, 330], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.quad) });
+  const tugs = [F.band, F.band + 12, F.locker + 4];
+  return (
+    <>
+      <Camera from={F.admit} to={F.s2} zoom={[1.0, 1.06]} pan={[0, -20]} shakeAt={[F.band]}>
+        <Room cutAt={-100} />
+        <BigLocker tugAt={tugs} />
+        <Riya
+          x={walk}
+          y={1780}
+          scale={0.8}
+          turn={0.6}
+          poses={[
+            { f: F.admit, v: "idle" },
+            { f: F.admit + 12, v: "point" },
+            { f: F.band, v: "present" },
+            { f: F.locker, v: "shrug" },
+          ]}
+          exprs={[
+            { f: F.admit, v: "worried" },
+            { f: F.band, v: "angry" },
+            { f: F.locker, v: "cry" },
+          ]}
+          hops={[F.admit + 2, F.admit + 9]}
+          sweat={[{ f: F.band, v: true }]}
+        />
+      </Camera>
+      <Dark glowX={420} glowY={1100} amount={0.7} />
     </>
   );
 };
@@ -442,7 +480,8 @@ export const LightGayi: React.FC = () => {
   const frame = useCurrentFrame();
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      {inRange(frame, 0, F.s2) && <RoomScene />}
+      {inRange(frame, 0, F.admit) && <RoomScene />}
+      {inRange(frame, F.admit, F.s2) && <LockerScene />}
       {inRange(frame, F.s2, F.s3) && <BankScene />}
       {inRange(frame, F.s3, F.s4) && <BoardScene from={F.s3} to={F.s4} />}
       {inRange(frame, F.s4, F.s5) && <NightScene />}
@@ -456,8 +495,9 @@ export const LightGayi: React.FC = () => {
 
       {/* TEXT */}
       <Chip text="EXAM KAL HAI!" at={0} until={F.light} y={250} size={110} slam from={1.08} />
-      <Chip text="MOHALLE KI LIGHT GAYI!" at={F.light} until={F.s2} y={250} size={70} color="#fff" slam from={1.15} />
-      <Chip text="ADMIT CARD LOCKED" at={F.admit} until={F.s2} y={400} size={70} color="#fff" bg="#c92a2a" />
+      <Chip text="MOHALLE KI LIGHT GAYI!" at={F.light} until={F.admit} y={250} size={70} color="#fff" slam from={1.15} />
+      <Chip text="ADMIT CARD LOCKED" at={F.admit} until={F.s2} y={250} size={70} color="#fff" bg="#c92a2a" />
+      <Chip text="KHULEGA HI NAHI!" at={F.band} until={F.s2} y={380} size={76} color="#ff8787" slam from={1.15} />
       <Chip text="1 POWER BANK" at={F.power} until={F.s3} y={300} size={96} color="#fff" bg="#3b5bdb" />
       <Chip text="SIRF 1 CHARGE" at={F.sirf} until={F.s3} y={450} size={84} />
       <Chip text="PHONE 70%" at={F.sattar} until={F.torch} y={330} size={96} color="#8ce99a" />

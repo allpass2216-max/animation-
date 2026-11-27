@@ -116,7 +116,10 @@
   No "panic" pose here: its hand covers the face.
   v2 (user fix): opening = Riya asleep on her bed (new Character expr "sleep", lying = whole rig rotated -90deg about the
   feet, blanket, Zzz), jumps out of bed on "raat" (blanket falls behind her), then the whole mohalla's lights go out on
-  "light" (houses in the window go dark one by one, street lamp, tube light, fan slows). Chip "MOHALLE KI LIGHT GAYI!". Riya in Patna, night before the exam, power cut, admit card in a fingerprint locker; one
+  "light" (houses in the window go dark one by one, street lamp, tube light, fan slows). Chip "MOHALLE KI LIGHT GAYI!".
+  v3 (user fix): on "admit card band locker" a hard cut to a HUGE steel safe (BigLocker: rivets, 3 bolts, spoked wheel,
+  crossed chains, giant padlock, dead fingerprint pad); Riya walks up to it in three-quarter view (face visible, never her
+  back) and tugs: the wheel jerks but won't turn. Chip "KHULEGA HI NAHI!". Riya in Patna, night before the exam, power cut, admit card in a fingerprint locker; one
   power bank charges ONE thing; phone 70%, torch 0%, locker 0%. Answer C (locker; phone flashlight solves the dark).
   User add-on: FIRST correct comment wins ₹100. Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
