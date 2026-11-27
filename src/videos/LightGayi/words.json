@@ -1,0 +1,829 @@
+{
+  "audio": "voice/lightgayi_clean.wav",
+  "fps": 30,
+  "duration": 29.406,
+  "source": "allosaurus-align",
+  "approxWords": false,
+  "note": "whisper failed: URLError: <urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
+  "lines": [
+    {
+      "text": "Exam se ek raat pehle, light gayi, aur admit card band locker mein hai!",
+      "start": 0.06,
+      "end": 3.86,
+      "startFrame": 2,
+      "endFrame": 116
+    },
+    {
+      "text": "Riya ke paas ek power bank hai, jo sirf ek cheez charge kar sakta hai.",
+      "start": 4.05,
+      "end": 7.34,
+      "startFrame": 122,
+      "endFrame": 220
+    },
+    {
+      "text": "Phone mein sattar percent battery hai.",
+      "start": 7.56,
+      "end": 9.24,
+      "startFrame": 227,
+      "endFrame": 277
+    },
+    {
+      "text": "Torch zero, aur fingerprint locker bhi zero.",
+      "start": 9.24,
+      "end": 11.535,
+      "startFrame": 277,
+      "endFrame": 346
+    },
+    {
+      "text": "Bahar ghup andhera, aur bus subah chhe baje.",
+      "start": 11.7,
+      "end": 13.995,
+      "startFrame": 351,
+      "endFrame": 420
+    },
+    {
+      "text": "Galat choice ki, toh exam gaya! Riya pehle kya charge kare?",
+      "start": 14.13,
+      "end": 17.535,
+      "startFrame": 424,
+      "endFrame": 526
+    },
+    {
+      "text": "A, phone. B, torch. C, fingerprint locker. D, teeno thoda thoda.",
+      "start": 17.64,
+      "end": 22.155,
+      "startFrame": 529,
+      "endFrame": 665
+    },
+    {
+      "text": "Sabse pehle sahi jawab dene wale ko sau rupaye cash prize, jaldi comment karo!",
+      "start": 22.35,
+      "end": 26.445,
+      "startFrame": 670,
+      "endFrame": 793
+    },
+    {
+      "text": "Answer in the next reel, follow karo @rehanfact!",
+      "start": 26.58,
+      "end": 29.235,
+      "startFrame": 797,
+      "endFrame": 877
+    }
+  ],
+  "words": [
+    {
+      "word": "Exam",
+      "start": 0.06,
+      "end": 0.405,
+      "line": 0,
+      "startFrame": 2,
+      "endFrame": 12
+    },
+    {
+      "word": "se",
+      "start": 0.48,
+      "end": 0.585,
+      "line": 0,
+      "startFrame": 14,
+      "endFrame": 18
+    },
+    {
+      "word": "ek",
+      "start": 0.72,
+      "end": 0.915,
+      "line": 0,
+      "startFrame": 22,
+      "endFrame": 27
+    },
+    {
+      "word": "raat",
+      "start": 0.96,
+      "end": 1.155,
+      "line": 0,
+      "startFrame": 29,
+      "endFrame": 35
+    },
+    {
+      "word": "pehle",
+      "start": 1.17,
+      "end": 1.845,
+      "line": 0,
+      "startFrame": 35,
+      "endFrame": 55
+    },
+    {
+      "word": "light",
+      "start": 1.86,
+      "end": 2.025,
+      "line": 0,
+      "startFrame": 56,
+      "endFrame": 61
+    },
+    {
+      "word": "gayi",
+      "start": 2.25,
+      "end": 2.535,
+      "line": 0,
+      "startFrame": 68,
+      "endFrame": 76
+    },
+    {
+      "word": "aur",
+      "start": 2.535,
+      "end": 2.64,
+      "line": 0,
+      "interpolated": true,
+      "startFrame": 76,
+      "endFrame": 79
+    },
+    {
+      "word": "admit",
+      "start": 2.64,
+      "end": 2.745,
+      "line": 0,
+      "startFrame": 79,
+      "endFrame": 82
+    },
+    {
+      "word": "card",
+      "start": 2.79,
+      "end": 2.925,
+      "line": 0,
+      "startFrame": 84,
+      "endFrame": 88
+    },
+    {
+      "word": "band",
+      "start": 3.12,
+      "end": 3.285,
+      "line": 0,
+      "startFrame": 94,
+      "endFrame": 99
+    },
+    {
+      "word": "locker",
+      "start": 3.39,
+      "end": 3.585,
+      "line": 0,
+      "startFrame": 102,
+      "endFrame": 108
+    },
+    {
+      "word": "mein",
+      "start": 3.63,
+      "end": 3.71,
+      "line": 0,
+      "startFrame": 109,
+      "endFrame": 111
+    },
+    {
+      "word": "hai",
+      "start": 3.78,
+      "end": 3.86,
+      "line": 0,
+      "startFrame": 113,
+      "endFrame": 116
+    },
+    {
+      "word": "Riya",
+      "start": 4.05,
+      "end": 4.245,
+      "line": 1,
+      "startFrame": 122,
+      "endFrame": 127
+    },
+    {
+      "word": "ke",
+      "start": 4.29,
+      "end": 4.395,
+      "line": 1,
+      "startFrame": 129,
+      "endFrame": 132
+    },
+    {
+      "word": "paas",
+      "start": 4.41,
+      "end": 4.665,
+      "line": 1,
+      "startFrame": 132,
+      "endFrame": 140
+    },
+    {
+      "word": "ek",
+      "start": 4.68,
+      "end": 4.785,
+      "line": 1,
+      "startFrame": 140,
+      "endFrame": 144
+    },
+    {
+      "word": "power",
+      "start": 4.86,
+      "end": 5.115,
+      "line": 1,
+      "startFrame": 146,
+      "endFrame": 153
+    },
+    {
+      "word": "bank",
+      "start": 5.13,
+      "end": 5.415,
+      "line": 1,
+      "startFrame": 154,
+      "endFrame": 162
+    },
+    {
+      "word": "hai",
+      "start": 5.43,
+      "end": 5.51,
+      "line": 1,
+      "startFrame": 163,
+      "endFrame": 165
+    },
+    {
+      "word": "jo",
+      "start": 5.64,
+      "end": 5.745,
+      "line": 1,
+      "startFrame": 169,
+      "endFrame": 172
+    },
+    {
+      "word": "sirf",
+      "start": 5.76,
+      "end": 5.955,
+      "line": 1,
+      "startFrame": 173,
+      "endFrame": 179
+    },
+    {
+      "word": "ek",
+      "start": 6.18,
+      "end": 6.26,
+      "line": 1,
+      "startFrame": 185,
+      "endFrame": 188
+    },
+    {
+      "word": "cheez",
+      "start": 6.48,
+      "end": 6.56,
+      "line": 1,
+      "startFrame": 194,
+      "endFrame": 197
+    },
+    {
+      "word": "charge",
+      "start": 6.69,
+      "end": 6.885,
+      "line": 1,
+      "startFrame": 201,
+      "endFrame": 207
+    },
+    {
+      "word": "kar",
+      "start": 6.93,
+      "end": 7.01,
+      "line": 1,
+      "startFrame": 208,
+      "endFrame": 210
+    },
+    {
+      "word": "sakta",
+      "start": 7.05,
+      "end": 7.245,
+      "line": 1,
+      "startFrame": 212,
+      "endFrame": 217
+    },
+    {
+      "word": "hai",
+      "start": 7.26,
+      "end": 7.34,
+      "line": 1,
+      "startFrame": 218,
+      "endFrame": 220
+    },
+    {
+      "word": "Phone",
+      "start": 7.56,
+      "end": 7.665,
+      "line": 2,
+      "startFrame": 227,
+      "endFrame": 230
+    },
+    {
+      "word": "mein",
+      "start": 7.8,
+      "end": 7.88,
+      "line": 2,
+      "startFrame": 234,
+      "endFrame": 236
+    },
+    {
+      "word": "sattar",
+      "start": 8.22,
+      "end": 8.355,
+      "line": 2,
+      "startFrame": 247,
+      "endFrame": 251
+    },
+    {
+      "word": "percent",
+      "start": 8.37,
+      "end": 8.655,
+      "line": 2,
+      "startFrame": 251,
+      "endFrame": 260
+    },
+    {
+      "word": "battery",
+      "start": 8.67,
+      "end": 9.015,
+      "line": 2,
+      "startFrame": 260,
+      "endFrame": 270
+    },
+    {
+      "word": "hai",
+      "start": 9.015,
+      "end": 9.24,
+      "line": 2,
+      "interpolated": true,
+      "startFrame": 270,
+      "endFrame": 277
+    },
+    {
+      "word": "Torch",
+      "start": 9.24,
+      "end": 9.32,
+      "line": 3,
+      "startFrame": 277,
+      "endFrame": 280
+    },
+    {
+      "word": "zero",
+      "start": 9.78,
+      "end": 10.005,
+      "line": 3,
+      "startFrame": 293,
+      "endFrame": 300
+    },
+    {
+      "word": "aur",
+      "start": 10.14,
+      "end": 10.22,
+      "line": 3,
+      "startFrame": 304,
+      "endFrame": 307
+    },
+    {
+      "word": "fingerprint",
+      "start": 10.35,
+      "end": 10.755,
+      "line": 3,
+      "startFrame": 310,
+      "endFrame": 323
+    },
+    {
+      "word": "locker",
+      "start": 10.86,
+      "end": 11.115,
+      "line": 3,
+      "startFrame": 326,
+      "endFrame": 333
+    },
+    {
+      "word": "bhi",
+      "start": 11.16,
+      "end": 11.265,
+      "line": 3,
+      "startFrame": 335,
+      "endFrame": 338
+    },
+    {
+      "word": "zero",
+      "start": 11.31,
+      "end": 11.535,
+      "line": 3,
+      "startFrame": 339,
+      "endFrame": 346
+    },
+    {
+      "word": "Bahar",
+      "start": 11.7,
+      "end": 11.925,
+      "line": 4,
+      "startFrame": 351,
+      "endFrame": 358
+    },
+    {
+      "word": "ghup",
+      "start": 11.97,
+      "end": 12.195,
+      "line": 4,
+      "startFrame": 359,
+      "endFrame": 366
+    },
+    {
+      "word": "andhera",
+      "start": 12.21,
+      "end": 12.555,
+      "line": 4,
+      "startFrame": 366,
+      "endFrame": 377
+    },
+    {
+      "word": "aur",
+      "start": 12.57,
+      "end": 12.885,
+      "line": 4,
+      "startFrame": 377,
+      "endFrame": 387
+    },
+    {
+      "word": "bus",
+      "start": 12.93,
+      "end": 13.035,
+      "line": 4,
+      "startFrame": 388,
+      "endFrame": 391
+    },
+    {
+      "word": "subah",
+      "start": 13.26,
+      "end": 13.425,
+      "line": 4,
+      "startFrame": 398,
+      "endFrame": 403
+    },
+    {
+      "word": "chhe",
+      "start": 13.53,
+      "end": 13.695,
+      "line": 4,
+      "startFrame": 406,
+      "endFrame": 411
+    },
+    {
+      "word": "baje",
+      "start": 13.77,
+      "end": 13.995,
+      "line": 4,
+      "startFrame": 413,
+      "endFrame": 420
+    },
+    {
+      "word": "Galat",
+      "start": 14.13,
+      "end": 14.415,
+      "line": 5,
+      "startFrame": 424,
+      "endFrame": 432
+    },
+    {
+      "word": "choice",
+      "start": 14.49,
+      "end": 14.625,
+      "line": 5,
+      "startFrame": 435,
+      "endFrame": 439
+    },
+    {
+      "word": "ki",
+      "start": 14.76,
+      "end": 14.895,
+      "line": 5,
+      "startFrame": 443,
+      "endFrame": 447
+    },
+    {
+      "word": "toh",
+      "start": 15.24,
+      "end": 15.345,
+      "line": 5,
+      "startFrame": 457,
+      "endFrame": 460
+    },
+    {
+      "word": "exam",
+      "start": 15.39,
+      "end": 15.705,
+      "line": 5,
+      "startFrame": 462,
+      "endFrame": 471
+    },
+    {
+      "word": "gaya",
+      "start": 15.78,
+      "end": 15.915,
+      "line": 5,
+      "startFrame": 473,
+      "endFrame": 477
+    },
+    {
+      "word": "Riya",
+      "start": 16.2,
+      "end": 16.395,
+      "line": 5,
+      "startFrame": 486,
+      "endFrame": 492
+    },
+    {
+      "word": "pehle",
+      "start": 16.44,
+      "end": 16.755,
+      "line": 5,
+      "startFrame": 493,
+      "endFrame": 503
+    },
+    {
+      "word": "kya",
+      "start": 16.8,
+      "end": 16.965,
+      "line": 5,
+      "startFrame": 504,
+      "endFrame": 509
+    },
+    {
+      "word": "charge",
+      "start": 17.07,
+      "end": 17.175,
+      "line": 5,
+      "startFrame": 512,
+      "endFrame": 515
+    },
+    {
+      "word": "kare",
+      "start": 17.28,
+      "end": 17.535,
+      "line": 5,
+      "startFrame": 518,
+      "endFrame": 526
+    },
+    {
+      "word": "A",
+      "start": 17.64,
+      "end": 17.72,
+      "line": 6,
+      "startFrame": 529,
+      "endFrame": 532
+    },
+    {
+      "word": "phone",
+      "start": 18.18,
+      "end": 18.285,
+      "line": 6,
+      "startFrame": 545,
+      "endFrame": 549
+    },
+    {
+      "word": "B",
+      "start": 18.63,
+      "end": 18.735,
+      "line": 6,
+      "startFrame": 559,
+      "endFrame": 562
+    },
+    {
+      "word": "torch",
+      "start": 18.96,
+      "end": 19.335,
+      "line": 6,
+      "startFrame": 569,
+      "endFrame": 580
+    },
+    {
+      "word": "C",
+      "start": 19.62,
+      "end": 19.755,
+      "line": 6,
+      "startFrame": 589,
+      "endFrame": 593
+    },
+    {
+      "word": "fingerprint",
+      "start": 20.01,
+      "end": 20.415,
+      "line": 6,
+      "startFrame": 600,
+      "endFrame": 612
+    },
+    {
+      "word": "locker",
+      "start": 20.49,
+      "end": 20.775,
+      "line": 6,
+      "startFrame": 615,
+      "endFrame": 623
+    },
+    {
+      "word": "D",
+      "start": 21.03,
+      "end": 21.135,
+      "line": 6,
+      "startFrame": 631,
+      "endFrame": 634
+    },
+    {
+      "word": "teeno",
+      "start": 21.36,
+      "end": 21.615,
+      "line": 6,
+      "startFrame": 641,
+      "endFrame": 648
+    },
+    {
+      "word": "thoda",
+      "start": 21.69,
+      "end": 21.915,
+      "line": 6,
+      "startFrame": 651,
+      "endFrame": 657
+    },
+    {
+      "word": "thoda",
+      "start": 21.96,
+      "end": 22.155,
+      "line": 6,
+      "startFrame": 659,
+      "endFrame": 665
+    },
+    {
+      "word": "Sabse",
+      "start": 22.35,
+      "end": 22.65,
+      "line": 7,
+      "startFrame": 670,
+      "endFrame": 680
+    },
+    {
+      "word": "pehle",
+      "start": 22.65,
+      "end": 22.905,
+      "line": 7,
+      "startFrame": 680,
+      "endFrame": 687
+    },
+    {
+      "word": "sahi",
+      "start": 22.92,
+      "end": 23.175,
+      "line": 7,
+      "startFrame": 688,
+      "endFrame": 695
+    },
+    {
+      "word": "jawab",
+      "start": 23.22,
+      "end": 23.535,
+      "line": 7,
+      "startFrame": 697,
+      "endFrame": 706
+    },
+    {
+      "word": "dene",
+      "start": 23.55,
+      "end": 23.715,
+      "line": 7,
+      "startFrame": 706,
+      "endFrame": 711
+    },
+    {
+      "word": "wale",
+      "start": 23.73,
+      "end": 23.955,
+      "line": 7,
+      "startFrame": 712,
+      "endFrame": 719
+    },
+    {
+      "word": "ko",
+      "start": 23.97,
+      "end": 24.075,
+      "line": 7,
+      "startFrame": 719,
+      "endFrame": 722
+    },
+    {
+      "word": "sau",
+      "start": 24.24,
+      "end": 24.375,
+      "line": 7,
+      "startFrame": 727,
+      "endFrame": 731
+    },
+    {
+      "word": "rupaye",
+      "start": 24.45,
+      "end": 24.645,
+      "line": 7,
+      "startFrame": 734,
+      "endFrame": 739
+    },
+    {
+      "word": "cash",
+      "start": 24.69,
+      "end": 25.065,
+      "line": 7,
+      "startFrame": 741,
+      "endFrame": 752
+    },
+    {
+      "word": "prize",
+      "start": 25.11,
+      "end": 25.335,
+      "line": 7,
+      "startFrame": 753,
+      "endFrame": 760
+    },
+    {
+      "word": "jaldi",
+      "start": 25.44,
+      "end": 25.935,
+      "line": 7,
+      "startFrame": 763,
+      "endFrame": 778
+    },
+    {
+      "word": "comment",
+      "start": 25.95,
+      "end": 26.205,
+      "line": 7,
+      "startFrame": 778,
+      "endFrame": 786
+    },
+    {
+      "word": "karo",
+      "start": 26.25,
+      "end": 26.445,
+      "line": 7,
+      "startFrame": 788,
+      "endFrame": 793
+    },
+    {
+      "word": "Answer",
+      "start": 26.58,
+      "end": 26.835,
+      "line": 8,
+      "startFrame": 797,
+      "endFrame": 805
+    },
+    {
+      "word": "in",
+      "start": 26.88,
+      "end": 26.96,
+      "line": 8,
+      "startFrame": 806,
+      "endFrame": 809
+    },
+    {
+      "word": "the",
+      "start": 27.0,
+      "end": 27.06,
+      "line": 8,
+      "startFrame": 810,
+      "endFrame": 812
+    },
+    {
+      "word": "next",
+      "start": 27.06,
+      "end": 27.255,
+      "line": 8,
+      "startFrame": 812,
+      "endFrame": 818
+    },
+    {
+      "word": "reel",
+      "start": 27.42,
+      "end": 27.585,
+      "line": 8,
+      "startFrame": 823,
+      "endFrame": 828
+    },
+    {
+      "word": "follow",
+      "start": 27.81,
+      "end": 28.035,
+      "line": 8,
+      "startFrame": 834,
+      "endFrame": 841
+    },
+    {
+      "word": "karo",
+      "start": 28.05,
+      "end": 28.455,
+      "line": 8,
+      "startFrame": 842,
+      "endFrame": 854
+    },
+    {
+      "word": "@rehanfact",
+      "start": 28.62,
+      "end": 29.235,
+      "line": 8,
+      "startFrame": 859,
+      "endFrame": 877
+    }
+  ]
+}
