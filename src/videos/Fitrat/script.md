@@ -4,7 +4,7 @@ Status: SCRIPT ONLY (2026-11-27). Waiting for the user's recording voice/fitrat.
 Genre: LESSON / SEEKH reel (story + life lesson). NO puzzle, NO A-D options, NO "answer in the next reel" (the user's brief and
 the reference: story + lesson + a natural CTA).
 Voice language: Hinglish (Roman script). Handle: **@rehanfact** (not given in the brief; the user's handle).
-Target: 9 lines, 99 words, about 30-33 s after clean_voice (+2 s tail).
+Target: 9 lines, 108 words, about 32-35 s after clean_voice (+2 s tail).
 
 ## Reference study: refs/ref14.mp4 (26 s, 720x1280, "Insaan ki fitrat", @sochozaratv)
 Whisper is still blocked (model hosts refused by the network); the reel has word-by-word captions, read from 1 fps frames.
@@ -26,12 +26,12 @@ A person's real nature shows in small everyday actions, not in sweet words, so g
 
 ## 3. SCRIPT WITH LABELS
 **HOOK:**
-1. [dramatically] Neem ke ped ko shehad se seencho, uske patte phir bhi kadve hi rahenge.
+1. [dramatically] Neem ko shehad se seencho, patte phir bhi kadve hi rahenge.
 2. Billi ko doodh ki rakhwali do, doodh bachega nahi.
 
 **BODY:**
 3. Aman ne dost Rohit ki college fees bhari, apni bike bhi de di.
-4. Phir ek raat, Aman ke papa hospital mein the, aur Rohit ka phone switch off.
+4. Phir ek raat, Aman ke papa hospital mein, aur Rohit ka phone switch off.
 
 **RE-HOOK:**
 5. [curious] Par sach bataun? Rohit badla nahi tha, woh hamesha se aisa hi tha.
@@ -46,10 +46,10 @@ A person's real nature shows in small everyday actions, not in sweet words, so g
 
 ## 4. CLEAN VOICEOVER SCRIPT
 ```
-[dramatically] Neem ke ped ko shehad se seencho, uske patte phir bhi kadve hi rahenge.
+[dramatically] Neem ko shehad se seencho, patte phir bhi kadve hi rahenge.
 Billi ko doodh ki rakhwali do, doodh bachega nahi.
 Aman ne dost Rohit ki college fees bhari, apni bike bhi de di.
-Phir ek raat, Aman ke papa hospital mein the, aur Rohit ka phone switch off.
+Phir ek raat, Aman ke papa hospital mein, aur Rohit ka phone switch off.
 [curious] Par sach bataun? Rohit badla nahi tha, woh hamesha se aisa hi tha.
 Udhaar lekar kabhi lautaya nahi, kaam nikalte hi gayab, Aman ne bas dekha nahi.
 Insaan ki fitrat uski baaton mein nahi, chhote chhote kaamon mein dikhti hai.
