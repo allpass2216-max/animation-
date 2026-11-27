@@ -9,6 +9,7 @@ import { AiCrore2, AICRORE2_DURATION } from "./videos/AiCrore2/AiCrore2";
 import { MurgaAnda, MURGAANDA_DURATION } from "./videos/MurgaAnda/MurgaAnda";
 import { ShaadiChor, SHAADICHOR_DURATION } from "./videos/ShaadiChor/ShaadiChor";
 import { LightGayi, LIGHTGAYI_DURATION } from "./videos/LightGayi/LightGayi";
+import { SauKiSpeed, SAUKISPEED_DURATION } from "./videos/SauKiSpeed/SauKiSpeed";
 import { OyoSecret, OyoSecretToon, OYOSECRET_DURATION } from "./videos/OyoSecret/OyoSecret";
 import { RotiBeej, RotiBeejAnime, ROTIBEEJ_DURATION } from "./videos/RotiBeej/RotiBeej";
 import { AnimeTest, ANIMETEST_DURATION } from "./videos/AnimeTest/AnimeTest";
@@ -90,6 +91,14 @@ export const RemotionRoot: React.FC = () => {
         id="LightGayi"
         component={LightGayi}
         durationInFrames={LIGHTGAYI_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="SauKiSpeed"
+        component={SauKiSpeed}
+        durationInFrames={SAUKISPEED_DURATION}
         fps={30}
         width={1080}
         height={1920}

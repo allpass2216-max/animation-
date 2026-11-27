@@ -128,8 +128,12 @@
   for voice/fitrat.mp3. LESSON genre (no puzzle, no A-D): neem + honey, cat guarding milk; Aman paid friend Rohit's fees and
   gave his bike, Rohit's phone was off the night Aman's papa was in hospital; twist: Rohit didn't change, the signs were there.
   SEEKH: love everyone, but give trust by watching small actions. Handle @rehanfact.
-- `SauKiSpeed` (src/videos/SauKiSpeed): SCRIPT ONLY (2026-11-27), ref refs/ref15.mp4 (also the house-style v2 reference).
-  Waiting for voice/saukispeed.mp3. Sharma ji at 100 km/h; bakri, bhains, selfie boy on the road; Mummy / Pinki / the boy pull
+- `SauKiSpeed` (src/videos/SauKiSpeed): STAGE 1 BUILT (2026-11-27), waiting for fixes or "go to final". FIRST video in
+  HOUSE STYLE v2. Recording matches script; voice 41.6 s -> 33.3 s (video ~35.3 s). clue/A cues from pauses.json.
+  New shared kit src/lib/style2.tsx (KaraokeCaptions, Pill, QuestionBanner, Hud, OptionList, CountdownBadge, CtaStrip,
+  ShareBubble, ProfileCard with the user's avatar public/freeeditor/avatar.jpg). World: Highway (vanishing point, rushing
+  dashes + verge bushes), PovFrame (pillars, mirror + garland, dashboard, wheel + hands, tremble), CarInterior (window with
+  scrolling fields, seat, cushion) + DoorFront, our Goat + Buffalo. Character got `seatbelt`. Sharma ji at 100 km/h; bakri, bhains, selfie boy on the road; Mummy / Pinki / the boy pull
   different ways. HUD clue: 150 m. Answer D (kisi ko nahi, brake: ~84 m stopping distance at 100 km/h). Build in HOUSE STYLE v2.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.

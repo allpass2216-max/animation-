@@ -86,6 +86,7 @@ const ChunkyCharacter: React.FC<{
   police?: boolean; // police uniform details: epaulettes, name plate, belt with a holstered pistol
   sling?: "right" | "left"; // that arm (the character's own right/left) in a white plaster cast + blue sling across the chest
   camera?: boolean; // DSLR on a neck strap
+  seatbelt?: boolean; // diagonal seatbelt across the chest (in-car shots)
   apron?: string; // apron colour (cook / halwai)
   haar?: Cue<boolean>[]; // gold bridal necklace on/off
   veil?: string; // bridal dupatta over the head (behind the face, hair still visible)
@@ -137,6 +138,7 @@ const ChunkyCharacter: React.FC<{
   police = false,
   sling,
   camera = false,
+  seatbelt = false,
   apron,
   haar = [{ f: 0, v: false }],
   veil,
@@ -654,6 +656,13 @@ const ChunkyCharacter: React.FC<{
               <rect x={-36} y={-36} width={58} height={26} rx={8} fill="#4a2f17" stroke={INK} strokeWidth={6} />
               <circle cx={-7} cy={-22} r={5} fill="#ced4da" />
             </g>
+          </g>
+        )}
+        {seatbelt && (
+          <g>
+            <path d="M-118 -522 L118 -250" stroke={INK} strokeWidth={34} strokeLinecap="round" />
+            <path d="M-118 -522 L118 -250" stroke="#495057" strokeWidth={22} strokeLinecap="round" />
+            <rect x={96} y={-276} width={40} height={30} rx={6} fill="#ced4da" stroke={INK} strokeWidth={5} transform="rotate(48 116 -261)" />
           </g>
         )}
         {camera && (
