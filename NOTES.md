@@ -128,6 +128,9 @@
   for voice/fitrat.mp3. LESSON genre (no puzzle, no A-D): neem + honey, cat guarding milk; Aman paid friend Rohit's fees and
   gave his bike, Rohit's phone was off the night Aman's papa was in hospital; twist: Rohit didn't change, the signs were there.
   SEEKH: love everyone, but give trust by watching small actions. Handle @rehanfact.
+- `SauKiSpeed` (src/videos/SauKiSpeed): SCRIPT ONLY (2026-11-27), ref refs/ref15.mp4 (also the house-style v2 reference).
+  Waiting for voice/saukispeed.mp3. Sharma ji at 100 km/h; bakri, bhains, selfie boy on the road; Mummy / Pinki / the boy pull
+  different ways. HUD clue: 150 m. Answer D (kisi ko nahi, brake: ~84 m stopping distance at 100 km/h). Build in HOUSE STYLE v2.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.
   TOON experiment (round heads, stick limbs; composition `OyoSecretToon`, src/lib/ToonCharacter.tsx, src/lib/atmosphere.tsx,
