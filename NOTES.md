@@ -124,6 +124,10 @@
   back) and tugs: the wheel jerks but won't turn. Chip "KHULEGA HI NAHI!". Riya in Patna, night before the exam, power cut, admit card in a fingerprint locker; one
   power bank charges ONE thing; phone 70%, torch 0%, locker 0%. Answer C (locker; phone flashlight solves the dark).
   User add-on: FIRST correct comment wins ₹100. Handle @rehanfact.
+- `Fitrat` (src/videos/Fitrat): SCRIPT ONLY (2026-11-27), ref refs/ref14.mp4 ("Insaan ki fitrat" analogy reel). Waiting
+  for voice/fitrat.mp3. LESSON genre (no puzzle, no A-D): neem + honey, cat guarding milk; Aman paid friend Rohit's fees and
+  gave his bike, Rohit's phone was off the night Aman's papa was in hospital; twist: Rohit didn't change, the signs were there.
+  SEEKH: love everyone, but give trust by watching small actions. Handle @rehanfact.
 - `OyoSecret` (src/videos/OyoSecret): FINAL DONE (2026-11-17). out/oyosecret_final.mp4: 36.1 s, -14.0 LUFS, TP -2.7 dBTP,
   watermark @rehanfact (public/watermark.png now = @rehanfact). Caption + pinned comment in post.md. Part 2: answer A.
   TOON experiment (round heads, stick limbs; composition `OyoSecretToon`, src/lib/ToonCharacter.tsx, src/lib/atmosphere.tsx,
