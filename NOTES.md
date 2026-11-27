@@ -228,5 +228,18 @@ that channel's characters, their designs, its name/mascot/branding or its scenes
   options as a small numbered list at the left (1, 2, 3 or A-D) with an emoji icon each; a countdown badge (12 -> 1) during
   the question; CTA strips ("COMMENT 1, 2 YA 3? + REASON", green "SABSE PEHLE SAHI = NAAM PART 2 MEIN"); a white speech-bubble
   share prompt ("... DOST KO BHEJO!"); end card = OUR profile card (@rehanfact) with FOLLOW tapped by a hand.
+- **Characters (our own designs, same build quality):** chibi-ish proportions: head about 1/3 of the body, round or
+  slightly squared face, big white eyes with large dark pupils and a white catch-light, thick brows that carry the emotion,
+  simple nose, wide mouth (open teeth / tongue when shouting), rosy cheeks; skin warm brown tones; 4-5 px-equivalent dark
+  outline on everything; flat colour + one soft shadow tone. Strong costume shorthand so a role reads in 0.5 s: elder with
+  white bun, round glasses, saree + shawl; politician with tilak, big moustache, marigold garland, waistcoat; reel-maker with
+  backwards cap, graphic tee, phone on a selfie stick; kid in a bright tee; dad in a checked shirt + seatbelt; animals with
+  huge glossy eyes (puppy, gau mata with painted horns, tilak, bell). Sweat drops, anger marks, tears as clean shapes.
+  Faces always fully visible; characters gesture with one hand up/out on their key word.
+- **Backgrounds:** painted, slightly softer than the characters (depth): big sky with fluffy clouds, distant blue hills,
+  green + mustard-yellow fields with a few trees/huts, a straight highway to a centred vanishing point (yellow edge lines,
+  white dashes, grass verge with bushes); vehicle interiors with real detail (seats, seatbelts, door panels, gear stick,
+  pedals, floor mat, an embroidered cushion, a steel tiffin); warm interior light vs bright exterior daylight.
+- **Saved style stills (for reference only, never traced):** docs/style2/*.png (frames from refs/ref15.mp4).
 - **To build once and reuse:** src/lib/style2.tsx: KaraokeCaptions (from words.json), NamePill, SeriesPill, QuestionBanner,
   Hud, OptionList, CountdownBadge, CtaStrip, ShareBubble, ProfileCard, POV dashboard frame.
